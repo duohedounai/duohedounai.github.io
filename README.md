@@ -15,7 +15,7 @@ Research Software Engineer  						          				 Wuxi, China<br>
 - Applied <u>Genetic Algorithm</u> to generate bus schedules that adapt to various types of vehicles in Java<br>
 #### Carpooling Order Allocation for Unmanned Bus
 - Considering constraints such as order interval and vehicle capacity, an integer programming model was established<br>
-- Implemented adaptive Large Neighborhood Search algorithm in Java to realize real-time allocation of orders, and completed simulation report<br>
+- Implemented adaptive *Large Neighborhood Search algorithm* in Java to realize real-time allocation of orders, and completed simulation report<br>
 #### Task Allocation for Unmanned Mining Trucks
 - Considering constraints such as target output and operating time, and aiming to minimize the total transportation cost, a integer programming model was established<br>
 - Utilized Java to develop a Simulated Annealing algorithm, including various neighborhood operators such as adding/subtracting trucks, adding/subtracting tasks, etc., and introduced an operator adaptive selection mechanism to realize static task allocation of mining trucks<br>
