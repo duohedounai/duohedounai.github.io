@@ -1,4 +1,3 @@
-![Static Badge](https://img.shields.io/badge/Python-purple)  ![Static Badge](https://img.shields.io/badge/Java-purple)  ![Static Badge](https://img.shields.io/badge/C++-purple)
 
 # Education
 ## 1
@@ -33,4 +32,8 @@ AAAAAAAAAAAAAAA
 # Publications
 AAAAAAAAAAAAAAAA
 AAAAAAAAAA
+***
+# Additional Information
+Programming skills: ![Static Badge](https://img.shields.io/badge/Python-purple)  ![Static Badge](https://img.shields.io/badge/Java-purple)  ![Static Badge](https://img.shields.io/badge/C++-purple)
+
 ***
