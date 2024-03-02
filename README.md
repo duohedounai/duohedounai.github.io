@@ -12,7 +12,7 @@ Major Courses: Programming & Algorithmic Language, Advanced Mathematics, Operati
 Research Software Engineer  						          				 Wuxi, China<br>
 #### Unmanned Bus Departure Timetable Generation
 - Combined with historical passenger flow data, established a 0-1 integer programming model<br>
-- Applied Genetic Algorithm to generate bus schedules that adapt to various types of vehicles in Java
+- Applied <u>Genetic Algorithm</u> to generate bus schedules that adapt to various types of vehicles in Java
 #### Carpooling Order Allocation for Unmanned Bus
 - Considering constraints such as order interval and vehicle capacity, an integer programming model was established<br>
 - Implemented adaptive Large Neighborhood Search algorithm in Java to realize real-time allocation of orders, and completed simulation report
