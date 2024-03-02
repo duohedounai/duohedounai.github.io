@@ -1,9 +1,9 @@
 ## Wei Yuan
 ## Education
-### Master of Engineering  |  Southeast University							09/2018 - 06/2021
+### Master of Engineering  |  [Southeast University](https://en.wikipedia.org/wiki/Southeast_University)							09/2018 - 06/2021
 Industrial Engineering                                                         Nanjing, China<br>
 Major Courses: Machine Learning, Data Structure and Algorithm Analysis, Engineering Matrix Theory<br>
-### Bachelor of Engineering  |  Southeast University						09/2014 - 06/2018
+### Bachelor of Engineering  |  [Southeast University](https://en.wikipedia.org/wiki/Southeast_University)						09/2014 - 06/2018
 Industrial Engineering                                                         Nanjing, China<br>
 GPA: 3.49/4.0, Outstanding Undergraduate Graduates (5%)<br>
 Major Courses: Programming & Algorithmic Language, Advanced Mathematics, Operations Research<br>
@@ -24,13 +24,13 @@ Research Software Engineer  						          				 Wuxi, China<br>
 - Based on congestion information, realized real-time route re-planning for trucks to avoid congested roads<br>
 - Implemented a <u>multi-vehicle collaboration algorithm</u> at intersections to avoid conflicts or deadlocks<br>
 - Developed a simulation system in Python, and utilized OpenCV to implement dynamic demonstration and simulation of the unmanned trucks operation process<br>
-### Hangzhou HIKROBOT Co., Ltd									      07/2021 - 04/2022
+### [Hangzhou HIKROBOT Co., Ltd](https://www.hikrobotics.com/cn)									      07/2021 - 04/2022
 Research Software Engineer								  				  Hangzhou, China<br>
 - Completed scene function and efficiency tests of path planning program, and wrote a test report<br>
 - Constructed the automatic online program in C++ for AMRs in warehouse which can bring malfunctioning robots back to the topological map automatically<br>
 - Modified C++ code to adapt the path planning program to omnidirectional vehicles, debugged and simulated on the server to achieve stable operation of 20 AMRs<br>
 - Investigated related papers on path planning sequence optimization of AMRs, and completed a research report and made a presentation<br>
-### OPPO Co., Ltd																07/2020 - 09/2020
+### [OPPO Co., Ltd](https://www.oppo.com/cn/)																07/2020 - 09/2020
 Software Development Intern  							   		       Nanjing, China<br>
 - Learned basic knowledge of OpenGL rendering pipeline and shader, and achieved basic particle effects using C++<br>
 ## Research Experience
@@ -46,8 +46,8 @@ Software Development Intern  							   		       Nanjing, China<br>
 - Designed a <u>local search algorithm</u> to achieve resequencing of mixed-model assembly lines using C++<br>
 - Won the Academy's Outstanding Undergraduate Graduation Project (10/200)<br>
 ## Publications
-- Yuan W, Sun H. A Task Scheduling Problem in Mobile Robot Fulfillment Systems[C]. In: 2020 12th International Conference on Advanced Computational Intelligence. Dali, China, 2020: 391-396<br>
-- Sun H, Yuan W. Multi-AGV motion planning based on deep reinforcement learning [J/OL]. Computer Integrated Manufacturing Systems: 1-16<br>
+- Yuan W, Sun H. A Task Scheduling Problem in Mobile Robot Fulfillment Systems[C]. In: 2020 12th International Conference on Advanced Computational Intelligence. Dali, China, 2020: 391-396	[[Paper]([A Task Scheduling Problem in Mobile Robot Fulfillment Systems | IEEE Conference Publication | IEEE Xplore](https://ieeexplore.ieee.org/document/9177514))] [[Code](https://github.com/duohedounai/AntColonyOptimization?tab=readme-ov-file)]<br>
+- Sun H, Yuan W. Multi-AGV motion planning based on deep reinforcement learning [J/OL]. Computer Integrated Manufacturing Systems: 1-16	[[Paper](https://kns.cnki.net/kcms2/article/abstract?v=UeijT_GnegBjDuqYuIbhFmQmNNx-yLt42gZzzuO_MBkbQd83zFb_daOFytlJXvANqG9I3lO4YIDccsBi7v3MvOafBW_fGisCf_vyXLQwSlyMGLkhgC5j4p5Ox-QIY47EZ7q7VYlWiC8=&uniplatform=NZKPT&language=CHS)]<br>
 ## Additional Information
 - Programming skills: ![Static Badge](https://img.shields.io/badge/Python-purple)  ![Static Badge](https://img.shields.io/badge/Java-purple)  ![Static Badge](https://img.shields.io/badge/C++-purple)<br>
 - Languages: Mandarin(Native), English(PTE: 68)<br>
