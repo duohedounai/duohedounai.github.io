@@ -15,14 +15,14 @@ Research Software Engineer  						          				 Wuxi, China<br>
 - Applied <u>Genetic Algorithm</u> to generate bus schedules that adapt to various types of vehicles in Java<br>
 #### Carpooling Order Allocation for Unmanned Bus
 - Considering constraints such as order interval and vehicle capacity, an integer programming model was established<br>
-- Implemented adaptive *Large Neighborhood Search algorithm* in Java to realize real-time allocation of orders, and completed simulation report<br>
+- Implemented adaptive <u>Large Neighborhood Search algorithm</u> in Java to realize real-time allocation of orders, and completed simulation report<br>
 #### Task Allocation for Unmanned Mining Trucks
 - Considering constraints such as target output and operating time, and aiming to minimize the total transportation cost, a integer programming model was established<br>
-- Utilized Java to develop a Simulated Annealing algorithm, including various neighborhood operators such as adding/subtracting trucks, adding/subtracting tasks, etc., and introduced an operator adaptive selection mechanism to realize static task allocation of mining trucks<br>
+- Utilized Java to develop a <u>Simulated Annealing algorithm</u>, including various neighborhood operators such as adding/subtracting trucks, adding/subtracting tasks, etc., and introduced an operator adaptive selection mechanism to realize static task allocation of mining trucks<br>
 #### Path Planning and Conflict Avoidance in Automated Container Terminal
-- Executed A* algorithm in Java to achieve the global path planning of unmanned trucks in automated container terminal<br>
+- Executed <u>A* algorithm</u> in Java to achieve the global path planning of unmanned trucks in automated container terminal<br>
 - Based on congestion information, realized real-time route re-planning for trucks to avoid congested roads<br>
-- Implemented a multi-vehicle collaboration algorithm at intersections to avoid conflicts or deadlocks<br>
+- Implemented a <u>multi-vehicle collaboration algorithm</u> at intersections to avoid conflicts or deadlocks<br>
 - Developed a simulation system in Python, and utilized OpenCV to implement dynamic demonstration and simulation of the unmanned trucks operation process<br>
 ### Hangzhou HIKROBOT Co., Ltd									      07/2021 - 04/2022
 Research Software Engineer								  				  Hangzhou, China<br>
@@ -35,15 +35,15 @@ Software Development Intern  							   		       Nanjing, China<br>
 - Learned basic knowledge of OpenGL rendering pipeline and shader, and achieved basic particle effects using C++<br>
 ## Research Experience
 ### Path Planning of Robots in Intelligent Warehouse						03/2020 - 06/2020
-- Implemented A* algorithm and Q-Learning algorithm in Python to generate global path for single robot<br>
-- Applied Deep Q Network algorithm to realize multi-robot collision and deadlock avoidance using Python<br>
+- Implemented <u>A* algorithm</u> and <u>Q-Learning</u> in Python to generate global path for single robot<br>
+- Applied <u>Deep Q Network</u> to realize multi-robot collision and deadlock avoidance using Python<br>
 ### Task Assignment of Robots in Intelligent Warehouse						06/2019 - 12/2019
 - Established an integer programming model which considered power constraint of robots<br>
-- Utilized CPLEX to get exact solutions for the task assignment problem in small-scale<br>
-- Designed heuristic rules and applied Ant Colony Optimization algorithm in C++ to solve the large-scale calculation cases efficiently<br>
+- Utilized <u>CPLEX</u> to get exact solutions for the task assignment problem in small-scale<br>
+- Designed heuristic rules and applied <u>Ant Colony Optimization algorithm</u> in C++ to solve the large-scale calculation cases efficiently<br>
 ### Vehicle Reordering in Mixed-model Assembly Lines					   09/2017 - 06/2018
-- Applied Genetic Algorithm in C++ to intelligently adjust the vehicle sequence in the automobile assembly workshop<br>
-- Designed a local search algorithm to achieve resequencing of mixed-model assembly lines using C++<br>
+- Applied <u>Genetic Algorithm</u> in C++ to intelligently adjust the vehicle sequence in the automobile assembly workshop<br>
+- Designed a <u>local search algorithm</u> to achieve resequencing of mixed-model assembly lines using C++<br>
 - Won the Academy's Outstanding Undergraduate Graduation Project (10/200)<br>
 ## Publications
 - Yuan W, Sun H. A Task Scheduling Problem in Mobile Robot Fulfillment Systems[C]. In: 2020 12th International Conference on Advanced Computational Intelligence. Dali, China, 2020: 391-396<br>
