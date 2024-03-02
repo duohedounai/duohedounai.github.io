@@ -31,5 +31,5 @@ AAAAAAAAAAAAAAAA<br>
 AAAAAAAAAA
 ## Additional Information
 Programming skills: ![Static Badge](https://img.shields.io/badge/Python-purple)  ![Static Badge](https://img.shields.io/badge/Java-purple)  ![Static Badge](https://img.shields.io/badge/C++-purple)
-
+Languages: Mandarin(Native),English(PTE 68)
 ***
