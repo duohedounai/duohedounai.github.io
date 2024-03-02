@@ -7,15 +7,17 @@ Email: yuanwei.seu@gmail.com
 ## Education
 ### Master of Engineering  |  [Southeast University](https://en.wikipedia.org/wiki/Southeast_University)	|	09/2018 - 06/2021
 **Industrial Engineering	|	Nanjing, China**<br>
-Major Courses: Machine Learning, Data Structure and Algorithm Analysis, Engineering Matrix Theory<br>
+
+- Major Courses: Machine Learning, Data Structure and Algorithm Analysis, Engineering Matrix Theory<br>
 
 ### Bachelor of Engineering  |  [Southeast University](https://en.wikipedia.org/wiki/Southeast_University)	|	09/2014 - 06/2018
 **Industrial Engineering	|	Nanjing, China**<br>
-GPA: 3.49/4.0, Outstanding Undergraduate Graduates (5%)<br>
-Major Courses: Programming & Algorithmic Language, Advanced Mathematics, Operations Research<br>
+
+- GPA: 3.49/4.0, Outstanding Undergraduate Graduates (5%)<br>
+- Major Courses: Programming & Algorithmic Language, Advanced Mathematics, Operations Research<br>
 
 ## Work Experience
-### Wuxi Inteligent Control Research Institute, Hunan University	|	06/2022 - 02/2024
+### Wuxi Inteligent Control Research Institute, Hunan University	|	06/2022 - 03/2024
 **Research Software Engineer	|	Wuxi, China**<br>
 
 #### Unmanned Bus Departure Timetable Generation
