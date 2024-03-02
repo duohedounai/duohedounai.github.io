@@ -1,4 +1,9 @@
 ## Wei Yuan
+
+Github: [duohedounai (github.com)](https://github.com/duohedounai)
+
+Email: yuanwei.seu@gmail.com
+
 ## Education
 ### Master of Engineering  |  [Southeast University](https://en.wikipedia.org/wiki/Southeast_University)	|	09/2018 - 06/2021
 **Industrial Engineering	|	Nanjing, China**<br>
@@ -10,7 +15,7 @@ GPA: 3.49/4.0, Outstanding Undergraduate Graduates (5%)<br>
 Major Courses: Programming & Algorithmic Language, Advanced Mathematics, Operations Research<br>
 
 ## Work Experience
-### Wuxi Intelligent Control Research Institute Hunan University	|	06/2022 - 02/2024
+### Wuxi Inteligent Control Research Institute, Hunan University	|	06/2022 - 02/2024
 **Research Software Engineer	|	Wuxi, China**<br>
 
 #### Unmanned Bus Departure Timetable Generation
