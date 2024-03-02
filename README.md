@@ -6,7 +6,6 @@ AAAAAAAAAAAA
 ### 2
 AAAAAAAAAAAA<br>
 AAAAAAAAA
-***
 ## Work Experience
 ### 1
 AAAAAAAAAAAAAA<br>
@@ -17,7 +16,6 @@ AAAAAAAAA
 ### 3
 AAAAAAAAAAAAAAAA<br>
 AAAAAAAAAA
-***
 ## Research Experience
 ### 1
 AAAAAAAAAAAA
@@ -28,11 +26,9 @@ AAAAAAAAAA
 ### 3
 AAAAAAAAAAAAAAA
 
-***
 ## Publications
-AAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAA<br>
 AAAAAAAAAA
-***
 ## Additional Information
 Programming skills: ![Static Badge](https://img.shields.io/badge/Python-purple)  ![Static Badge](https://img.shields.io/badge/Java-purple)  ![Static Badge](https://img.shields.io/badge/C++-purple)
 
