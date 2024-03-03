@@ -54,7 +54,8 @@ Email: yuanwei.seu@gmail.com
 
 - Modified C++ code to adapt the path planning program to omnidirectional vehicles, debugged and simulated on the server to achieve stable operation of 20 AMRs<br>
 
-Investigated related papers on path planning sequence optimization of AMRs, and completed a research report and made a presentation
+- Investigated related papers on path planning sequence optimization of AMRs, and completed a research report and made a presentation
+
 
 ### [OPPO Co., Ltd](https://www.oppo.com/cn/)	|	07/2020 - 09/2020
 
