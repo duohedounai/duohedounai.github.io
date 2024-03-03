@@ -20,16 +20,19 @@ Email: yuanwei.seu@gmail.com
 ### Wuxi Inteligent Control Research Institute, Hunan University	|	06/2022 - 03/2024
 **Research Software Engineer	|	Wuxi, China**<br>
 
-#### Unmanned Bus Departure Timetable Generation<br>
+#### Unmanned Bus Departure Timetable Generation
+
 - Combined with historical passenger flow data, established a 0-1 integer programming model<br>
+
 - Applied <u>Genetic Algorithm</u> to generate bus schedules that adapt to various types of vehicles in Java<br>
-#### Carpooling Order Allocation for Unmanned Bus<br>
+
+#### Carpooling Order Allocation for Unmanned Bus
 - Considering constraints such as order interval and vehicle capacity, an integer programming model was established<br>
 - Implemented adaptive <u>Large Neighborhood Search algorithm</u> in Java to realize real-time allocation of orders, and completed simulation report<br>
-#### Task Allocation for Unmanned Mining Trucks<br>
+#### Task Allocation for Unmanned Mining Trucks
 - Considering constraints such as target output and operating time, and aiming to minimize the total transportation cost, a integer programming model was established<br>
 - Utilized Java to develop a <u>Simulated Annealing algorithm</u>, including various neighborhood operators such as adding/subtracting trucks, adding/subtracting tasks, etc., and introduced an operator adaptive selection mechanism to realize static task allocation of mining trucks<br>
-#### Path Planning and Conflict Avoidance in Automated Container Terminal<br>
+#### Path Planning and Conflict Avoidance in Automated Container Terminal
 - Executed <u>A* algorithm</u> in Java to achieve the global path planning of unmanned trucks in automated container terminal<br>
 - Based on congestion information, realized real-time route re-planning for trucks to avoid congested roads<br>
 - Implemented a <u>multi-vehicle collaboration algorithm</u> at intersections to avoid conflicts or deadlocks<br>
