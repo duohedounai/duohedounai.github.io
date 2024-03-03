@@ -4,6 +4,8 @@ Github: [duohedounai (github.com)](https://github.com/duohedounai)
 
 Email: yuanwei.seu@gmail.com
 
+------
+
 ## Education
 ### Master of Engineering  |  [Southeast University](https://en.wikipedia.org/wiki/Southeast_University)	|	09/2018 - 06/2021
 **Industrial Engineering	|	Nanjing, China**<br>
@@ -15,6 +17,8 @@ Email: yuanwei.seu@gmail.com
 
 - GPA: 3.49/4.0, Outstanding Undergraduate Graduates (5%)<br>
 - Major Courses: Programming & Algorithmic Language, Advanced Mathematics, Operations Research<br>
+
+------
 
 ## Work Experience
 ### Wuxi Inteligent Control Research Institute, Hunan University	|	06/2022 - 03/2024
@@ -44,7 +48,7 @@ Email: yuanwei.seu@gmail.com
 - Implemented a <u>multi-vehicle collaboration algorithm</u> at intersections to avoid conflicts or deadlocks<br>
 - Developed a simulation system in Python, and utilized OpenCV to implement dynamic demonstration and simulation of the unmanned trucks operation process
 
-### [Hangzhou HIKROBOT Co., Ltd](https://www.hikrobotics.com/cn)	|	07/2021 - 04/2022<br>
+### [Hangzhou HIKROBOT Co., Ltd](https://www.hikrobotics.com/cn)	|	07/2021 - 04/2022
 
 **Research Software Engineer	|	Hangzhou, China**<br>
 
@@ -56,12 +60,13 @@ Email: yuanwei.seu@gmail.com
 
 - Investigated related papers on path planning sequence optimization of AMRs, and completed a research report and made a presentation
 
-
-### [OPPO Co., Ltd](https://www.oppo.com/cn/)	|	07/2020 - 09/2020<br>
+### [OPPO Co., Ltd](https://www.oppo.com/cn/)	|	07/2020 - 09/2020
 
 **Software Development Intern	|	Nanjing, China**<br>
 
 - Learned basic knowledge of OpenGL rendering pipeline and shader, and achieved basic particle effects using C++
+
+------
 
 ## Research Experience
 
@@ -86,13 +91,17 @@ Email: yuanwei.seu@gmail.com
 
 - Won the Academy's Outstanding Undergraduate Graduation Project (10/200)
 
+------
+
 ## Publications
 
 - Yuan W, Sun H. A Task Scheduling Problem in Mobile Robot Fulfillment Systems[C]. In: 2020 12th International Conference on Advanced Computational Intelligence. Dali, China, 2020: 391-396	[[Paper](https://ieeexplore.ieee.org/document/9177514)] [[Code](https://github.com/duohedounai/AntColonyOptimization?tab=readme-ov-file)]<br>
 
 - Sun H, Yuan W. Multi-AGV motion planning based on deep reinforcement learning [J/OL]. Computer Integrated Manufacturing Systems: 1-16	[[Paper](https://kns.cnki.net/kcms2/article/abstract?v=UeijT_GnegBjDuqYuIbhFmQmNNx-yLt42gZzzuO_MBkbQd83zFb_daOFytlJXvANqG9I3lO4YIDccsBi7v3MvOafBW_fGisCf_vyXLQwSlyMGLkhgC5j4p5Ox-QIY47EZ7q7VYlWiC8=&uniplatform=NZKPT&language=CHS)]
 
-### Additional Information
+------
+
+## Additional Information
 
 - Programming skills: ![Static Badge](https://img.shields.io/badge/Python-purple)  ![Static Badge](https://img.shields.io/badge/Java-purple)  ![Static Badge](https://img.shields.io/badge/C++-purple)<br>
 - Languages: Mandarin(Native), English(PTE: 68)<br>
