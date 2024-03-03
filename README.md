@@ -22,7 +22,7 @@ Email: yuanwei.seu@gmail.com
 
 ## Work Experience
 ### Wuxi Inteligent Control Research Institute, Hunan University	|	06/2022 - 03/2024
-**Research Software Engineer	|	Wuxi, China**<br>
+Research Software Engineer	|	Wuxi, China<br>
 
 #### Unmanned Bus Departure Timetable Generation
 
@@ -50,7 +50,7 @@ Email: yuanwei.seu@gmail.com
 
 ### [Hangzhou HIKROBOT Co., Ltd](https://www.hikrobotics.com/cn)	|	07/2021 - 04/2022
 
-**Research Software Engineer	|	Hangzhou, China**<br>
+Research Software Engineer	|	Hangzhou, China<br>
 
 - Completed scene function and efficiency tests of path planning program, and wrote a test report<br>
 
@@ -62,7 +62,7 @@ Email: yuanwei.seu@gmail.com
 
 ### [OPPO Co., Ltd](https://www.oppo.com/cn/)	|	07/2020 - 09/2020
 
-**Software Development Intern	|	Nanjing, China**<br>
+Software Development Intern	|	Nanjing, China<br>
 
 - Learned basic knowledge of OpenGL rendering pipeline and shader, and achieved basic particle effects using C++
 
