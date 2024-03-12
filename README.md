@@ -97,7 +97,7 @@ Email: yuanwei.seu@gmail.com
 
 - Yuan W, Sun H. A Task Scheduling Problem in Mobile Robot Fulfillment Systems[C]. In: 2020 12th International Conference on Advanced Computational Intelligence. Dali, China, 2020: 391-396	[[Paper](https://ieeexplore.ieee.org/document/9177514)] [[Code](https://github.com/duohedounai/AntColonyOptimization?tab=readme-ov-file)]<br>
 
-- Sun H, Yuan W. Multi-AGV motion planning based on deep reinforcement learning [J/OL]. Computer Integrated Manufacturing Systems: 1-16	[[Paper]([基于深度强化学习的多自动导引车运动规划 - 中国知网 (cnki.net)](https://kns.cnki.net/kcms2/article/abstract?v=Y_ITemen1J79dzH8B4fk8En8C1au8WxBHRDts1biFNqscGaQIlXU_tTfICXMAqIaKlT337j72sBUfn0tDz3owb27t4qLNFvWy4oHUHflAJNyTvyj3CoaHWpgBw_-Xqy4HcGdEH-gZbI=&uniplatform=NZKPT&language=CHS))]
+- Sun H, Yuan W. Multi-AGV motion planning based on deep reinforcement learning [J/OL]. Computer Integrated Manufacturing Systems: 1-16	[[Paper](https://kns.cnki.net/kcms2/article/abstract?v=Y_ITemen1J79dzH8B4fk8En8C1au8WxBHRDts1biFNqscGaQIlXU_tTfICXMAqIaKlT337j72sBUfn0tDz3owb27t4qLNFvWy4oHUHflAJNyTvyj3CoaHWpgBw_-Xqy4HcGdEH-gZbI=&uniplatform=NZKPT&language=CHS)]
 
 ------
 
