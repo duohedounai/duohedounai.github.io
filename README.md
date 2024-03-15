@@ -9,13 +9,13 @@ Research interests: Supply Chain Optimization, Production Scheduling Optimizatio
 ------
 
 ## <font color=MediumBlue>Education</font>
-### Master of Engineering  \|  [Southeast University](https://en.wikipedia.org/wiki/Southeast_University)	\|	09/2018 - 06/2021
-**Industrial Engineering	\|	Nanjing, China**<br>
+### Master of Engineering  \|  [Southeast University](https://en.wikipedia.org/wiki/Southeast_University)	\|	Nanjing, China
+**Industrial Engineering	\|	09/2018 - 06/2021**<br>
 
 - Major Courses: Data Structure and Algorithm Analysis, Machine Learning, Operations Research, Engineering Matrix Theory<br>
 
-### Bachelor of Engineering  \|  [Southeast University](https://en.wikipedia.org/wiki/Southeast_University)	\|	09/2014 - 06/2018
-**Industrial Engineering	\|	Nanjing, China**<br>
+### Bachelor of Engineering  \|  [Southeast University](https://en.wikipedia.org/wiki/Southeast_University)	\|	Nanjing, China
+**Industrial Engineering	\|	09/2014 - 06/2018**<br>
 
 - GPA: 3.49/4.0, Outstanding Undergraduate Graduates (5%)<br>
 - Major Courses: Operations Research, Advanced Mathematics, Programming & Algorithmic Language<br>
@@ -23,8 +23,8 @@ Research interests: Supply Chain Optimization, Production Scheduling Optimizatio
 ------
 
 ## <font color=MediumBlue>Work Experience</font>
-### Wuxi Inteligent Control Research Institute, Hunan University	\|	06/2022 - 03/2024
-**Research Software Engineer	\|	Wuxi, China**<br>
+### Wuxi Inteligent Control Research Institute, Hunan University	\|	Wuxi, China
+**Research Software Engineer	\|	06/2022 - 03/2024**<br>
 
 #### Unmanned Bus Departure Timetable Generation
 
@@ -50,9 +50,9 @@ Research interests: Supply Chain Optimization, Production Scheduling Optimizatio
 - Implemented a <u>multi-vehicle collaboration algorithm</u> at intersections to avoid conflicts or deadlocks<br>
 - Developed a simulation system in Python, and utilized OpenCV to implement dynamic demonstration and simulation of the unmanned trucks operation process
 
-### [Hangzhou HIKROBOT Co., Ltd](https://www.hikrobotics.com/cn)	\|	07/2021 - 04/2022
+### [Hangzhou HIKROBOT Co., Ltd](https://www.hikrobotics.com/cn)	\|	Hangzhou, China
 
-**Research Software Engineer	\|	Hangzhou, China**<br>
+**Research Software Engineer	\|	07/2021 - 04/2022**<br>
 
 - Completed scene function and efficiency tests of path planning program, and wrote a test report<br>
 
@@ -62,9 +62,9 @@ Research interests: Supply Chain Optimization, Production Scheduling Optimizatio
 
 - Investigated related papers on path planning sequence optimization of AMRs, and completed a research report and made a presentation
 
-### [OPPO Co., Ltd](https://www.oppo.com/cn/)	\|	07/2020 - 09/2020
+### [OPPO Co., Ltd](https://www.oppo.com/cn/)	\|	Nanjing, China
 
-**Software Development Intern	\|	Nanjing, China**<br>
+**Software Development Intern	\|	07/2020 - 09/2020**<br>
 
 - Learned basic knowledge of OpenGL rendering pipeline and shader, and achieved basic particle effects using C++
 
