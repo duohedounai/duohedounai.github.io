@@ -39,7 +39,7 @@ Research interests: Supply Chain Optimization, Production Scheduling Optimizatio
 
 #### Task Allocation for Unmanned Mining Trucks
 
-- Considering constraints such as target output and operating time, and aiming to minimize the total transportation cost, a integer programming model was established<br>
+- Considering constraints such as target output and operating time, and aiming to minimize the total transportation cost, an integer programming model was established<br>
 
 - Utilized Java to develop a <u>Simulated Annealing algorithm</u>, including various neighborhood operators such as adding/subtracting trucks, adding/subtracting tasks, etc., and introduced an operator adaptive selection mechanism to realize static task allocation of mining trucks
 
