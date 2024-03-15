@@ -60,7 +60,7 @@ Research interests: Supply Chain Optimization, Production Scheduling Optimizatio
 
 - Modified C++ code to adapt the path planning program to omnidirectional vehicles, debugged and simulated on the server to achieve stable operation of 20 AMRs<br>
 
-- Investigated related papers on path planning sequence optimization of AMRs, and completed a research report and made a presentation
+- Investigated related papers on path planning sequence optimization of AMRs, and completed a research report
 
 ### [OPPO Co., Ltd](https://www.oppo.com/cn/)	\|	Nanjing, China
 
