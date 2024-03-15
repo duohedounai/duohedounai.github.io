@@ -8,7 +8,7 @@ Research interests: Supply Chain Optimization, Production Scheduling Optimizatio
 
 ------
 
-## <font color=Navy>Education</font>
+## <font color=MediumBlue>Education</font>
 ### Master of Engineering  \|  [Southeast University](https://en.wikipedia.org/wiki/Southeast_University)	\|	09/2018 - 06/2021
 **Industrial Engineering	\|	Nanjing, China**<br>
 
