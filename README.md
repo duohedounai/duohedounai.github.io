@@ -48,7 +48,7 @@ Research interests: Supply Chain Optimization, Production Scheduling Optimizatio
 - Executed <u>A* algorithm</u> in Java to achieve the global path planning of unmanned trucks in automated container terminal<br>
 - Based on congestion information, realized real-time route re-planning for trucks to avoid congested roads<br>
 - Implemented a <u>multi-vehicle collaboration algorithm</u> at intersections to avoid conflicts or deadlocks<br>
-- Developed a simulation system in Python, and utilized OpenCV to implement dynamic demonstration and simulation of the unmanned trucks operation process
+- Developed a simulation system in Python, and utilized OpenCV to implement dynamic demonstration and simulation of the system operation process
 
 ### [Hangzhou HIKROBOT Co., Ltd](https://www.hikrobotics.com/cn)	\|	Hangzhou, China
 
