@@ -4,6 +4,8 @@ Github: [duohedounai (github.com)](https://github.com/duohedounai)
 
 Email: yuanwei.seu@gmail.com
 
+Research interest: Supply Chain Optimization, Production Scheduling Optimization
+
 ------
 
 ## Education
@@ -108,4 +110,4 @@ Email: yuanwei.seu@gmail.com
 
 
 
-Last Updated: March 12, 2024
+Last Updated: March 15, 2024
