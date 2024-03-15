@@ -10,12 +10,12 @@ Research interests: Supply Chain Optimization, Production Scheduling Optimizatio
 
 ## <font color=MediumBlue>Education</font>
 ### Master of Engineering  \|  [Southeast University](https://en.wikipedia.org/wiki/Southeast_University)	\|	Nanjing, China
-**_Industrial Engineering_	\|	09/2018 - 06/2021**<br>
+**_Industrial Engineering_	\|	_09/2018 - 06/2021_**<br>
 
 - Major Courses: Data Structure and Algorithm Analysis, Machine Learning, Operations Research, Engineering Matrix Theory<br>
 
 ### Bachelor of Engineering  \|  [Southeast University](https://en.wikipedia.org/wiki/Southeast_University)	\|	Nanjing, China
-**_Industrial Engineering_	\|	09/2014 - 06/2018**<br>
+**_Industrial Engineering_	\|	_09/2014 - 06/2018_**<br>
 
 - GPA: 3.49/4.0, Outstanding Undergraduate Graduates (5%)<br>
 - Major Courses: Operations Research, Advanced Mathematics, Programming & Algorithmic Language<br>
@@ -24,7 +24,7 @@ Research interests: Supply Chain Optimization, Production Scheduling Optimizatio
 
 ## <font color=MediumBlue>Work Experience</font>
 ### Wuxi Inteligent Control Research Institute, Hunan University	\|	Wuxi, China
-**_Research Software Engineer_	\|	06/2022 - 03/2024**<br>
+**_Research Software Engineer_	\|	_06/2022 - 03/2024_**<br>
 
 #### Unmanned Bus Departure Timetable Generation
 
@@ -52,7 +52,7 @@ Research interests: Supply Chain Optimization, Production Scheduling Optimizatio
 
 ### [Hangzhou HIKROBOT Co., Ltd](https://www.hikrobotics.com/cn)	\|	Hangzhou, China
 
-**_Research Software Engineer_	\|	07/2021 - 04/2022**<br>
+**_Research Software Engineer_	\|	_07/2021 - 04/2022_**<br>
 
 - Completed scene function and efficiency tests of path planning program, and wrote a test report<br>
 
@@ -64,7 +64,7 @@ Research interests: Supply Chain Optimization, Production Scheduling Optimizatio
 
 ### [OPPO Co., Ltd](https://www.oppo.com/cn/)	\|	Nanjing, China
 
-**_Software Development Intern_	\|	07/2020 - 09/2020**<br>
+**_Software Development Intern_	\|	_07/2020 - 09/2020_**<br>
 
 - Learned basic knowledge of OpenGL rendering pipeline and shader, and achieved basic particle effects using C++
 
@@ -72,12 +72,12 @@ Research interests: Supply Chain Optimization, Production Scheduling Optimizatio
 
 ## <font color=MediumBlue>Research Experience</font>
 
-### Path Planning of Robots in Intelligent Warehouse	\|	03/2020 - 06/2020
+### Path Planning of Robots in Intelligent Warehouse	\|	_03/2020 - 06/2020_
 - Implemented <u>A* algorithm</u> and <u>Q-Learning</u> in Python to generate global path for single robot<br>
 
 - Applied <u>Deep Q Network</u> to realize multi-robot collision and deadlock avoidance using Python
 
-### Task Assignment of Robots in Intelligent Warehouse	\|	06/2019 - 12/2019
+### Task Assignment of Robots in Intelligent Warehouse	\|	_06/2019 - 12/2019_
 
 - Established an integer programming model which considered power constraint of robots<br>
 
@@ -85,7 +85,7 @@ Research interests: Supply Chain Optimization, Production Scheduling Optimizatio
 
 - Designed heuristic rules and applied <u>Ant Colony Optimization algorithm</u> in C++ to solve the large-scale calculation cases efficiently
 
-### Vehicle Reordering in Mixed-model Assembly Lines	\|	09/2017 - 06/2018
+### Vehicle Reordering in Mixed-model Assembly Lines	\|	_09/2017 - 06/2018_
 
 - Applied <u>Genetic Algorithm</u> in C++ to intelligently adjust the vehicle sequence in the automobile assembly workshop<br>
 
