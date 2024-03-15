@@ -22,7 +22,7 @@ Research interests: Supply Chain Optimization, Production Scheduling Optimizatio
 
 ------
 
-## Work Experience
+## <font color=MediumBlue>Work Experience</font>
 ### Wuxi Inteligent Control Research Institute, Hunan University	\|	06/2022 - 03/2024
 **Research Software Engineer	\|	Wuxi, China**<br>
 
@@ -70,7 +70,7 @@ Research interests: Supply Chain Optimization, Production Scheduling Optimizatio
 
 ------
 
-## Research Experience
+## <font color=MediumBlue>Research Experience</font>
 
 ### Path Planning of Robots in Intelligent Warehouse	\|	03/2020 - 06/2020
 - Implemented <u>A* algorithm</u> and <u>Q-Learning</u> in Python to generate global path for single robot<br>
@@ -95,7 +95,7 @@ Research interests: Supply Chain Optimization, Production Scheduling Optimizatio
 
 ------
 
-## Publications
+## <font color=MediumBlue>Publications</font>
 
 - **Wei Yuan**, Hui Sun. A Task Scheduling Problem in Mobile Robot Fulfillment Systems[C]. In: 2020 12th International Conference on Advanced Computational Intelligence. Dali, China, 2020: 391-396	[[Paper](https://ieeexplore.ieee.org/document/9177514)] [[Code](https://github.com/duohedounai/AntColonyOptimization?tab=readme-ov-file)]<br>
 
@@ -103,7 +103,7 @@ Research interests: Supply Chain Optimization, Production Scheduling Optimizatio
 
 ------
 
-## Additional Information
+## <font color=MediumBlue>Additional Information</font>
 
 - **Programming skills**: ![Static Badge](https://img.shields.io/badge/Python-purple)  ![Static Badge](https://img.shields.io/badge/Java-purple)  ![Static Badge](https://img.shields.io/badge/C++-purple)<br>
 - **Languages**: Mandarin(Native), English(PTE: 68)<br>
