@@ -1,8 +1,8 @@
 ## Wei Yuan
 
-Github: [duohedounai (github.com)](https://github.com/duohedounai)
-
 Email: yuanwei.seu@gmail.com
+
+Github: [duohedounai (github.com)](https://github.com/duohedounai)
 
 Research interest: Supply Chain Optimization, Production Scheduling Optimization
 
