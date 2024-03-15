@@ -10,13 +10,13 @@ Email: yuanwei.seu@gmail.com
 ### Master of Engineering  \|  [Southeast University](https://en.wikipedia.org/wiki/Southeast_University)	\|	09/2018 - 06/2021
 **Industrial Engineering	\|	Nanjing, China**<br>
 
-- Major Courses: Machine Learning, Data Structure and Algorithm Analysis, Engineering Matrix Theory<br>
+- Major Courses: Data Structure and Algorithm Analysis, Machine Learning, Operations Research, Engineering Matrix Theory<br>
 
 ### Bachelor of Engineering  \|  [Southeast University](https://en.wikipedia.org/wiki/Southeast_University)	\|	09/2014 - 06/2018
 **Industrial Engineering	\|	Nanjing, China**<br>
 
 - GPA: 3.49/4.0, Outstanding Undergraduate Graduates (5%)<br>
-- Major Courses: Programming & Algorithmic Language, Advanced Mathematics, Operations Research<br>
+- Major Courses: Operations Research, Advanced Mathematics, Programming & Algorithmic Language<br>
 
 ------
 
