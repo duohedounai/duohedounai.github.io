@@ -35,7 +35,7 @@ Research interests: Supply Chain Optimization, Production Scheduling Optimizatio
 #### Carpooling Order Allocation for Unmanned Bus
 
 - Considering constraints such as order interval and vehicle capacity, an integer programming model was established<br>
-- Implemented adaptive <u>Large Neighborhood Search algorithm</u> in Java to realize real-time allocation of orders, and completed simulation report
+- Implemented <u>Adaptive Large Neighborhood Search</u> in Java to realize real-time allocation of orders, and completed simulation report
 
 #### Task Allocation for Unmanned Mining Trucks
 
