@@ -12,6 +12,7 @@ Research interests: Supply Chain Optimization, Production Scheduling Optimizatio
 ### Master of Engineering  \|  [Southeast University](https://en.wikipedia.org/wiki/Southeast_University)	\|	Nanjing, China
 **_Industrial Engineering_	\|	_09/2018 - 06/2021_**<br>
 
+- Average Score: 83/100<br>
 - Major Courses: Data Structure and Algorithm Analysis, Machine Learning, Operations Research, Engineering Matrix Theory<br>
 
 ### Bachelor of Engineering  \|  [Southeast University](https://en.wikipedia.org/wiki/Southeast_University)	\|	Nanjing, China
