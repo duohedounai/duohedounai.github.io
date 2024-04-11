@@ -44,96 +44,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Hexo NexT Theme Configuration</title>
-    <url>/2024/04/07/Hexo-Next-Theme-Configuration/</url>
-    <content><![CDATA[<h2 id="install-next-theme"><a class="markdownIt-Anchor" href="#install-next-theme"></a> Install NexT theme</h2>
-<p>Firlst, you need to install the NexT theme, you can enter the following code:</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm install hexo-theme-next</span><br></pre></td></tr></table></figure>
-<p><img data-src="/images/Hexo-Next-Theme-Configuration/install_next.png" alt="" /></p>
-<hr />
-<h2 id="local-search-function"><a class="markdownIt-Anchor" href="#local-search-function"></a> Local search function</h2>
-<p>Install the following plug-ins:</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm install hexo-generator-searchdb --save</span><br></pre></td></tr></table></figure>
-<p>Add the following code to <em>Hexo _config.yml</em>:</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">search:</span><br><span class="line">  path: search.xml</span><br><span class="line">  field: post</span><br><span class="line">  content: true</span><br><span class="line">  format: html</span><br></pre></td></tr></table></figure>
-<p>Then, you need to open the local search function in <em>NexT _config.yml</em>:</p>
-<p><img data-src="/images/Hexo-Next-Theme-Configuration/local_search.png" alt="" /></p>
-<p>Now, you can see this on your website:</p>
-<p><img data-src="/images/Hexo-Next-Theme-Configuration/search.jpg" alt="" /></p>
-<hr />
-<h2 id="article-excerpt"><a class="markdownIt-Anchor" href="#article-excerpt"></a> Article excerpt</h2>
-<p>Install <a href="https://so.csdn.net/so/search?q=hexo&amp;spm=1001.2101.3001.7020">hexo</a>-excerpt via cmd:</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm install hexo-excerpt --save</span><br></pre></td></tr></table></figure>
-<p>Then, Add the following code to <em>Hexo _config.yml</em>:</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">excerpt:</span><br><span class="line">  depth: 5  </span><br><span class="line">  excerpt_excludes: []</span><br><span class="line">  more_excludes: []</span><br><span class="line">  hideWholePostExcerpts: true</span><br></pre></td></tr></table></figure>
-<p>Now, you can see the &quot;Read More&quot; button on your website:</p>
-<p><img data-src="/images/Hexo-Next-Theme-Configuration/read_more.jpg" alt="" /></p>
-<hr />
-<h2 id="code-block-theme"><a class="markdownIt-Anchor" href="#code-block-theme"></a> Code block theme</h2>
-<p>You can change the background color of the code block here in <em>NexT _config.yml</em>, and there are many themes at <a href="https://theme-next.js.org/highlight/">https://theme-next.js.org/highlight/</a>.</p>
-<p><img data-src="/images/Hexo-Next-Theme-Configuration/codeblock.png" alt="" /></p>
-<hr />
-<h2 id="article-word-count-and-reading-time"><a class="markdownIt-Anchor" href="#article-word-count-and-reading-time"></a> Article word count and reading time</h2>
-<p>Install hexo-word-counter via cmd:</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm install hexo-word-counter</span><br></pre></td></tr></table></figure>
-<p>Then, add the following code at the end of the <em>Hexo _config.yml</em>:</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">symbols_count_time:</span><br><span class="line">  symbols: true</span><br><span class="line">  time: true</span><br><span class="line">  total_symbols: true</span><br><span class="line">  total_time: true</span><br><span class="line">  exclude_codeblock: false</span><br><span class="line">  awl: 4</span><br><span class="line">  wpm: 275</span><br><span class="line">  suffix: &quot;mins.&quot;</span><br></pre></td></tr></table></figure>
-<p>Finally, modify the <em>NexT _config.yml</em>:</p>
-<p><img data-src="/images/Hexo-Next-Theme-Configuration/symbols_count_time.png" alt="" /></p>
-<hr />
-<h2 id="reference-links"><a class="markdownIt-Anchor" href="#reference-links"></a> Reference Links</h2>
-<ul>
-<li><a href="https://hexo-next.readthedocs.io/zh-cn/latest/next/advanced/%E6%90%9C%E7%B4%A2%E6%9C%8D%E5%8A%A1/">搜索服务 - Hexo-NexT</a></li>
-<li><a href="https://blog.csdn.net/sinat_41696687/article/details/115021491">解决Hexo博客的Next主题中阅读全文没有auto_excerpt的问题-CSDN博客</a></li>
-<li><a href="https://hexo-next.readthedocs.io/zh-cn/latest/next/advanced/%E5%AD%97%E6%95%B0%E7%BB%9F%E8%AE%A1/">https://hexo-next.readthedocs.io/zh-cn/latest/next/advanced/字数统计/</a></li>
-</ul>
-]]></content>
-      <tags>
-        <tag>Hexo</tag>
-        <tag>Hexo-NexT</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>How to Build A Personal Website with Github and Hexo</title>
-    <url>/2024/04/07/How-to-Build-A-Personal-Website-with-Github-and-Hexo/</url>
-    <content><![CDATA[<h2 id="install-nodejs-and-git"><a class="markdownIt-Anchor" href="#install-nodejs-and-git"></a> Install Node.js and Git</h2>
-<p>First, you'll need to install Node.js and Git, download and install the Node.js from [here](<a href="https://nodejs.org/en">Node.js — Run JavaScript Everywhere (nodejs.org)</a>).</p>
-<p>You can check if the Node.js and Git installation are successful by typing these:</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git version</span><br><span class="line">node -v</span><br><span class="line">npm -v</span><br></pre></td></tr></table></figure>
-<hr />
-<h2 id="create-a-github-pages-repository"><a class="markdownIt-Anchor" href="#create-a-github-pages-repository"></a> Create a Github Pages repository</h2>
-<p>Then you'll need to sign up for a Github account and create a Github Pages repository.</p>
-<hr />
-<h2 id="install-and-initialize-hexo"><a class="markdownIt-Anchor" href="#install-and-initialize-hexo"></a> Install and Initialize Hexo</h2>
-<p>Next, you need to install Hexo via cmd:</p>
-<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
-<p>Initialize Hexo:</p>
-<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">hexo init</span><br></pre></td></tr></table></figure>
-<p><img data-src="/images/How-to-Build-A-Personal-Website-with-Github-and-Hexo/successful_installation.png" alt="" /></p>
-<p>Next, you'll be able to build and preview your website:</p>
-<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">hexo g</span><br><span class="line">hexo s</span><br></pre></td></tr></table></figure>
-<p><img data-src="/images/How-to-Build-A-Personal-Website-with-Github-and-Hexo/generate_deploy.png" alt="" /></p>
-<p>Type the following URL: <a href="http://localhost:4000/">http://localhost:4000/</a> into your browser and you'll see:</p>
-<p><img data-src="/images/How-to-Build-A-Personal-Website-with-Github-and-Hexo/welcome.png" alt="" /></p>
-<p>Finally, you can choose the theme you are interested in and further beautify the site.</p>
-<hr />
-<h2 id="deploy-the-hexo-website-to-github-pages"><a class="markdownIt-Anchor" href="#deploy-the-hexo-website-to-github-pages"></a> Deploy the Hexo website to GitHub Pages</h2>
-<p>First, you need to install hexo-deployer-git:</p>
-<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
-<p>Then modify the Deployment section at the end of the <em>Hexo _config.yml</em> file:</p>
-<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repository: git@github.com:your_github_name/your_github_name.github.io.git</span><br><span class="line">  branch: main</span><br></pre></td></tr></table></figure>
-<p>Finally, visit https://your_github_name.github.io and you'll be able to see your website.</p>
-<hr />
-<h2 id="reference-links"><a class="markdownIt-Anchor" href="#reference-links"></a> Reference Links</h2>
-<ul>
-<li><a href="https://theme-next.js.org/docs/getting-started/">Getting Started | NexT (theme-next.js.org)</a></li>
-</ul>
-]]></content>
-      <tags>
-        <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Use Gurobi in Python to Solve Integer Programming Problems</title>
     <url>/2024/04/11/Use-Gurobi-in-Python-to-solve-integer-programming-problems/</url>
     <content><![CDATA[<h2 id="install-the-gurobi-library"><a class="markdownIt-Anchor" href="#install-the-gurobi-library"></a> Install the Gurobi library</h2>
@@ -225,6 +135,46 @@ y&gt;=0, Integer
       </tags>
   </entry>
   <entry>
+    <title>How to Build A Personal Website with Github and Hexo</title>
+    <url>/2024/04/07/How-to-Build-A-Personal-Website-with-Github-and-Hexo/</url>
+    <content><![CDATA[<h2 id="install-nodejs-and-git"><a class="markdownIt-Anchor" href="#install-nodejs-and-git"></a> Install Node.js and Git</h2>
+<p>First, you'll need to install Node.js and Git, download and install the Node.js from [here](<a href="https://nodejs.org/en">Node.js — Run JavaScript Everywhere (nodejs.org)</a>).</p>
+<p>You can check if the Node.js and Git installation are successful by typing these:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git version</span><br><span class="line">node -v</span><br><span class="line">npm -v</span><br></pre></td></tr></table></figure>
+<hr />
+<h2 id="create-a-github-pages-repository"><a class="markdownIt-Anchor" href="#create-a-github-pages-repository"></a> Create a Github Pages repository</h2>
+<p>Then you'll need to sign up for a Github account and create a Github Pages repository.</p>
+<hr />
+<h2 id="install-and-initialize-hexo"><a class="markdownIt-Anchor" href="#install-and-initialize-hexo"></a> Install and Initialize Hexo</h2>
+<p>Next, you need to install Hexo via cmd:</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
+<p>Initialize Hexo:</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">hexo init</span><br></pre></td></tr></table></figure>
+<p><img data-src="/images/How-to-Build-A-Personal-Website-with-Github-and-Hexo/successful_installation.png" alt="" /></p>
+<p>Next, you'll be able to build and preview your website:</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">hexo g</span><br><span class="line">hexo s</span><br></pre></td></tr></table></figure>
+<p><img data-src="/images/How-to-Build-A-Personal-Website-with-Github-and-Hexo/generate_deploy.png" alt="" /></p>
+<p>Type the following URL: <a href="http://localhost:4000/">http://localhost:4000/</a> into your browser and you'll see:</p>
+<p><img data-src="/images/How-to-Build-A-Personal-Website-with-Github-and-Hexo/welcome.png" alt="" /></p>
+<p>Finally, you can choose the theme you are interested in and further beautify the site.</p>
+<hr />
+<h2 id="deploy-the-hexo-website-to-github-pages"><a class="markdownIt-Anchor" href="#deploy-the-hexo-website-to-github-pages"></a> Deploy the Hexo website to GitHub Pages</h2>
+<p>First, you need to install hexo-deployer-git:</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
+<p>Then modify the Deployment section at the end of the <em>Hexo _config.yml</em> file:</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repository: git@github.com:your_github_name/your_github_name.github.io.git</span><br><span class="line">  branch: main</span><br></pre></td></tr></table></figure>
+<p>Finally, visit https://your_github_name.github.io and you'll be able to see your website.</p>
+<hr />
+<h2 id="reference-links"><a class="markdownIt-Anchor" href="#reference-links"></a> Reference Links</h2>
+<ul>
+<li><a href="https://theme-next.js.org/docs/getting-started/">Getting Started | NexT (theme-next.js.org)</a></li>
+</ul>
+]]></content>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Use OR-Tools in Python to Solve Mixed Integer Programming Problems</title>
     <url>/2024/04/10/Use-the-ortools-library-in-Python-to-solve-mixed-integer-programming/</url>
     <content><![CDATA[<ul>
@@ -312,6 +262,56 @@ x_3&gt;=0, Interger\\
       <tags>
         <tag>Python</tag>
         <tag>CPLEX</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hexo NexT Theme Configuration</title>
+    <url>/2024/04/07/Hexo-Next-Theme-Configuration/</url>
+    <content><![CDATA[<h2 id="install-next-theme"><a class="markdownIt-Anchor" href="#install-next-theme"></a> Install NexT theme</h2>
+<p>Firlst, you need to install the NexT theme, you can enter the following code:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm install hexo-theme-next</span><br></pre></td></tr></table></figure>
+<p><img data-src="/images/Hexo-Next-Theme-Configuration/install_next.png" alt="" /></p>
+<hr />
+<h2 id="local-search-function"><a class="markdownIt-Anchor" href="#local-search-function"></a> Local search function</h2>
+<p>Install the following plug-ins:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm install hexo-generator-searchdb --save</span><br></pre></td></tr></table></figure>
+<p>Add the following code to <em>Hexo _config.yml</em>:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">search:</span><br><span class="line">  path: search.xml</span><br><span class="line">  field: post</span><br><span class="line">  content: true</span><br><span class="line">  format: html</span><br></pre></td></tr></table></figure>
+<p>Then, you need to open the local search function in <em>NexT _config.yml</em>:</p>
+<p><img data-src="/images/Hexo-Next-Theme-Configuration/local_search.png" alt="" /></p>
+<p>Now, you can see this on your website:</p>
+<p><img data-src="/images/Hexo-Next-Theme-Configuration/search.jpg" alt="" /></p>
+<hr />
+<h2 id="article-excerpt"><a class="markdownIt-Anchor" href="#article-excerpt"></a> Article excerpt</h2>
+<p>Install <a href="https://so.csdn.net/so/search?q=hexo&amp;spm=1001.2101.3001.7020">hexo</a>-excerpt via cmd:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm install hexo-excerpt --save</span><br></pre></td></tr></table></figure>
+<p>Then, Add the following code to <em>Hexo _config.yml</em>:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">excerpt:</span><br><span class="line">  depth: 5  </span><br><span class="line">  excerpt_excludes: []</span><br><span class="line">  more_excludes: []</span><br><span class="line">  hideWholePostExcerpts: true</span><br></pre></td></tr></table></figure>
+<p>Now, you can see the &quot;Read More&quot; button on your website:</p>
+<p><img data-src="/images/Hexo-Next-Theme-Configuration/read_more.jpg" alt="" /></p>
+<hr />
+<h2 id="code-block-theme"><a class="markdownIt-Anchor" href="#code-block-theme"></a> Code block theme</h2>
+<p>You can change the background color of the code block here in <em>NexT _config.yml</em>, and there are many themes at <a href="https://theme-next.js.org/highlight/">https://theme-next.js.org/highlight/</a>.</p>
+<p><img data-src="/images/Hexo-Next-Theme-Configuration/codeblock.png" alt="" /></p>
+<hr />
+<h2 id="article-word-count-and-reading-time"><a class="markdownIt-Anchor" href="#article-word-count-and-reading-time"></a> Article word count and reading time</h2>
+<p>Install hexo-word-counter via cmd:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm install hexo-word-counter</span><br></pre></td></tr></table></figure>
+<p>Then, add the following code at the end of the <em>Hexo _config.yml</em>:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">symbols_count_time:</span><br><span class="line">  symbols: true</span><br><span class="line">  time: true</span><br><span class="line">  total_symbols: true</span><br><span class="line">  total_time: true</span><br><span class="line">  exclude_codeblock: false</span><br><span class="line">  awl: 4</span><br><span class="line">  wpm: 275</span><br><span class="line">  suffix: &quot;mins.&quot;</span><br></pre></td></tr></table></figure>
+<p>Finally, modify the <em>NexT _config.yml</em>:</p>
+<p><img data-src="/images/Hexo-Next-Theme-Configuration/symbols_count_time.png" alt="" /></p>
+<hr />
+<h2 id="reference-links"><a class="markdownIt-Anchor" href="#reference-links"></a> Reference Links</h2>
+<ul>
+<li><a href="https://hexo-next.readthedocs.io/zh-cn/latest/next/advanced/%E6%90%9C%E7%B4%A2%E6%9C%8D%E5%8A%A1/">搜索服务 - Hexo-NexT</a></li>
+<li><a href="https://blog.csdn.net/sinat_41696687/article/details/115021491">解决Hexo博客的Next主题中阅读全文没有auto_excerpt的问题-CSDN博客</a></li>
+<li><a href="https://hexo-next.readthedocs.io/zh-cn/latest/next/advanced/%E5%AD%97%E6%95%B0%E7%BB%9F%E8%AE%A1/">https://hexo-next.readthedocs.io/zh-cn/latest/next/advanced/字数统计/</a></li>
+</ul>
+]]></content>
+      <tags>
+        <tag>Hexo</tag>
+        <tag>Hexo-NexT</tag>
       </tags>
   </entry>
 </search>
