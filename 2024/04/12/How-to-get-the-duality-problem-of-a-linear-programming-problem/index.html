@@ -21,13 +21,13 @@
 
     <meta name="description" content="Primal Problem Max:2x1+x2+6x3−x4s.t.{x1+2x2+x3−x4&lt;&#x3D;10x1+2x3+x4&gt;&#x3D;5x2+x3+2x4&#x3D;20x1&gt;&#x3D;0,x2&lt;&#x3D;0,x3&lt;&#x3D;0Max:2x_1+x_2+6x_3-x_4\\ s.t.\begin{cases} x_1+2x_2+x_3-x_4&lt;&#x3D;10\\ x_1+2x_3+x_4&gt;&#x3D;5\\ x">
 <meta property="og:type" content="article">
-<meta property="og:title" content="How to Get the Duality Problem of a Linear Programming Problem">
+<meta property="og:title" content="How to Get the Dual Problem of a Linear Programming Problem">
 <meta property="og:url" content="https://duohedounai.github.io/2024/04/12/How-to-get-the-duality-problem-of-a-linear-programming-problem/index.html">
 <meta property="og:site_name" content="Will Yuan&#39;s Blog">
 <meta property="og:description" content="Primal Problem Max:2x1+x2+6x3−x4s.t.{x1+2x2+x3−x4&lt;&#x3D;10x1+2x3+x4&gt;&#x3D;5x2+x3+2x4&#x3D;20x1&gt;&#x3D;0,x2&lt;&#x3D;0,x3&lt;&#x3D;0Max:2x_1+x_2+6x_3-x_4\\ s.t.\begin{cases} x_1+2x_2+x_3-x_4&lt;&#x3D;10\\ x_1+2x_3+x_4&gt;&#x3D;5\\ x">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2024-04-12T15:59:52.000Z">
-<meta property="article:modified_time" content="2024-04-12T16:48:57.372Z">
+<meta property="article:modified_time" content="2024-04-12T16:54:49.208Z">
 <meta property="article:author" content="Will Yuan">
 <meta property="article:tag" content="Optimization">
 <meta name="twitter:card" content="summary">
@@ -37,10 +37,10 @@
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://duohedounai.github.io/2024/04/12/How-to-get-the-duality-problem-of-a-linear-programming-problem/","path":"2024/04/12/How-to-get-the-duality-problem-of-a-linear-programming-problem/","title":"How to Get the Duality Problem of a Linear Programming Problem"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://duohedounai.github.io/2024/04/12/How-to-get-the-duality-problem-of-a-linear-programming-problem/","path":"2024/04/12/How-to-get-the-duality-problem-of-a-linear-programming-problem/","title":"How to Get the Dual Problem of a Linear Programming Problem"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>How to Get the Duality Problem of a Linear Programming Problem | Will Yuan's Blog</title>
+<title>How to Get the Dual Problem of a Linear Programming Problem | Will Yuan's Blog</title>
   
 
 
@@ -202,12 +202,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="How to Get the Duality Problem of a Linear Programming Problem | Will Yuan's Blog">
+      <meta itemprop="name" content="How to Get the Dual Problem of a Linear Programming Problem | Will Yuan's Blog">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          How to Get the Duality Problem of a Linear Programming Problem
+          How to Get the Dual Problem of a Linear Programming Problem
         </h1>
 
         <div class="post-meta-container">
@@ -225,7 +225,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2024-04-13 00:48:57" itemprop="dateModified" datetime="2024-04-13T00:48:57+08:00">2024-04-13</time>
+      <time title="Modified: 2024-04-13 00:54:49" itemprop="dateModified" datetime="2024-04-13T00:54:49+08:00">2024-04-13</time>
     </span>
 
   
@@ -331,7 +331,9 @@ s.t.\begin{cases}
         <td>unconstrained</td><td>=</td>
     </tr>
 </table>
-- If the **primal problem** is a <font color=red>**maximization problem**</font>, the $i$ th **constraint sign** of the dual problem is the <font color=red>**same**</font> as the sign of the $i$ th variable of the primal problem.
+<ul>
+<li>If the <strong>primal problem</strong> is a <font color=red><strong>maximization problem</strong></font>, the <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>i</mi></mrow><annotation encoding="application/x-tex">i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.65952em;vertical-align:0em;"></span><span class="mord mathnormal">i</span></span></span></span> th <strong>constraint sign</strong> of the dual problem is the <font color=red><strong>same</strong></font> as the sign of the <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>i</mi></mrow><annotation encoding="application/x-tex">i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.65952em;vertical-align:0em;"></span><span class="mord mathnormal">i</span></span></span></span> th variable of the primal problem.</li>
+</ul>
 <table>
     <tr align="center">
         <th colspan="2">Primal  problem</th><th colspan="2">Dual problem</th>
