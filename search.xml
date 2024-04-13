@@ -44,10 +44,61 @@
       </tags>
   </entry>
   <entry>
+    <title>Commonly Used Plotting Functions in the Python-OpenCV Library</title>
+    <url>/2024/04/08/Commonly-used-plotting-functions-in-the-Python-OpenCV-library/</url>
+    <content><![CDATA[<h2 id="installation-and-import-of-opencv-in-python"><a class="markdownIt-Anchor" href="#installation-and-import-of-opencv-in-python"></a> Installation and Import of OpenCV in Python</h2>
+<p>Execute the following pip command to complete the installation of the OpenCV library:</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">pip install opencv-python</span><br></pre></td></tr></table></figure>
+<p><img data-src="/images/Python-OpenCV-library/install.png" alt="" /></p>
+<p>After the installation is complete, import the cv2 module:</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> cv2</span><br></pre></td></tr></table></figure>
+<hr />
+<h2 id=""><a class="markdownIt-Anchor" href="#"></a> </h2>
+<h2 id="cv2line"><a class="markdownIt-Anchor" href="#cv2line"></a> cv2.line()</h2>
+<p><img data-src="/images/Python-OpenCV-library/line.jpg" alt="" /></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># cv2.line(img, pt1, pt2, color, thickness, lineType, shift)</span></span><br><span class="line"><span class="comment"># ————Parameter Description————</span></span><br><span class="line"><span class="comment"># img: Specify canvas</span></span><br><span class="line"><span class="comment"># pt1: (x, y)</span></span><br><span class="line"><span class="comment"># pt2: (x, y)</span></span><br><span class="line"><span class="comment"># color: (B,G,R)</span></span><br><span class="line"><span class="comment"># thickness: Line width</span></span><br><span class="line"><span class="comment"># lineType</span></span><br><span class="line"><span class="comment"># shift: Point coordinate accuracy</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> cv2</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line">img = np.ones((<span class="number">300</span>, <span class="number">300</span>, <span class="number">3</span>), np.uint8)</span><br><span class="line">cv2.line(img, (<span class="number">100</span>, <span class="number">150</span>), (<span class="number">200</span>, <span class="number">150</span>), color=(<span class="number">0</span>, <span class="number">255</span>, <span class="number">255</span>), thickness=<span class="number">2</span>)</span><br><span class="line">cv2.imshow(<span class="string">&#x27;img_name&#x27;</span>, img)</span><br><span class="line">cv2.waitKey(<span class="number">0</span>)</span><br></pre></td></tr></table></figure>
+<hr />
+<h2 id="cv2circle"><a class="markdownIt-Anchor" href="#cv2circle"></a> cv2.circle()</h2>
+<p><img data-src="/images/Python-OpenCV-library/circle.jpg" alt="" /></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># cv2.circle(img, center, radius, color, thickness, lineType, shift)</span></span><br><span class="line"><span class="comment"># ————Parameter Description————</span></span><br><span class="line"><span class="comment"># img：Specify canvas</span></span><br><span class="line"><span class="comment"># center: (x, y)</span></span><br><span class="line"><span class="comment"># radius</span></span><br><span class="line"><span class="comment"># color: (B,G,R)</span></span><br><span class="line"><span class="comment"># thinkness: Line width, When &gt;0, it represents the thickness of the circular border (in pixels), when &lt;0, it represents a solid circle.</span></span><br><span class="line"><span class="comment"># lineType</span></span><br><span class="line"><span class="comment"># shift：Accuracy of circle center coordinates and radius</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> cv2</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line">img = np.ones((<span class="number">300</span>, <span class="number">300</span>, <span class="number">3</span>), np.uint8)</span><br><span class="line">cv2.circle(img, center=(<span class="number">150</span>, <span class="number">150</span>), radius=<span class="number">50</span>, color=(<span class="number">0</span>, <span class="number">255</span>, <span class="number">255</span>), thickness=-<span class="number">1</span>)</span><br><span class="line">cv2.imshow(<span class="string">&#x27;img_name&#x27;</span>, img)</span><br><span class="line">cv2.waitKey(<span class="number">0</span>)</span><br></pre></td></tr></table></figure>
+<hr />
+<h2 id="cv2ellipse"><a class="markdownIt-Anchor" href="#cv2ellipse"></a> cv2.ellipse()</h2>
+<p><img data-src="/images/Python-OpenCV-library/ellipse.jpg" alt="" /></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># cv2.ellipse(img, center, axes, angle, startAngle, endAngle, color, thickness, lineType, shift)</span></span><br><span class="line"><span class="comment"># ————Parameter Description————</span></span><br><span class="line"><span class="comment"># img: Specify canvas</span></span><br><span class="line"><span class="comment"># center: (x, y), Ellipse center point coordinates</span></span><br><span class="line"><span class="comment"># axes: Ellipse size (major and minor axis)</span></span><br><span class="line"><span class="comment"># angle: Rotation angle (clockwise)</span></span><br><span class="line"><span class="comment"># startAngle: The starting angle for drawing (clockwise)</span></span><br><span class="line"><span class="comment"># endAngle: The ending angle of the drawing (drawing the entire ellipse: [0,360]; drawing the lower half of the ellipse: [0,180])</span></span><br><span class="line"><span class="comment"># color: (B,G,R)</span></span><br><span class="line"><span class="comment"># thickness: Line width</span></span><br><span class="line"><span class="comment"># lineType: default=8</span></span><br><span class="line"><span class="comment"># shift: Accuracy of center coordinates and axis length (default=0)</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> cv2</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line">img = np.ones((<span class="number">300</span>, <span class="number">300</span>, <span class="number">3</span>), np.uint8)</span><br><span class="line">cv2.ellipse(img, (<span class="number">150</span>, <span class="number">150</span>), (<span class="number">100</span>, <span class="number">50</span>), <span class="number">0</span>, <span class="number">0</span>, <span class="number">360</span>, (<span class="number">0</span>, <span class="number">255</span>, <span class="number">255</span>), <span class="number">2</span>)</span><br><span class="line">cv2.imshow(<span class="string">&#x27;img_name&#x27;</span>, img)</span><br><span class="line">cv2.waitKey(<span class="number">0</span>)</span><br></pre></td></tr></table></figure>
+<hr />
+<h2 id="cv2rectangle"><a class="markdownIt-Anchor" href="#cv2rectangle"></a> cv2.rectangle()</h2>
+<p><img data-src="/images/Python-OpenCV-library/rec.jpg" alt="" /></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># cv2.rectangle(img, pt1, pt2, color, thickness=None, lineType, shift)</span></span><br><span class="line"><span class="comment"># ————Parameter Description————</span></span><br><span class="line"><span class="comment"># img: Specify canvas</span></span><br><span class="line"><span class="comment"># pt1: (x, y)，Point coordinates of the upper left corner of the rectangle</span></span><br><span class="line"><span class="comment"># pt2: (x, y)，Point coordinates of the lower right corner of the rectangle</span></span><br><span class="line"><span class="comment"># color: (B,G,R)</span></span><br><span class="line"><span class="comment"># thinkness: Line width, When &gt;0, it represents the thickness of the rectangular border (in pixels), when &lt;0, it represents a solid rectangle.</span></span><br><span class="line"><span class="comment"># lineType</span></span><br><span class="line"><span class="comment"># shift: Point coordinate accuracy</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> cv2</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line">img = np.ones((<span class="number">300</span>, <span class="number">300</span>, <span class="number">3</span>), np.uint8)</span><br><span class="line">cv2.rectangle(img, (<span class="number">100</span>, <span class="number">50</span>), (<span class="number">200</span>, <span class="number">200</span>), (<span class="number">255</span>, <span class="number">255</span>, <span class="number">0</span>), -<span class="number">1</span>)</span><br><span class="line">cv2.imshow(<span class="string">&#x27;img_name&#x27;</span>, img)</span><br><span class="line">cv2.waitKey(<span class="number">0</span>)</span><br></pre></td></tr></table></figure>
+<hr />
+<h2 id="cv2polylines"><a class="markdownIt-Anchor" href="#cv2polylines"></a> cv2.polylines()</h2>
+<p><img data-src="/images/Python-OpenCV-library/polylines.jpg" alt="" /></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># cv2.polylines(img, pts, isClosed, color, thickness, lineType, shift)</span></span><br><span class="line"><span class="comment"># ————Parameter Description————</span></span><br><span class="line"><span class="comment"># img: Specify canvas</span></span><br><span class="line"><span class="comment"># pts: (x, y)，point set</span></span><br><span class="line"><span class="comment"># isClosed: Whether the multiple line segments drawn are closed. True means closed and will connect the first and last points.</span></span><br><span class="line"><span class="comment"># color: (B,G,R)</span></span><br><span class="line"><span class="comment"># thickness: Line width</span></span><br><span class="line"><span class="comment"># lineType: default=8</span></span><br><span class="line"><span class="comment"># shift: Point coordinate accuracy</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> cv2</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line">img = np.ones((<span class="number">300</span>, <span class="number">300</span>, <span class="number">3</span>), np.uint8)</span><br><span class="line">pts = np.array([[<span class="number">50</span>, <span class="number">50</span>], [<span class="number">70</span>, <span class="number">180</span>], [<span class="number">100</span>, <span class="number">200</span>], [<span class="number">200</span>, <span class="number">180</span>], [<span class="number">280</span>, <span class="number">100</span>]], np.int32)</span><br><span class="line">cv2.polylines(img, [pts], <span class="literal">True</span>, (<span class="number">0</span>, <span class="number">0</span>, <span class="number">255</span>), <span class="number">2</span>)</span><br><span class="line">cv2.imshow(<span class="string">&#x27;img_name&#x27;</span>, img)</span><br><span class="line">cv2.waitKey(<span class="number">0</span>)</span><br></pre></td></tr></table></figure>
+<hr />
+<h2 id="cv2fillpoly"><a class="markdownIt-Anchor" href="#cv2fillpoly"></a> cv2.fillPoly()</h2>
+<p><img data-src="/images/Python-OpenCV-library/fillPoly.jpg" alt="" /></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># cv2.fillPoly(img, pts, color)</span></span><br><span class="line"><span class="comment"># ————Parameter Description————</span></span><br><span class="line"><span class="comment"># img: Specify canvas</span></span><br><span class="line"><span class="comment"># pts: (x, y)，point set</span></span><br><span class="line"><span class="comment"># color: (B,G,R)</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> cv2</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line">img = np.ones((<span class="number">300</span>, <span class="number">300</span>, <span class="number">3</span>), np.uint8)</span><br><span class="line">pts = np.array([[<span class="number">50</span>, <span class="number">50</span>], [<span class="number">70</span>, <span class="number">180</span>], [<span class="number">100</span>, <span class="number">200</span>], [<span class="number">200</span>, <span class="number">180</span>], [<span class="number">280</span>, <span class="number">100</span>]], np.int32)</span><br><span class="line">cv2.fillPoly(img, [pts], (<span class="number">255</span>, <span class="number">255</span>, <span class="number">0</span>))</span><br><span class="line">cv2.imshow(<span class="string">&#x27;img_name&#x27;</span>, img)</span><br><span class="line">cv2.waitKey(<span class="number">0</span>)</span><br></pre></td></tr></table></figure>
+<hr />
+<h2 id="cv2puttext"><a class="markdownIt-Anchor" href="#cv2puttext"></a> cv2.putText()</h2>
+<p><img data-src="/images/Python-OpenCV-library/text.jpg" alt="" /></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># cv2.putText(img, text, org, fontFace, fontScale, color, thickness, lineType, bottomLeftOrigin)</span></span><br><span class="line"><span class="comment"># ————Parameter Description————</span></span><br><span class="line"><span class="comment"># img: Specify canvas</span></span><br><span class="line"><span class="comment"># text: Text content</span></span><br><span class="line"><span class="comment"># org: The drawing position, which is the coordinate of the lower left corner of the text string</span></span><br><span class="line"><span class="comment"># fontFace: Font type</span></span><br><span class="line"><span class="comment"># fontScale: Font size</span></span><br><span class="line"><span class="comment"># color</span></span><br><span class="line"><span class="comment"># thickness</span></span><br><span class="line"><span class="comment"># lineType: Boundary type</span></span><br><span class="line"><span class="comment"># bottomLeftOrigin: true/false. If true, the origin is in the lower left corner of the text image, otherwise it is in the upper left corner; if set to true, the text will be upside down, and the default is false.</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> cv2</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line">img = np.ones((<span class="number">300</span>, <span class="number">300</span>, <span class="number">3</span>), np.uint8)</span><br><span class="line">cv2.putText(img, <span class="string">&#x27;Hello Python!&#x27;</span>, (<span class="number">50</span>, <span class="number">150</span>), cv2.FONT_HERSHEY_SIMPLEX, <span class="number">1</span>, (<span class="number">255</span>, <span class="number">255</span>, <span class="number">0</span>), <span class="number">2</span>)</span><br><span class="line">cv2.imshow(<span class="string">&#x27;img_name&#x27;</span>, img)</span><br><span class="line">cv2.waitKey(<span class="number">0</span>)</span><br></pre></td></tr></table></figure>
+<hr />
+<h2 id="cv2imshow"><a class="markdownIt-Anchor" href="#cv2imshow"></a> cv2.imshow()</h2>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">cv2.imshow(<span class="string">&#x27;img_name&#x27;</span>, img)</span><br></pre></td></tr></table></figure>
+<hr />
+<h2 id="cv2waitkey"><a class="markdownIt-Anchor" href="#cv2waitkey"></a> cv2.waitKey()</h2>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">cv2.waitKey(delay_time)</span><br></pre></td></tr></table></figure>
+<p>Usually you need to use waitKey() after imshow(). waitKey(0) means waiting until any key is pressed, and waitKey(n) means delaying n milliseconds to close the window.</p>
+]]></content>
+      <tags>
+        <tag>Python</tag>
+        <tag>OpenCV</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Hexo NexT Theme Configuration</title>
     <url>/2024/04/07/Hexo-Next-Theme-Configuration/</url>
     <content><![CDATA[<h2 id="install-next-theme"><a class="markdownIt-Anchor" href="#install-next-theme"></a> Install NexT theme</h2>
-<p>Firlst, you need to install the NexT theme, you can enter the following code:</p>
+<p>First, you need to install the NexT theme, you can enter the following code:</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm install hexo-theme-next</span><br></pre></td></tr></table></figure>
 <p><img data-src="/images/Hexo-Next-Theme-Configuration/install_next.png" alt="" /></p>
 <hr />
@@ -62,7 +113,7 @@
 <p><img data-src="/images/Hexo-Next-Theme-Configuration/search.jpg" alt="" /></p>
 <hr />
 <h2 id="article-excerpt"><a class="markdownIt-Anchor" href="#article-excerpt"></a> Article excerpt</h2>
-<p>Install <a href="https://so.csdn.net/so/search?q=hexo&amp;spm=1001.2101.3001.7020">hexo</a>-excerpt via cmd:</p>
+<p>Install <strong>hexo-excerpt</strong> via cmd:</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm install hexo-excerpt --save</span><br></pre></td></tr></table></figure>
 <p>Then, Add the following code to <em>Hexo _config.yml</em>:</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">excerpt:</span><br><span class="line">  depth: 5  </span><br><span class="line">  excerpt_excludes: []</span><br><span class="line">  more_excludes: []</span><br><span class="line">  hideWholePostExcerpts: true</span><br></pre></td></tr></table></figure>
@@ -74,23 +125,71 @@
 <p><img data-src="/images/Hexo-Next-Theme-Configuration/codeblock.png" alt="" /></p>
 <hr />
 <h2 id="article-word-count-and-reading-time"><a class="markdownIt-Anchor" href="#article-word-count-and-reading-time"></a> Article word count and reading time</h2>
-<p>Install hexo-word-counter via cmd:</p>
+<p>Install <strong>hexo-word-counter</strong> via cmd:</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm install hexo-word-counter</span><br></pre></td></tr></table></figure>
 <p>Then, add the following code at the end of the <em>Hexo _config.yml</em>:</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">symbols_count_time:</span><br><span class="line">  symbols: true</span><br><span class="line">  time: true</span><br><span class="line">  total_symbols: true</span><br><span class="line">  total_time: true</span><br><span class="line">  exclude_codeblock: false</span><br><span class="line">  awl: 4</span><br><span class="line">  wpm: 275</span><br><span class="line">  suffix: &quot;mins.&quot;</span><br></pre></td></tr></table></figure>
 <p>Finally, modify the <em>NexT _config.yml</em>:</p>
 <p><img data-src="/images/Hexo-Next-Theme-Configuration/symbols_count_time.png" alt="" /></p>
 <hr />
+<h2 id="comment-system"><a class="markdownIt-Anchor" href="#comment-system"></a> Comment system</h2>
+<p>We can implement a comment system based on <strong>Gitalk</strong>. It saves article comments in the specified Github repository in the form of issues.</p>
+<p><img data-src="/images/Hexo-Next-Theme-Configuration/Register_OAuth.png" alt="" /></p>
+<p>First, you need to register a new OAuth application: <a href="https://github.com/settings/applications/new">https://github.com/settings/applications/new</a></p>
+<p>Then, you need to edit the configuration in the <em>NexT _config.yml</em> as follows:</p>
+<p><img data-src="/images/Hexo-Next-Theme-Configuration/git_talk.jpg" alt="" /></p>
+<hr />
 <h2 id="reference-links"><a class="markdownIt-Anchor" href="#reference-links"></a> Reference Links</h2>
 <ul>
 <li><a href="https://hexo-next.readthedocs.io/zh-cn/latest/next/advanced/%E6%90%9C%E7%B4%A2%E6%9C%8D%E5%8A%A1/">搜索服务 - Hexo-NexT</a></li>
 <li><a href="https://blog.csdn.net/sinat_41696687/article/details/115021491">解决Hexo博客的Next主题中阅读全文没有auto_excerpt的问题-CSDN博客</a></li>
 <li><a href="https://hexo-next.readthedocs.io/zh-cn/latest/next/advanced/%E5%AD%97%E6%95%B0%E7%BB%9F%E8%AE%A1/">https://hexo-next.readthedocs.io/zh-cn/latest/next/advanced/字数统计/</a></li>
+<li>[<a href="https://hexo-next.readthedocs.io/zh-cn/latest/next/advanced/gitalk-%E8%AF%84%E8%AE%BA%E7%B3%BB%E7%BB%9F/">Gitalk]评论系统 - Hexo-NexT</a></li>
 </ul>
 ]]></content>
       <tags>
         <tag>Hexo</tag>
         <tag>Hexo-NexT</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>How to Build A Personal Website with Github and Hexo</title>
+    <url>/2024/04/07/How-to-Build-A-Personal-Website-with-Github-and-Hexo/</url>
+    <content><![CDATA[<h2 id="install-nodejs-and-git"><a class="markdownIt-Anchor" href="#install-nodejs-and-git"></a> Install Node.js and Git</h2>
+<p>First, you'll need to install Node.js and Git, download and install the Node.js from [here](<a href="https://nodejs.org/en">Node.js — Run JavaScript Everywhere (nodejs.org)</a>).</p>
+<p>You can check if the Node.js and Git installation are successful by typing these:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git version</span><br><span class="line">node -v</span><br><span class="line">npm -v</span><br></pre></td></tr></table></figure>
+<hr />
+<h2 id="create-a-github-pages-repository"><a class="markdownIt-Anchor" href="#create-a-github-pages-repository"></a> Create a Github Pages repository</h2>
+<p>Then you'll need to sign up for a Github account and create a Github Pages repository.</p>
+<hr />
+<h2 id="install-and-initialize-hexo"><a class="markdownIt-Anchor" href="#install-and-initialize-hexo"></a> Install and Initialize Hexo</h2>
+<p>Next, you need to install Hexo via cmd:</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
+<p>Initialize Hexo:</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">hexo init</span><br></pre></td></tr></table></figure>
+<p><img data-src="/images/How-to-Build-A-Personal-Website-with-Github-and-Hexo/successful_installation.png" alt="" /></p>
+<p>Next, you'll be able to build and preview your website:</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">hexo g</span><br><span class="line">hexo s</span><br></pre></td></tr></table></figure>
+<p><img data-src="/images/How-to-Build-A-Personal-Website-with-Github-and-Hexo/generate_deploy.png" alt="" /></p>
+<p>Type the following URL: <a href="http://localhost:4000/">http://localhost:4000/</a> into your browser and you'll see:</p>
+<p><img data-src="/images/How-to-Build-A-Personal-Website-with-Github-and-Hexo/welcome.png" alt="" /></p>
+<p>Finally, you can choose the theme you are interested in and further beautify the site.</p>
+<hr />
+<h2 id="deploy-the-hexo-website-to-github-pages"><a class="markdownIt-Anchor" href="#deploy-the-hexo-website-to-github-pages"></a> Deploy the Hexo website to GitHub Pages</h2>
+<p>First, you need to install hexo-deployer-git:</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
+<p>Then modify the Deployment section at the end of the <em>Hexo _config.yml</em> file:</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repository: git@github.com:your_github_name/your_github_name.github.io.git</span><br><span class="line">  branch: main</span><br></pre></td></tr></table></figure>
+<p>Finally, visit https://your_github_name.github.io and you'll be able to see your website.</p>
+<hr />
+<h2 id="reference-links"><a class="markdownIt-Anchor" href="#reference-links"></a> Reference Links</h2>
+<ul>
+<li><a href="https://theme-next.js.org/docs/getting-started/">Getting Started | NexT (theme-next.js.org)</a></li>
+</ul>
+]]></content>
+      <tags>
+        <tag>Hexo</tag>
       </tags>
   </entry>
   <entry>
@@ -272,97 +371,6 @@ y_1&gt;=0,y_2&lt;=0,y_3(unconstrained)
 ]]></content>
       <tags>
         <tag>Optimization</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>How to Build A Personal Website with Github and Hexo</title>
-    <url>/2024/04/07/How-to-Build-A-Personal-Website-with-Github-and-Hexo/</url>
-    <content><![CDATA[<h2 id="install-nodejs-and-git"><a class="markdownIt-Anchor" href="#install-nodejs-and-git"></a> Install Node.js and Git</h2>
-<p>First, you'll need to install Node.js and Git, download and install the Node.js from [here](<a href="https://nodejs.org/en">Node.js — Run JavaScript Everywhere (nodejs.org)</a>).</p>
-<p>You can check if the Node.js and Git installation are successful by typing these:</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git version</span><br><span class="line">node -v</span><br><span class="line">npm -v</span><br></pre></td></tr></table></figure>
-<hr />
-<h2 id="create-a-github-pages-repository"><a class="markdownIt-Anchor" href="#create-a-github-pages-repository"></a> Create a Github Pages repository</h2>
-<p>Then you'll need to sign up for a Github account and create a Github Pages repository.</p>
-<hr />
-<h2 id="install-and-initialize-hexo"><a class="markdownIt-Anchor" href="#install-and-initialize-hexo"></a> Install and Initialize Hexo</h2>
-<p>Next, you need to install Hexo via cmd:</p>
-<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
-<p>Initialize Hexo:</p>
-<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">hexo init</span><br></pre></td></tr></table></figure>
-<p><img data-src="/images/How-to-Build-A-Personal-Website-with-Github-and-Hexo/successful_installation.png" alt="" /></p>
-<p>Next, you'll be able to build and preview your website:</p>
-<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">hexo g</span><br><span class="line">hexo s</span><br></pre></td></tr></table></figure>
-<p><img data-src="/images/How-to-Build-A-Personal-Website-with-Github-and-Hexo/generate_deploy.png" alt="" /></p>
-<p>Type the following URL: <a href="http://localhost:4000/">http://localhost:4000/</a> into your browser and you'll see:</p>
-<p><img data-src="/images/How-to-Build-A-Personal-Website-with-Github-and-Hexo/welcome.png" alt="" /></p>
-<p>Finally, you can choose the theme you are interested in and further beautify the site.</p>
-<hr />
-<h2 id="deploy-the-hexo-website-to-github-pages"><a class="markdownIt-Anchor" href="#deploy-the-hexo-website-to-github-pages"></a> Deploy the Hexo website to GitHub Pages</h2>
-<p>First, you need to install hexo-deployer-git:</p>
-<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
-<p>Then modify the Deployment section at the end of the <em>Hexo _config.yml</em> file:</p>
-<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repository: git@github.com:your_github_name/your_github_name.github.io.git</span><br><span class="line">  branch: main</span><br></pre></td></tr></table></figure>
-<p>Finally, visit https://your_github_name.github.io and you'll be able to see your website.</p>
-<hr />
-<h2 id="reference-links"><a class="markdownIt-Anchor" href="#reference-links"></a> Reference Links</h2>
-<ul>
-<li><a href="https://theme-next.js.org/docs/getting-started/">Getting Started | NexT (theme-next.js.org)</a></li>
-</ul>
-]]></content>
-      <tags>
-        <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Commonly Used Plotting Functions in the Python-OpenCV Library</title>
-    <url>/2024/04/08/Commonly-used-plotting-functions-in-the-Python-OpenCV-library/</url>
-    <content><![CDATA[<h2 id="installation-and-import-of-opencv-in-python"><a class="markdownIt-Anchor" href="#installation-and-import-of-opencv-in-python"></a> Installation and Import of OpenCV in Python</h2>
-<p>Execute the following pip command to complete the installation of the OpenCV library:</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">pip install opencv-python</span><br></pre></td></tr></table></figure>
-<p><img data-src="/images/Python-OpenCV-library/install.png" alt="" /></p>
-<p>After the installation is complete, import the cv2 module:</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> cv2</span><br></pre></td></tr></table></figure>
-<hr />
-<h2 id=""><a class="markdownIt-Anchor" href="#"></a> </h2>
-<h2 id="cv2line"><a class="markdownIt-Anchor" href="#cv2line"></a> cv2.line()</h2>
-<p><img data-src="/images/Python-OpenCV-library/line.jpg" alt="" /></p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># cv2.line(img, pt1, pt2, color, thickness, lineType, shift)</span></span><br><span class="line"><span class="comment"># ————Parameter Description————</span></span><br><span class="line"><span class="comment"># img: Specify canvas</span></span><br><span class="line"><span class="comment"># pt1: (x, y)</span></span><br><span class="line"><span class="comment"># pt2: (x, y)</span></span><br><span class="line"><span class="comment"># color: (B,G,R)</span></span><br><span class="line"><span class="comment"># thickness: Line width</span></span><br><span class="line"><span class="comment"># lineType</span></span><br><span class="line"><span class="comment"># shift: Point coordinate accuracy</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> cv2</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line">img = np.ones((<span class="number">300</span>, <span class="number">300</span>, <span class="number">3</span>), np.uint8)</span><br><span class="line">cv2.line(img, (<span class="number">100</span>, <span class="number">150</span>), (<span class="number">200</span>, <span class="number">150</span>), color=(<span class="number">0</span>, <span class="number">255</span>, <span class="number">255</span>), thickness=<span class="number">2</span>)</span><br><span class="line">cv2.imshow(<span class="string">&#x27;img_name&#x27;</span>, img)</span><br><span class="line">cv2.waitKey(<span class="number">0</span>)</span><br></pre></td></tr></table></figure>
-<hr />
-<h2 id="cv2circle"><a class="markdownIt-Anchor" href="#cv2circle"></a> cv2.circle()</h2>
-<p><img data-src="/images/Python-OpenCV-library/circle.jpg" alt="" /></p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># cv2.circle(img, center, radius, color, thickness, lineType, shift)</span></span><br><span class="line"><span class="comment"># ————Parameter Description————</span></span><br><span class="line"><span class="comment"># img：Specify canvas</span></span><br><span class="line"><span class="comment"># center: (x, y)</span></span><br><span class="line"><span class="comment"># radius</span></span><br><span class="line"><span class="comment"># color: (B,G,R)</span></span><br><span class="line"><span class="comment"># thinkness: Line width, When &gt;0, it represents the thickness of the circular border (in pixels), when &lt;0, it represents a solid circle.</span></span><br><span class="line"><span class="comment"># lineType</span></span><br><span class="line"><span class="comment"># shift：Accuracy of circle center coordinates and radius</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> cv2</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line">img = np.ones((<span class="number">300</span>, <span class="number">300</span>, <span class="number">3</span>), np.uint8)</span><br><span class="line">cv2.circle(img, center=(<span class="number">150</span>, <span class="number">150</span>), radius=<span class="number">50</span>, color=(<span class="number">0</span>, <span class="number">255</span>, <span class="number">255</span>), thickness=-<span class="number">1</span>)</span><br><span class="line">cv2.imshow(<span class="string">&#x27;img_name&#x27;</span>, img)</span><br><span class="line">cv2.waitKey(<span class="number">0</span>)</span><br></pre></td></tr></table></figure>
-<hr />
-<h2 id="cv2ellipse"><a class="markdownIt-Anchor" href="#cv2ellipse"></a> cv2.ellipse()</h2>
-<p><img data-src="/images/Python-OpenCV-library/ellipse.jpg" alt="" /></p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># cv2.ellipse(img, center, axes, angle, startAngle, endAngle, color, thickness, lineType, shift)</span></span><br><span class="line"><span class="comment"># ————Parameter Description————</span></span><br><span class="line"><span class="comment"># img: Specify canvas</span></span><br><span class="line"><span class="comment"># center: (x, y), Ellipse center point coordinates</span></span><br><span class="line"><span class="comment"># axes: Ellipse size (major and minor axis)</span></span><br><span class="line"><span class="comment"># angle: Rotation angle (clockwise)</span></span><br><span class="line"><span class="comment"># startAngle: The starting angle for drawing (clockwise)</span></span><br><span class="line"><span class="comment"># endAngle: The ending angle of the drawing (drawing the entire ellipse: [0,360]; drawing the lower half of the ellipse: [0,180])</span></span><br><span class="line"><span class="comment"># color: (B,G,R)</span></span><br><span class="line"><span class="comment"># thickness: Line width</span></span><br><span class="line"><span class="comment"># lineType: default=8</span></span><br><span class="line"><span class="comment"># shift: Accuracy of center coordinates and axis length (default=0)</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> cv2</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line">img = np.ones((<span class="number">300</span>, <span class="number">300</span>, <span class="number">3</span>), np.uint8)</span><br><span class="line">cv2.ellipse(img, (<span class="number">150</span>, <span class="number">150</span>), (<span class="number">100</span>, <span class="number">50</span>), <span class="number">0</span>, <span class="number">0</span>, <span class="number">360</span>, (<span class="number">0</span>, <span class="number">255</span>, <span class="number">255</span>), <span class="number">2</span>)</span><br><span class="line">cv2.imshow(<span class="string">&#x27;img_name&#x27;</span>, img)</span><br><span class="line">cv2.waitKey(<span class="number">0</span>)</span><br></pre></td></tr></table></figure>
-<hr />
-<h2 id="cv2rectangle"><a class="markdownIt-Anchor" href="#cv2rectangle"></a> cv2.rectangle()</h2>
-<p><img data-src="/images/Python-OpenCV-library/rec.jpg" alt="" /></p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># cv2.rectangle(img, pt1, pt2, color, thickness=None, lineType, shift)</span></span><br><span class="line"><span class="comment"># ————Parameter Description————</span></span><br><span class="line"><span class="comment"># img: Specify canvas</span></span><br><span class="line"><span class="comment"># pt1: (x, y)，Point coordinates of the upper left corner of the rectangle</span></span><br><span class="line"><span class="comment"># pt2: (x, y)，Point coordinates of the lower right corner of the rectangle</span></span><br><span class="line"><span class="comment"># color: (B,G,R)</span></span><br><span class="line"><span class="comment"># thinkness: Line width, When &gt;0, it represents the thickness of the rectangular border (in pixels), when &lt;0, it represents a solid rectangle.</span></span><br><span class="line"><span class="comment"># lineType</span></span><br><span class="line"><span class="comment"># shift: Point coordinate accuracy</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> cv2</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line">img = np.ones((<span class="number">300</span>, <span class="number">300</span>, <span class="number">3</span>), np.uint8)</span><br><span class="line">cv2.rectangle(img, (<span class="number">100</span>, <span class="number">50</span>), (<span class="number">200</span>, <span class="number">200</span>), (<span class="number">255</span>, <span class="number">255</span>, <span class="number">0</span>), -<span class="number">1</span>)</span><br><span class="line">cv2.imshow(<span class="string">&#x27;img_name&#x27;</span>, img)</span><br><span class="line">cv2.waitKey(<span class="number">0</span>)</span><br></pre></td></tr></table></figure>
-<hr />
-<h2 id="cv2polylines"><a class="markdownIt-Anchor" href="#cv2polylines"></a> cv2.polylines()</h2>
-<p><img data-src="/images/Python-OpenCV-library/polylines.jpg" alt="" /></p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># cv2.polylines(img, pts, isClosed, color, thickness, lineType, shift)</span></span><br><span class="line"><span class="comment"># ————Parameter Description————</span></span><br><span class="line"><span class="comment"># img: Specify canvas</span></span><br><span class="line"><span class="comment"># pts: (x, y)，point set</span></span><br><span class="line"><span class="comment"># isClosed: Whether the multiple line segments drawn are closed. True means closed and will connect the first and last points.</span></span><br><span class="line"><span class="comment"># color: (B,G,R)</span></span><br><span class="line"><span class="comment"># thickness: Line width</span></span><br><span class="line"><span class="comment"># lineType: default=8</span></span><br><span class="line"><span class="comment"># shift: Point coordinate accuracy</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> cv2</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line">img = np.ones((<span class="number">300</span>, <span class="number">300</span>, <span class="number">3</span>), np.uint8)</span><br><span class="line">pts = np.array([[<span class="number">50</span>, <span class="number">50</span>], [<span class="number">70</span>, <span class="number">180</span>], [<span class="number">100</span>, <span class="number">200</span>], [<span class="number">200</span>, <span class="number">180</span>], [<span class="number">280</span>, <span class="number">100</span>]], np.int32)</span><br><span class="line">cv2.polylines(img, [pts], <span class="literal">True</span>, (<span class="number">0</span>, <span class="number">0</span>, <span class="number">255</span>), <span class="number">2</span>)</span><br><span class="line">cv2.imshow(<span class="string">&#x27;img_name&#x27;</span>, img)</span><br><span class="line">cv2.waitKey(<span class="number">0</span>)</span><br></pre></td></tr></table></figure>
-<hr />
-<h2 id="cv2fillpoly"><a class="markdownIt-Anchor" href="#cv2fillpoly"></a> cv2.fillPoly()</h2>
-<p><img data-src="/images/Python-OpenCV-library/fillPoly.jpg" alt="" /></p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># cv2.fillPoly(img, pts, color)</span></span><br><span class="line"><span class="comment"># ————Parameter Description————</span></span><br><span class="line"><span class="comment"># img: Specify canvas</span></span><br><span class="line"><span class="comment"># pts: (x, y)，point set</span></span><br><span class="line"><span class="comment"># color: (B,G,R)</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> cv2</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line">img = np.ones((<span class="number">300</span>, <span class="number">300</span>, <span class="number">3</span>), np.uint8)</span><br><span class="line">pts = np.array([[<span class="number">50</span>, <span class="number">50</span>], [<span class="number">70</span>, <span class="number">180</span>], [<span class="number">100</span>, <span class="number">200</span>], [<span class="number">200</span>, <span class="number">180</span>], [<span class="number">280</span>, <span class="number">100</span>]], np.int32)</span><br><span class="line">cv2.fillPoly(img, [pts], (<span class="number">255</span>, <span class="number">255</span>, <span class="number">0</span>))</span><br><span class="line">cv2.imshow(<span class="string">&#x27;img_name&#x27;</span>, img)</span><br><span class="line">cv2.waitKey(<span class="number">0</span>)</span><br></pre></td></tr></table></figure>
-<hr />
-<h2 id="cv2puttext"><a class="markdownIt-Anchor" href="#cv2puttext"></a> cv2.putText()</h2>
-<p><img data-src="/images/Python-OpenCV-library/text.jpg" alt="" /></p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># cv2.putText(img, text, org, fontFace, fontScale, color, thickness, lineType, bottomLeftOrigin)</span></span><br><span class="line"><span class="comment"># ————Parameter Description————</span></span><br><span class="line"><span class="comment"># img: Specify canvas</span></span><br><span class="line"><span class="comment"># text: Text content</span></span><br><span class="line"><span class="comment"># org: The drawing position, which is the coordinate of the lower left corner of the text string</span></span><br><span class="line"><span class="comment"># fontFace: Font type</span></span><br><span class="line"><span class="comment"># fontScale: Font size</span></span><br><span class="line"><span class="comment"># color</span></span><br><span class="line"><span class="comment"># thickness</span></span><br><span class="line"><span class="comment"># lineType: Boundary type</span></span><br><span class="line"><span class="comment"># bottomLeftOrigin: true/false. If true, the origin is in the lower left corner of the text image, otherwise it is in the upper left corner; if set to true, the text will be upside down, and the default is false.</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> cv2</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line">img = np.ones((<span class="number">300</span>, <span class="number">300</span>, <span class="number">3</span>), np.uint8)</span><br><span class="line">cv2.putText(img, <span class="string">&#x27;Hello Python!&#x27;</span>, (<span class="number">50</span>, <span class="number">150</span>), cv2.FONT_HERSHEY_SIMPLEX, <span class="number">1</span>, (<span class="number">255</span>, <span class="number">255</span>, <span class="number">0</span>), <span class="number">2</span>)</span><br><span class="line">cv2.imshow(<span class="string">&#x27;img_name&#x27;</span>, img)</span><br><span class="line">cv2.waitKey(<span class="number">0</span>)</span><br></pre></td></tr></table></figure>
-<hr />
-<h2 id="cv2imshow"><a class="markdownIt-Anchor" href="#cv2imshow"></a> cv2.imshow()</h2>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">cv2.imshow(<span class="string">&#x27;img_name&#x27;</span>, img)</span><br></pre></td></tr></table></figure>
-<hr />
-<h2 id="cv2waitkey"><a class="markdownIt-Anchor" href="#cv2waitkey"></a> cv2.waitKey()</h2>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">cv2.waitKey(delay_time)</span><br></pre></td></tr></table></figure>
-<p>Usually you need to use waitKey() after imshow(). waitKey(0) means waiting until any key is pressed, and waitKey(n) means delaying n milliseconds to close the window.</p>
-]]></content>
-      <tags>
-        <tag>Python</tag>
-        <tag>OpenCV</tag>
       </tags>
   </entry>
   <entry>

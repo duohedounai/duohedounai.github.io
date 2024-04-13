@@ -19,12 +19,12 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"duohedounai.github.io","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.19.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="Install NexT theme Firlst, you need to install the NexT theme, you can enter the following code: 1npm install hexo-theme-next">
+    <meta name="description" content="Install NexT theme First, you need to install the NexT theme, you can enter the following code: 1npm install hexo-theme-next">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hexo NexT Theme Configuration">
 <meta property="og:url" content="https://duohedounai.github.io/2024/04/07/Hexo-Next-Theme-Configuration/index.html">
 <meta property="og:site_name" content="Will Yuan&#39;s Blog">
-<meta property="og:description" content="Install NexT theme Firlst, you need to install the NexT theme, you can enter the following code: 1npm install hexo-theme-next">
+<meta property="og:description" content="Install NexT theme First, you need to install the NexT theme, you can enter the following code: 1npm install hexo-theme-next">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://duohedounai.github.io/images/Hexo-Next-Theme-Configuration/install_next.png">
 <meta property="og:image" content="https://duohedounai.github.io/images/Hexo-Next-Theme-Configuration/local_search.png">
@@ -32,8 +32,10 @@
 <meta property="og:image" content="https://duohedounai.github.io/images/Hexo-Next-Theme-Configuration/read_more.jpg">
 <meta property="og:image" content="https://duohedounai.github.io/images/Hexo-Next-Theme-Configuration/codeblock.png">
 <meta property="og:image" content="https://duohedounai.github.io/images/Hexo-Next-Theme-Configuration/symbols_count_time.png">
+<meta property="og:image" content="https://duohedounai.github.io/images/Hexo-Next-Theme-Configuration/Register_OAuth.png">
+<meta property="og:image" content="https://duohedounai.github.io/images/Hexo-Next-Theme-Configuration/git_talk.jpg">
 <meta property="article:published_time" content="2024-04-07T15:32:14.000Z">
-<meta property="article:modified_time" content="2024-04-10T14:14:01.924Z">
+<meta property="article:modified_time" content="2024-04-13T07:09:14.132Z">
 <meta property="article:author" content="Will Yuan">
 <meta property="article:tag" content="Hexo">
 <meta property="article:tag" content="Hexo-NexT">
@@ -151,7 +153,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#install-next-theme"><span class="nav-number">1.</span> <span class="nav-text"> Install NexT theme</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#local-search-function"><span class="nav-number">2.</span> <span class="nav-text"> Local search function</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#article-excerpt"><span class="nav-number">3.</span> <span class="nav-text"> Article excerpt</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#code-block-theme"><span class="nav-number">4.</span> <span class="nav-text"> Code block theme</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#article-word-count-and-reading-time"><span class="nav-number">5.</span> <span class="nav-text"> Article word count and reading time</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#reference-links"><span class="nav-number">6.</span> <span class="nav-text"> Reference Links</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#install-next-theme"><span class="nav-number">1.</span> <span class="nav-text"> Install NexT theme</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#local-search-function"><span class="nav-number">2.</span> <span class="nav-text"> Local search function</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#article-excerpt"><span class="nav-number">3.</span> <span class="nav-text"> Article excerpt</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#code-block-theme"><span class="nav-number">4.</span> <span class="nav-text"> Code block theme</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#article-word-count-and-reading-time"><span class="nav-number">5.</span> <span class="nav-text"> Article word count and reading time</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#comment-system"><span class="nav-number">6.</span> <span class="nav-text"> Comment system</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#reference-links"><span class="nav-number">7.</span> <span class="nav-text"> Reference Links</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -233,7 +235,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2024-04-10 22:14:01" itemprop="dateModified" datetime="2024-04-10T22:14:01+08:00">2024-04-10</time>
+      <time title="Modified: 2024-04-13 15:09:14" itemprop="dateModified" datetime="2024-04-13T15:09:14+08:00">2024-04-13</time>
     </span>
 
   
@@ -250,7 +252,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">Word count in article: </span>
-      <span>239</span>
+      <span>298</span>
     </span>
     <span class="post-meta-item" title="Reading time">
       <span class="post-meta-item-icon">
@@ -268,7 +270,7 @@
     
     
     <div class="post-body" itemprop="articleBody"><h2 id="install-next-theme"><a class="markdownIt-Anchor" href="#install-next-theme"></a> Install NexT theme</h2>
-<p>Firlst, you need to install the NexT theme, you can enter the following code:</p>
+<p>First, you need to install the NexT theme, you can enter the following code:</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-theme-next</span><br></pre></td></tr></table></figure>
 <p><img data-src="/images/Hexo-Next-Theme-Configuration/install_next.png" alt="" /></p>
 <hr />
@@ -283,7 +285,7 @@
 <p><img data-src="/images/Hexo-Next-Theme-Configuration/search.jpg" alt="" /></p>
 <hr />
 <h2 id="article-excerpt"><a class="markdownIt-Anchor" href="#article-excerpt"></a> Article excerpt</h2>
-<p>Install <a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=hexo&amp;spm=1001.2101.3001.7020">hexo</a>-excerpt via cmd:</p>
+<p>Install <strong>hexo-excerpt</strong> via cmd:</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-excerpt --save</span><br></pre></td></tr></table></figure>
 <p>Then, Add the following code to <em>Hexo _config.yml</em>:</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">excerpt:</span><br><span class="line">  depth: 5  </span><br><span class="line">  excerpt_excludes: []</span><br><span class="line">  more_excludes: []</span><br><span class="line">  hideWholePostExcerpts: true</span><br></pre></td></tr></table></figure>
@@ -295,18 +297,26 @@
 <p><img data-src="/images/Hexo-Next-Theme-Configuration/codeblock.png" alt="" /></p>
 <hr />
 <h2 id="article-word-count-and-reading-time"><a class="markdownIt-Anchor" href="#article-word-count-and-reading-time"></a> Article word count and reading time</h2>
-<p>Install hexo-word-counter via cmd:</p>
+<p>Install <strong>hexo-word-counter</strong> via cmd:</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-word-counter</span><br></pre></td></tr></table></figure>
 <p>Then, add the following code at the end of the <em>Hexo _config.yml</em>:</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">symbols_count_time:</span><br><span class="line">  symbols: true</span><br><span class="line">  time: true</span><br><span class="line">  total_symbols: true</span><br><span class="line">  total_time: true</span><br><span class="line">  exclude_codeblock: false</span><br><span class="line">  awl: 4</span><br><span class="line">  wpm: 275</span><br><span class="line">  suffix: &quot;mins.&quot;</span><br></pre></td></tr></table></figure>
 <p>Finally, modify the <em>NexT _config.yml</em>:</p>
 <p><img data-src="/images/Hexo-Next-Theme-Configuration/symbols_count_time.png" alt="" /></p>
 <hr />
+<h2 id="comment-system"><a class="markdownIt-Anchor" href="#comment-system"></a> Comment system</h2>
+<p>We can implement a comment system based on <strong>Gitalk</strong>. It saves article comments in the specified Github repository in the form of issues.</p>
+<p><img data-src="/images/Hexo-Next-Theme-Configuration/Register_OAuth.png" alt="" /></p>
+<p>First, you need to register a new OAuth application: <a target="_blank" rel="noopener" href="https://github.com/settings/applications/new">https://github.com/settings/applications/new</a></p>
+<p>Then, you need to edit the configuration in the <em>NexT _config.yml</em> as follows:</p>
+<p><img data-src="/images/Hexo-Next-Theme-Configuration/git_talk.jpg" alt="" /></p>
+<hr />
 <h2 id="reference-links"><a class="markdownIt-Anchor" href="#reference-links"></a> Reference Links</h2>
 <ul>
 <li><a target="_blank" rel="noopener" href="https://hexo-next.readthedocs.io/zh-cn/latest/next/advanced/%E6%90%9C%E7%B4%A2%E6%9C%8D%E5%8A%A1/">搜索服务 - Hexo-NexT</a></li>
 <li><a target="_blank" rel="noopener" href="https://blog.csdn.net/sinat_41696687/article/details/115021491">解决Hexo博客的Next主题中阅读全文没有auto_excerpt的问题-CSDN博客</a></li>
 <li><a target="_blank" rel="noopener" href="https://hexo-next.readthedocs.io/zh-cn/latest/next/advanced/%E5%AD%97%E6%95%B0%E7%BB%9F%E8%AE%A1/">https://hexo-next.readthedocs.io/zh-cn/latest/next/advanced/字数统计/</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://hexo-next.readthedocs.io/zh-cn/latest/next/advanced/gitalk-%E8%AF%84%E8%AE%BA%E7%B3%BB%E7%BB%9F/">Gitalk]评论系统 - Hexo-NexT</a></li>
 </ul>
 
     </div>
@@ -372,7 +382,7 @@
       <i class="fa fa-coffee"></i>
     </span>
       <span>Reading time total &asymp;</span>
-    <span title="Reading time total">16 mins.</span>
+    <span title="Reading time total">17 mins.</span>
   </span>
 </div>
 <div class="busuanzi-count">
