@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.1.1">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha256-wiz7ZSCn/btzhjKDQBms9Hx4sSeUYsDrTLg7roPstac=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"duohedounai.github.io","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.19.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="Minimum Spanning Tree For an undirected graph, the Minimum Spanning Tree is a connected subgraph of the original graph, which contains all the vertices of the original graph, and the sum of its edge">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Prim Algorithm for Finding the Minimum Spanning Tree">
+<meta property="og:url" content="https://duohedounai.github.io/2024/04/27/prim-algorithm/index.html">
+<meta property="og:site_name" content="Will Yuan&#39;s Blog">
+<meta property="og:description" content="Minimum Spanning Tree For an undirected graph, the Minimum Spanning Tree is a connected subgraph of the original graph, which contains all the vertices of the original graph, and the sum of its edge">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://duohedounai.github.io/images/prim-algorithm/origin.jpg">
+<meta property="og:image" content="https://duohedounai.github.io/images/prim-algorithm/1.jpg">
+<meta property="og:image" content="https://duohedounai.github.io/images/prim-algorithm/2.jpg">
+<meta property="og:image" content="https://duohedounai.github.io/images/prim-algorithm/3.jpg">
+<meta property="og:image" content="https://duohedounai.github.io/images/prim-algorithm/4.jpg">
+<meta property="og:image" content="https://duohedounai.github.io/images/prim-algorithm/5.jpg">
+<meta property="og:image" content="https://duohedounai.github.io/images/prim-algorithm/6.jpg">
+<meta property="og:image" content="https://duohedounai.github.io/images/prim-algorithm/7.jpg">
+<meta property="og:image" content="https://duohedounai.github.io/images/prim-algorithm/8.jpg">
+<meta property="article:published_time" content="2024-04-27T01:25:18.000Z">
+<meta property="article:modified_time" content="2024-04-27T01:42:19.083Z">
+<meta property="article:author" content="Will Yuan">
+<meta property="article:tag" content="Python">
+<meta property="article:tag" content="Graph Theory">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://duohedounai.github.io/images/prim-algorithm/origin.jpg">
+
+
+<link rel="canonical" href="https://duohedounai.github.io/2024/04/27/prim-algorithm/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://duohedounai.github.io/2024/04/27/prim-algorithm/","path":"2024/04/27/prim-algorithm/","title":"Prim Algorithm for Finding the Minimum Spanning Tree"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Prim Algorithm for Finding the Minimum Spanning Tree | Will Yuan's Blog</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Will Yuan's Blog</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#minimum-spanning-tree"><span class="nav-number">1.</span> <span class="nav-text"> Minimum Spanning Tree</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#prim-algorithm-steps"><span class="nav-number">2.</span> <span class="nav-text"> Prim Algorithm steps</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#example"><span class="nav-number">3.</span> <span class="nav-text"> Example</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#code"><span class="nav-number">4.</span> <span class="nav-text"> Code</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#reference-links"><span class="nav-number">5.</span> <span class="nav-text"> Reference Links</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Will Yuan</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">11</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://duohedounai.github.io/2024/04/27/prim-algorithm/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Will Yuan">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Will Yuan's Blog">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Prim Algorithm for Finding the Minimum Spanning Tree | Will Yuan's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Prim Algorithm for Finding the Minimum Spanning Tree
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2024-04-27 09:25:18 / Modified: 09:42:19" itemprop="dateCreated datePublished" datetime="2024-04-27T09:25:18+08:00">2024-04-27</time>
+    </span>
+
+  
+    <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="Word count in article">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">Word count in article: </span>
+      <span>887</span>
+    </span>
+    <span class="post-meta-item" title="Reading time">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">Reading time &asymp;</span>
+      <span>3 mins.</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h2 id="minimum-spanning-tree"><a class="markdownIt-Anchor" href="#minimum-spanning-tree"></a> Minimum Spanning Tree</h2>
+<p>For an undirected graph, the Minimum Spanning Tree is a connected subgraph of the original graph, which contains all the vertices of the original graph, and the sum of its edge weights is the smallest. We can use Prim algorithm to get the minimum spanning tree.</p>
+<hr />
+<h2 id="prim-algorithm-steps"><a class="markdownIt-Anchor" href="#prim-algorithm-steps"></a> Prim Algorithm steps</h2>
+<p>The algorithm usually includes the following steps:</p>
+<ul>
+<li>
+<p>Select any vertex from the graph as the root node of the tree.</p>
+</li>
+<li>
+<p>Find the edge with the smallest weight that is not yet connected to the tree and add it to the tree.</p>
+</li>
+<li>
+<p>Repeat step 2 until all vertices of the graph are in the tree.</p>
+</li>
+</ul>
+<hr />
+<h2 id="example"><a class="markdownIt-Anchor" href="#example"></a> Example</h2>
+<img data-src="/images/prim-algorithm/origin.jpg" style="zoom: 60%;" />
+<p>Take this undirected weighted graph as an example to show the process of the Prim algorithm.</p>
+<p>First, let's start with node A.</p>
+<img data-src="/images/prim-algorithm/1.jpg" style="zoom: 60%;" />
+<p>Then, the set of visited nodes is: <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">[</mo><mi>A</mi><mo stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">[A]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">[</span><span class="mord mathnormal">A</span><span class="mclose">]</span></span></span></span>. The closest node to the set of visited nodes is <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>B</mi></mrow><annotation encoding="application/x-tex">B</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span></span></span></span> (with a weight of 5), which is added to the set of visited nodes.</p>
+<img data-src="/images/prim-algorithm/2.jpg" style="zoom:60%;" />
+<p>Then, the set of visited nodes is: <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">[</mo><mi>A</mi><mo separator="true">,</mo><mi>B</mi><mo stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">[A,B]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">[</span><span class="mord mathnormal">A</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span><span class="mclose">]</span></span></span></span>. The closest node to the set of visited nodes is <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>D</mi></mrow><annotation encoding="application/x-tex">D</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">D</span></span></span></span> (with a weight of 5), which is added to the set of visited nodes.</p>
+<img data-src="/images/prim-algorithm/3.jpg" style="zoom:60%;" />
+<p>Then, the set of visited nodes is: <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">[</mo><mi>A</mi><mo separator="true">,</mo><mi>B</mi><mo separator="true">,</mo><mi>D</mi><mo stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">[A,B,D]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">[</span><span class="mord mathnormal">A</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">D</span><span class="mclose">]</span></span></span></span>. The closest node to the set of visited nodes is <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>C</mi></mrow><annotation encoding="application/x-tex">C</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span></span></span></span> (with a weight of 20), which is added to the set of visited nodes.</p>
+<img data-src="/images/prim-algorithm/4.jpg" style="zoom:60%;" />
+<p>Then, the set of visited nodes is: <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">[</mo><mi>A</mi><mo separator="true">,</mo><mi>B</mi><mo separator="true">,</mo><mi>D</mi><mo separator="true">,</mo><mi>C</mi><mo stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">[A,B,D,C]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">[</span><span class="mord mathnormal">A</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">D</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="mclose">]</span></span></span></span>. The closest node to the set of visited nodes is <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>F</mi></mrow><annotation encoding="application/x-tex">F</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">F</span></span></span></span> (with a weight of 10), which is added to the set of visited nodes.</p>
+<img data-src="/images/prim-algorithm/5.jpg" style="zoom:60%;" />
+<p>Then, the set of visited nodes is: <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">[</mo><mi>A</mi><mo separator="true">,</mo><mi>B</mi><mo separator="true">,</mo><mi>D</mi><mo separator="true">,</mo><mi>C</mi><mo separator="true">,</mo><mi>F</mi><mo stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">[A,B,D,C,F]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">[</span><span class="mord mathnormal">A</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">D</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">F</span><span class="mclose">]</span></span></span></span>. The closest node to the set of visited nodes is <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>E</mi></mrow><annotation encoding="application/x-tex">E</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">E</span></span></span></span> (with a weight of 20), which is added to the set of visited nodes.</p>
+<img data-src="/images/prim-algorithm/6.jpg" style="zoom:60%;" />
+<p>Then, the set of visited nodes is: <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">[</mo><mi>A</mi><mo separator="true">,</mo><mi>B</mi><mo separator="true">,</mo><mi>D</mi><mo separator="true">,</mo><mi>C</mi><mo separator="true">,</mo><mi>F</mi><mo separator="true">,</mo><mi>E</mi><mo stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">[A,B,D,C,F,E]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">[</span><span class="mord mathnormal">A</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">D</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">F</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">E</span><span class="mclose">]</span></span></span></span>. The closest node to the set of visited nodes is <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>G</mi></mrow><annotation encoding="application/x-tex">G</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal">G</span></span></span></span> (with a weight of 20), which is added to the set of visited nodes.</p>
+<img data-src="/images/prim-algorithm/7.jpg" style="zoom:60%;" />
+<p>Finally, we can get the following minimum spanning tree:</p>
+<img data-src="/images/prim-algorithm/8.jpg" style="zoom:60%;" />
+<hr />
+<h2 id="code"><a class="markdownIt-Anchor" href="#code"></a> Code</h2>
+<p>The Prim algorithm is implemented using Python.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> heapq</span><br><span class="line"></span><br><span class="line"><span class="comment"># Prim algorithm</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">prim</span>(<span class="params">adjacency_table_map</span>):</span><br><span class="line">    <span class="comment"># Set of visited vertices. Use the first node as the starting node and add it to the visited_node_set.</span></span><br><span class="line">    visited_node_set = &#123;<span class="built_in">next</span>(<span class="built_in">iter</span>(adjacency_table_map.keys()))&#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment"># Priority queue to store candidate edges (visited_node, next_node, weight), sorted by weight</span></span><br><span class="line">    candidate_edges_pq = []</span><br><span class="line"></span><br><span class="line">    <span class="comment"># Record the neighbor node information of the first node</span></span><br><span class="line">    <span class="keyword">for</span> neighbor_node, weight <span class="keyword">in</span> adjacency_table_map[<span class="built_in">next</span>(<span class="built_in">iter</span>(adjacency_table_map.keys()))].items():</span><br><span class="line">        heapq.heappush(candidate_edges_pq, (weight, <span class="built_in">next</span>(<span class="built_in">iter</span>(adjacency_table_map.keys())), neighbor_node))</span><br><span class="line"></span><br><span class="line">    <span class="comment"># Initialize the Minimum Spanning Tree with an empty edge list and total weight of zero</span></span><br><span class="line">    mst_edges_list = []</span><br><span class="line">    total_weight = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># Process vertices until all vertices are visited</span></span><br><span class="line">    <span class="keyword">while</span> <span class="built_in">len</span>(visited_node_set) &lt; <span class="built_in">len</span>(adjacency_table_map.keys()):</span><br><span class="line">        <span class="comment"># Pop the edge with the minimum weight from the priority queue</span></span><br><span class="line">        weight, visited_node, next_node = heapq.heappop(candidate_edges_pq)</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;Among the nodes aren&#x27;t visited, the node closest to the visited nodes is : &quot;</span> + <span class="built_in">str</span>(next_node)</span><br><span class="line">              + <span class="string">&quot;. The corresponding weight is:&quot;</span> + <span class="built_in">str</span>(weight))</span><br><span class="line"></span><br><span class="line">        <span class="comment"># If the next node is not visited yet, add the edge to the MST and mark it as visited</span></span><br><span class="line">        <span class="keyword">if</span> next_node <span class="keyword">not</span> <span class="keyword">in</span> visited_node_set:</span><br><span class="line">            mst_edges_list.append((visited_node, next_node))</span><br><span class="line">            total_weight += weight</span><br><span class="line">            visited_node_set.add(next_node)</span><br><span class="line"></span><br><span class="line">            <span class="comment"># Record the neighbor node information of the next node</span></span><br><span class="line">            <span class="keyword">for</span> neighbor_node, edge_weight <span class="keyword">in</span> adjacency_table_map[next_node].items():</span><br><span class="line">                <span class="keyword">if</span> neighbor_node <span class="keyword">not</span> <span class="keyword">in</span> visited_node_set:</span><br><span class="line">                    heapq.heappush(candidate_edges_pq, (edge_weight, next_node, neighbor_node))</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> mst_edges_list, total_weight</span><br><span class="line"></span><br><span class="line"><span class="comment"># Example usage:</span></span><br><span class="line"><span class="comment"># Use adjacency_table to represent the graph</span></span><br><span class="line">adjacency_table_map = &#123;</span><br><span class="line">    <span class="string">&quot;A&quot;</span>: &#123;<span class="string">&quot;B&quot;</span>: <span class="number">5</span>, <span class="string">&quot;C&quot;</span>: <span class="number">20</span>, <span class="string">&quot;D&quot;</span>: <span class="number">5</span>, <span class="string">&quot;E&quot;</span>: <span class="number">20</span>, <span class="string">&quot;F&quot;</span>: <span class="number">50</span>&#125;,</span><br><span class="line">    <span class="string">&quot;B&quot;</span>: &#123;<span class="string">&quot;A&quot;</span>: <span class="number">5</span>, <span class="string">&quot;C&quot;</span>: <span class="number">30</span>, <span class="string">&quot;D&quot;</span>: <span class="number">30</span>&#125;,</span><br><span class="line">    <span class="string">&quot;C&quot;</span>: &#123;<span class="string">&quot;A&quot;</span>: <span class="number">20</span>, <span class="string">&quot;B&quot;</span>: <span class="number">30</span>, <span class="string">&quot;F&quot;</span>: <span class="number">10</span>&#125;,</span><br><span class="line">    <span class="string">&quot;D&quot;</span>: &#123;<span class="string">&quot;A&quot;</span>: <span class="number">5</span>, <span class="string">&quot;B&quot;</span>: <span class="number">30</span>, <span class="string">&quot;E&quot;</span>: <span class="number">25</span>&#125;,</span><br><span class="line">    <span class="string">&quot;E&quot;</span>: &#123;<span class="string">&quot;A&quot;</span>: <span class="number">20</span>, <span class="string">&quot;D&quot;</span>: <span class="number">25</span>, <span class="string">&quot;F&quot;</span>: <span class="number">50</span>, <span class="string">&quot;G&quot;</span>: <span class="number">40</span>&#125;,</span><br><span class="line">    <span class="string">&quot;F&quot;</span>: &#123;<span class="string">&quot;A&quot;</span>: <span class="number">50</span>, <span class="string">&quot;C&quot;</span>: <span class="number">10</span>, <span class="string">&quot;E&quot;</span>: <span class="number">50</span>, <span class="string">&quot;G&quot;</span>: <span class="number">20</span>&#125;,</span><br><span class="line">    <span class="string">&quot;G&quot;</span>: &#123;<span class="string">&quot;E&quot;</span>: <span class="number">40</span>, <span class="string">&quot;F&quot;</span>: <span class="number">20</span>&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># Call the Prim&#x27;s algorithm function</span></span><br><span class="line">mst_edges, total_weight = prim(adjacency_table_map)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Minimum Spanning Tree Edges:&quot;</span>, mst_edges)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Total Weight of the Minimum Spanning Tree:&quot;</span>, total_weight)</span><br></pre></td></tr></table></figure>
+<p>The output is as follows:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Among the nodes aren<span class="string">&#x27;t visited, the node closest to the visited nodes is : B. The corresponding weight is:5</span></span><br><span class="line"><span class="string">Among the nodes aren&#x27;</span>t visited, the node closest to the visited nodes <span class="keyword">is</span> : D. The corresponding weight <span class="keyword">is</span>:<span class="number">5</span></span><br><span class="line">Among the nodes aren<span class="string">&#x27;t visited, the node closest to the visited nodes is : C. The corresponding weight is:20</span></span><br><span class="line"><span class="string">Among the nodes aren&#x27;</span>t visited, the node closest to the visited nodes <span class="keyword">is</span> : F. The corresponding weight <span class="keyword">is</span>:<span class="number">10</span></span><br><span class="line">Among the nodes aren<span class="string">&#x27;t visited, the node closest to the visited nodes is : E. The corresponding weight is:20</span></span><br><span class="line"><span class="string">Among the nodes aren&#x27;</span>t visited, the node closest to the visited nodes <span class="keyword">is</span> : G. The corresponding weight <span class="keyword">is</span>:<span class="number">20</span></span><br><span class="line">Minimum Spanning Tree Edges: [(<span class="string">&#x27;A&#x27;</span>, <span class="string">&#x27;B&#x27;</span>), (<span class="string">&#x27;A&#x27;</span>, <span class="string">&#x27;D&#x27;</span>), (<span class="string">&#x27;A&#x27;</span>, <span class="string">&#x27;C&#x27;</span>), (<span class="string">&#x27;C&#x27;</span>, <span class="string">&#x27;F&#x27;</span>), (<span class="string">&#x27;A&#x27;</span>, <span class="string">&#x27;E&#x27;</span>), (<span class="string">&#x27;F&#x27;</span>, <span class="string">&#x27;G&#x27;</span>)]</span><br><span class="line">Total Weight of the Minimum Spanning Tree: <span class="number">80</span></span><br></pre></td></tr></table></figure>
+<hr />
+<h2 id="reference-links"><a class="markdownIt-Anchor" href="#reference-links"></a> Reference Links</h2>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Minimum_spanning_tree">https://en.wikipedia.org/wiki/Minimum_spanning_tree</a></li>
+<li><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Prim%27s_algorithm">https://en.wikipedia.org/wiki/Prim's_algorithm</a></li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>Post author:  </strong>Will Yuan
+  </li>
+  <li class="post-copyright-link">
+      <strong>Post link: </strong>
+      <a href="https://duohedounai.github.io/2024/04/27/prim-algorithm/" title="Prim Algorithm for Finding the Minimum Spanning Tree">https://duohedounai.github.io/2024/04/27/prim-algorithm/</a>
+  </li>
+  <li class="post-copyright-license">
+      <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/Python/" rel="tag"># Python</a>
+              <a href="/tags/Graph-Theory/" rel="tag"># Graph Theory</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2024/04/19/Calculate-distance-between-two-points-given-latitude-and-longitude-in-Python/" rel="prev" title="Calculate Distance Between Two Points Given Latitude and Longitude in Python">
+                  <i class="fa fa-angle-left"></i> Calculate Distance Between Two Points Given Latitude and Longitude in Python
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments gitalk-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2024</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Will Yuan</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>Word count total: </span>
+    <span title="Word count total">6k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>Reading time total &asymp;</span>
+    <span title="Reading time total">23 mins.</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.16.0/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.8.0/gitalk.css" integrity="sha256-AJnUHL7dBv6PGaeyPQJcgQPDjt/Hn/PvYZde1iqfp8U=" crossorigin="anonymous">
+
+<script class="next-config" data-name="gitalk" type="application/json">{"enable":true,"github_id":"duohedounai","repo":"duohedounai.github.io","client_id":"005ce2ed36a466b0bfc9","client_secret":"7f9def3a076d9133cd9c538d9f2a8af1847794ad","admin_user":"duohedounai","distraction_free_mode":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token","language":"en","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.8.0/gitalk.min.js","integrity":"sha256-MVK9MGD/XJaGyIghSVrONSnoXoGh3IFxLw0zfvzpxR4="},"path_md5":"41469396ba134842fdb39388ec23b39f"}</script>
+<script src="/js/third-party/comments/gitalk.js"></script>
+
+</body>
+</html>
