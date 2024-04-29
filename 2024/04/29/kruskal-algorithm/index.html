@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.1.1">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha256-wiz7ZSCn/btzhjKDQBms9Hx4sSeUYsDrTLg7roPstac=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"duohedounai.github.io","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.19.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="For obtaining the minimum spanning tree, the Prim algorithm has been introduced before, and here is another algorithm: Kruskal algorithm.   Kruskal Algorithm steps Step 1: Sorts all edges in the graph">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Kruskal Algorithm for Finding the Minimum Spanning Tree">
+<meta property="og:url" content="https://duohedounai.github.io/2024/04/29/kruskal-algorithm/index.html">
+<meta property="og:site_name" content="Will Yuan&#39;s Blog">
+<meta property="og:description" content="For obtaining the minimum spanning tree, the Prim algorithm has been introduced before, and here is another algorithm: Kruskal algorithm.   Kruskal Algorithm steps Step 1: Sorts all edges in the graph">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://duohedounai.github.io/images/kruskal-algorithm/origin.jpg">
+<meta property="og:image" content="https://duohedounai.github.io/images/kruskal-algorithm/1.jpg">
+<meta property="og:image" content="https://duohedounai.github.io/images/kruskal-algorithm/2.jpg">
+<meta property="og:image" content="https://duohedounai.github.io/images/kruskal-algorithm/3.jpg">
+<meta property="og:image" content="https://duohedounai.github.io/images/kruskal-algorithm/4.jpg">
+<meta property="og:image" content="https://duohedounai.github.io/images/kruskal-algorithm/5.jpg">
+<meta property="og:image" content="https://duohedounai.github.io/images/kruskal-algorithm/6.jpg">
+<meta property="og:image" content="https://duohedounai.github.io/images/kruskal-algorithm/NEW.jpg">
+<meta property="article:published_time" content="2024-04-29T13:35:22.000Z">
+<meta property="article:modified_time" content="2024-04-29T13:39:52.794Z">
+<meta property="article:author" content="Will Yuan">
+<meta property="article:tag" content="Python">
+<meta property="article:tag" content="Graph Theory">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://duohedounai.github.io/images/kruskal-algorithm/origin.jpg">
+
+
+<link rel="canonical" href="https://duohedounai.github.io/2024/04/29/kruskal-algorithm/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://duohedounai.github.io/2024/04/29/kruskal-algorithm/","path":"2024/04/29/kruskal-algorithm/","title":"Kruskal Algorithm for Finding the Minimum Spanning Tree"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Kruskal Algorithm for Finding the Minimum Spanning Tree | Will Yuan's Blog</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Will Yuan's Blog</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#kruskal-algorithm-steps"><span class="nav-number">1.</span> <span class="nav-text"> Kruskal Algorithm steps</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#example"><span class="nav-number">2.</span> <span class="nav-text"> Example</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#code"><span class="nav-number">3.</span> <span class="nav-text"> Code</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#reference-links"><span class="nav-number">4.</span> <span class="nav-text"> Reference Links</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Will Yuan</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">12</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://duohedounai.github.io/2024/04/29/kruskal-algorithm/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Will Yuan">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Will Yuan's Blog">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Kruskal Algorithm for Finding the Minimum Spanning Tree | Will Yuan's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Kruskal Algorithm for Finding the Minimum Spanning Tree
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2024-04-29 21:35:22 / Modified: 21:39:52" itemprop="dateCreated datePublished" datetime="2024-04-29T21:35:22+08:00">2024-04-29</time>
+    </span>
+
+  
+    <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="Word count in article">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">Word count in article: </span>
+      <span>1k</span>
+    </span>
+    <span class="post-meta-item" title="Reading time">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">Reading time &asymp;</span>
+      <span>4 mins.</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>For obtaining the minimum spanning tree, the Prim algorithm has been introduced before, and here is another algorithm: Kruskal algorithm.</p>
+<hr />
+<h2 id="kruskal-algorithm-steps"><a class="markdownIt-Anchor" href="#kruskal-algorithm-steps"></a> Kruskal Algorithm steps</h2>
+<p>Step 1: Sorts all edges in the graph by weight from smallest to largest.</p>
+<p>Step 1: Try adding edges to the tree from smallest to largest, and if the newly added edge forms a loop with other edges in the tree, skip the edge and continue trying the other edges.</p>
+<p>Step 1: If <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>−</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">n-1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="mord mathnormal">n</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span> edges are added to the tree, the minimum spanning tree is built, where <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathnormal">n</span></span></span></span> is the number of vertices of the graph.</p>
+<p>Note that in the process of adding edges to the tree, Disjoint Set Union is used to determine if a loop is formed.</p>
+<hr />
+<h2 id="example"><a class="markdownIt-Anchor" href="#example"></a> Example</h2>
+<img data-src="/images/kruskal-algorithm/origin.jpg" style="zoom: 60%;" />
+<p>Take this undirected weighted graph as an example to show the process of the Kruskal algorithm.</p>
+<p>First, sort all edges in order of weight, from smallest to largest. Select the edge with the lowest weight which is <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mi>D</mi></mrow><annotation encoding="application/x-tex">AD</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal">A</span><span class="mord mathnormal" style="margin-right:0.02778em;">D</span></span></span></span> here. If there are multiple edges with the lowest weight, select any one.</p>
+<img data-src="/images/kruskal-algorithm/1.jpg" style="zoom: 60%;" />
+<p>Then, select the edge <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mi>B</mi></mrow><annotation encoding="application/x-tex">AB</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal">A</span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span></span></span></span> with the lowest weight to add to the tree.</p>
+<img data-src="/images/kruskal-algorithm/2.jpg" style="zoom: 60%;" />
+<p>Then, select the edge <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>C</mi><mi>F</mi></mrow><annotation encoding="application/x-tex">CF</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="mord mathnormal" style="margin-right:0.13889em;">F</span></span></span></span> with the lowest weight to add to the tree.</p>
+<img data-src="/images/kruskal-algorithm/3.jpg" style="zoom: 60%;" />
+<p>Then, select the edge <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mi>C</mi></mrow><annotation encoding="application/x-tex">AC</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal">A</span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span></span></span></span> with the lowest weight to add to the tree.</p>
+<img data-src="/images/kruskal-algorithm/4.jpg" style="zoom: 60%;" />
+<p>Then, select the edge <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mi>E</mi></mrow><annotation encoding="application/x-tex">AE</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal">A</span><span class="mord mathnormal" style="margin-right:0.05764em;">E</span></span></span></span> with the lowest weight to add to the tree.</p>
+<img data-src="/images/kruskal-algorithm/5.jpg" style="zoom: 60%;" />
+<p>Then, select the edge <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>F</mi><mi>G</mi></mrow><annotation encoding="application/x-tex">FG</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">F</span><span class="mord mathnormal">G</span></span></span></span> with the lowest weight to add to the tree. The original graph had 7 vertices, and now there are 6 edges in the tree, so the minimum spanning tree is built.</p>
+<img data-src="/images/kruskal-algorithm/6.jpg" style="zoom: 60%;" />
+<p>Finally, we can get the following minimum spanning tree:</p>
+<img data-src="/images/kruskal-algorithm/NEW.jpg" style="zoom: 60%;" />
+<hr />
+<h2 id="code"><a class="markdownIt-Anchor" href="#code"></a> Code</h2>
+<p>The Kruskal algorithm is implemented using Python.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> heapq</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># Disjoint Set Union functions</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">find</span>(<span class="params">all_node_parent, node</span>):</span><br><span class="line">    <span class="keyword">if</span> all_node_parent[node] != node:</span><br><span class="line">        all_node_parent[node] = find(all_node_parent, all_node_parent[node])</span><br><span class="line">    <span class="keyword">return</span> all_node_parent[node]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">union</span>(<span class="params">all_node_parent, node_1, node_2</span>):</span><br><span class="line">    root_1 = find(all_node_parent, node_1)</span><br><span class="line">    root_2 = find(all_node_parent, node_2)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> root_1 != root_2:</span><br><span class="line">        all_node_parent[root_2] = root_1</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># Kruskal algorithm</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">kruskal</span>(<span class="params">adjacency_table_map</span>):</span><br><span class="line">    <span class="comment"># Use priority queue to store candidate edges, sorted by weight</span></span><br><span class="line">    candidate_edges_pq = []</span><br><span class="line">    <span class="keyword">for</span> curr_node, neighbors <span class="keyword">in</span> adjacency_table_map.items():</span><br><span class="line">        <span class="keyword">for</span> neighbor_node, weight <span class="keyword">in</span> neighbors.items():</span><br><span class="line">            heapq.heappush(candidate_edges_pq, (weight, curr_node, neighbor_node))</span><br><span class="line"></span><br><span class="line">    <span class="comment"># Initialize the Minimum Spanning Tree with an empty edge list and total weight of zero</span></span><br><span class="line">    mst_edges_list = []</span><br><span class="line">    total_weight = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># Initialize the parent node of all nodes, and this will be used in the Disjoint Set Union functions</span></span><br><span class="line">    node_parent = &#123;node: node <span class="keyword">for</span> node <span class="keyword">in</span> adjacency_table_map&#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> <span class="built_in">len</span>(candidate_edges_pq) &gt; <span class="number">0</span>:</span><br><span class="line">        <span class="comment"># Pop the edge with the minimum weight from the priority queue</span></span><br><span class="line">        weight, curr_node, next_node = heapq.heappop(candidate_edges_pq)</span><br><span class="line"></span><br><span class="line">        <span class="comment"># if two nodes are in the same set, a loop will be formed when the edge is added to the tree</span></span><br><span class="line">        <span class="keyword">if</span> find(node_parent, curr_node) != find(node_parent, next_node):</span><br><span class="line">            <span class="comment"># Merge two disjoint sets into a single set</span></span><br><span class="line">            union(node_parent, curr_node, next_node)</span><br><span class="line"></span><br><span class="line">            <span class="comment"># Add the edge to the tree</span></span><br><span class="line">            mst_edges_list.append((weight, curr_node, next_node))</span><br><span class="line">            total_weight += weight</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">&quot;The edge with the lowest weight selected this time : &quot;</span> + <span class="built_in">str</span>(curr_node) + <span class="string">&quot;-&quot;</span> + <span class="built_in">str</span>(next_node)</span><br><span class="line">                  + <span class="string">&quot;, weight: &quot;</span> + <span class="built_in">str</span>(weight) + <span class="string">&quot;. Add it to the tree.&quot;</span>)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">&quot;The edge with the lowest weight selected this time : &quot;</span> + <span class="built_in">str</span>(curr_node) + <span class="string">&quot;-&quot;</span> + <span class="built_in">str</span>(next_node)</span><br><span class="line">                  + <span class="string">&quot;, weight: &quot;</span> + <span class="built_in">str</span>(weight) + <span class="string">&quot;. Discard it because it will form a cycle.&quot;</span>)</span><br><span class="line"></span><br><span class="line">        <span class="comment"># Check if the tree is complete (If the graph has n vertices, the minimum spanning tree has n-1 edges)</span></span><br><span class="line">        <span class="keyword">if</span> <span class="built_in">len</span>(mst_edges_list) == <span class="built_in">len</span>(adjacency_table_map) - <span class="number">1</span>:</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> mst_edges_list, total_weight</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># Example usage:</span></span><br><span class="line"><span class="comment"># Use adjacency_table to represent the graph</span></span><br><span class="line">adjacency_table_map = &#123;</span><br><span class="line">    <span class="string">&quot;A&quot;</span>: &#123;<span class="string">&quot;B&quot;</span>: <span class="number">5</span>, <span class="string">&quot;C&quot;</span>: <span class="number">20</span>, <span class="string">&quot;D&quot;</span>: <span class="number">5</span>, <span class="string">&quot;E&quot;</span>: <span class="number">20</span>, <span class="string">&quot;F&quot;</span>: <span class="number">50</span>&#125;,</span><br><span class="line">    <span class="string">&quot;B&quot;</span>: &#123;<span class="string">&quot;A&quot;</span>: <span class="number">5</span>, <span class="string">&quot;C&quot;</span>: <span class="number">30</span>, <span class="string">&quot;D&quot;</span>: <span class="number">30</span>&#125;,</span><br><span class="line">    <span class="string">&quot;C&quot;</span>: &#123;<span class="string">&quot;A&quot;</span>: <span class="number">20</span>, <span class="string">&quot;B&quot;</span>: <span class="number">30</span>, <span class="string">&quot;F&quot;</span>: <span class="number">10</span>&#125;,</span><br><span class="line">    <span class="string">&quot;D&quot;</span>: &#123;<span class="string">&quot;A&quot;</span>: <span class="number">5</span>, <span class="string">&quot;B&quot;</span>: <span class="number">30</span>, <span class="string">&quot;E&quot;</span>: <span class="number">25</span>&#125;,</span><br><span class="line">    <span class="string">&quot;E&quot;</span>: &#123;<span class="string">&quot;A&quot;</span>: <span class="number">20</span>, <span class="string">&quot;D&quot;</span>: <span class="number">25</span>, <span class="string">&quot;F&quot;</span>: <span class="number">50</span>, <span class="string">&quot;G&quot;</span>: <span class="number">40</span>&#125;,</span><br><span class="line">    <span class="string">&quot;F&quot;</span>: &#123;<span class="string">&quot;A&quot;</span>: <span class="number">50</span>, <span class="string">&quot;C&quot;</span>: <span class="number">10</span>, <span class="string">&quot;E&quot;</span>: <span class="number">50</span>, <span class="string">&quot;G&quot;</span>: <span class="number">20</span>&#125;,</span><br><span class="line">    <span class="string">&quot;G&quot;</span>: &#123;<span class="string">&quot;E&quot;</span>: <span class="number">40</span>, <span class="string">&quot;F&quot;</span>: <span class="number">20</span>&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># Call the Kruskal algorithm function</span></span><br><span class="line">mst_edges, total_weight = kruskal(adjacency_table_map)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Minimum Spanning Tree Edges:&quot;</span>, mst_edges)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Total Weight of the Minimum Spanning Tree:&quot;</span>, total_weight)</span><br></pre></td></tr></table></figure>
+<p>The output is as follows:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">The edge <span class="keyword">with</span> the lowest weight selected this time : A-B, weight: <span class="number">5.</span> Add it to the tree.</span><br><span class="line">The edge <span class="keyword">with</span> the lowest weight selected this time : A-D, weight: <span class="number">5.</span> Add it to the tree.</span><br><span class="line">The edge <span class="keyword">with</span> the lowest weight selected this time : B-A, weight: <span class="number">5.</span> Discard it because it will form a cycle.</span><br><span class="line">The edge <span class="keyword">with</span> the lowest weight selected this time : D-A, weight: <span class="number">5.</span> Discard it because it will form a cycle.</span><br><span class="line">The edge <span class="keyword">with</span> the lowest weight selected this time : C-F, weight: <span class="number">10.</span> Add it to the tree.</span><br><span class="line">The edge <span class="keyword">with</span> the lowest weight selected this time : F-C, weight: <span class="number">10.</span> Discard it because it will form a cycle.</span><br><span class="line">The edge <span class="keyword">with</span> the lowest weight selected this time : A-C, weight: <span class="number">20.</span> Add it to the tree.</span><br><span class="line">The edge <span class="keyword">with</span> the lowest weight selected this time : A-E, weight: <span class="number">20.</span> Add it to the tree.</span><br><span class="line">The edge <span class="keyword">with</span> the lowest weight selected this time : C-A, weight: <span class="number">20.</span> Discard it because it will form a cycle.</span><br><span class="line">The edge <span class="keyword">with</span> the lowest weight selected this time : E-A, weight: <span class="number">20.</span> Discard it because it will form a cycle.</span><br><span class="line">The edge <span class="keyword">with</span> the lowest weight selected this time : F-G, weight: <span class="number">20.</span> Add it to the tree.</span><br><span class="line">Minimum Spanning Tree Edges: [(<span class="number">5</span>, <span class="string">&#x27;A&#x27;</span>, <span class="string">&#x27;B&#x27;</span>), (<span class="number">5</span>, <span class="string">&#x27;A&#x27;</span>, <span class="string">&#x27;D&#x27;</span>), (<span class="number">10</span>, <span class="string">&#x27;C&#x27;</span>, <span class="string">&#x27;F&#x27;</span>), (<span class="number">20</span>, <span class="string">&#x27;A&#x27;</span>, <span class="string">&#x27;C&#x27;</span>), (<span class="number">20</span>, <span class="string">&#x27;A&#x27;</span>, <span class="string">&#x27;E&#x27;</span>), (<span class="number">20</span>, <span class="string">&#x27;F&#x27;</span>, <span class="string">&#x27;G&#x27;</span>)]</span><br><span class="line">Total Weight of the Minimum Spanning Tree: <span class="number">80</span></span><br></pre></td></tr></table></figure>
+<hr />
+<h2 id="reference-links"><a class="markdownIt-Anchor" href="#reference-links"></a> Reference Links</h2>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/article/2304976">Python 算法基础篇之最小生成树算法： Prim 算法和 Kruskal 算法-腾讯云开发者社区-腾讯云 (tencent.com)</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.cnblogs.com/jyxcpp/p/16536453.html">彻底搞懂克鲁斯卡尔（Kruskal）算法（附C++代码实现） - QuanHa - 博客园 (cnblogs.com)</a></li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>Post author:  </strong>Will Yuan
+  </li>
+  <li class="post-copyright-link">
+      <strong>Post link: </strong>
+      <a href="https://duohedounai.github.io/2024/04/29/kruskal-algorithm/" title="Kruskal Algorithm for Finding the Minimum Spanning Tree">https://duohedounai.github.io/2024/04/29/kruskal-algorithm/</a>
+  </li>
+  <li class="post-copyright-license">
+      <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/Python/" rel="tag"># Python</a>
+              <a href="/tags/Graph-Theory/" rel="tag"># Graph Theory</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2024/04/27/prim-algorithm/" rel="prev" title="Prim Algorithm for Finding the Minimum Spanning Tree">
+                  <i class="fa fa-angle-left"></i> Prim Algorithm for Finding the Minimum Spanning Tree
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments gitalk-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2024</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Will Yuan</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>Word count total: </span>
+    <span title="Word count total">7k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>Reading time total &asymp;</span>
+    <span title="Reading time total">27 mins.</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.16.0/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.8.0/gitalk.css" integrity="sha256-AJnUHL7dBv6PGaeyPQJcgQPDjt/Hn/PvYZde1iqfp8U=" crossorigin="anonymous">
+
+<script class="next-config" data-name="gitalk" type="application/json">{"enable":true,"github_id":"duohedounai","repo":"duohedounai.github.io","client_id":"005ce2ed36a466b0bfc9","client_secret":"7f9def3a076d9133cd9c538d9f2a8af1847794ad","admin_user":"duohedounai","distraction_free_mode":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token","language":"en","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.8.0/gitalk.min.js","integrity":"sha256-MVK9MGD/XJaGyIghSVrONSnoXoGh3IFxLw0zfvzpxR4="},"path_md5":"2fbe087c622b6b35a7464ed1149b9902"}</script>
+<script src="/js/third-party/comments/gitalk.js"></script>
+
+</body>
+</html>
