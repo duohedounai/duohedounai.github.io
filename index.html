@@ -212,7 +212,7 @@
       <span class="post-meta-item-text">Posted on</span>
       
 
-      <time title="Created: 2024-04-29 21:35:22 / Modified: 21:39:52" itemprop="dateCreated datePublished" datetime="2024-04-29T21:35:22+08:00">2024-04-29</time>
+      <time title="Created: 2024-04-29 21:35:22 / Modified: 21:52:14" itemprop="dateCreated datePublished" datetime="2024-04-29T21:35:22+08:00">2024-04-29</time>
     </span>
 
   
@@ -222,7 +222,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">Word count in article: </span>
-      <span>1k</span>
+      <span>1.1k</span>
     </span>
     <span class="post-meta-item" title="Reading time">
       <span class="post-meta-item-icon">
@@ -240,11 +240,21 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>For obtaining the minimum spanning tree, the Prim algorithm has been introduced before, and here is another algorithm: Kruskal algorithm.</p>
+          <p>For obtaining the minimum spanning tree, the [Prim algorithm](<a href="https://duohedounai.github.io/2024/04/27/prim-algorithm/">Prim Algorithm for Finding the Minimum Spanning Tree | Will Yuan's Blog (duohedounai.github.io)</a>) has been introduced before, and here is another algorithm: Kruskal algorithm.</p>
 <hr>
 <h2 id="kruskal-algorithm-steps"><a class="markdownIt-Anchor" href="#kruskal-algorithm-steps"></a> Kruskal Algorithm steps</h2>
+<ul>
+<li>
 <p>Step 1: Sorts all edges in the graph by weight from smallest to largest.</p>
-<p>Step 1: Try adding edges to the tree from smallest to largest, and if the newly added edge forms a loop with other edges in the tree, skip the edge and continue trying the other edges.</p>
+</li>
+<li>
+<p>Step 2: Try adding edges to the tree from smallest to largest, and if the newly added edge forms a loop with other edges in the tree, skip the edge and continue trying the other edges.</p>
+</li>
+<li>
+<p>Step 3: If <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>−</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">n-1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="mord mathnormal">n</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span> edges are added to the tree, the minimum spanning tree is built, where <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathnormal">n</span></span></span></span> is the number of vertices of the graph.</p>
+</li>
+</ul>
+<p>Note that in the process of adding edges to the tree, Disjoint Set Union (DSU) is used to determine if a loop is formed.</p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2024/04/29/kruskal-algorithm/#more" rel="contents">
