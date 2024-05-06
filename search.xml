@@ -1,6 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Bug Resolution: Java package xxx does not exist</title>
+    <url>/2024/05/06/Bug-resolution-Java-package-xxx-does-not-exist/</url>
+    <content><![CDATA[<h2 id="problem-description"><a class="markdownIt-Anchor" href="#problem-description"></a> Problem Description</h2>
+<p>When building a multi-module Spring Boot project, although the relevant import statement is written in the code, the error is still prompted: <strong>Java package xxx does not exist</strong>.</p>
+<hr />
+<h2 id="solution"><a class="markdownIt-Anchor" href="#solution"></a> Solution</h2>
+<p>The following methods can solve this problem.</p>
+<img data-src="/images/java-bug-1/1.png" style="zoom:60%"/>
+<img data-src="/images/java-bug-1/2.png" style="zoom:60%"/>
+<hr />
+<h2 id="reference-link"><a class="markdownIt-Anchor" href="#reference-link"></a> Reference link</h2>
+<ul>
+<li><a href="https://blog.csdn.net/qq_43377237/article/details/108010414">https://blog.csdn.net/qq_43377237/article/details/108010414</a></li>
+</ul>
+]]></content>
+      <tags>
+        <tag>Java</tag>
+        <tag>Bug Resolution</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Calculate Permutations and Combinations of Elements Using Python</title>
     <url>/2024/04/08/Calculate%20permutations%20and%20combinations%20of%20elements%20using%20Python/</url>
     <content><![CDATA[<h2 id="itertoolscombinations"><a class="markdownIt-Anchor" href="#itertoolscombinations"></a> itertools.combinations</h2>
@@ -235,30 +256,6 @@
 ]]></content>
       <tags>
         <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>How to Use GitHub Copilot in PyCharm</title>
-    <url>/2024/04/16/How-to-use-GitHub-Copilot-in-PyCharm/</url>
-    <content><![CDATA[<h2 id="install-github-copilot-for-pycharm-plugin"><a class="markdownIt-Anchor" href="#install-github-copilot-for-pycharm-plugin"></a> Install GitHub Copilot for PyCharm plugin</h2>
-<p>Click Settings and search Copilot in the plug-in market:</p>
-<img data-src="/images/copilot/setting.jpg" style="zoom:70%"/>
-<p>Install the plugin and restart the IDE:</p>
-<img data-src="/images/copilot/plugins.png" style="zoom:50%"/>
-<hr />
-<h2 id="sign-in-to-github-account"><a class="markdownIt-Anchor" href="#sign-in-to-github-account"></a> Sign in to Github account</h2>
-<p>Now, you can see this:</p>
-<img data-src="/images/copilot/welcome.jpg" style="zoom:50%"/>
-<p>You need to enter the device code to sign in to your GitHub account:</p>
-<img data-src="/images/copilot/github.jpg" style="zoom:50%"/>
-<hr />
-<h2 id="free-trial-or-regular-payment"><a class="markdownIt-Anchor" href="#free-trial-or-regular-payment"></a> Free trial or regular payment</h2>
-<p>Finally, you need to apply for a free trial or pay regularly:</p>
-<img data-src="/images/copilot/start.jpg" style="zoom:70%"/>
-<img data-src="/images/copilot/free.png" style="zoom:50%"/>
-]]></content>
-      <tags>
-        <tag>GitHub Copilot</tag>
       </tags>
   </entry>
   <entry>
@@ -536,6 +533,30 @@ y&gt;=0, Integer
         <tag>Python</tag>
         <tag>Optimization</tag>
         <tag>Gurobi</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>How to Use GitHub Copilot in PyCharm</title>
+    <url>/2024/04/16/How-to-use-GitHub-Copilot-in-PyCharm/</url>
+    <content><![CDATA[<h2 id="install-github-copilot-for-pycharm-plugin"><a class="markdownIt-Anchor" href="#install-github-copilot-for-pycharm-plugin"></a> Install GitHub Copilot for PyCharm plugin</h2>
+<p>Click Settings and search Copilot in the plug-in market:</p>
+<img data-src="/images/copilot/setting.jpg" style="zoom:70%"/>
+<p>Install the plugin and restart the IDE:</p>
+<img data-src="/images/copilot/plugins.png" style="zoom:50%"/>
+<hr />
+<h2 id="sign-in-to-github-account"><a class="markdownIt-Anchor" href="#sign-in-to-github-account"></a> Sign in to Github account</h2>
+<p>Now, you can see this:</p>
+<img data-src="/images/copilot/welcome.jpg" style="zoom:50%"/>
+<p>You need to enter the device code to sign in to your GitHub account:</p>
+<img data-src="/images/copilot/github.jpg" style="zoom:50%"/>
+<hr />
+<h2 id="free-trial-or-regular-payment"><a class="markdownIt-Anchor" href="#free-trial-or-regular-payment"></a> Free trial or regular payment</h2>
+<p>Finally, you need to apply for a free trial or pay regularly:</p>
+<img data-src="/images/copilot/start.jpg" style="zoom:70%"/>
+<img data-src="/images/copilot/free.png" style="zoom:50%"/>
+]]></content>
+      <tags>
+        <tag>GitHub Copilot</tag>
       </tags>
   </entry>
   <entry>
