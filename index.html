@@ -210,9 +210,15 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
-      
 
-      <time title="Created: 2024-05-06 23:05:20 / Modified: 23:36:26" itemprop="dateCreated datePublished" datetime="2024-05-06T23:05:20+08:00">2024-05-06</time>
+      <time title="Created: 2024-05-06 23:05:20" itemprop="dateCreated datePublished" datetime="2024-05-06T23:05:20+08:00">2024-05-06</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2024-05-07 01:02:07" itemprop="dateModified" datetime="2024-05-07T01:02:07+08:00">2024-05-07</time>
     </span>
 
   
@@ -222,7 +228,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">Word count in article: </span>
-      <span>69</span>
+      <span>103</span>
     </span>
     <span class="post-meta-item" title="Reading time">
       <span class="post-meta-item-icon">
@@ -240,11 +246,15 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h2 id="problem-description"><a class="markdownIt-Anchor" href="#problem-description"></a> Problem Description</h2>
-<p>When building a multi-module Spring Boot project, although the relevant import statement is written in the code, the error is still prompted: <strong>Java package xxx does not exist</strong>.</p>
+          <h2 id="bug-description"><a class="markdownIt-Anchor" href="#bug-description"></a> Bug Description</h2>
+<blockquote>
+<p><strong>IDE:</strong> IntelliJ IDEA</p>
+<p><strong>Language:</strong> Java</p>
+<p><strong>Error:</strong> Java package xxx does not exist</p>
+</blockquote>
+<p>I imported a library into a service of a module in a multi-module Spring Boot project. The relevant import statement is written in the code, and the relevant dependency is also introduced in the <em>pom.xml</em>. When building the project, the IDE prompts this error: <strong>Java package xxx does not exist</strong>.</p>
 <hr>
 <h2 id="solution"><a class="markdownIt-Anchor" href="#solution"></a> Solution</h2>
-<p>The following methods can solve this problem.</p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2024/05/06/Bug-resolution-Java-package-xxx-does-not-exist/#more" rel="contents">

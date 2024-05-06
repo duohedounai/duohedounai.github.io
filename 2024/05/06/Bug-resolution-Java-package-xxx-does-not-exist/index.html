@@ -19,17 +19,17 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"duohedounai.github.io","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.19.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="Problem Description When building a multi-module Spring Boot project, although the relevant import statement is written in the code, the error is still prompted: Java package xxx does not exist.   So">
+    <meta name="description" content="Bug Description  IDE: IntelliJ IDEA Language: Java Error: Java package xxx does not exist  I imported a library into a service of a module in a multi-module Spring Boot project. The relevant import s">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Bug Resolution: Java package xxx does not exist">
 <meta property="og:url" content="https://duohedounai.github.io/2024/05/06/Bug-resolution-Java-package-xxx-does-not-exist/index.html">
 <meta property="og:site_name" content="Will Yuan&#39;s Blog">
-<meta property="og:description" content="Problem Description When building a multi-module Spring Boot project, although the relevant import statement is written in the code, the error is still prompted: Java package xxx does not exist.   So">
+<meta property="og:description" content="Bug Description  IDE: IntelliJ IDEA Language: Java Error: Java package xxx does not exist  I imported a library into a service of a module in a multi-module Spring Boot project. The relevant import s">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://duohedounai.github.io/images/java-bug-1/1.png">
 <meta property="og:image" content="https://duohedounai.github.io/images/java-bug-1/2.png">
 <meta property="article:published_time" content="2024-05-06T15:05:20.000Z">
-<meta property="article:modified_time" content="2024-05-06T15:36:26.087Z">
+<meta property="article:modified_time" content="2024-05-06T17:02:07.831Z">
 <meta property="article:author" content="Will Yuan">
 <meta property="article:tag" content="Java">
 <meta property="article:tag" content="Bug Resolution">
@@ -147,7 +147,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#problem-description"><span class="nav-number">1.</span> <span class="nav-text"> Problem Description</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#solution"><span class="nav-number">2.</span> <span class="nav-text"> Solution</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#reference-link"><span class="nav-number">3.</span> <span class="nav-text"> Reference link</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#bug-description"><span class="nav-number">1.</span> <span class="nav-text"> Bug Description</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#solution"><span class="nav-number">2.</span> <span class="nav-text"> Solution</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#reference-link"><span class="nav-number">3.</span> <span class="nav-text"> Reference link</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -221,9 +221,15 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
-      
 
-      <time title="Created: 2024-05-06 23:05:20 / Modified: 23:36:26" itemprop="dateCreated datePublished" datetime="2024-05-06T23:05:20+08:00">2024-05-06</time>
+      <time title="Created: 2024-05-06 23:05:20" itemprop="dateCreated datePublished" datetime="2024-05-06T23:05:20+08:00">2024-05-06</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2024-05-07 01:02:07" itemprop="dateModified" datetime="2024-05-07T01:02:07+08:00">2024-05-07</time>
     </span>
 
   
@@ -240,7 +246,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">Word count in article: </span>
-      <span>69</span>
+      <span>103</span>
     </span>
     <span class="post-meta-item" title="Reading time">
       <span class="post-meta-item-icon">
@@ -257,11 +263,16 @@
     
     
     
-    <div class="post-body" itemprop="articleBody"><h2 id="problem-description"><a class="markdownIt-Anchor" href="#problem-description"></a> Problem Description</h2>
-<p>When building a multi-module Spring Boot project, although the relevant import statement is written in the code, the error is still prompted: <strong>Java package xxx does not exist</strong>.</p>
+    <div class="post-body" itemprop="articleBody"><h2 id="bug-description"><a class="markdownIt-Anchor" href="#bug-description"></a> Bug Description</h2>
+<blockquote>
+<p><strong>IDE:</strong> IntelliJ IDEA</p>
+<p><strong>Language:</strong> Java</p>
+<p><strong>Error:</strong> Java package xxx does not exist</p>
+</blockquote>
+<p>I imported a library into a service of a module in a multi-module Spring Boot project. The relevant import statement is written in the code, and the relevant dependency is also introduced in the <em>pom.xml</em>. When building the project, the IDE prompts this error: <strong>Java package xxx does not exist</strong>.</p>
 <hr />
 <h2 id="solution"><a class="markdownIt-Anchor" href="#solution"></a> Solution</h2>
-<p>The following methods can solve this problem.</p>
+<p>The following methods can solve this bug.</p>
 <img data-src="/images/java-bug-1/1.png" style="zoom:60%"/>
 <img data-src="/images/java-bug-1/2.png" style="zoom:60%"/>
 <hr />
