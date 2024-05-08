@@ -27,6 +27,36 @@
       </tags>
   </entry>
   <entry>
+    <title>Bug Resolution: Unable to find main class</title>
+    <url>/2024/05/07/Bug-Resolution-Unable-to-find-main-class/</url>
+    <content><![CDATA[<h2 id="bug-description"><a class="markdownIt-Anchor" href="#bug-description"></a> Bug Description</h2>
+<blockquote>
+<p><strong>IDE:</strong> IntelliJ IDEA 2021.3</p>
+<p><strong>Language:</strong> Java</p>
+<p><strong>Error:</strong> Unable to find main class</p>
+</blockquote>
+<p>I have created a multi-module Spring Boot project that will serve as a tool library for other projects to use. When building the multi-module Spring Boot project, the IDE prompts the following error: <strong>Unable to find main class</strong>.</p>
+<hr />
+<h2 id="solution"><a class="markdownIt-Anchor" href="#solution"></a> Solution</h2>
+<p>The plugin that comes with SpringBoot requires the main method.</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">plugin</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-maven-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>Because this is a utility project, <strong>there is no main method</strong>, so you need to make the following changes to the parent's <em>pom.xml</em>:</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">plugin</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.maven.plugins<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span>			</span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>maven-compiler-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">source</span>&gt;</span>$&#123;maven.compiler.source&#125;<span class="tag">&lt;/<span class="name">source</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">target</span>&gt;</span>$&#123;maven.compiler.target&#125;<span class="tag">&lt;/<span class="name">target</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">encoding</span>&gt;</span>$&#123;project.build.sourceEncoding&#125;<span class="tag">&lt;/<span class="name">encoding</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<img data-src="/images/java-bug-2/build.png" style="zoom:60%"/>
+<p>In a multi-module Springboot project, the child modules' <em>pom.xml</em> will inherit the configuration in the parent's <em>pom.xml</em>.</p>
+<hr />
+<h2 id="reference-links"><a class="markdownIt-Anchor" href="#reference-links"></a> Reference Links</h2>
+<ul>
+<li><a href="https://www.cnblogs.com/jinshuaishuai/p/10831172.html">https://www.cnblogs.com/jinshuaishuai/p/10831172.html</a></li>
+<li><a href="https://blog.csdn.net/sinat_24928447/article/details/105705968">https://blog.csdn.net/sinat_24928447/article/details/105705968</a></li>
+</ul>
+]]></content>
+      <tags>
+        <tag>Java</tag>
+        <tag>Bug Resolution</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Calculate Permutations and Combinations of Elements Using Python</title>
     <url>/2024/04/08/Calculate%20permutations%20and%20combinations%20of%20elements%20using%20Python/</url>
     <content><![CDATA[<h2 id="itertoolscombinations"><a class="markdownIt-Anchor" href="#itertoolscombinations"></a> itertools.combinations</h2>
@@ -105,6 +135,114 @@
       </tags>
   </entry>
   <entry>
+    <title>Hexo NexT Theme Configuration</title>
+    <url>/2024/04/07/Hexo-Next-Theme-Configuration/</url>
+    <content><![CDATA[<h2 id="install-next-theme"><a class="markdownIt-Anchor" href="#install-next-theme"></a> Install NexT theme</h2>
+<p>First, you need to install the NexT theme, you can enter the following code:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm install hexo-theme-next</span><br></pre></td></tr></table></figure>
+<img data-src="/images/Hexo-Next-Theme-Configuration/install_next.png" style="zoom:70%"/>
+<hr />
+<h2 id="local-search-function"><a class="markdownIt-Anchor" href="#local-search-function"></a> Local search function</h2>
+<p>Install the following plug-ins:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm install hexo-generator-searchdb --save</span><br></pre></td></tr></table></figure>
+<p>Add the following code to <em>Hexo _config.yml</em>:</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">search:</span></span><br><span class="line">  <span class="attr">path:</span> <span class="string">search.xml</span></span><br><span class="line">  <span class="attr">field:</span> <span class="string">post</span></span><br><span class="line">  <span class="attr">content:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">format:</span> <span class="string">html</span></span><br></pre></td></tr></table></figure>
+<p>Then, you need to open the local search function in <em>NexT _config.yml</em>:</p>
+<img data-src="/images/Hexo-Next-Theme-Configuration/local_search.png" style="zoom:60%"/>
+<p>Now, you can see this on your website:</p>
+<img data-src="/images/Hexo-Next-Theme-Configuration/search.jpg" style="zoom:70%"/>
+<hr />
+<h2 id="article-excerpt"><a class="markdownIt-Anchor" href="#article-excerpt"></a> Article excerpt</h2>
+<p>Install <strong>hexo-excerpt</strong> via cmd:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm install hexo-excerpt --save</span><br></pre></td></tr></table></figure>
+<p>Then, Add the following code to <em>Hexo _config.yml</em>:</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">excerpt:</span></span><br><span class="line">  <span class="attr">depth:</span> <span class="number">5</span>  </span><br><span class="line">  <span class="attr">excerpt_excludes:</span> []</span><br><span class="line">  <span class="attr">more_excludes:</span> []</span><br><span class="line">  <span class="attr">hideWholePostExcerpts:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+<p>Now, you can see the &quot;Read More&quot; button on your website:</p>
+<img data-src="/images/Hexo-Next-Theme-Configuration/read_more.jpg" style="zoom:80%"/>
+<hr />
+<h2 id="code-block-theme"><a class="markdownIt-Anchor" href="#code-block-theme"></a> Code block theme</h2>
+<p>You can change the background color of the code block here in <em>NexT _config.yml</em>, and there are many themes at <a href="https://theme-next.js.org/highlight/">https://theme-next.js.org/highlight/</a>.</p>
+<img data-src="/images/Hexo-Next-Theme-Configuration/codeblock.png" style="zoom:50%"/>
+<hr />
+<h2 id="article-word-count-and-reading-time"><a class="markdownIt-Anchor" href="#article-word-count-and-reading-time"></a> Article word count and reading time</h2>
+<p>Install <strong>hexo-word-counter</strong> via cmd:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm install hexo-word-counter</span><br></pre></td></tr></table></figure>
+<p>Then, add the following code at the end of the <em>Hexo _config.yml</em>:</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">symbols_count_time:</span></span><br><span class="line">  <span class="attr">symbols:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">time:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">total_symbols:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">total_time:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">exclude_codeblock:</span> <span class="literal">false</span></span><br><span class="line">  <span class="attr">awl:</span> <span class="number">4</span></span><br><span class="line">  <span class="attr">wpm:</span> <span class="number">275</span></span><br><span class="line">  <span class="attr">suffix:</span> <span class="string">&quot;mins.&quot;</span></span><br></pre></td></tr></table></figure>
+<p>Finally, modify the <em>NexT _config.yml</em>:</p>
+<img data-src="/images/Hexo-Next-Theme-Configuration/symbols_count_time.png" style="zoom:80%"/>
+<hr />
+<h2 id="comment-system"><a class="markdownIt-Anchor" href="#comment-system"></a> Comment system</h2>
+<p>We can implement a comment system based on <strong>Gitalk</strong>. It saves article comments in the specified Github repository in the form of issues.</p>
+<img data-src="/images/Hexo-Next-Theme-Configuration/Register_OAuth.png" style="zoom:50%"/>
+<p>First, you need to register a new OAuth application: <a href="https://github.com/settings/applications/new">https://github.com/settings/applications/new</a></p>
+<p>Then, you need to edit the configuration in the <em>NexT _config.yml</em> as follows:</p>
+<img data-src="/images/Hexo-Next-Theme-Configuration/git_talk.jpg" style="zoom:100%"/>
+<p>If you don’t want to display the comment module on a certain page, you can add the following code to the Front-matter of the page:</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">comments:</span> <span class="literal">false</span></span><br></pre></td></tr></table></figure>
+<p>Note that if you close an issue on your Github, you will not see the corresponding comments on the website.</p>
+<hr />
+<h2 id="copyright-notice"><a class="markdownIt-Anchor" href="#copyright-notice"></a> Copyright Notice</h2>
+<p>If you want to add a copyright notice at the bottom of the article, you need to modify the code here:</p>
+<img data-src="/images/Hexo-Next-Theme-Configuration/license.png" style="zoom:50%"/>
+<p>Then, you can see a similar copyright statement at the bottom of the article:</p>
+<img data-src="/images/Hexo-Next-Theme-Configuration/show_license.png" style="zoom:50%"/>
+<p>For more information about copyright agreements, you can visit this website: <a href="https://creativecommons.org/share-your-work/cclicenses/">https://creativecommons.org/share-your-work/cclicenses/</a></p>
+<hr />
+<h2 id="reference-links"><a class="markdownIt-Anchor" href="#reference-links"></a> Reference Links</h2>
+<ul>
+<li><a href="https://hexo-next.readthedocs.io/zh-cn/latest/next/advanced/%E6%90%9C%E7%B4%A2%E6%9C%8D%E5%8A%A1/">搜索服务 - Hexo-NexT</a></li>
+<li><a href="https://blog.csdn.net/sinat_41696687/article/details/115021491">解决Hexo博客的Next主题中阅读全文没有auto_excerpt的问题-CSDN博客</a></li>
+<li><a href="https://hexo-next.readthedocs.io/zh-cn/latest/next/advanced/%E5%AD%97%E6%95%B0%E7%BB%9F%E8%AE%A1/">https://hexo-next.readthedocs.io/zh-cn/latest/next/advanced/字数统计/</a></li>
+<li>[<a href="https://hexo-next.readthedocs.io/zh-cn/latest/next/advanced/gitalk-%E8%AF%84%E8%AE%BA%E7%B3%BB%E7%BB%9F/">Gitalk]评论系统 - Hexo-NexT</a></li>
+</ul>
+]]></content>
+      <tags>
+        <tag>Hexo</tag>
+        <tag>Hexo-NexT</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>How to Build a Personal Website with Github and Hexo</title>
+    <url>/2024/04/07/How-to-Build-A-Personal-Website-with-Github-and-Hexo/</url>
+    <content><![CDATA[<h2 id="install-nodejs-and-git"><a class="markdownIt-Anchor" href="#install-nodejs-and-git"></a> Install Node.js and Git</h2>
+<p>First, you'll need to install Node.js and Git, download and install the Node.js from [here](<a href="https://nodejs.org/en">Node.js — Run JavaScript Everywhere (nodejs.org)</a>).</p>
+<p>You can check if the Node.js and Git installation are successful by typing these:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git version</span><br><span class="line">node -v</span><br><span class="line">npm -v</span><br></pre></td></tr></table></figure>
+<hr />
+<h2 id="create-a-github-pages-repository"><a class="markdownIt-Anchor" href="#create-a-github-pages-repository"></a> Create a Github Pages repository</h2>
+<p>Then you'll need to sign up for a Github account and create a Github Pages repository.</p>
+<hr />
+<h2 id="install-and-initialize-hexo"><a class="markdownIt-Anchor" href="#install-and-initialize-hexo"></a> Install and Initialize Hexo</h2>
+<p>Next, you need to install Hexo via cmd:</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
+<p>Initialize Hexo:</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">hexo init</span><br></pre></td></tr></table></figure>
+<img data-src="/images/How-to-Build-A-Personal-Website-with-Github-and-Hexo/successful_installation.png" style="zoom:60%"/>
+<p>Next, you'll be able to build and preview your website:</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">hexo g</span><br><span class="line">hexo s</span><br></pre></td></tr></table></figure>
+<img data-src="/images/How-to-Build-A-Personal-Website-with-Github-and-Hexo/generate_deploy.png" style="zoom:60%"/>
+<p>Type the following URL: <a href="http://localhost:4000/">http://localhost:4000/</a> into your browser and you'll see:</p>
+<img data-src="/images/How-to-Build-A-Personal-Website-with-Github-and-Hexo/welcome.png" style="zoom:70%"/>
+<p>Finally, you can choose the theme you are interested in and further beautify the site.</p>
+<hr />
+<h2 id="deploy-the-hexo-website-to-github-pages"><a class="markdownIt-Anchor" href="#deploy-the-hexo-website-to-github-pages"></a> Deploy the Hexo website to GitHub Pages</h2>
+<p>First, you need to install hexo-deployer-git:</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
+<p>Then modify the Deployment section at the end of the <em>Hexo _config.yml</em> file:</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">deploy:</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">git</span></span><br><span class="line">  <span class="attr">repository:</span> <span class="string">git@github.com:your_github_name/your_github_name.github.io.git</span></span><br><span class="line">  <span class="attr">branch:</span> <span class="string">main</span></span><br></pre></td></tr></table></figure>
+<p>Finally, visit https://your_github_name.github.io and you'll be able to see your website.</p>
+<hr />
+<h2 id="reference-links"><a class="markdownIt-Anchor" href="#reference-links"></a> Reference Links</h2>
+<ul>
+<li><a href="https://theme-next.js.org/docs/getting-started/">Getting Started | NexT (theme-next.js.org)</a></li>
+</ul>
+]]></content>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Commonly Used Plotting Functions in the Python-OpenCV Library</title>
     <url>/2024/04/08/Commonly-used-plotting-functions-in-the-Python-OpenCV-library/</url>
     <content><![CDATA[<h2 id="installation-and-import-of-opencv-in-python"><a class="markdownIt-Anchor" href="#installation-and-import-of-opencv-in-python"></a> Installation and Import of OpenCV in Python</h2>
@@ -156,43 +294,27 @@
       </tags>
   </entry>
   <entry>
-    <title>How to Build a Personal Website with Github and Hexo</title>
-    <url>/2024/04/07/How-to-Build-A-Personal-Website-with-Github-and-Hexo/</url>
-    <content><![CDATA[<h2 id="install-nodejs-and-git"><a class="markdownIt-Anchor" href="#install-nodejs-and-git"></a> Install Node.js and Git</h2>
-<p>First, you'll need to install Node.js and Git, download and install the Node.js from [here](<a href="https://nodejs.org/en">Node.js — Run JavaScript Everywhere (nodejs.org)</a>).</p>
-<p>You can check if the Node.js and Git installation are successful by typing these:</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git version</span><br><span class="line">node -v</span><br><span class="line">npm -v</span><br></pre></td></tr></table></figure>
+    <title>How to Use GitHub Copilot in PyCharm</title>
+    <url>/2024/04/16/How-to-use-GitHub-Copilot-in-PyCharm/</url>
+    <content><![CDATA[<h2 id="install-github-copilot-for-pycharm-plugin"><a class="markdownIt-Anchor" href="#install-github-copilot-for-pycharm-plugin"></a> Install GitHub Copilot for PyCharm plugin</h2>
+<p>Click Settings and search Copilot in the plug-in market:</p>
+<img data-src="/images/copilot/setting.jpg" style="zoom:70%"/>
+<p>Install the plugin and restart the IDE:</p>
+<img data-src="/images/copilot/plugins.png" style="zoom:50%"/>
 <hr />
-<h2 id="create-a-github-pages-repository"><a class="markdownIt-Anchor" href="#create-a-github-pages-repository"></a> Create a Github Pages repository</h2>
-<p>Then you'll need to sign up for a Github account and create a Github Pages repository.</p>
+<h2 id="sign-in-to-github-account"><a class="markdownIt-Anchor" href="#sign-in-to-github-account"></a> Sign in to Github account</h2>
+<p>Now, you can see this:</p>
+<img data-src="/images/copilot/welcome.jpg" style="zoom:50%"/>
+<p>You need to enter the device code to sign in to your GitHub account:</p>
+<img data-src="/images/copilot/github.jpg" style="zoom:50%"/>
 <hr />
-<h2 id="install-and-initialize-hexo"><a class="markdownIt-Anchor" href="#install-and-initialize-hexo"></a> Install and Initialize Hexo</h2>
-<p>Next, you need to install Hexo via cmd:</p>
-<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
-<p>Initialize Hexo:</p>
-<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">hexo init</span><br></pre></td></tr></table></figure>
-<img data-src="/images/How-to-Build-A-Personal-Website-with-Github-and-Hexo/successful_installation.png" style="zoom:60%"/>
-<p>Next, you'll be able to build and preview your website:</p>
-<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">hexo g</span><br><span class="line">hexo s</span><br></pre></td></tr></table></figure>
-<img data-src="/images/How-to-Build-A-Personal-Website-with-Github-and-Hexo/generate_deploy.png" style="zoom:60%"/>
-<p>Type the following URL: <a href="http://localhost:4000/">http://localhost:4000/</a> into your browser and you'll see:</p>
-<img data-src="/images/How-to-Build-A-Personal-Website-with-Github-and-Hexo/welcome.png" style="zoom:70%"/>
-<p>Finally, you can choose the theme you are interested in and further beautify the site.</p>
-<hr />
-<h2 id="deploy-the-hexo-website-to-github-pages"><a class="markdownIt-Anchor" href="#deploy-the-hexo-website-to-github-pages"></a> Deploy the Hexo website to GitHub Pages</h2>
-<p>First, you need to install hexo-deployer-git:</p>
-<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
-<p>Then modify the Deployment section at the end of the <em>Hexo _config.yml</em> file:</p>
-<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">deploy:</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">git</span></span><br><span class="line">  <span class="attr">repository:</span> <span class="string">git@github.com:your_github_name/your_github_name.github.io.git</span></span><br><span class="line">  <span class="attr">branch:</span> <span class="string">main</span></span><br></pre></td></tr></table></figure>
-<p>Finally, visit https://your_github_name.github.io and you'll be able to see your website.</p>
-<hr />
-<h2 id="reference-links"><a class="markdownIt-Anchor" href="#reference-links"></a> Reference Links</h2>
-<ul>
-<li><a href="https://theme-next.js.org/docs/getting-started/">Getting Started | NexT (theme-next.js.org)</a></li>
-</ul>
+<h2 id="free-trial-or-regular-payment"><a class="markdownIt-Anchor" href="#free-trial-or-regular-payment"></a> Free trial or regular payment</h2>
+<p>Finally, you need to apply for a free trial or pay regularly:</p>
+<img data-src="/images/copilot/start.jpg" style="zoom:70%"/>
+<img data-src="/images/copilot/free.png" style="zoom:50%"/>
 ]]></content>
       <tags>
-        <tag>Hexo</tag>
+        <tag>GitHub Copilot</tag>
       </tags>
   </entry>
   <entry>
@@ -377,98 +499,6 @@ y_1&gt;=0,y_2&lt;=0,y_3(unconstrained)
       </tags>
   </entry>
   <entry>
-    <title>Hexo NexT Theme Configuration</title>
-    <url>/2024/04/07/Hexo-Next-Theme-Configuration/</url>
-    <content><![CDATA[<h2 id="install-next-theme"><a class="markdownIt-Anchor" href="#install-next-theme"></a> Install NexT theme</h2>
-<p>First, you need to install the NexT theme, you can enter the following code:</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm install hexo-theme-next</span><br></pre></td></tr></table></figure>
-<img data-src="/images/Hexo-Next-Theme-Configuration/install_next.png" style="zoom:70%"/>
-<hr />
-<h2 id="local-search-function"><a class="markdownIt-Anchor" href="#local-search-function"></a> Local search function</h2>
-<p>Install the following plug-ins:</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm install hexo-generator-searchdb --save</span><br></pre></td></tr></table></figure>
-<p>Add the following code to <em>Hexo _config.yml</em>:</p>
-<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">search:</span></span><br><span class="line">  <span class="attr">path:</span> <span class="string">search.xml</span></span><br><span class="line">  <span class="attr">field:</span> <span class="string">post</span></span><br><span class="line">  <span class="attr">content:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">format:</span> <span class="string">html</span></span><br></pre></td></tr></table></figure>
-<p>Then, you need to open the local search function in <em>NexT _config.yml</em>:</p>
-<img data-src="/images/Hexo-Next-Theme-Configuration/local_search.png" style="zoom:60%"/>
-<p>Now, you can see this on your website:</p>
-<img data-src="/images/Hexo-Next-Theme-Configuration/search.jpg" style="zoom:70%"/>
-<hr />
-<h2 id="article-excerpt"><a class="markdownIt-Anchor" href="#article-excerpt"></a> Article excerpt</h2>
-<p>Install <strong>hexo-excerpt</strong> via cmd:</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm install hexo-excerpt --save</span><br></pre></td></tr></table></figure>
-<p>Then, Add the following code to <em>Hexo _config.yml</em>:</p>
-<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">excerpt:</span></span><br><span class="line">  <span class="attr">depth:</span> <span class="number">5</span>  </span><br><span class="line">  <span class="attr">excerpt_excludes:</span> []</span><br><span class="line">  <span class="attr">more_excludes:</span> []</span><br><span class="line">  <span class="attr">hideWholePostExcerpts:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
-<p>Now, you can see the &quot;Read More&quot; button on your website:</p>
-<img data-src="/images/Hexo-Next-Theme-Configuration/read_more.jpg" style="zoom:80%"/>
-<hr />
-<h2 id="code-block-theme"><a class="markdownIt-Anchor" href="#code-block-theme"></a> Code block theme</h2>
-<p>You can change the background color of the code block here in <em>NexT _config.yml</em>, and there are many themes at <a href="https://theme-next.js.org/highlight/">https://theme-next.js.org/highlight/</a>.</p>
-<img data-src="/images/Hexo-Next-Theme-Configuration/codeblock.png" style="zoom:50%"/>
-<hr />
-<h2 id="article-word-count-and-reading-time"><a class="markdownIt-Anchor" href="#article-word-count-and-reading-time"></a> Article word count and reading time</h2>
-<p>Install <strong>hexo-word-counter</strong> via cmd:</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm install hexo-word-counter</span><br></pre></td></tr></table></figure>
-<p>Then, add the following code at the end of the <em>Hexo _config.yml</em>:</p>
-<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">symbols_count_time:</span></span><br><span class="line">  <span class="attr">symbols:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">time:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">total_symbols:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">total_time:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">exclude_codeblock:</span> <span class="literal">false</span></span><br><span class="line">  <span class="attr">awl:</span> <span class="number">4</span></span><br><span class="line">  <span class="attr">wpm:</span> <span class="number">275</span></span><br><span class="line">  <span class="attr">suffix:</span> <span class="string">&quot;mins.&quot;</span></span><br></pre></td></tr></table></figure>
-<p>Finally, modify the <em>NexT _config.yml</em>:</p>
-<img data-src="/images/Hexo-Next-Theme-Configuration/symbols_count_time.png" style="zoom:80%"/>
-<hr />
-<h2 id="comment-system"><a class="markdownIt-Anchor" href="#comment-system"></a> Comment system</h2>
-<p>We can implement a comment system based on <strong>Gitalk</strong>. It saves article comments in the specified Github repository in the form of issues.</p>
-<img data-src="/images/Hexo-Next-Theme-Configuration/Register_OAuth.png" style="zoom:50%"/>
-<p>First, you need to register a new OAuth application: <a href="https://github.com/settings/applications/new">https://github.com/settings/applications/new</a></p>
-<p>Then, you need to edit the configuration in the <em>NexT _config.yml</em> as follows:</p>
-<img data-src="/images/Hexo-Next-Theme-Configuration/git_talk.jpg" style="zoom:100%"/>
-<p>If you don’t want to display the comment module on a certain page, you can add the following code to the Front-matter of the page:</p>
-<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">comments:</span> <span class="literal">false</span></span><br></pre></td></tr></table></figure>
-<p>Note that if you close an issue on your Github, you will not see the corresponding comments on the website.</p>
-<hr />
-<h2 id="copyright-notice"><a class="markdownIt-Anchor" href="#copyright-notice"></a> Copyright Notice</h2>
-<p>If you want to add a copyright notice at the bottom of the article, you need to modify the code here:</p>
-<img data-src="/images/Hexo-Next-Theme-Configuration/license.png" style="zoom:50%"/>
-<p>Then, you can see a similar copyright statement at the bottom of the article:</p>
-<img data-src="/images/Hexo-Next-Theme-Configuration/show_license.png" style="zoom:50%"/>
-<p>For more information about copyright agreements, you can visit this website: <a href="https://creativecommons.org/share-your-work/cclicenses/">https://creativecommons.org/share-your-work/cclicenses/</a></p>
-<hr />
-<h2 id="reference-links"><a class="markdownIt-Anchor" href="#reference-links"></a> Reference Links</h2>
-<ul>
-<li><a href="https://hexo-next.readthedocs.io/zh-cn/latest/next/advanced/%E6%90%9C%E7%B4%A2%E6%9C%8D%E5%8A%A1/">搜索服务 - Hexo-NexT</a></li>
-<li><a href="https://blog.csdn.net/sinat_41696687/article/details/115021491">解决Hexo博客的Next主题中阅读全文没有auto_excerpt的问题-CSDN博客</a></li>
-<li><a href="https://hexo-next.readthedocs.io/zh-cn/latest/next/advanced/%E5%AD%97%E6%95%B0%E7%BB%9F%E8%AE%A1/">https://hexo-next.readthedocs.io/zh-cn/latest/next/advanced/字数统计/</a></li>
-<li>[<a href="https://hexo-next.readthedocs.io/zh-cn/latest/next/advanced/gitalk-%E8%AF%84%E8%AE%BA%E7%B3%BB%E7%BB%9F/">Gitalk]评论系统 - Hexo-NexT</a></li>
-</ul>
-]]></content>
-      <tags>
-        <tag>Hexo</tag>
-        <tag>Hexo-NexT</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>How to Use GitHub Copilot in PyCharm</title>
-    <url>/2024/04/16/How-to-use-GitHub-Copilot-in-PyCharm/</url>
-    <content><![CDATA[<h2 id="install-github-copilot-for-pycharm-plugin"><a class="markdownIt-Anchor" href="#install-github-copilot-for-pycharm-plugin"></a> Install GitHub Copilot for PyCharm plugin</h2>
-<p>Click Settings and search Copilot in the plug-in market:</p>
-<img data-src="/images/copilot/setting.jpg" style="zoom:70%"/>
-<p>Install the plugin and restart the IDE:</p>
-<img data-src="/images/copilot/plugins.png" style="zoom:50%"/>
-<hr />
-<h2 id="sign-in-to-github-account"><a class="markdownIt-Anchor" href="#sign-in-to-github-account"></a> Sign in to Github account</h2>
-<p>Now, you can see this:</p>
-<img data-src="/images/copilot/welcome.jpg" style="zoom:50%"/>
-<p>You need to enter the device code to sign in to your GitHub account:</p>
-<img data-src="/images/copilot/github.jpg" style="zoom:50%"/>
-<hr />
-<h2 id="free-trial-or-regular-payment"><a class="markdownIt-Anchor" href="#free-trial-or-regular-payment"></a> Free trial or regular payment</h2>
-<p>Finally, you need to apply for a free trial or pay regularly:</p>
-<img data-src="/images/copilot/start.jpg" style="zoom:70%"/>
-<img data-src="/images/copilot/free.png" style="zoom:50%"/>
-]]></content>
-      <tags>
-        <tag>GitHub Copilot</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Use SciPy Library in Python to Solve Linear Programming Problems</title>
     <url>/2024/04/30/SciPy-library-in-Python/</url>
     <content><![CDATA[<h2 id="scipyoptimize"><a class="markdownIt-Anchor" href="#scipyoptimize"></a> scipy.optimize</h2>
@@ -565,63 +595,6 @@ y&gt;=0, Integer
       </tags>
   </entry>
   <entry>
-    <title>Kruskal Algorithm for Finding the Minimum Spanning Tree</title>
-    <url>/2024/04/29/kruskal-algorithm/</url>
-    <content><![CDATA[<p>For obtaining the minimum spanning tree, the <a href="https://duohedounai.github.io/2024/04/27/prim-algorithm/">Prim algorithm</a> has been introduced before, and here is another algorithm: Kruskal algorithm.</p>
-<hr />
-<h2 id="kruskal-algorithm-steps"><a class="markdownIt-Anchor" href="#kruskal-algorithm-steps"></a> Kruskal Algorithm steps</h2>
-<ul>
-<li>
-<p>Step 1: Sorts all edges in the graph by weight from smallest to largest.</p>
-</li>
-<li>
-<p>Step 2: Try adding edges to the tree from smallest to largest, and if the newly added edge forms a loop with other edges in the tree, discard the edge and continue trying the other edges.</p>
-</li>
-<li>
-<p>Step 3: If <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>−</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">n-1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="mord mathnormal">n</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span> edges are added to the tree, the minimum spanning tree is built, where <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathnormal">n</span></span></span></span> is the number of vertices of the graph.</p>
-</li>
-</ul>
-<p>Note that in the process of adding edges to the tree, Disjoint Set Union (DSU) is used to determine if a loop is formed.</p>
-<hr />
-<h2 id="example"><a class="markdownIt-Anchor" href="#example"></a> Example</h2>
-<img data-src="/images/kruskal-algorithm/origin.jpg" style="zoom: 60%;" />
-<p>Take this undirected weighted graph above as an example to show the process of the Kruskal algorithm.</p>
-<p>First, sort all edges in order of weight, from smallest to largest. Select the edge with the lowest weight which is <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mi>B</mi></mrow><annotation encoding="application/x-tex">AB</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal">A</span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span></span></span></span> here. If there are multiple edges with the lowest weight, select any one. As shown below:</p>
-<img data-src="/images/kruskal-algorithm/1.jpg" style="zoom: 60%;" />
-<p>Then, select the edge <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mi>D</mi></mrow><annotation encoding="application/x-tex">AD</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal">A</span><span class="mord mathnormal" style="margin-right:0.02778em;">D</span></span></span></span> with the lowest weight to add to the tree. As shown below:</p>
-<img data-src="/images/kruskal-algorithm/2.jpg" style="zoom: 60%;" />
-<p>Then, select the edge <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>C</mi><mi>F</mi></mrow><annotation encoding="application/x-tex">CF</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="mord mathnormal" style="margin-right:0.13889em;">F</span></span></span></span> with the lowest weight to add to the tree. As shown below:</p>
-<img data-src="/images/kruskal-algorithm/3.jpg" style="zoom: 60%;" />
-<p>Then, select the edge <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mi>C</mi></mrow><annotation encoding="application/x-tex">AC</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal">A</span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span></span></span></span> with the lowest weight to add to the tree. As shown below:</p>
-<img data-src="/images/kruskal-algorithm/4.jpg" style="zoom: 60%;" />
-<p>Then, select the edge <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mi>E</mi></mrow><annotation encoding="application/x-tex">AE</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal">A</span><span class="mord mathnormal" style="margin-right:0.05764em;">E</span></span></span></span> with the lowest weight to add to the tree. As shown below:</p>
-<img data-src="/images/kruskal-algorithm/5.jpg" style="zoom: 60%;" />
-<p>Then, select the edge <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>F</mi><mi>G</mi></mrow><annotation encoding="application/x-tex">FG</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">F</span><span class="mord mathnormal">G</span></span></span></span> with the lowest weight to add to the tree. The original graph had 7 vertices, and now there are 6 edges in the tree, so the minimum spanning tree is built. As shown below:</p>
-<img data-src="/images/kruskal-algorithm/6.jpg" style="zoom: 60%;" />
-<p>Finally, we can get the following minimum spanning tree:</p>
-<img data-src="/images/kruskal-algorithm/new.jpg" style="zoom: 60%;" />
-<hr />
-<h2 id="code"><a class="markdownIt-Anchor" href="#code"></a> Code</h2>
-<p>The Kruskal algorithm is implemented using Python.</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> heapq</span><br><span class="line"></span><br><span class="line"><span class="comment"># Disjoint Set Union functions</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">find</span>(<span class="params">all_node_parent, node</span>):</span><br><span class="line">    <span class="keyword">if</span> all_node_parent[node] != node:</span><br><span class="line">        all_node_parent[node] = find(all_node_parent, all_node_parent[node])</span><br><span class="line">    <span class="keyword">return</span> all_node_parent[node]</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">union</span>(<span class="params">all_node_parent, node_1, node_2</span>):</span><br><span class="line">    root_1 = find(all_node_parent, node_1)</span><br><span class="line">    root_2 = find(all_node_parent, node_2)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> root_1 != root_2:</span><br><span class="line">        all_node_parent[root_2] = root_1</span><br><span class="line"></span><br><span class="line"><span class="comment"># Kruskal algorithm</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">kruskal</span>(<span class="params">adjacency_table_map</span>):</span><br><span class="line">    <span class="comment"># Use priority queue to store candidate edges, sorted by weight</span></span><br><span class="line">    candidate_edges_pq = []</span><br><span class="line">    <span class="keyword">for</span> curr_node, neighbors <span class="keyword">in</span> adjacency_table_map.items():</span><br><span class="line">        <span class="keyword">for</span> neighbor_node, weight <span class="keyword">in</span> neighbors.items():</span><br><span class="line">            heapq.heappush(candidate_edges_pq, (weight, curr_node, neighbor_node))</span><br><span class="line"></span><br><span class="line">    <span class="comment"># Initialize the Minimum Spanning Tree with an empty edge list and total weight of zero</span></span><br><span class="line">    mst_edges_list = []</span><br><span class="line">    total_weight = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># Initialize the parent node of all nodes, and this will be used in the Disjoint Set Union functions</span></span><br><span class="line">    node_parent = &#123;node: node <span class="keyword">for</span> node <span class="keyword">in</span> adjacency_table_map&#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> <span class="built_in">len</span>(candidate_edges_pq) &gt; <span class="number">0</span>:</span><br><span class="line">        <span class="comment"># Pop the edge with the minimum weight from the priority queue</span></span><br><span class="line">        weight, curr_node, next_node = heapq.heappop(candidate_edges_pq)</span><br><span class="line"></span><br><span class="line">        <span class="comment"># if two nodes are in the same set, a loop will be formed when the edge is added to the tree</span></span><br><span class="line">        <span class="keyword">if</span> find(node_parent, curr_node) != find(node_parent, next_node):</span><br><span class="line">            <span class="comment"># Merge two disjoint sets into a single set</span></span><br><span class="line">            union(node_parent, curr_node, next_node)</span><br><span class="line"></span><br><span class="line">            <span class="comment"># Add the edge to the tree</span></span><br><span class="line">            mst_edges_list.append((weight, curr_node, next_node))</span><br><span class="line">            total_weight += weight</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">&quot;The edge with the lowest weight selected this time : &quot;</span> + <span class="built_in">str</span>(curr_node) + <span class="string">&quot;-&quot;</span> + <span class="built_in">str</span>(next_node)</span><br><span class="line">                  + <span class="string">&quot;, weight: &quot;</span> + <span class="built_in">str</span>(weight) + <span class="string">&quot;. Add it to the tree.&quot;</span>)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">&quot;The edge with the lowest weight selected this time : &quot;</span> + <span class="built_in">str</span>(curr_node) + <span class="string">&quot;-&quot;</span> + <span class="built_in">str</span>(next_node)</span><br><span class="line">                  + <span class="string">&quot;, weight: &quot;</span> + <span class="built_in">str</span>(weight) + <span class="string">&quot;. Discard it because it will form a cycle.&quot;</span>)</span><br><span class="line"></span><br><span class="line">        <span class="comment"># Check if the tree is complete (If the graph has n vertices, the minimum spanning tree has n-1 edges)</span></span><br><span class="line">        <span class="keyword">if</span> <span class="built_in">len</span>(mst_edges_list) == <span class="built_in">len</span>(adjacency_table_map) - <span class="number">1</span>:</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> mst_edges_list, total_weight</span><br><span class="line"></span><br><span class="line"><span class="comment"># Example usage:</span></span><br><span class="line"><span class="comment"># Use adjacency_table to represent the graph</span></span><br><span class="line">adjacency_table_map = &#123;</span><br><span class="line">    <span class="string">&quot;A&quot;</span>: &#123;<span class="string">&quot;B&quot;</span>: <span class="number">5</span>, <span class="string">&quot;C&quot;</span>: <span class="number">20</span>, <span class="string">&quot;D&quot;</span>: <span class="number">5</span>, <span class="string">&quot;E&quot;</span>: <span class="number">20</span>, <span class="string">&quot;F&quot;</span>: <span class="number">50</span>&#125;,</span><br><span class="line">    <span class="string">&quot;B&quot;</span>: &#123;<span class="string">&quot;A&quot;</span>: <span class="number">5</span>, <span class="string">&quot;C&quot;</span>: <span class="number">30</span>, <span class="string">&quot;D&quot;</span>: <span class="number">30</span>&#125;,</span><br><span class="line">    <span class="string">&quot;C&quot;</span>: &#123;<span class="string">&quot;A&quot;</span>: <span class="number">20</span>, <span class="string">&quot;B&quot;</span>: <span class="number">30</span>, <span class="string">&quot;F&quot;</span>: <span class="number">10</span>&#125;,</span><br><span class="line">    <span class="string">&quot;D&quot;</span>: &#123;<span class="string">&quot;A&quot;</span>: <span class="number">5</span>, <span class="string">&quot;B&quot;</span>: <span class="number">30</span>, <span class="string">&quot;E&quot;</span>: <span class="number">25</span>&#125;,</span><br><span class="line">    <span class="string">&quot;E&quot;</span>: &#123;<span class="string">&quot;A&quot;</span>: <span class="number">20</span>, <span class="string">&quot;D&quot;</span>: <span class="number">25</span>, <span class="string">&quot;F&quot;</span>: <span class="number">50</span>, <span class="string">&quot;G&quot;</span>: <span class="number">40</span>&#125;,</span><br><span class="line">    <span class="string">&quot;F&quot;</span>: &#123;<span class="string">&quot;A&quot;</span>: <span class="number">50</span>, <span class="string">&quot;C&quot;</span>: <span class="number">10</span>, <span class="string">&quot;E&quot;</span>: <span class="number">50</span>, <span class="string">&quot;G&quot;</span>: <span class="number">20</span>&#125;,</span><br><span class="line">    <span class="string">&quot;G&quot;</span>: &#123;<span class="string">&quot;E&quot;</span>: <span class="number">40</span>, <span class="string">&quot;F&quot;</span>: <span class="number">20</span>&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># Call the Kruskal algorithm function</span></span><br><span class="line">mst_edges, total_weight = kruskal(adjacency_table_map)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Minimum Spanning Tree Edges:&quot;</span>, mst_edges)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Total Weight of the Minimum Spanning Tree:&quot;</span>, total_weight)</span><br></pre></td></tr></table></figure>
-<p>The output is as follows:</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">The edge <span class="keyword">with</span> the lowest weight selected this time : A-B, weight: <span class="number">5.</span> Add it to the tree.</span><br><span class="line">The edge <span class="keyword">with</span> the lowest weight selected this time : A-D, weight: <span class="number">5.</span> Add it to the tree.</span><br><span class="line">The edge <span class="keyword">with</span> the lowest weight selected this time : B-A, weight: <span class="number">5.</span> Discard it because it will form a cycle.</span><br><span class="line">The edge <span class="keyword">with</span> the lowest weight selected this time : D-A, weight: <span class="number">5.</span> Discard it because it will form a cycle.</span><br><span class="line">The edge <span class="keyword">with</span> the lowest weight selected this time : C-F, weight: <span class="number">10.</span> Add it to the tree.</span><br><span class="line">The edge <span class="keyword">with</span> the lowest weight selected this time : F-C, weight: <span class="number">10.</span> Discard it because it will form a cycle.</span><br><span class="line">The edge <span class="keyword">with</span> the lowest weight selected this time : A-C, weight: <span class="number">20.</span> Add it to the tree.</span><br><span class="line">The edge <span class="keyword">with</span> the lowest weight selected this time : A-E, weight: <span class="number">20.</span> Add it to the tree.</span><br><span class="line">The edge <span class="keyword">with</span> the lowest weight selected this time : C-A, weight: <span class="number">20.</span> Discard it because it will form a cycle.</span><br><span class="line">The edge <span class="keyword">with</span> the lowest weight selected this time : E-A, weight: <span class="number">20.</span> Discard it because it will form a cycle.</span><br><span class="line">The edge <span class="keyword">with</span> the lowest weight selected this time : F-G, weight: <span class="number">20.</span> Add it to the tree.</span><br><span class="line">Minimum Spanning Tree Edges: [(<span class="number">5</span>, <span class="string">&#x27;A&#x27;</span>, <span class="string">&#x27;B&#x27;</span>), (<span class="number">5</span>, <span class="string">&#x27;A&#x27;</span>, <span class="string">&#x27;D&#x27;</span>), (<span class="number">10</span>, <span class="string">&#x27;C&#x27;</span>, <span class="string">&#x27;F&#x27;</span>), (<span class="number">20</span>, <span class="string">&#x27;A&#x27;</span>, <span class="string">&#x27;C&#x27;</span>), (<span class="number">20</span>, <span class="string">&#x27;A&#x27;</span>, <span class="string">&#x27;E&#x27;</span>), (<span class="number">20</span>, <span class="string">&#x27;F&#x27;</span>, <span class="string">&#x27;G&#x27;</span>)]</span><br><span class="line">Total Weight of the Minimum Spanning Tree: <span class="number">80</span></span><br></pre></td></tr></table></figure>
-<hr />
-<h2 id="reference-links"><a class="markdownIt-Anchor" href="#reference-links"></a> Reference Links</h2>
-<ul>
-<li><a href="https://en.wikipedia.org/wiki/Minimum_spanning_tree">https://en.wikipedia.org/wiki/Minimum_spanning_tree</a></li>
-<li><a href="https://en.wikipedia.org/wiki/Kruskal%27s_algorithm">https://en.wikipedia.org/wiki/Kruskal's_algorithm</a></li>
-<li><a href="https://cp-algorithms.com/data_structures/disjoint_set_union.html">https://cp-algorithms.com/data_structures/disjoint_set_union.html</a></li>
-<li><a href="https://cloud.tencent.com/developer/article/2304976">Python 算法基础篇之最小生成树算法： Prim 算法和 Kruskal 算法-腾讯云开发者社区-腾讯云 (tencent.com)</a></li>
-<li><a href="https://www.cnblogs.com/jyxcpp/p/16536453.html">彻底搞懂克鲁斯卡尔（Kruskal）算法（附C++代码实现） - QuanHa - 博客园 (cnblogs.com)</a></li>
-</ul>
-]]></content>
-      <tags>
-        <tag>Python</tag>
-        <tag>Graph Theory</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Use the CPLEX Library in Python to Solve Linear Programming Problems</title>
     <url>/2024/04/10/Use-the-Cplex-library-in-Python-to-solve-linear-programming-problems/</url>
     <content><![CDATA[<h2 id="install-the-cplex-library"><a class="markdownIt-Anchor" href="#install-the-cplex-library"></a> Install the CPLEX Library</h2>
@@ -711,6 +684,63 @@ x_3&gt;=0, Interger\\
         <tag>Python</tag>
         <tag>Optimization</tag>
         <tag>OR-Tools</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Kruskal Algorithm for Finding the Minimum Spanning Tree</title>
+    <url>/2024/04/29/kruskal-algorithm/</url>
+    <content><![CDATA[<p>For obtaining the minimum spanning tree, the <a href="https://duohedounai.github.io/2024/04/27/prim-algorithm/">Prim algorithm</a> has been introduced before, and here is another algorithm: Kruskal algorithm.</p>
+<hr />
+<h2 id="kruskal-algorithm-steps"><a class="markdownIt-Anchor" href="#kruskal-algorithm-steps"></a> Kruskal Algorithm steps</h2>
+<ul>
+<li>
+<p>Step 1: Sorts all edges in the graph by weight from smallest to largest.</p>
+</li>
+<li>
+<p>Step 2: Try adding edges to the tree from smallest to largest, and if the newly added edge forms a loop with other edges in the tree, discard the edge and continue trying the other edges.</p>
+</li>
+<li>
+<p>Step 3: If <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>−</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">n-1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="mord mathnormal">n</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span> edges are added to the tree, the minimum spanning tree is built, where <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathnormal">n</span></span></span></span> is the number of vertices of the graph.</p>
+</li>
+</ul>
+<p>Note that in the process of adding edges to the tree, Disjoint Set Union (DSU) is used to determine if a loop is formed.</p>
+<hr />
+<h2 id="example"><a class="markdownIt-Anchor" href="#example"></a> Example</h2>
+<img data-src="/images/kruskal-algorithm/origin.jpg" style="zoom: 60%;" />
+<p>Take this undirected weighted graph above as an example to show the process of the Kruskal algorithm.</p>
+<p>First, sort all edges in order of weight, from smallest to largest. Select the edge with the lowest weight which is <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mi>B</mi></mrow><annotation encoding="application/x-tex">AB</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal">A</span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span></span></span></span> here. If there are multiple edges with the lowest weight, select any one. As shown below:</p>
+<img data-src="/images/kruskal-algorithm/1.jpg" style="zoom: 60%;" />
+<p>Then, select the edge <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mi>D</mi></mrow><annotation encoding="application/x-tex">AD</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal">A</span><span class="mord mathnormal" style="margin-right:0.02778em;">D</span></span></span></span> with the lowest weight to add to the tree. As shown below:</p>
+<img data-src="/images/kruskal-algorithm/2.jpg" style="zoom: 60%;" />
+<p>Then, select the edge <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>C</mi><mi>F</mi></mrow><annotation encoding="application/x-tex">CF</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="mord mathnormal" style="margin-right:0.13889em;">F</span></span></span></span> with the lowest weight to add to the tree. As shown below:</p>
+<img data-src="/images/kruskal-algorithm/3.jpg" style="zoom: 60%;" />
+<p>Then, select the edge <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mi>C</mi></mrow><annotation encoding="application/x-tex">AC</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal">A</span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span></span></span></span> with the lowest weight to add to the tree. As shown below:</p>
+<img data-src="/images/kruskal-algorithm/4.jpg" style="zoom: 60%;" />
+<p>Then, select the edge <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mi>E</mi></mrow><annotation encoding="application/x-tex">AE</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal">A</span><span class="mord mathnormal" style="margin-right:0.05764em;">E</span></span></span></span> with the lowest weight to add to the tree. As shown below:</p>
+<img data-src="/images/kruskal-algorithm/5.jpg" style="zoom: 60%;" />
+<p>Then, select the edge <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>F</mi><mi>G</mi></mrow><annotation encoding="application/x-tex">FG</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">F</span><span class="mord mathnormal">G</span></span></span></span> with the lowest weight to add to the tree. The original graph had 7 vertices, and now there are 6 edges in the tree, so the minimum spanning tree is built. As shown below:</p>
+<img data-src="/images/kruskal-algorithm/6.jpg" style="zoom: 60%;" />
+<p>Finally, we can get the following minimum spanning tree:</p>
+<img data-src="/images/kruskal-algorithm/new.jpg" style="zoom: 60%;" />
+<hr />
+<h2 id="code"><a class="markdownIt-Anchor" href="#code"></a> Code</h2>
+<p>The Kruskal algorithm is implemented using Python.</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> heapq</span><br><span class="line"></span><br><span class="line"><span class="comment"># Disjoint Set Union functions</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">find</span>(<span class="params">all_node_parent, node</span>):</span><br><span class="line">    <span class="keyword">if</span> all_node_parent[node] != node:</span><br><span class="line">        all_node_parent[node] = find(all_node_parent, all_node_parent[node])</span><br><span class="line">    <span class="keyword">return</span> all_node_parent[node]</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">union</span>(<span class="params">all_node_parent, node_1, node_2</span>):</span><br><span class="line">    root_1 = find(all_node_parent, node_1)</span><br><span class="line">    root_2 = find(all_node_parent, node_2)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> root_1 != root_2:</span><br><span class="line">        all_node_parent[root_2] = root_1</span><br><span class="line"></span><br><span class="line"><span class="comment"># Kruskal algorithm</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">kruskal</span>(<span class="params">adjacency_table_map</span>):</span><br><span class="line">    <span class="comment"># Use priority queue to store candidate edges, sorted by weight</span></span><br><span class="line">    candidate_edges_pq = []</span><br><span class="line">    <span class="keyword">for</span> curr_node, neighbors <span class="keyword">in</span> adjacency_table_map.items():</span><br><span class="line">        <span class="keyword">for</span> neighbor_node, weight <span class="keyword">in</span> neighbors.items():</span><br><span class="line">            heapq.heappush(candidate_edges_pq, (weight, curr_node, neighbor_node))</span><br><span class="line"></span><br><span class="line">    <span class="comment"># Initialize the Minimum Spanning Tree with an empty edge list and total weight of zero</span></span><br><span class="line">    mst_edges_list = []</span><br><span class="line">    total_weight = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># Initialize the parent node of all nodes, and this will be used in the Disjoint Set Union functions</span></span><br><span class="line">    node_parent = &#123;node: node <span class="keyword">for</span> node <span class="keyword">in</span> adjacency_table_map&#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> <span class="built_in">len</span>(candidate_edges_pq) &gt; <span class="number">0</span>:</span><br><span class="line">        <span class="comment"># Pop the edge with the minimum weight from the priority queue</span></span><br><span class="line">        weight, curr_node, next_node = heapq.heappop(candidate_edges_pq)</span><br><span class="line"></span><br><span class="line">        <span class="comment"># if two nodes are in the same set, a loop will be formed when the edge is added to the tree</span></span><br><span class="line">        <span class="keyword">if</span> find(node_parent, curr_node) != find(node_parent, next_node):</span><br><span class="line">            <span class="comment"># Merge two disjoint sets into a single set</span></span><br><span class="line">            union(node_parent, curr_node, next_node)</span><br><span class="line"></span><br><span class="line">            <span class="comment"># Add the edge to the tree</span></span><br><span class="line">            mst_edges_list.append((weight, curr_node, next_node))</span><br><span class="line">            total_weight += weight</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">&quot;The edge with the lowest weight selected this time : &quot;</span> + <span class="built_in">str</span>(curr_node) + <span class="string">&quot;-&quot;</span> + <span class="built_in">str</span>(next_node)</span><br><span class="line">                  + <span class="string">&quot;, weight: &quot;</span> + <span class="built_in">str</span>(weight) + <span class="string">&quot;. Add it to the tree.&quot;</span>)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">&quot;The edge with the lowest weight selected this time : &quot;</span> + <span class="built_in">str</span>(curr_node) + <span class="string">&quot;-&quot;</span> + <span class="built_in">str</span>(next_node)</span><br><span class="line">                  + <span class="string">&quot;, weight: &quot;</span> + <span class="built_in">str</span>(weight) + <span class="string">&quot;. Discard it because it will form a cycle.&quot;</span>)</span><br><span class="line"></span><br><span class="line">        <span class="comment"># Check if the tree is complete (If the graph has n vertices, the minimum spanning tree has n-1 edges)</span></span><br><span class="line">        <span class="keyword">if</span> <span class="built_in">len</span>(mst_edges_list) == <span class="built_in">len</span>(adjacency_table_map) - <span class="number">1</span>:</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> mst_edges_list, total_weight</span><br><span class="line"></span><br><span class="line"><span class="comment"># Example usage:</span></span><br><span class="line"><span class="comment"># Use adjacency_table to represent the graph</span></span><br><span class="line">adjacency_table_map = &#123;</span><br><span class="line">    <span class="string">&quot;A&quot;</span>: &#123;<span class="string">&quot;B&quot;</span>: <span class="number">5</span>, <span class="string">&quot;C&quot;</span>: <span class="number">20</span>, <span class="string">&quot;D&quot;</span>: <span class="number">5</span>, <span class="string">&quot;E&quot;</span>: <span class="number">20</span>, <span class="string">&quot;F&quot;</span>: <span class="number">50</span>&#125;,</span><br><span class="line">    <span class="string">&quot;B&quot;</span>: &#123;<span class="string">&quot;A&quot;</span>: <span class="number">5</span>, <span class="string">&quot;C&quot;</span>: <span class="number">30</span>, <span class="string">&quot;D&quot;</span>: <span class="number">30</span>&#125;,</span><br><span class="line">    <span class="string">&quot;C&quot;</span>: &#123;<span class="string">&quot;A&quot;</span>: <span class="number">20</span>, <span class="string">&quot;B&quot;</span>: <span class="number">30</span>, <span class="string">&quot;F&quot;</span>: <span class="number">10</span>&#125;,</span><br><span class="line">    <span class="string">&quot;D&quot;</span>: &#123;<span class="string">&quot;A&quot;</span>: <span class="number">5</span>, <span class="string">&quot;B&quot;</span>: <span class="number">30</span>, <span class="string">&quot;E&quot;</span>: <span class="number">25</span>&#125;,</span><br><span class="line">    <span class="string">&quot;E&quot;</span>: &#123;<span class="string">&quot;A&quot;</span>: <span class="number">20</span>, <span class="string">&quot;D&quot;</span>: <span class="number">25</span>, <span class="string">&quot;F&quot;</span>: <span class="number">50</span>, <span class="string">&quot;G&quot;</span>: <span class="number">40</span>&#125;,</span><br><span class="line">    <span class="string">&quot;F&quot;</span>: &#123;<span class="string">&quot;A&quot;</span>: <span class="number">50</span>, <span class="string">&quot;C&quot;</span>: <span class="number">10</span>, <span class="string">&quot;E&quot;</span>: <span class="number">50</span>, <span class="string">&quot;G&quot;</span>: <span class="number">20</span>&#125;,</span><br><span class="line">    <span class="string">&quot;G&quot;</span>: &#123;<span class="string">&quot;E&quot;</span>: <span class="number">40</span>, <span class="string">&quot;F&quot;</span>: <span class="number">20</span>&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># Call the Kruskal algorithm function</span></span><br><span class="line">mst_edges, total_weight = kruskal(adjacency_table_map)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Minimum Spanning Tree Edges:&quot;</span>, mst_edges)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Total Weight of the Minimum Spanning Tree:&quot;</span>, total_weight)</span><br></pre></td></tr></table></figure>
+<p>The output is as follows:</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">The edge <span class="keyword">with</span> the lowest weight selected this time : A-B, weight: <span class="number">5.</span> Add it to the tree.</span><br><span class="line">The edge <span class="keyword">with</span> the lowest weight selected this time : A-D, weight: <span class="number">5.</span> Add it to the tree.</span><br><span class="line">The edge <span class="keyword">with</span> the lowest weight selected this time : B-A, weight: <span class="number">5.</span> Discard it because it will form a cycle.</span><br><span class="line">The edge <span class="keyword">with</span> the lowest weight selected this time : D-A, weight: <span class="number">5.</span> Discard it because it will form a cycle.</span><br><span class="line">The edge <span class="keyword">with</span> the lowest weight selected this time : C-F, weight: <span class="number">10.</span> Add it to the tree.</span><br><span class="line">The edge <span class="keyword">with</span> the lowest weight selected this time : F-C, weight: <span class="number">10.</span> Discard it because it will form a cycle.</span><br><span class="line">The edge <span class="keyword">with</span> the lowest weight selected this time : A-C, weight: <span class="number">20.</span> Add it to the tree.</span><br><span class="line">The edge <span class="keyword">with</span> the lowest weight selected this time : A-E, weight: <span class="number">20.</span> Add it to the tree.</span><br><span class="line">The edge <span class="keyword">with</span> the lowest weight selected this time : C-A, weight: <span class="number">20.</span> Discard it because it will form a cycle.</span><br><span class="line">The edge <span class="keyword">with</span> the lowest weight selected this time : E-A, weight: <span class="number">20.</span> Discard it because it will form a cycle.</span><br><span class="line">The edge <span class="keyword">with</span> the lowest weight selected this time : F-G, weight: <span class="number">20.</span> Add it to the tree.</span><br><span class="line">Minimum Spanning Tree Edges: [(<span class="number">5</span>, <span class="string">&#x27;A&#x27;</span>, <span class="string">&#x27;B&#x27;</span>), (<span class="number">5</span>, <span class="string">&#x27;A&#x27;</span>, <span class="string">&#x27;D&#x27;</span>), (<span class="number">10</span>, <span class="string">&#x27;C&#x27;</span>, <span class="string">&#x27;F&#x27;</span>), (<span class="number">20</span>, <span class="string">&#x27;A&#x27;</span>, <span class="string">&#x27;C&#x27;</span>), (<span class="number">20</span>, <span class="string">&#x27;A&#x27;</span>, <span class="string">&#x27;E&#x27;</span>), (<span class="number">20</span>, <span class="string">&#x27;F&#x27;</span>, <span class="string">&#x27;G&#x27;</span>)]</span><br><span class="line">Total Weight of the Minimum Spanning Tree: <span class="number">80</span></span><br></pre></td></tr></table></figure>
+<hr />
+<h2 id="reference-links"><a class="markdownIt-Anchor" href="#reference-links"></a> Reference Links</h2>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Minimum_spanning_tree">https://en.wikipedia.org/wiki/Minimum_spanning_tree</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Kruskal%27s_algorithm">https://en.wikipedia.org/wiki/Kruskal's_algorithm</a></li>
+<li><a href="https://cp-algorithms.com/data_structures/disjoint_set_union.html">https://cp-algorithms.com/data_structures/disjoint_set_union.html</a></li>
+<li><a href="https://cloud.tencent.com/developer/article/2304976">Python 算法基础篇之最小生成树算法： Prim 算法和 Kruskal 算法-腾讯云开发者社区-腾讯云 (tencent.com)</a></li>
+<li><a href="https://www.cnblogs.com/jyxcpp/p/16536453.html">彻底搞懂克鲁斯卡尔（Kruskal）算法（附C++代码实现） - QuanHa - 博客园 (cnblogs.com)</a></li>
+</ul>
+]]></content>
+      <tags>
+        <tag>Python</tag>
+        <tag>Graph Theory</tag>
       </tags>
   </entry>
   <entry>

@@ -19,32 +19,31 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"duohedounai.github.io","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.19.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="Bug Description  IDE: IntelliJ IDEA 2021.3 Language: Java Error: Java package xxx does not exist  I imported a library into a service of a module in a multi-module Spring Boot project. The relevant i">
+    <meta name="description" content="Bug Description  IDE: IntelliJ IDEA 2021.3 Language: Java Error: Unable to find main class  I have created a multi-module Spring Boot project that will serve as a tool library for other projects to u">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Bug Resolution: Java package xxx does not exist">
-<meta property="og:url" content="https://duohedounai.github.io/2024/05/06/Bug-resolution-Java-package-xxx-does-not-exist/index.html">
+<meta property="og:title" content="Bug Resolution: Unable to find main class">
+<meta property="og:url" content="https://duohedounai.github.io/2024/05/07/Bug-Resolution-Unable-to-find-main-class/index.html">
 <meta property="og:site_name" content="Will Yuan&#39;s Blog">
-<meta property="og:description" content="Bug Description  IDE: IntelliJ IDEA 2021.3 Language: Java Error: Java package xxx does not exist  I imported a library into a service of a module in a multi-module Spring Boot project. The relevant i">
+<meta property="og:description" content="Bug Description  IDE: IntelliJ IDEA 2021.3 Language: Java Error: Unable to find main class  I have created a multi-module Spring Boot project that will serve as a tool library for other projects to u">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://duohedounai.github.io/images/java-bug-1/1.png">
-<meta property="og:image" content="https://duohedounai.github.io/images/java-bug-1/2.png">
-<meta property="article:published_time" content="2024-05-06T15:05:20.000Z">
-<meta property="article:modified_time" content="2024-05-07T15:50:40.222Z">
+<meta property="og:image" content="https://duohedounai.github.io/images/java-bug-2/build.png">
+<meta property="article:published_time" content="2024-05-07T15:51:36.000Z">
+<meta property="article:modified_time" content="2024-05-08T16:04:27.483Z">
 <meta property="article:author" content="Will Yuan">
 <meta property="article:tag" content="Java">
 <meta property="article:tag" content="Bug Resolution">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://duohedounai.github.io/images/java-bug-1/1.png">
+<meta name="twitter:image" content="https://duohedounai.github.io/images/java-bug-2/build.png">
 
 
-<link rel="canonical" href="https://duohedounai.github.io/2024/05/06/Bug-resolution-Java-package-xxx-does-not-exist/">
+<link rel="canonical" href="https://duohedounai.github.io/2024/05/07/Bug-Resolution-Unable-to-find-main-class/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://duohedounai.github.io/2024/05/06/Bug-resolution-Java-package-xxx-does-not-exist/","path":"2024/05/06/Bug-resolution-Java-package-xxx-does-not-exist/","title":"Bug Resolution: Java package xxx does not exist"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://duohedounai.github.io/2024/05/07/Bug-Resolution-Unable-to-find-main-class/","path":"2024/05/07/Bug-Resolution-Unable-to-find-main-class/","title":"Bug Resolution: Unable to find main class"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>Bug Resolution: Java package xxx does not exist | Will Yuan's Blog</title>
+<title>Bug Resolution: Unable to find main class | Will Yuan's Blog</title>
   
 
 
@@ -147,7 +146,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#bug-description"><span class="nav-number">1.</span> <span class="nav-text"> Bug Description</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#solution"><span class="nav-number">2.</span> <span class="nav-text"> Solution</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#reference-link"><span class="nav-number">3.</span> <span class="nav-text"> Reference link</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#bug-description"><span class="nav-number">1.</span> <span class="nav-text"> Bug Description</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#solution"><span class="nav-number">2.</span> <span class="nav-text"> Solution</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#reference-links"><span class="nav-number">3.</span> <span class="nav-text"> Reference Links</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -193,7 +192,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://duohedounai.github.io/2024/05/06/Bug-resolution-Java-package-xxx-does-not-exist/">
+    <link itemprop="mainEntityOfPage" href="https://duohedounai.github.io/2024/05/07/Bug-Resolution-Unable-to-find-main-class/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -206,12 +205,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="Bug Resolution: Java package xxx does not exist | Will Yuan's Blog">
+      <meta itemprop="name" content="Bug Resolution: Unable to find main class | Will Yuan's Blog">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Bug Resolution: Java package xxx does not exist
+          Bug Resolution: Unable to find main class
         </h1>
 
         <div class="post-meta-container">
@@ -222,14 +221,14 @@
       </span>
       <span class="post-meta-item-text">Posted on</span>
 
-      <time title="Created: 2024-05-06 23:05:20" itemprop="dateCreated datePublished" datetime="2024-05-06T23:05:20+08:00">2024-05-06</time>
+      <time title="Created: 2024-05-07 23:51:36" itemprop="dateCreated datePublished" datetime="2024-05-07T23:51:36+08:00">2024-05-07</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2024-05-07 23:50:40" itemprop="dateModified" datetime="2024-05-07T23:50:40+08:00">2024-05-07</time>
+      <time title="Modified: 2024-05-09 00:04:27" itemprop="dateModified" datetime="2024-05-09T00:04:27+08:00">2024-05-09</time>
     </span>
 
   
@@ -246,7 +245,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">Word count in article: </span>
-      <span>104</span>
+      <span>164</span>
     </span>
     <span class="post-meta-item" title="Reading time">
       <span class="post-meta-item-icon">
@@ -267,18 +266,22 @@
 <blockquote>
 <p><strong>IDE:</strong> IntelliJ IDEA 2021.3</p>
 <p><strong>Language:</strong> Java</p>
-<p><strong>Error:</strong> Java package xxx does not exist</p>
+<p><strong>Error:</strong> Unable to find main class</p>
 </blockquote>
-<p>I imported a library into a service of a module in a multi-module Spring Boot project. The relevant import statement is written in the code, and the relevant dependency is also introduced in the <em>pom.xml</em>. When building the project, the IDE prompts this error: <strong>Java package xxx does not exist</strong>.</p>
+<p>I have created a multi-module Spring Boot project that will serve as a tool library for other projects to use. When building the multi-module Spring Boot project, the IDE prompts the following error: <strong>Unable to find main class</strong>.</p>
 <hr />
 <h2 id="solution"><a class="markdownIt-Anchor" href="#solution"></a> Solution</h2>
-<p>The following methods can solve this bug.</p>
-<img data-src="/images/java-bug-1/1.png" style="zoom:60%"/>
-<img data-src="/images/java-bug-1/2.png" style="zoom:60%"/>
+<p>The plugin that comes with SpringBoot requires the main method.</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">plugin</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-maven-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>Because this is a utility project, <strong>there is no main method</strong>, so you need to make the following changes to the parent's <em>pom.xml</em>:</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">plugin</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.maven.plugins<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span>			</span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>maven-compiler-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">source</span>&gt;</span>$&#123;maven.compiler.source&#125;<span class="tag">&lt;/<span class="name">source</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">target</span>&gt;</span>$&#123;maven.compiler.target&#125;<span class="tag">&lt;/<span class="name">target</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">encoding</span>&gt;</span>$&#123;project.build.sourceEncoding&#125;<span class="tag">&lt;/<span class="name">encoding</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<img data-src="/images/java-bug-2/build.png" style="zoom:60%"/>
+<p>In a multi-module Springboot project, the child modules' <em>pom.xml</em> will inherit the configuration in the parent's <em>pom.xml</em>.</p>
 <hr />
-<h2 id="reference-link"><a class="markdownIt-Anchor" href="#reference-link"></a> Reference link</h2>
+<h2 id="reference-links"><a class="markdownIt-Anchor" href="#reference-links"></a> Reference Links</h2>
 <ul>
-<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_43377237/article/details/108010414">https://blog.csdn.net/qq_43377237/article/details/108010414</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.cnblogs.com/jinshuaishuai/p/10831172.html">https://www.cnblogs.com/jinshuaishuai/p/10831172.html</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/sinat_24928447/article/details/105705968">https://blog.csdn.net/sinat_24928447/article/details/105705968</a></li>
 </ul>
 
     </div>
@@ -297,7 +300,7 @@
   </li>
   <li class="post-copyright-link">
       <strong>Post link: </strong>
-      <a href="https://duohedounai.github.io/2024/05/06/Bug-resolution-Java-package-xxx-does-not-exist/" title="Bug Resolution: Java package xxx does not exist">https://duohedounai.github.io/2024/05/06/Bug-resolution-Java-package-xxx-does-not-exist/</a>
+      <a href="https://duohedounai.github.io/2024/05/07/Bug-Resolution-Unable-to-find-main-class/" title="Bug Resolution: Unable to find main class">https://duohedounai.github.io/2024/05/07/Bug-Resolution-Unable-to-find-main-class/</a>
   </li>
   <li class="post-copyright-license">
       <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> unless stating additionally.
@@ -314,13 +317,13 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2024/04/30/SciPy-library-in-Python/" rel="prev" title="Use SciPy Library in Python to Solve Linear Programming Problems">
-                  <i class="fa fa-angle-left"></i> Use SciPy Library in Python to Solve Linear Programming Problems
+                <a href="/2024/05/06/Bug-resolution-Java-package-xxx-does-not-exist/" rel="prev" title="Bug Resolution: Java package xxx does not exist">
+                  <i class="fa fa-angle-left"></i> Bug Resolution: Java package xxx does not exist
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2024/05/07/Bug-Resolution-Unable-to-find-main-class/" rel="next" title="Bug Resolution: Unable to find main class">
-                  Bug Resolution: Unable to find main class <i class="fa fa-angle-right"></i>
+                <a href="/2024/05/08/summary-and-implementation-of-particle-swarm-algorithm/" rel="next" title="Summary and Implementation of Particle Swarm Optimization">
+                  Summary and Implementation of Particle Swarm Optimization <i class="fa fa-angle-right"></i>
                 </a>
             </div>
           </div>
@@ -427,7 +430,7 @@
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.8.0/gitalk.css" integrity="sha256-AJnUHL7dBv6PGaeyPQJcgQPDjt/Hn/PvYZde1iqfp8U=" crossorigin="anonymous">
 
-<script class="next-config" data-name="gitalk" type="application/json">{"enable":true,"github_id":"duohedounai","repo":"duohedounai.github.io","client_id":"005ce2ed36a466b0bfc9","client_secret":"7f9def3a076d9133cd9c538d9f2a8af1847794ad","admin_user":"duohedounai","distraction_free_mode":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token","language":"en","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.8.0/gitalk.min.js","integrity":"sha256-MVK9MGD/XJaGyIghSVrONSnoXoGh3IFxLw0zfvzpxR4="},"path_md5":"2263c4cda2253a05f4b4f06bdccf4fd4"}</script>
+<script class="next-config" data-name="gitalk" type="application/json">{"enable":true,"github_id":"duohedounai","repo":"duohedounai.github.io","client_id":"005ce2ed36a466b0bfc9","client_secret":"7f9def3a076d9133cd9c538d9f2a8af1847794ad","admin_user":"duohedounai","distraction_free_mode":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token","language":"en","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.8.0/gitalk.min.js","integrity":"sha256-MVK9MGD/XJaGyIghSVrONSnoXoGh3IFxLw0zfvzpxR4="},"path_md5":"3bdc489920e52ba688e4e9616d94d29e"}</script>
 <script src="/js/third-party/comments/gitalk.js"></script>
 
 </body>
