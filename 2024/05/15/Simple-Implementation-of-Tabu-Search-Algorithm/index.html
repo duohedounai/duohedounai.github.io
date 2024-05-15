@@ -19,32 +19,35 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"duohedounai.github.io","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.19.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="Bug Description  IDE: IntelliJ IDEA 2021.3 Language: Java Error: Java package xxx does not exist  I imported a library into a service of a module in a multi-module Spring Boot project. The relevant i">
+    <meta name="description" content="Basic Concept Tabu Search (TS) is a meta-heuristic algorithm that was first proposed by Glover in 1986. The algorithm avoids repeated searches by introducing a tabu table, and pardons some good solut">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Bug Resolution: Java package xxx does not exist">
-<meta property="og:url" content="https://duohedounai.github.io/2024/05/06/Bug-resolution-Java-package-xxx-does-not-exist/index.html">
+<meta property="og:title" content="Simple Implementation of Tabu Search Algorithm">
+<meta property="og:url" content="https://duohedounai.github.io/2024/05/15/Simple-Implementation-of-Tabu-Search-Algorithm/index.html">
 <meta property="og:site_name" content="Will Yuan&#39;s Blog">
-<meta property="og:description" content="Bug Description  IDE: IntelliJ IDEA 2021.3 Language: Java Error: Java package xxx does not exist  I imported a library into a service of a module in a multi-module Spring Boot project. The relevant i">
+<meta property="og:description" content="Basic Concept Tabu Search (TS) is a meta-heuristic algorithm that was first proposed by Glover in 1986. The algorithm avoids repeated searches by introducing a tabu table, and pardons some good solut">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://duohedounai.github.io/images/java-bug-1/1.png">
-<meta property="og:image" content="https://duohedounai.github.io/images/java-bug-1/2.png">
-<meta property="article:published_time" content="2024-05-06T15:05:20.000Z">
-<meta property="article:modified_time" content="2024-05-07T15:50:40.222Z">
+<meta property="og:image" content="https://duohedounai.github.io/images/ts/city_location.png">
+<meta property="og:image" content="https://duohedounai.github.io/images/ts/cost.png">
+<meta property="og:image" content="https://duohedounai.github.io/images/ts/route.png">
+<meta property="article:published_time" content="2024-05-15T10:34:42.000Z">
+<meta property="article:modified_time" content="2024-05-15T10:38:49.914Z">
 <meta property="article:author" content="Will Yuan">
-<meta property="article:tag" content="Java">
-<meta property="article:tag" content="Bug Resolution">
+<meta property="article:tag" content="Python">
+<meta property="article:tag" content="Optimization">
+<meta property="article:tag" content="Metaheuristic algorithm">
+<meta property="article:tag" content="Tabu Search">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://duohedounai.github.io/images/java-bug-1/1.png">
+<meta name="twitter:image" content="https://duohedounai.github.io/images/ts/city_location.png">
 
 
-<link rel="canonical" href="https://duohedounai.github.io/2024/05/06/Bug-resolution-Java-package-xxx-does-not-exist/">
+<link rel="canonical" href="https://duohedounai.github.io/2024/05/15/Simple-Implementation-of-Tabu-Search-Algorithm/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://duohedounai.github.io/2024/05/06/Bug-resolution-Java-package-xxx-does-not-exist/","path":"2024/05/06/Bug-resolution-Java-package-xxx-does-not-exist/","title":"Bug Resolution: Java package xxx does not exist"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://duohedounai.github.io/2024/05/15/Simple-Implementation-of-Tabu-Search-Algorithm/","path":"2024/05/15/Simple-Implementation-of-Tabu-Search-Algorithm/","title":"Simple Implementation of Tabu Search Algorithm"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>Bug Resolution: Java package xxx does not exist | Will Yuan's Blog</title>
+<title>Simple Implementation of Tabu Search Algorithm | Will Yuan's Blog</title>
   
 
 
@@ -147,7 +150,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#bug-description"><span class="nav-number">1.</span> <span class="nav-text"> Bug Description</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#solution"><span class="nav-number">2.</span> <span class="nav-text"> Solution</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#reference-link"><span class="nav-number">3.</span> <span class="nav-text"> Reference link</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#basic-concept"><span class="nav-number">1.</span> <span class="nav-text"> Basic Concept</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#steps"><span class="nav-number">2.</span> <span class="nav-text"> Steps</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#example"><span class="nav-number">3.</span> <span class="nav-text"> Example</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#result"><span class="nav-number">4.</span> <span class="nav-text"> Result</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#code"><span class="nav-number">5.</span> <span class="nav-text"> Code</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#reference-links"><span class="nav-number">6.</span> <span class="nav-text"> Reference Links</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -193,7 +196,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://duohedounai.github.io/2024/05/06/Bug-resolution-Java-package-xxx-does-not-exist/">
+    <link itemprop="mainEntityOfPage" href="https://duohedounai.github.io/2024/05/15/Simple-Implementation-of-Tabu-Search-Algorithm/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -206,12 +209,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="Bug Resolution: Java package xxx does not exist | Will Yuan's Blog">
+      <meta itemprop="name" content="Simple Implementation of Tabu Search Algorithm | Will Yuan's Blog">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Bug Resolution: Java package xxx does not exist
+          Simple Implementation of Tabu Search Algorithm
         </h1>
 
         <div class="post-meta-container">
@@ -221,15 +224,9 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
+      
 
-      <time title="Created: 2024-05-06 23:05:20" itemprop="dateCreated datePublished" datetime="2024-05-06T23:05:20+08:00">2024-05-06</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2024-05-07 23:50:40" itemprop="dateModified" datetime="2024-05-07T23:50:40+08:00">2024-05-07</time>
+      <time title="Created: 2024-05-15 18:34:42 / Modified: 18:38:49" itemprop="dateCreated datePublished" datetime="2024-05-15T18:34:42+08:00">2024-05-15</time>
     </span>
 
   
@@ -246,14 +243,14 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">Word count in article: </span>
-      <span>104</span>
+      <span>443</span>
     </span>
     <span class="post-meta-item" title="Reading time">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">Reading time &asymp;</span>
-      <span>1 mins.</span>
+      <span>2 mins.</span>
     </span>
 </div>
 
@@ -263,22 +260,52 @@
     
     
     
-    <div class="post-body" itemprop="articleBody"><h2 id="bug-description"><a class="markdownIt-Anchor" href="#bug-description"></a> Bug Description</h2>
-<blockquote>
-<p><strong>IDE:</strong> IntelliJ IDEA 2021.3</p>
-<p><strong>Language:</strong> Java</p>
-<p><strong>Error:</strong> Java package xxx does not exist</p>
-</blockquote>
-<p>I imported a library into a service of a module in a multi-module Spring Boot project. The relevant import statement is written in the code, and the relevant dependency is also introduced in the <em>pom.xml</em>. When building the project, the IDE prompts this error: <strong>Java package xxx does not exist</strong>.</p>
+    <div class="post-body" itemprop="articleBody"><h2 id="basic-concept"><a class="markdownIt-Anchor" href="#basic-concept"></a> Basic Concept</h2>
+<p>Tabu Search (TS) is a meta-heuristic algorithm that was first proposed by Glover in 1986. The algorithm avoids repeated searches by introducing a tabu table, and pardons some good solutions or states in tabu table through amnesty rules, so as to achieve a better global optimization effect.</p>
 <hr />
-<h2 id="solution"><a class="markdownIt-Anchor" href="#solution"></a> Solution</h2>
-<p>The following methods can solve this bug.</p>
-<img data-src="/images/java-bug-1/1.png" style="zoom:60%"/>
-<img data-src="/images/java-bug-1/2.png" style="zoom:60%"/>
-<hr />
-<h2 id="reference-link"><a class="markdownIt-Anchor" href="#reference-link"></a> Reference link</h2>
+<h2 id="steps"><a class="markdownIt-Anchor" href="#steps"></a> Steps</h2>
+<p>Tabu Search algorithm typically includes the following key steps:</p>
 <ul>
-<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_43377237/article/details/108010414">https://blog.csdn.net/qq_43377237/article/details/108010414</a></li>
+<li>
+<p>Step 1: Generate an initial solution, create an empty tabu table, and set the tabu length.</p>
+</li>
+<li>
+<p>Step 2: Use neighborhood operators (such as crossover and mutation operators in Genetic Aalgorithms) to generate multiple new solutions and calculate the fitness of these solutions.</p>
+</li>
+<li>
+<p>Step 3: Seclect the solution with the best fitness value from these new solutions and compared with the historical optimal solution found by the algorithm:</p>
+<p>① If it is better than the historical optimal solution, the tabu table is not considered and it is used as the solution for the next iteration. Add the selected solution to the tabu table.</p>
+<p>② If it is not better than the historical optimal solution, select the solution that is not in the tabu table with the best fitness value as the solution for the next iteration. Add the selected solution to the tabu table.</p>
+</li>
+<li>
+<p>Step 4: Repeat steps 2 and 3 until the algorithm termination condition such as the maximum number of iterations or solution time limits are met.</p>
+</li>
+</ul>
+<hr />
+<h2 id="example"><a class="markdownIt-Anchor" href="#example"></a> Example</h2>
+<p>Next, we try to solve the traveling salesman problem using Tabu Search algorithm.</p>
+<p>Given a number of cities, as shown in the image below, find the path with the least travel cost while visiting each city exactly once and returning to the starting city.</p>
+<img data-src="/images/ts/city_location.png" style="zoom:70%"/>
+<hr />
+<h2 id="result"><a class="markdownIt-Anchor" href="#result"></a> Result</h2>
+<p>In the iterative process of the TS algorithm, the fitness value (travel cost) change process of the optimal solution found is as follows:</p>
+<img data-src="/images/ts/cost.png" style="zoom:70%"/>
+<p>The optimal solution found by the algorithm is as follows:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">city number: <span class="number">20</span></span><br><span class="line">Best Route: [<span class="number">18</span>, <span class="number">6</span>, <span class="number">4</span>, <span class="number">19</span>, <span class="number">11</span>, <span class="number">5</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">10</span>, <span class="number">2</span>, <span class="number">17</span>, <span class="number">8</span>, <span class="number">16</span>, <span class="number">7</span>, <span class="number">12</span>, <span class="number">13</span>, <span class="number">14</span>, <span class="number">15</span>, <span class="number">3</span>, <span class="number">9</span>]</span><br><span class="line">Best Value: <span class="number">431.30725365480686</span></span><br></pre></td></tr></table></figure>
+<p>The path finally searched by the algorithm is shown below:</p>
+<img data-src="/images/ts/route.png" style="zoom:70%"/>
+<p>Note that the green line in the graph represents the line connecting the starting and ending cities.</p>
+<hr />
+<h2 id="code"><a class="markdownIt-Anchor" href="#code"></a> Code</h2>
+<p>The Python code of the TS for the above example is here: <a target="_blank" rel="noopener" href="https://github.com/duohedounai/Optimization/blob/main/metaheuristic_algorithms/Tabu_Search/TS.py">Optimization/metaheuristic_algorithms/Tabu_Search/TS.py at main · duohedounai/Optimization (github.com)</a></p>
+<hr />
+<h2 id="reference-links"><a class="markdownIt-Anchor" href="#reference-links"></a> Reference Links</h2>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Tabu_search">https://en.wikipedia.org/wiki/Tabu_search</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.baeldung.com/cs/tsp-exact-solutions-vs-heuristic-vs-approximation-algorithms">Traveling Salesman Problem: Exact Solutions vs. Heuristic vs. Approximation Algorithms | Baeldung on Computer Science</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.geeksforgeeks.org/what-is-tabu-search/">What is TABU Search? - GeeksforGeeks</a></li>
+<li><a target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/article/1103545">https://cloud.tencent.com/developer/article/1103545</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.tup.tsinghua.edu.cn/upload/books/yz/098982-01.pdf">098982-01.pdf (tsinghua.edu.cn)</a></li>
 </ul>
 
     </div>
@@ -297,7 +324,7 @@
   </li>
   <li class="post-copyright-link">
       <strong>Post link: </strong>
-      <a href="https://duohedounai.github.io/2024/05/06/Bug-resolution-Java-package-xxx-does-not-exist/" title="Bug Resolution: Java package xxx does not exist">https://duohedounai.github.io/2024/05/06/Bug-resolution-Java-package-xxx-does-not-exist/</a>
+      <a href="https://duohedounai.github.io/2024/05/15/Simple-Implementation-of-Tabu-Search-Algorithm/" title="Simple Implementation of Tabu Search Algorithm">https://duohedounai.github.io/2024/05/15/Simple-Implementation-of-Tabu-Search-Algorithm/</a>
   </li>
   <li class="post-copyright-license">
       <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> unless stating additionally.
@@ -306,22 +333,21 @@
 </div>
 
           <div class="post-tags">
-              <a href="/tags/Java/" rel="tag"># Java</a>
-              <a href="/tags/Bug-Resolution/" rel="tag"># Bug Resolution</a>
+              <a href="/tags/Python/" rel="tag"># Python</a>
+              <a href="/tags/Optimization/" rel="tag"># Optimization</a>
+              <a href="/tags/Metaheuristic-algorithm/" rel="tag"># Metaheuristic algorithm</a>
+              <a href="/tags/Tabu-Search/" rel="tag"># Tabu Search</a>
           </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2024/04/30/SciPy-library-in-Python/" rel="prev" title="Use SciPy Library in Python to Solve Linear Programming Problems">
-                  <i class="fa fa-angle-left"></i> Use SciPy Library in Python to Solve Linear Programming Problems
+                <a href="/2024/05/08/summary-and-implementation-of-particle-swarm-algorithm/" rel="prev" title="Summary and Implementation of Particle Swarm Optimization">
+                  <i class="fa fa-angle-left"></i> Summary and Implementation of Particle Swarm Optimization
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2024/05/07/Bug-Resolution-Unable-to-find-main-class/" rel="next" title="Bug Resolution: Unable to find main class">
-                  Bug Resolution: Unable to find main class <i class="fa fa-angle-right"></i>
-                </a>
             </div>
           </div>
     </footer>
@@ -427,7 +453,7 @@
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.8.0/gitalk.css" integrity="sha256-AJnUHL7dBv6PGaeyPQJcgQPDjt/Hn/PvYZde1iqfp8U=" crossorigin="anonymous">
 
-<script class="next-config" data-name="gitalk" type="application/json">{"enable":true,"github_id":"duohedounai","repo":"duohedounai.github.io","client_id":"005ce2ed36a466b0bfc9","client_secret":"7f9def3a076d9133cd9c538d9f2a8af1847794ad","admin_user":"duohedounai","distraction_free_mode":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token","language":"en","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.8.0/gitalk.min.js","integrity":"sha256-MVK9MGD/XJaGyIghSVrONSnoXoGh3IFxLw0zfvzpxR4="},"path_md5":"2263c4cda2253a05f4b4f06bdccf4fd4"}</script>
+<script class="next-config" data-name="gitalk" type="application/json">{"enable":true,"github_id":"duohedounai","repo":"duohedounai.github.io","client_id":"005ce2ed36a466b0bfc9","client_secret":"7f9def3a076d9133cd9c538d9f2a8af1847794ad","admin_user":"duohedounai","distraction_free_mode":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token","language":"en","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.8.0/gitalk.min.js","integrity":"sha256-MVK9MGD/XJaGyIghSVrONSnoXoGh3IFxLw0zfvzpxR4="},"path_md5":"6c586718abc2bc1999c1841d27b82ae4"}</script>
 <script src="/js/third-party/comments/gitalk.js"></script>
 
 </body>
