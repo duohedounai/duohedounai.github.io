@@ -31,7 +31,7 @@
 <meta property="og:image" content="https://duohedounai.github.io/images/pyinstaller/exe.png">
 <meta property="og:image" content="https://duohedounai.github.io/images/pyinstaller/result.png">
 <meta property="article:published_time" content="2024-06-11T15:02:18.000Z">
-<meta property="article:modified_time" content="2024-06-11T15:57:52.661Z">
+<meta property="article:modified_time" content="2024-06-11T16:04:49.687Z">
 <meta property="article:author" content="Will Yuan">
 <meta property="article:tag" content="Python">
 <meta name="twitter:card" content="summary">
@@ -222,9 +222,15 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
-      
 
-      <time title="Created: 2024-06-11 23:02:18 / Modified: 23:57:52" itemprop="dateCreated datePublished" datetime="2024-06-11T23:02:18+08:00">2024-06-11</time>
+      <time title="Created: 2024-06-11 23:02:18" itemprop="dateCreated datePublished" datetime="2024-06-11T23:02:18+08:00">2024-06-11</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2024-06-12 00:04:49" itemprop="dateModified" datetime="2024-06-12T00:04:49+08:00">2024-06-12</time>
     </span>
 
   
@@ -241,7 +247,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">Word count in article: </span>
-      <span>256</span>
+      <span>260</span>
     </span>
     <span class="post-meta-item" title="Reading time">
       <span class="post-meta-item-icon">
@@ -269,13 +275,19 @@
 <p>Enter the following command in the terminal:</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pyinstaller -w -F generate_folders.py</span><br></pre></td></tr></table></figure>
 <img data-src="/images/pyinstaller/success.png" style="zoom: 70%;" />
+<ul>
+<li><code>-w, --windowed, --noconsole</code></li>
+</ul>
 <blockquote>
-<p><code>-w, --windowed, --noconsole</code></p>
 <p>Windows and Mac OS X: do not provide a console window for standard i/o. On Mac OS this also triggers building a Mac OS .app bundle. On Windows this option is automatically set if the first script is a ‘.pyw’ file. This option is ignored on *NIX systems.</p>
-<p><a target="_blank" rel="noopener" href="https://pyinstaller.org/en/stable/usage.html#windows-and-mac-os-x-specific-options">https://pyinstaller.org/en/stable/usage.html#windows-and-mac-os-x-specific-options</a></p>
-<p><code>-F, --onefile</code></p>
+<p>More info: <a target="_blank" rel="noopener" href="https://pyinstaller.org/en/stable/usage.html#windows-and-mac-os-x-specific-options">https://pyinstaller.org/en/stable/usage.html#windows-and-mac-os-x-specific-options</a></p>
+</blockquote>
+<ul>
+<li><code>-F, --onefile</code></li>
+</ul>
+<blockquote>
 <p>Create a one-file bundled executable.</p>
-<p><a target="_blank" rel="noopener" href="https://pyinstaller.org/en/stable/usage.html#what-to-generate">https://pyinstaller.org/en/stable/usage.html#what-to-generate</a></p>
+<p>More info: <a target="_blank" rel="noopener" href="https://pyinstaller.org/en/stable/usage.html#what-to-generate">https://pyinstaller.org/en/stable/usage.html#what-to-generate</a></p>
 </blockquote>
 <p>Then, we can see that two new files are generated in the directory where the script is located:</p>
 <img data-src="/images/pyinstaller/folder.png" style="zoom: 80%;" />
