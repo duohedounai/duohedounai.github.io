@@ -78,6 +78,36 @@ h_j(x)=0,k=1,2,...,n
       </tags>
   </entry>
   <entry>
+    <title>Bug Resolution: Multiple windows pop up when the PyQt5 program is packaged and executed</title>
+    <url>/2024/06/18/Bug-Resolution-Multiple-windows-pop-up-when-the-PyQt5-program-is-packaged-and-executed/</url>
+    <content><![CDATA[<h2 id="bug-description"><a class="markdownIt-Anchor" href="#bug-description"></a> Bug Description</h2>
+<blockquote>
+<p><strong>Operating system:</strong> Windows 11</p>
+<p><strong>IDE:</strong> PyCharm 2023.2</p>
+<p><strong>Language:</strong> Python</p>
+</blockquote>
+<img data-src="/images/PyQt5-1/new_windows.png" style="zoom:70%"/>
+<p>I used PyQt5 in Python to develop a GUI for a simple program. After the development was completed, I packaged the program to generate an exe file. But when I run this exe file and click the button on the GUI, a new window will pop up. If I click the button repeatedly, new windows keep being generated. <strong>This problem does not occur when debugging and running the program in PyCharm.</strong></p>
+<hr />
+<h2 id="solution"><a class="markdownIt-Anchor" href="#solution"></a> Solution</h2>
+<p>Add the following code in the main function:</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">multiprocessing.freeze_support()</span><br></pre></td></tr></table></figure>
+<p>The main function is as follows:</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    multiprocessing.freeze_support()</span><br><span class="line">    app = QApplication(sys.argv)</span><br><span class="line">    program = SystemInfoApp()</span><br><span class="line">    sys.exit(app.exec_())</span><br></pre></td></tr></table></figure>
+<hr />
+<h2 id="reference-links"><a class="markdownIt-Anchor" href="#reference-links"></a> Reference links</h2>
+<ul>
+<li><a href="https://pypi.org/project/PyQt5/">https://pypi.org/project/PyQt5/</a></li>
+<li><a href="https://blog.csdn.net/qq_41360787/article/details/120676821">https://blog.csdn.net/qq_41360787/article/details/120676821</a></li>
+</ul>
+]]></content>
+      <tags>
+        <tag>Python</tag>
+        <tag>PyQt5</tag>
+        <tag>Bug Resolution</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>A Basic Implementation of Rapidly Exploring Random Tree</title>
     <url>/2024/07/08/A-simple-implementation-of-Rapidly-exploring-random-tree/</url>
     <content><![CDATA[<h2 id="introduction"><a class="markdownIt-Anchor" href="#introduction"></a> Introduction</h2>
@@ -153,34 +183,8 @@ h_j(x)=0,k=1,2,...,n
 </ul>
 ]]></content>
       <tags>
-        <tag>Java</tag>
         <tag>Bug Resolution</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Bug Resolution: Java package xxx does not exist</title>
-    <url>/2024/05/06/Bug-resolution-Java-package-xxx-does-not-exist/</url>
-    <content><![CDATA[<h2 id="bug-description"><a class="markdownIt-Anchor" href="#bug-description"></a> Bug Description</h2>
-<blockquote>
-<p><strong>IDE:</strong> IntelliJ IDEA 2021.3</p>
-<p><strong>Language:</strong> Java</p>
-<p><strong>Error:</strong> Java package xxx does not exist</p>
-</blockquote>
-<p>I imported a library into a service of a module in a multi-module Spring Boot project. The relevant import statement is written in the code, and the relevant dependency is also introduced in the <em>pom.xml</em>. When building the project, the IDE prompts this error: <strong>Java package xxx does not exist</strong>.</p>
-<hr />
-<h2 id="solution"><a class="markdownIt-Anchor" href="#solution"></a> Solution</h2>
-<p>The following methods can solve this bug.</p>
-<img data-src="/images/java-bug-1/1.png" style="zoom:60%"/>
-<img data-src="/images/java-bug-1/2.png" style="zoom:60%"/>
-<hr />
-<h2 id="reference-link"><a class="markdownIt-Anchor" href="#reference-link"></a> Reference link</h2>
-<ul>
-<li><a href="https://blog.csdn.net/qq_43377237/article/details/108010414">https://blog.csdn.net/qq_43377237/article/details/108010414</a></li>
-</ul>
-]]></content>
-      <tags>
         <tag>Java</tag>
-        <tag>Bug Resolution</tag>
       </tags>
   </entry>
   <entry>
@@ -227,33 +231,64 @@ h_j(x)=0,k=1,2,...,n
       </tags>
   </entry>
   <entry>
-    <title>Bug Resolution: Multiple windows pop up when the PyQt5 program is packaged and executed</title>
-    <url>/2024/06/18/Bug-Resolution-Multiple-windows-pop-up-when-the-PyQt5-program-is-packaged-and-executed/</url>
+    <title>Bug Resolution: Java package xxx does not exist</title>
+    <url>/2024/05/06/Bug-resolution-Java-package-xxx-does-not-exist/</url>
     <content><![CDATA[<h2 id="bug-description"><a class="markdownIt-Anchor" href="#bug-description"></a> Bug Description</h2>
 <blockquote>
-<p><strong>Operating system:</strong> Windows 11</p>
-<p><strong>IDE:</strong> PyCharm 2023.2</p>
-<p><strong>Language:</strong> Python</p>
+<p><strong>IDE:</strong> IntelliJ IDEA 2021.3</p>
+<p><strong>Language:</strong> Java</p>
+<p><strong>Error:</strong> Java package xxx does not exist</p>
 </blockquote>
-<img data-src="/images/PyQt5-1/new_windows.png" style="zoom:70%"/>
-<p>I used PyQt5 in Python to develop a GUI for a simple program. After the development was completed, I packaged the program to generate an exe file. But when I run this exe file and click the button on the GUI, a new window will pop up. If I click the button repeatedly, new windows keep being generated. <strong>This problem does not occur when debugging and running the program in PyCharm.</strong></p>
+<p>I imported a library into a service of a module in a multi-module Spring Boot project. The relevant import statement is written in the code, and the relevant dependency is also introduced in the <em>pom.xml</em>. When building the project, the IDE prompts this error: <strong>Java package xxx does not exist</strong>.</p>
 <hr />
 <h2 id="solution"><a class="markdownIt-Anchor" href="#solution"></a> Solution</h2>
-<p>Add the following code in the main function:</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">multiprocessing.freeze_support()</span><br></pre></td></tr></table></figure>
-<p>The main function is as follows:</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    multiprocessing.freeze_support()</span><br><span class="line">    app = QApplication(sys.argv)</span><br><span class="line">    program = SystemInfoApp()</span><br><span class="line">    sys.exit(app.exec_())</span><br></pre></td></tr></table></figure>
+<p>The following methods can solve this bug.</p>
+<img data-src="/images/java-bug-1/1.png" style="zoom:60%"/>
+<img data-src="/images/java-bug-1/2.png" style="zoom:60%"/>
 <hr />
-<h2 id="reference-links"><a class="markdownIt-Anchor" href="#reference-links"></a> Reference links</h2>
+<h2 id="reference-link"><a class="markdownIt-Anchor" href="#reference-link"></a> Reference link</h2>
 <ul>
-<li><a href="https://pypi.org/project/PyQt5/">https://pypi.org/project/PyQt5/</a></li>
-<li><a href="https://blog.csdn.net/qq_41360787/article/details/120676821">https://blog.csdn.net/qq_41360787/article/details/120676821</a></li>
+<li><a href="https://blog.csdn.net/qq_43377237/article/details/108010414">https://blog.csdn.net/qq_43377237/article/details/108010414</a></li>
+</ul>
+]]></content>
+      <tags>
+        <tag>Bug Resolution</tag>
+        <tag>Java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Calculate Distance Between Two Points Given Latitude and Longitude in Python</title>
+    <url>/2024/04/19/Calculate-distance-between-two-points-given-latitude-and-longitude-in-Python/</url>
+    <content><![CDATA[<p>How to calculate the distance between two coordinate points (knowing longitude and latitude) in Python? Three methods are given here:</p>
+<h2 id="implement-the-haversine-formula"><a class="markdownIt-Anchor" href="#implement-the-haversine-formula"></a> Implement the Haversine formula</h2>
+<img data-src="/images/calculate_distance/h_formula.png" style="zoom:80%"/>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> math</span><br><span class="line"><span class="keyword">from</span> math <span class="keyword">import</span> radians, sin, cos, asin</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">haversine</span>(<span class="params">lat1, lon1, lat2, lon2</span>):</span><br><span class="line">    <span class="comment"># The average radius of the earth is approximately 6371.393km</span></span><br><span class="line">    EARTH_RADIUS = <span class="number">6371</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># Convert to radians</span></span><br><span class="line">    lat1 = radians(lat1)</span><br><span class="line">    lon1 = radians(lon1)</span><br><span class="line">    lat2 = radians(lat2)</span><br><span class="line">    lon2 = radians(lon2)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># Calculate the difference between converted latitude and longitude</span></span><br><span class="line">    delta_lat = lat2 - lat1</span><br><span class="line">    delta_lon = lon2 - lon1</span><br><span class="line"></span><br><span class="line">    <span class="comment"># Haversine formula</span></span><br><span class="line">    temp = math.<span class="built_in">pow</span>(sin(delta_lat / <span class="number">2</span>), <span class="number">2</span>) + cos(lat1) * cos(lat2) * math.<span class="built_in">pow</span>(sin(delta_lon / <span class="number">2</span>), <span class="number">2</span>)</span><br><span class="line">    distance = <span class="number">2</span> * asin(math.sqrt(temp)) * EARTH_RADIUS</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> distance</span><br><span class="line"></span><br><span class="line">new_dist = haversine(<span class="number">36.1628</span>, <span class="number">114.2581</span>, <span class="number">36.5935</span>, <span class="number">114.6296</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;The distance calculated using the Haversine formula is:&quot;</span>, new_dist, <span class="string">&quot;km&quot;</span>)</span><br></pre></td></tr></table></figure>
+<p>The output is as follows:</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">The distance calculated using the Haversine formula <span class="keyword">is</span>: <span class="number">58.30722422948836</span> km</span><br></pre></td></tr></table></figure>
+<hr />
+<h2 id="geopy"><a class="markdownIt-Anchor" href="#geopy"></a> GeoPy</h2>
+<p>GeoPy is a Python library about geocoding. It has geocoding, latitude and longitude distance calculation and other functions. Use <code>pip install geopy</code> to install it.</p>
+<p>GeoPy’s documentation: <a href="https://geopy.readthedocs.io/en/stable/">https://geopy.readthedocs.io/en/stable/</a>.</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> geopy.distance <span class="keyword">import</span> geodesic</span><br><span class="line"></span><br><span class="line">distance = geodesic((<span class="number">36.1628</span>, <span class="number">114.2581</span>), (<span class="number">36.5935</span>, <span class="number">114.6296</span>)).km</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;The distance calculated using GeoPy is:&quot;</span>, distance, <span class="string">&quot;km&quot;</span>)</span><br></pre></td></tr></table></figure>
+<p>The output is as follows:</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">The distance calculated using GeoPy <span class="keyword">is</span>: <span class="number">58.27002330025926</span> km</span><br></pre></td></tr></table></figure>
+<hr />
+<h2 id="haversine-library"><a class="markdownIt-Anchor" href="#haversine-library"></a> haversine library</h2>
+<p>Use <code>pip install haversine</code> to install the haversine library in Python.</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> haversine <span class="keyword">import</span> haversine, Unit</span><br><span class="line"></span><br><span class="line">point1 = (<span class="number">36.1628</span>, <span class="number">114.2581</span>)</span><br><span class="line">point2 = (<span class="number">36.5935</span>, <span class="number">114.6296</span>)</span><br><span class="line"></span><br><span class="line">distance = haversine(point1, point2, unit=Unit.KILOMETERS)  <span class="comment"># km</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;The distance calculated using haversine library is:&quot;</span>, distance, <span class="string">&quot;km&quot;</span>)</span><br></pre></td></tr></table></figure>
+<p>The output is as follows:</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">The distance calculated using haversine library <span class="keyword">is</span>: <span class="number">58.307304766856625</span> km</span><br></pre></td></tr></table></figure>
+<p>It can be seen that for the given two longitude and latitude coordinates, the results calculated by different methods still have certain errors.</p>
+<hr />
+<h2 id="reference-links"><a class="markdownIt-Anchor" href="#reference-links"></a> Reference Links</h2>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Haversine_formula">https://en.wikipedia.org/wiki/Haversine_formula</a></li>
+<li><a href="https://pypi.org/project/geopy/">https://pypi.org/project/geopy/</a></li>
 </ul>
 ]]></content>
       <tags>
         <tag>Python</tag>
-        <tag>Bug Resolution</tag>
-        <tag>PyQt5</tag>
+        <tag>GeoPy</tag>
       </tags>
   </entry>
   <entry>
@@ -325,6 +360,46 @@ h_j(x)=0,k=1,2,...,n
       </tags>
   </entry>
   <entry>
+    <title>How to Build a Personal Website with Github and Hexo</title>
+    <url>/2024/04/07/How-to-Build-A-Personal-Website-with-Github-and-Hexo/</url>
+    <content><![CDATA[<h2 id="install-nodejs-and-git"><a class="markdownIt-Anchor" href="#install-nodejs-and-git"></a> Install Node.js and Git</h2>
+<p>First, you'll need to install Node.js and Git, download and install the Node.js from [here](<a href="https://nodejs.org/en">Node.js — Run JavaScript Everywhere (nodejs.org)</a>).</p>
+<p>You can check if the Node.js and Git installation are successful by typing these:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git version</span><br><span class="line">node -v</span><br><span class="line">npm -v</span><br></pre></td></tr></table></figure>
+<hr />
+<h2 id="create-a-github-pages-repository"><a class="markdownIt-Anchor" href="#create-a-github-pages-repository"></a> Create a Github Pages repository</h2>
+<p>Then you'll need to sign up for a Github account and create a Github Pages repository.</p>
+<hr />
+<h2 id="install-and-initialize-hexo"><a class="markdownIt-Anchor" href="#install-and-initialize-hexo"></a> Install and Initialize Hexo</h2>
+<p>Next, you need to install Hexo via cmd:</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
+<p>Initialize Hexo:</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">hexo init</span><br></pre></td></tr></table></figure>
+<img data-src="/images/How-to-Build-A-Personal-Website-with-Github-and-Hexo/successful_installation.png" style="zoom:60%"/>
+<p>Next, you'll be able to build and preview your website:</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">hexo g</span><br><span class="line">hexo s</span><br></pre></td></tr></table></figure>
+<img data-src="/images/How-to-Build-A-Personal-Website-with-Github-and-Hexo/generate_deploy.png" style="zoom:60%"/>
+<p>Type the following URL: <a href="http://localhost:4000/">http://localhost:4000/</a> into your browser and you'll see:</p>
+<img data-src="/images/How-to-Build-A-Personal-Website-with-Github-and-Hexo/welcome.png" style="zoom:70%"/>
+<p>Finally, you can choose the theme you are interested in and further beautify the site.</p>
+<hr />
+<h2 id="deploy-the-hexo-website-to-github-pages"><a class="markdownIt-Anchor" href="#deploy-the-hexo-website-to-github-pages"></a> Deploy the Hexo website to GitHub Pages</h2>
+<p>First, you need to install hexo-deployer-git:</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
+<p>Then modify the Deployment section at the end of the <em>Hexo _config.yml</em> file:</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">deploy:</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">git</span></span><br><span class="line">  <span class="attr">repository:</span> <span class="string">git@github.com:your_github_name/your_github_name.github.io.git</span></span><br><span class="line">  <span class="attr">branch:</span> <span class="string">main</span></span><br></pre></td></tr></table></figure>
+<p>Finally, visit https://your_github_name.github.io and you'll be able to see your website.</p>
+<hr />
+<h2 id="reference-links"><a class="markdownIt-Anchor" href="#reference-links"></a> Reference Links</h2>
+<ul>
+<li><a href="https://theme-next.js.org/docs/getting-started/">Getting Started | NexT (theme-next.js.org)</a></li>
+</ul>
+]]></content>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Commonly Used Plotting Functions in the Python-OpenCV Library</title>
     <url>/2024/04/08/Commonly-used-plotting-functions-in-the-Python-OpenCV-library/</url>
     <content><![CDATA[<h2 id="installation-and-import-of-opencv-in-python"><a class="markdownIt-Anchor" href="#installation-and-import-of-opencv-in-python"></a> Installation and Import of OpenCV in Python</h2>
@@ -376,81 +451,6 @@ h_j(x)=0,k=1,2,...,n
       </tags>
   </entry>
   <entry>
-    <title>Calculate Distance Between Two Points Given Latitude and Longitude in Python</title>
-    <url>/2024/04/19/Calculate-distance-between-two-points-given-latitude-and-longitude-in-Python/</url>
-    <content><![CDATA[<p>How to calculate the distance between two coordinate points (knowing longitude and latitude) in Python? Three methods are given here:</p>
-<h2 id="implement-the-haversine-formula"><a class="markdownIt-Anchor" href="#implement-the-haversine-formula"></a> Implement the Haversine formula</h2>
-<img data-src="/images/calculate_distance/h_formula.png" style="zoom:80%"/>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> math</span><br><span class="line"><span class="keyword">from</span> math <span class="keyword">import</span> radians, sin, cos, asin</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">haversine</span>(<span class="params">lat1, lon1, lat2, lon2</span>):</span><br><span class="line">    <span class="comment"># The average radius of the earth is approximately 6371.393km</span></span><br><span class="line">    EARTH_RADIUS = <span class="number">6371</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># Convert to radians</span></span><br><span class="line">    lat1 = radians(lat1)</span><br><span class="line">    lon1 = radians(lon1)</span><br><span class="line">    lat2 = radians(lat2)</span><br><span class="line">    lon2 = radians(lon2)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># Calculate the difference between converted latitude and longitude</span></span><br><span class="line">    delta_lat = lat2 - lat1</span><br><span class="line">    delta_lon = lon2 - lon1</span><br><span class="line"></span><br><span class="line">    <span class="comment"># Haversine formula</span></span><br><span class="line">    temp = math.<span class="built_in">pow</span>(sin(delta_lat / <span class="number">2</span>), <span class="number">2</span>) + cos(lat1) * cos(lat2) * math.<span class="built_in">pow</span>(sin(delta_lon / <span class="number">2</span>), <span class="number">2</span>)</span><br><span class="line">    distance = <span class="number">2</span> * asin(math.sqrt(temp)) * EARTH_RADIUS</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> distance</span><br><span class="line"></span><br><span class="line">new_dist = haversine(<span class="number">36.1628</span>, <span class="number">114.2581</span>, <span class="number">36.5935</span>, <span class="number">114.6296</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;The distance calculated using the Haversine formula is:&quot;</span>, new_dist, <span class="string">&quot;km&quot;</span>)</span><br></pre></td></tr></table></figure>
-<p>The output is as follows:</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">The distance calculated using the Haversine formula <span class="keyword">is</span>: <span class="number">58.30722422948836</span> km</span><br></pre></td></tr></table></figure>
-<hr />
-<h2 id="geopy"><a class="markdownIt-Anchor" href="#geopy"></a> GeoPy</h2>
-<p>GeoPy is a Python library about geocoding. It has geocoding, latitude and longitude distance calculation and other functions. Use <code>pip install geopy</code> to install it.</p>
-<p>GeoPy’s documentation: <a href="https://geopy.readthedocs.io/en/stable/">https://geopy.readthedocs.io/en/stable/</a>.</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> geopy.distance <span class="keyword">import</span> geodesic</span><br><span class="line"></span><br><span class="line">distance = geodesic((<span class="number">36.1628</span>, <span class="number">114.2581</span>), (<span class="number">36.5935</span>, <span class="number">114.6296</span>)).km</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;The distance calculated using GeoPy is:&quot;</span>, distance, <span class="string">&quot;km&quot;</span>)</span><br></pre></td></tr></table></figure>
-<p>The output is as follows:</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">The distance calculated using GeoPy <span class="keyword">is</span>: <span class="number">58.27002330025926</span> km</span><br></pre></td></tr></table></figure>
-<hr />
-<h2 id="haversine-library"><a class="markdownIt-Anchor" href="#haversine-library"></a> haversine library</h2>
-<p>Use <code>pip install haversine</code> to install the haversine library in Python.</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> haversine <span class="keyword">import</span> haversine, Unit</span><br><span class="line"></span><br><span class="line">point1 = (<span class="number">36.1628</span>, <span class="number">114.2581</span>)</span><br><span class="line">point2 = (<span class="number">36.5935</span>, <span class="number">114.6296</span>)</span><br><span class="line"></span><br><span class="line">distance = haversine(point1, point2, unit=Unit.KILOMETERS)  <span class="comment"># km</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;The distance calculated using haversine library is:&quot;</span>, distance, <span class="string">&quot;km&quot;</span>)</span><br></pre></td></tr></table></figure>
-<p>The output is as follows:</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">The distance calculated using haversine library <span class="keyword">is</span>: <span class="number">58.307304766856625</span> km</span><br></pre></td></tr></table></figure>
-<p>It can be seen that for the given two longitude and latitude coordinates, the results calculated by different methods still have certain errors.</p>
-<hr />
-<h2 id="reference-links"><a class="markdownIt-Anchor" href="#reference-links"></a> Reference Links</h2>
-<ul>
-<li><a href="https://en.wikipedia.org/wiki/Haversine_formula">https://en.wikipedia.org/wiki/Haversine_formula</a></li>
-<li><a href="https://pypi.org/project/geopy/">https://pypi.org/project/geopy/</a></li>
-</ul>
-]]></content>
-      <tags>
-        <tag>Python</tag>
-        <tag>GeoPy</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>How to Build a Personal Website with Github and Hexo</title>
-    <url>/2024/04/07/How-to-Build-A-Personal-Website-with-Github-and-Hexo/</url>
-    <content><![CDATA[<h2 id="install-nodejs-and-git"><a class="markdownIt-Anchor" href="#install-nodejs-and-git"></a> Install Node.js and Git</h2>
-<p>First, you'll need to install Node.js and Git, download and install the Node.js from [here](<a href="https://nodejs.org/en">Node.js — Run JavaScript Everywhere (nodejs.org)</a>).</p>
-<p>You can check if the Node.js and Git installation are successful by typing these:</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git version</span><br><span class="line">node -v</span><br><span class="line">npm -v</span><br></pre></td></tr></table></figure>
-<hr />
-<h2 id="create-a-github-pages-repository"><a class="markdownIt-Anchor" href="#create-a-github-pages-repository"></a> Create a Github Pages repository</h2>
-<p>Then you'll need to sign up for a Github account and create a Github Pages repository.</p>
-<hr />
-<h2 id="install-and-initialize-hexo"><a class="markdownIt-Anchor" href="#install-and-initialize-hexo"></a> Install and Initialize Hexo</h2>
-<p>Next, you need to install Hexo via cmd:</p>
-<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
-<p>Initialize Hexo:</p>
-<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">hexo init</span><br></pre></td></tr></table></figure>
-<img data-src="/images/How-to-Build-A-Personal-Website-with-Github-and-Hexo/successful_installation.png" style="zoom:60%"/>
-<p>Next, you'll be able to build and preview your website:</p>
-<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">hexo g</span><br><span class="line">hexo s</span><br></pre></td></tr></table></figure>
-<img data-src="/images/How-to-Build-A-Personal-Website-with-Github-and-Hexo/generate_deploy.png" style="zoom:60%"/>
-<p>Type the following URL: <a href="http://localhost:4000/">http://localhost:4000/</a> into your browser and you'll see:</p>
-<img data-src="/images/How-to-Build-A-Personal-Website-with-Github-and-Hexo/welcome.png" style="zoom:70%"/>
-<p>Finally, you can choose the theme you are interested in and further beautify the site.</p>
-<hr />
-<h2 id="deploy-the-hexo-website-to-github-pages"><a class="markdownIt-Anchor" href="#deploy-the-hexo-website-to-github-pages"></a> Deploy the Hexo website to GitHub Pages</h2>
-<p>First, you need to install hexo-deployer-git:</p>
-<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
-<p>Then modify the Deployment section at the end of the <em>Hexo _config.yml</em> file:</p>
-<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">deploy:</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">git</span></span><br><span class="line">  <span class="attr">repository:</span> <span class="string">git@github.com:your_github_name/your_github_name.github.io.git</span></span><br><span class="line">  <span class="attr">branch:</span> <span class="string">main</span></span><br></pre></td></tr></table></figure>
-<p>Finally, visit https://your_github_name.github.io and you'll be able to see your website.</p>
-<hr />
-<h2 id="reference-links"><a class="markdownIt-Anchor" href="#reference-links"></a> Reference Links</h2>
-<ul>
-<li><a href="https://theme-next.js.org/docs/getting-started/">Getting Started | NexT (theme-next.js.org)</a></li>
-</ul>
-]]></content>
-      <tags>
-        <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>How to Use GitHub Copilot in PyCharm</title>
     <url>/2024/04/16/How-to-use-GitHub-Copilot-in-PyCharm/</url>
     <content><![CDATA[<h2 id="install-github-copilot-for-pycharm-plugin"><a class="markdownIt-Anchor" href="#install-github-copilot-for-pycharm-plugin"></a> Install GitHub Copilot for PyCharm plugin</h2>
@@ -472,6 +472,54 @@ h_j(x)=0,k=1,2,...,n
 ]]></content>
       <tags>
         <tag>GitHub Copilot</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>How to Convert Python Script to .exe File</title>
+    <url>/2024/06/11/How-to-Convert-Python-Script-to-exe-File/</url>
+    <content><![CDATA[<h2 id="install-pyinstaller"><a class="markdownIt-Anchor" href="#install-pyinstaller"></a> Install PyInstaller</h2>
+<p>Install the Pyinstaller package via pip with the following command:</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">pip install pyinstaller</span><br></pre></td></tr></table></figure>
+<p>More information about PyInstaller: <a href="https://pyinstaller.org/en/stable/">https://pyinstaller.org/en/stable/</a></p>
+<hr />
+<h2 id="example"><a class="markdownIt-Anchor" href="#example"></a> Example</h2>
+<p>For example, we have the following script, which can generate new folders and txt files.</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"></span><br><span class="line"><span class="comment"># Generate new folder</span></span><br><span class="line">path_1 = <span class="string">&quot;./A&quot;</span></span><br><span class="line">os.makedirs(path_1)</span><br><span class="line">path_2 = <span class="string">&quot;./B&quot;</span></span><br><span class="line">os.makedirs(path_2)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Generate new txt file</span></span><br><span class="line">f_1 = <span class="built_in">open</span>(path_1 + <span class="string">&#x27;/info.txt&#x27;</span>, <span class="string">&#x27;w&#x27;</span>)</span><br><span class="line">f_1.close()</span><br><span class="line">f_2 = <span class="built_in">open</span>(path_2 + <span class="string">&#x27;/info.txt&#x27;</span>, <span class="string">&#x27;w&#x27;</span>)</span><br><span class="line">f_2.close()</span><br></pre></td></tr></table></figure>
+<p>Enter the following command in the terminal:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">pyinstaller -w -F generate_folders.py</span><br></pre></td></tr></table></figure>
+<img data-src="/images/pyinstaller/success.png" style="zoom: 70%;" />
+<ul>
+<li><code>-w, --windowed, --noconsole</code></li>
+</ul>
+<blockquote>
+<p>Windows and Mac OS X: do not provide a console window for standard i/o. On Mac OS this also triggers building a Mac OS .app bundle. On Windows this option is automatically set if the first script is a ‘.pyw’ file. This option is ignored on *NIX systems.</p>
+<p>More info: <a href="https://pyinstaller.org/en/stable/usage.html#windows-and-mac-os-x-specific-options">https://pyinstaller.org/en/stable/usage.html#windows-and-mac-os-x-specific-options</a></p>
+</blockquote>
+<ul>
+<li><code>-F, --onefile</code></li>
+</ul>
+<blockquote>
+<p>Create a one-file bundled executable.</p>
+<p>More info: <a href="https://pyinstaller.org/en/stable/usage.html#what-to-generate">https://pyinstaller.org/en/stable/usage.html#what-to-generate</a></p>
+</blockquote>
+<p>Then, we can see that two new files are generated in the directory where the script is located:</p>
+<img data-src="/images/pyinstaller/folder.png" style="zoom: 80%;" />
+<p>In the dist folder we can find the generated exe file:</p>
+<img data-src="/images/pyinstaller/exe.png" style="zoom: 80%;" />
+<p>Now, double-click the generated exe file and you will find that new folders and txt files have been generated:</p>
+<img data-src="/images/pyinstaller/result.png" style="zoom: 80%;" />
+<p>If you want to add an icon to the generated .exe file, the code is as follows:</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">pyinstaller -F -w --icon=your_icon.ico your_code.py</span><br></pre></td></tr></table></figure>
+<p>Note: Replace <em>your_icon</em> and <em>your_code</em> with your own file name.</p>
+<hr />
+<h2 id="reference-links"><a class="markdownIt-Anchor" href="#reference-links"></a> Reference links</h2>
+<ul>
+<li><a href="https://pypi.org/project/pyinstaller/">https://pypi.org/project/pyinstaller/</a></li>
+<li><a href="https://www.jb51.net/article/238182.htm">https://www.jb51.net/article/238182.htm</a></li>
+</ul>
+]]></content>
+      <tags>
+        <tag>Python</tag>
       </tags>
   </entry>
   <entry>
@@ -656,135 +704,6 @@ y_1&gt;=0,y_2&lt;=0,y_3(unconstrained)
       </tags>
   </entry>
   <entry>
-    <title>How to Convert Python Script to .exe File</title>
-    <url>/2024/06/11/How-to-Convert-Python-Script-to-exe-File/</url>
-    <content><![CDATA[<h2 id="install-pyinstaller"><a class="markdownIt-Anchor" href="#install-pyinstaller"></a> Install PyInstaller</h2>
-<p>Install the Pyinstaller package via pip with the following command:</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">pip install pyinstaller</span><br></pre></td></tr></table></figure>
-<p>More information about PyInstaller: <a href="https://pyinstaller.org/en/stable/">https://pyinstaller.org/en/stable/</a></p>
-<hr />
-<h2 id="example"><a class="markdownIt-Anchor" href="#example"></a> Example</h2>
-<p>For example, we have the following script, which can generate new folders and txt files.</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"></span><br><span class="line"><span class="comment"># Generate new folder</span></span><br><span class="line">path_1 = <span class="string">&quot;./A&quot;</span></span><br><span class="line">os.makedirs(path_1)</span><br><span class="line">path_2 = <span class="string">&quot;./B&quot;</span></span><br><span class="line">os.makedirs(path_2)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Generate new txt file</span></span><br><span class="line">f_1 = <span class="built_in">open</span>(path_1 + <span class="string">&#x27;/info.txt&#x27;</span>, <span class="string">&#x27;w&#x27;</span>)</span><br><span class="line">f_1.close()</span><br><span class="line">f_2 = <span class="built_in">open</span>(path_2 + <span class="string">&#x27;/info.txt&#x27;</span>, <span class="string">&#x27;w&#x27;</span>)</span><br><span class="line">f_2.close()</span><br></pre></td></tr></table></figure>
-<p>Enter the following command in the terminal:</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">pyinstaller -w -F generate_folders.py</span><br></pre></td></tr></table></figure>
-<img data-src="/images/pyinstaller/success.png" style="zoom: 70%;" />
-<ul>
-<li><code>-w, --windowed, --noconsole</code></li>
-</ul>
-<blockquote>
-<p>Windows and Mac OS X: do not provide a console window for standard i/o. On Mac OS this also triggers building a Mac OS .app bundle. On Windows this option is automatically set if the first script is a ‘.pyw’ file. This option is ignored on *NIX systems.</p>
-<p>More info: <a href="https://pyinstaller.org/en/stable/usage.html#windows-and-mac-os-x-specific-options">https://pyinstaller.org/en/stable/usage.html#windows-and-mac-os-x-specific-options</a></p>
-</blockquote>
-<ul>
-<li><code>-F, --onefile</code></li>
-</ul>
-<blockquote>
-<p>Create a one-file bundled executable.</p>
-<p>More info: <a href="https://pyinstaller.org/en/stable/usage.html#what-to-generate">https://pyinstaller.org/en/stable/usage.html#what-to-generate</a></p>
-</blockquote>
-<p>Then, we can see that two new files are generated in the directory where the script is located:</p>
-<img data-src="/images/pyinstaller/folder.png" style="zoom: 80%;" />
-<p>In the dist folder we can find the generated exe file:</p>
-<img data-src="/images/pyinstaller/exe.png" style="zoom: 80%;" />
-<p>Now, double-click the generated exe file and you will find that new folders and txt files have been generated:</p>
-<img data-src="/images/pyinstaller/result.png" style="zoom: 80%;" />
-<p>If you want to add an icon to the generated .exe file, the code is as follows:</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">pyinstaller -F -w --icon=your_icon.ico your_code.py</span><br></pre></td></tr></table></figure>
-<p>Note: Replace <em>your_icon</em> and <em>your_code</em> with your own file name.</p>
-<hr />
-<h2 id="reference-links"><a class="markdownIt-Anchor" href="#reference-links"></a> Reference links</h2>
-<ul>
-<li><a href="https://pypi.org/project/pyinstaller/">https://pypi.org/project/pyinstaller/</a></li>
-<li><a href="https://www.jb51.net/article/238182.htm">https://www.jb51.net/article/238182.htm</a></li>
-</ul>
-]]></content>
-      <tags>
-        <tag>Python</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Simple Implementation of Tabu Search Algorithm</title>
-    <url>/2024/05/15/Simple-Implementation-of-Tabu-Search-Algorithm/</url>
-    <content><![CDATA[<h2 id="basic-concept"><a class="markdownIt-Anchor" href="#basic-concept"></a> Basic Concept</h2>
-<p>Tabu Search (TS) is a meta-heuristic algorithm that was first proposed by Glover in 1986. The algorithm avoids repeated searches by introducing a tabu table, and pardons some good solutions or states in tabu table through amnesty rules, so as to achieve a better global optimization effect.</p>
-<hr />
-<h2 id="steps"><a class="markdownIt-Anchor" href="#steps"></a> Steps</h2>
-<p>Tabu Search algorithm typically includes the following key steps:</p>
-<ul>
-<li>
-<p>Step 1: Generate an initial solution, create an empty tabu table, and set the tabu length.</p>
-</li>
-<li>
-<p>Step 2: Use neighborhood operators (such as crossover and mutation operators in Genetic Aalgorithms) to generate multiple new solutions and calculate the fitness of these solutions.</p>
-</li>
-<li>
-<p>Step 3: Seclect the solution with the best fitness value from these new solutions and compared with the historical optimal solution found by the algorithm:</p>
-<p>① If it is better than the historical optimal solution, the tabu table is not considered and it is used as the solution for the next iteration. Add the selected solution to the tabu table.</p>
-<p>② If it is not better than the historical optimal solution, select the solution that is not in the tabu table with the best fitness value as the solution for the next iteration. Add the selected solution to the tabu table.</p>
-</li>
-<li>
-<p>Step 4: Repeat steps 2 and 3 until the algorithm termination condition such as the maximum number of iterations or solution time limits are met.</p>
-</li>
-</ul>
-<hr />
-<h2 id="example"><a class="markdownIt-Anchor" href="#example"></a> Example</h2>
-<p>Next, we try to solve the traveling salesman problem using Tabu Search algorithm.</p>
-<p>Given a number of cities, as shown in the image below, find the path with the least travel cost while visiting each city exactly once and returning to the starting city.</p>
-<img data-src="/images/ts/city_location.png" style="zoom:70%"/>
-<hr />
-<h2 id="result"><a class="markdownIt-Anchor" href="#result"></a> Result</h2>
-<p>In the iterative process of the TS algorithm, the fitness value (travel cost) change process of the optimal solution found is as follows:</p>
-<img data-src="/images/ts/cost.png" style="zoom:70%"/>
-<p>The optimal solution found by the algorithm is as follows:</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">city number: <span class="number">20</span></span><br><span class="line">Best Route: [<span class="number">18</span>, <span class="number">6</span>, <span class="number">4</span>, <span class="number">19</span>, <span class="number">11</span>, <span class="number">5</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">10</span>, <span class="number">2</span>, <span class="number">17</span>, <span class="number">8</span>, <span class="number">16</span>, <span class="number">7</span>, <span class="number">12</span>, <span class="number">13</span>, <span class="number">14</span>, <span class="number">15</span>, <span class="number">3</span>, <span class="number">9</span>]</span><br><span class="line">Best Value: <span class="number">431.30725365480686</span></span><br></pre></td></tr></table></figure>
-<p>The path finally searched by the algorithm is shown below:</p>
-<img data-src="/images/ts/route.png" style="zoom:70%"/>
-<p>Note that the green line in the graph represents the line connecting the starting and ending cities.</p>
-<hr />
-<h2 id="code"><a class="markdownIt-Anchor" href="#code"></a> Code</h2>
-<p>The Python code of the TS for the above example is here: <a href="https://github.com/duohedounai/Optimization/blob/main/metaheuristic_algorithms/Tabu_Search/TS.py">Optimization/metaheuristic_algorithms/Tabu_Search/TS.py (github.com)</a></p>
-<hr />
-<h2 id="reference-links"><a class="markdownIt-Anchor" href="#reference-links"></a> Reference Links</h2>
-<ul>
-<li><a href="https://en.wikipedia.org/wiki/Tabu_search">https://en.wikipedia.org/wiki/Tabu_search</a></li>
-<li><a href="https://www.geeksforgeeks.org/what-is-tabu-search/">What is TABU Search? - GeeksforGeeks</a></li>
-<li><a href="https://www.baeldung.com/cs/tsp-exact-solutions-vs-heuristic-vs-approximation-algorithms">Traveling Salesman Problem: Exact Solutions vs. Heuristic vs. Approximation Algorithms | Baeldung on Computer Science</a></li>
-<li><a href="https://cloud.tencent.com/developer/article/1103545">https://cloud.tencent.com/developer/article/1103545</a></li>
-<li><a href="http://www.tup.tsinghua.edu.cn/upload/books/yz/098982-01.pdf">098982-01.pdf (tsinghua.edu.cn)</a></li>
-</ul>
-]]></content>
-      <tags>
-        <tag>Optimization</tag>
-        <tag>Python</tag>
-        <tag>Metaheuristic algorithm</tag>
-        <tag>Tabu Search</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>How to Use MQTT in Python</title>
-    <url>/2024/06/20/How-to-use-MQTT-in-Python/</url>
-    <content><![CDATA[<h2 id="installation"><a class="markdownIt-Anchor" href="#installation"></a> Installation</h2>
-<p>MQTT (Message Queuing Telemetry Transport), is a lightweight publish/subscribe messaging protocol.</p>
-<p>More information about MQTT: <a href="https://en.wikipedia.org/wiki/MQTT">https://en.wikipedia.org/wiki/MQTT</a></p>
-<p>Install <em>paho-mqtt</em> library in Python:</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">pip install paho-mqtt</span><br></pre></td></tr></table></figure>
-<hr />
-<h2 id="example"><a class="markdownIt-Anchor" href="#example"></a> Example</h2>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> paho.mqtt.client <span class="keyword">as</span> mqtt</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># Callback function for successful connection</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">on_connect</span>(<span class="params">client, userdata, flags, rc</span>):</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;Connected with result code &quot;</span> + <span class="built_in">str</span>(rc))</span><br><span class="line">    <span class="comment"># Subscribe to a topic, here we take &quot;test/topic&quot; as an example</span></span><br><span class="line">    client.subscribe(<span class="string">&quot;test/topic&quot;</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># Callback function for receiving messages</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">on_message</span>(<span class="params">client, userdata, msg</span>):</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;Topic: &quot;</span> + msg.topic + <span class="string">&quot; Message: &quot;</span> + <span class="built_in">str</span>(msg.payload))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># Callback function for publishing messages</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">on_publish</span>(<span class="params">client, userdata, mid</span>):</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;Message <span class="subst">&#123;mid&#125;</span> published.&quot;</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># Set up MQTT client</span></span><br><span class="line">client = mqtt.Client()</span><br><span class="line">client.on_connect = on_connect</span><br><span class="line">client.on_message = on_message</span><br><span class="line">client.on_publish = on_publish</span><br><span class="line"></span><br><span class="line"><span class="comment"># Connect to MQTT broker, here we take localhost as an example, the default port is 1883</span></span><br><span class="line">client.connect(host=<span class="string">&quot;localhost&quot;</span>, port=<span class="number">1883</span>, keepalive=<span class="number">60</span>)</span><br><span class="line"><span class="comment"># client.username_pw_set(&quot;admin&quot;, &quot;123456&quot;)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Publish a message to a specified topic</span></span><br><span class="line">client.publish(<span class="string">&quot;test/topic&quot;</span>, <span class="string">&quot;MQTT test&quot;</span>)</span><br><span class="line"></span><br><span class="line">client.loop_forever()</span><br></pre></td></tr></table></figure>
-<hr />
-<h2 id="reference-links"><a class="markdownIt-Anchor" href="#reference-links"></a> Reference Links</h2>
-<ul>
-<li><a href="https://en.wikipedia.org/wiki/MQTT">https://en.wikipedia.org/wiki/MQTT</a></li>
-<li><a href="https://pypi.org/project/paho-mqtt/">https://pypi.org/project/paho-mqtt/</a></li>
-</ul>
-]]></content>
-      <tags>
-        <tag>Python</tag>
-        <tag>MQTT</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>How to Use MongoDB in Python</title>
     <url>/2024/07/19/How-to-use-MongoDB-in-Python/</url>
     <content><![CDATA[<h2 id="install-mongodb-community-server"><a class="markdownIt-Anchor" href="#install-mongodb-community-server"></a> Install MongoDB Community Server</h2>
@@ -866,6 +785,29 @@ y_1&gt;=0,y_2&lt;=0,y_3(unconstrained)
       <tags>
         <tag>Python</tag>
         <tag>MongoDB</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>How to Use MQTT in Python</title>
+    <url>/2024/06/20/How-to-use-MQTT-in-Python/</url>
+    <content><![CDATA[<h2 id="installation"><a class="markdownIt-Anchor" href="#installation"></a> Installation</h2>
+<p>MQTT (Message Queuing Telemetry Transport), is a lightweight publish/subscribe messaging protocol.</p>
+<p>More information about MQTT: <a href="https://en.wikipedia.org/wiki/MQTT">https://en.wikipedia.org/wiki/MQTT</a></p>
+<p>Install <em>paho-mqtt</em> library in Python:</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">pip install paho-mqtt</span><br></pre></td></tr></table></figure>
+<hr />
+<h2 id="example"><a class="markdownIt-Anchor" href="#example"></a> Example</h2>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> paho.mqtt.client <span class="keyword">as</span> mqtt</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># Callback function for successful connection</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">on_connect</span>(<span class="params">client, userdata, flags, rc</span>):</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;Connected with result code &quot;</span> + <span class="built_in">str</span>(rc))</span><br><span class="line">    <span class="comment"># Subscribe to a topic, here we take &quot;test/topic&quot; as an example</span></span><br><span class="line">    client.subscribe(<span class="string">&quot;test/topic&quot;</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># Callback function for receiving messages</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">on_message</span>(<span class="params">client, userdata, msg</span>):</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;Topic: &quot;</span> + msg.topic + <span class="string">&quot; Message: &quot;</span> + <span class="built_in">str</span>(msg.payload))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># Callback function for publishing messages</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">on_publish</span>(<span class="params">client, userdata, mid</span>):</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;Message <span class="subst">&#123;mid&#125;</span> published.&quot;</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># Set up MQTT client</span></span><br><span class="line">client = mqtt.Client()</span><br><span class="line">client.on_connect = on_connect</span><br><span class="line">client.on_message = on_message</span><br><span class="line">client.on_publish = on_publish</span><br><span class="line"></span><br><span class="line"><span class="comment"># Connect to MQTT broker, here we take localhost as an example, the default port is 1883</span></span><br><span class="line">client.connect(host=<span class="string">&quot;localhost&quot;</span>, port=<span class="number">1883</span>, keepalive=<span class="number">60</span>)</span><br><span class="line"><span class="comment"># client.username_pw_set(&quot;admin&quot;, &quot;123456&quot;)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Publish a message to a specified topic</span></span><br><span class="line">client.publish(<span class="string">&quot;test/topic&quot;</span>, <span class="string">&quot;MQTT test&quot;</span>)</span><br><span class="line"></span><br><span class="line">client.loop_forever()</span><br></pre></td></tr></table></figure>
+<hr />
+<h2 id="reference-links"><a class="markdownIt-Anchor" href="#reference-links"></a> Reference Links</h2>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/MQTT">https://en.wikipedia.org/wiki/MQTT</a></li>
+<li><a href="https://pypi.org/project/paho-mqtt/">https://pypi.org/project/paho-mqtt/</a></li>
+</ul>
+]]></content>
+      <tags>
+        <tag>Python</tag>
+        <tag>MQTT</tag>
       </tags>
   </entry>
   <entry>
@@ -965,6 +907,64 @@ y&gt;=0, Integer
       </tags>
   </entry>
   <entry>
+    <title>Simple Implementation of Tabu Search Algorithm</title>
+    <url>/2024/05/15/Simple-Implementation-of-Tabu-Search-Algorithm/</url>
+    <content><![CDATA[<h2 id="basic-concept"><a class="markdownIt-Anchor" href="#basic-concept"></a> Basic Concept</h2>
+<p>Tabu Search (TS) is a meta-heuristic algorithm that was first proposed by Glover in 1986. The algorithm avoids repeated searches by introducing a tabu table, and pardons some good solutions or states in tabu table through amnesty rules, so as to achieve a better global optimization effect.</p>
+<hr />
+<h2 id="steps"><a class="markdownIt-Anchor" href="#steps"></a> Steps</h2>
+<p>Tabu Search algorithm typically includes the following key steps:</p>
+<ul>
+<li>
+<p>Step 1: Generate an initial solution, create an empty tabu table, and set the tabu length.</p>
+</li>
+<li>
+<p>Step 2: Use neighborhood operators (such as crossover and mutation operators in Genetic Aalgorithms) to generate multiple new solutions and calculate the fitness of these solutions.</p>
+</li>
+<li>
+<p>Step 3: Seclect the solution with the best fitness value from these new solutions and compared with the historical optimal solution found by the algorithm:</p>
+<p>① If it is better than the historical optimal solution, the tabu table is not considered and it is used as the solution for the next iteration. Add the selected solution to the tabu table.</p>
+<p>② If it is not better than the historical optimal solution, select the solution that is not in the tabu table with the best fitness value as the solution for the next iteration. Add the selected solution to the tabu table.</p>
+</li>
+<li>
+<p>Step 4: Repeat steps 2 and 3 until the algorithm termination condition such as the maximum number of iterations or solution time limits are met.</p>
+</li>
+</ul>
+<hr />
+<h2 id="example"><a class="markdownIt-Anchor" href="#example"></a> Example</h2>
+<p>Next, we try to solve the traveling salesman problem using Tabu Search algorithm.</p>
+<p>Given a number of cities, as shown in the image below, find the path with the least travel cost while visiting each city exactly once and returning to the starting city.</p>
+<img data-src="/images/ts/city_location.png" style="zoom:70%"/>
+<hr />
+<h2 id="result"><a class="markdownIt-Anchor" href="#result"></a> Result</h2>
+<p>In the iterative process of the TS algorithm, the fitness value (travel cost) change process of the optimal solution found is as follows:</p>
+<img data-src="/images/ts/cost.png" style="zoom:70%"/>
+<p>The optimal solution found by the algorithm is as follows:</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">city number: <span class="number">20</span></span><br><span class="line">Best Route: [<span class="number">18</span>, <span class="number">6</span>, <span class="number">4</span>, <span class="number">19</span>, <span class="number">11</span>, <span class="number">5</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">10</span>, <span class="number">2</span>, <span class="number">17</span>, <span class="number">8</span>, <span class="number">16</span>, <span class="number">7</span>, <span class="number">12</span>, <span class="number">13</span>, <span class="number">14</span>, <span class="number">15</span>, <span class="number">3</span>, <span class="number">9</span>]</span><br><span class="line">Best Value: <span class="number">431.30725365480686</span></span><br></pre></td></tr></table></figure>
+<p>The path finally searched by the algorithm is shown below:</p>
+<img data-src="/images/ts/route.png" style="zoom:70%"/>
+<p>Note that the green line in the graph represents the line connecting the starting and ending cities.</p>
+<hr />
+<h2 id="code"><a class="markdownIt-Anchor" href="#code"></a> Code</h2>
+<p>The Python code of the TS for the above example is here: <a href="https://github.com/duohedounai/Optimization/blob/main/metaheuristic_algorithms/Tabu_Search/TS.py">Optimization/metaheuristic_algorithms/Tabu_Search/TS.py (github.com)</a></p>
+<hr />
+<h2 id="reference-links"><a class="markdownIt-Anchor" href="#reference-links"></a> Reference Links</h2>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Tabu_search">https://en.wikipedia.org/wiki/Tabu_search</a></li>
+<li><a href="https://www.geeksforgeeks.org/what-is-tabu-search/">What is TABU Search? - GeeksforGeeks</a></li>
+<li><a href="https://www.baeldung.com/cs/tsp-exact-solutions-vs-heuristic-vs-approximation-algorithms">Traveling Salesman Problem: Exact Solutions vs. Heuristic vs. Approximation Algorithms | Baeldung on Computer Science</a></li>
+<li><a href="https://cloud.tencent.com/developer/article/1103545">https://cloud.tencent.com/developer/article/1103545</a></li>
+<li><a href="http://www.tup.tsinghua.edu.cn/upload/books/yz/098982-01.pdf">098982-01.pdf (tsinghua.edu.cn)</a></li>
+</ul>
+]]></content>
+      <tags>
+        <tag>Optimization</tag>
+        <tag>Python</tag>
+        <tag>Metaheuristic algorithm</tag>
+        <tag>Tabu Search</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Use OR-Tools in Python to Solve Mixed Integer Programming Problems</title>
     <url>/2024/04/10/Use-the-ortools-library-in-Python-to-solve-mixed-integer-programming/</url>
     <content><![CDATA[<ul>
@@ -1014,6 +1014,55 @@ x_3&gt;=0, Interger\\
         <tag>Optimization</tag>
         <tag>Python</tag>
         <tag>OR-Tools</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Commonly Used String Processing Functions in Java</title>
+    <url>/2024/05/28/commonly-used-string-processing-functions-in-Java/</url>
+    <content><![CDATA[<h2 id="stringstartswith"><a class="markdownIt-Anchor" href="#stringstartswith"></a> String.startsWith()</h2>
+<p>Used to detect whether a string starts with a specified prefix.</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">test</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">String</span> <span class="variable">str</span> <span class="operator">=</span> <span class="string">&quot;Test string: hello world!&quot;</span>;</span><br><span class="line">        <span class="type">boolean</span> <span class="variable">flag1</span> <span class="operator">=</span> str.startsWith(<span class="string">&quot;Test&quot;</span>);</span><br><span class="line">        System.out.println(<span class="string">&quot;str starts with &#x27;Test&#x27;: &quot;</span> + flag1);</span><br><span class="line">        <span class="type">boolean</span> <span class="variable">flag2</span> <span class="operator">=</span> str.startsWith(<span class="string">&quot;hello&quot;</span>);</span><br><span class="line">        System.out.println(<span class="string">&quot;str starts with &#x27;hello&#x27;: &quot;</span> + flag2);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>The output of the code is as follows:</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">str starts with <span class="string">&#x27;Test&#x27;</span>: <span class="literal">true</span></span><br><span class="line">str starts with <span class="string">&#x27;hello&#x27;</span>: <span class="literal">false</span></span><br></pre></td></tr></table></figure>
+<hr />
+<h2 id="stringendswith"><a class="markdownIt-Anchor" href="#stringendswith"></a> String.endsWith()</h2>
+<p>Used to detect whether a string ends with a specified suffix.</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">test</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">String</span> <span class="variable">str</span> <span class="operator">=</span> <span class="string">&quot;Test string: hello world!&quot;</span>;</span><br><span class="line">        <span class="type">boolean</span> <span class="variable">flag1</span> <span class="operator">=</span> str.endsWith(<span class="string">&quot;Test&quot;</span>);</span><br><span class="line">        System.out.println(<span class="string">&quot;str ends with &#x27;Test&#x27;: &quot;</span> + flag1);</span><br><span class="line">        <span class="type">boolean</span> <span class="variable">flag2</span> <span class="operator">=</span> str.endsWith(<span class="string">&quot;!&quot;</span>);</span><br><span class="line">        System.out.println(<span class="string">&quot;str ends with &#x27;!&#x27;: &quot;</span> + flag2);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>The output of the code is as follows:</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">str ends with <span class="string">&#x27;Test&#x27;</span>: <span class="literal">false</span></span><br><span class="line">str ends with <span class="string">&#x27;!&#x27;</span>: <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+<hr />
+<h2 id="stringcontains"><a class="markdownIt-Anchor" href="#stringcontains"></a> String.contains()</h2>
+<p>Used to detect whether a specified character or string is contained in a string.</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">test</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">String</span> <span class="variable">str</span> <span class="operator">=</span> <span class="string">&quot;Test string: hello world!&quot;</span>;</span><br><span class="line">        <span class="type">boolean</span> <span class="variable">flag1</span> <span class="operator">=</span> str.contains(<span class="string">&quot;test&quot;</span>);</span><br><span class="line">        System.out.println(<span class="string">&quot;str contains &#x27;test&#x27;: &quot;</span> + flag1);</span><br><span class="line">        <span class="type">boolean</span> <span class="variable">flag2</span> <span class="operator">=</span> str.contains(<span class="string">&quot;string&quot;</span>);</span><br><span class="line">        System.out.println(<span class="string">&quot;str contains &#x27;string&#x27;: &quot;</span> + flag2);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>The output of the code is as follows:</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">str contains <span class="string">&#x27;test&#x27;</span>: <span class="literal">false</span></span><br><span class="line">str contains <span class="string">&#x27;string&#x27;</span>: <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+<hr />
+<h2 id="stringsplit"><a class="markdownIt-Anchor" href="#stringsplit"></a> String.split()</h2>
+<p>Split a string into a list.</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">test</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">String</span> <span class="variable">a</span> <span class="operator">=</span> <span class="string">&quot;A,B,C,D,E,F,G&quot;</span>;</span><br><span class="line">        String[] b = a.split(<span class="string">&quot;,&quot;</span>);</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; b.length; i++) &#123;</span><br><span class="line">            System.out.print(b[i] + <span class="string">&quot; &quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>The output of the code is as follows:</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">A B C D E F G</span><br></pre></td></tr></table></figure>
+<hr />
+<h2 id="stringindexof"><a class="markdownIt-Anchor" href="#stringindexof"></a> String.indexOf()</h2>
+<p>Returns the index of the first occurrence of the specified substring (or character) in a string. Returns -1 if there is no such substring (or character) in the string.</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">test</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">String</span> <span class="variable">str</span> <span class="operator">=</span> <span class="string">&quot;Test string: hello world!&quot;</span>;</span><br><span class="line">        System.out.println(<span class="string">&quot;str: &quot;</span> + str);</span><br><span class="line">        System.out.println(<span class="string">&quot;str.length()=&quot;</span> + str.length());</span><br><span class="line"></span><br><span class="line">        <span class="type">Integer</span> <span class="variable">index1</span> <span class="operator">=</span> str.indexOf(<span class="string">&quot;t&quot;</span>);</span><br><span class="line">        System.out.println(<span class="string">&quot;indexOf(&#x27;t&#x27;): &quot;</span> + index1);</span><br><span class="line"></span><br><span class="line">        <span class="type">Integer</span> <span class="variable">index2</span> <span class="operator">=</span> str.indexOf(<span class="string">&quot;o&quot;</span>);</span><br><span class="line">        System.out.println(<span class="string">&quot;indexOf(&#x27;o&#x27;): &quot;</span> + index2);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>The output of the code is as follows:</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">str: Test string: hello world!</span><br><span class="line">str.length()=<span class="number">25</span></span><br><span class="line">indexOf(<span class="string">&#x27;t&#x27;</span>): <span class="number">3</span></span><br><span class="line">indexOf(<span class="string">&#x27;o&#x27;</span>): <span class="number">17</span></span><br></pre></td></tr></table></figure>
+<hr />
+<h2 id="stringlastindexof"><a class="markdownIt-Anchor" href="#stringlastindexof"></a> String.lastIndexOf()</h2>
+<p>Returns the index of the last occurrence of the specified substring (or character) in this string. Returns -1 if there is no such substring (or character) in the string.</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">test</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">String</span> <span class="variable">str</span> <span class="operator">=</span> <span class="string">&quot;Test string: hello world!&quot;</span>;</span><br><span class="line">        System.out.println(<span class="string">&quot;str: &quot;</span> + str);</span><br><span class="line">        System.out.println(<span class="string">&quot;str.length()=&quot;</span> + str.length());</span><br><span class="line"></span><br><span class="line">        <span class="type">Integer</span> <span class="variable">index1</span> <span class="operator">=</span> str.lastIndexOf(<span class="string">&quot;t&quot;</span>);</span><br><span class="line">        System.out.println(<span class="string">&quot;lastIndexOf(&#x27;t&#x27;): &quot;</span> + index1);</span><br><span class="line"></span><br><span class="line">        <span class="type">Integer</span> <span class="variable">index2</span> <span class="operator">=</span> str.lastIndexOf(<span class="string">&quot;o&quot;</span>);</span><br><span class="line">        System.out.println(<span class="string">&quot;lastIndexOf(&#x27;o&#x27;): &quot;</span> + index2);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>The output of the code is as follows:</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">str: Test string: hello world!</span><br><span class="line">str.length()=<span class="number">25</span></span><br><span class="line">lastIndexOf(<span class="string">&#x27;t&#x27;</span>): <span class="number">6</span></span><br><span class="line">lastIndexOf(<span class="string">&#x27;o&#x27;</span>): <span class="number">20</span></span><br></pre></td></tr></table></figure>
+<hr />
+<h2 id="stringutilssubstring"><a class="markdownIt-Anchor" href="#stringutilssubstring"></a> StringUtils.substring()</h2>
+<p>Use <code>String substring(String str, int start, int end)</code> to get the substring with index between [start, end).</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">test</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">String</span> <span class="variable">str</span> <span class="operator">=</span> <span class="string">&quot;Test string: hello world!&quot;</span>;</span><br><span class="line">        System.out.println(<span class="string">&quot;str: &quot;</span> + str);</span><br><span class="line">        System.out.println(<span class="string">&quot;str.length()=&quot;</span> + str.length());</span><br><span class="line">        <span class="comment">// 截取区间在[0,4)的字符串</span></span><br><span class="line">        <span class="type">String</span> <span class="variable">subStr</span> <span class="operator">=</span> StringUtils.substring(str, <span class="number">0</span>, <span class="number">4</span>);</span><br><span class="line">        System.out.println(<span class="string">&quot;subStr: &quot;</span> + subStr);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>The output of the code is as follows:</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">str: Test string: hello world!</span><br><span class="line">str.length()=<span class="number">25</span></span><br><span class="line">subStr: Test</span><br></pre></td></tr></table></figure>
+]]></content>
+      <tags>
+        <tag>Java</tag>
       </tags>
   </entry>
   <entry>
@@ -1158,52 +1207,19 @@ c-16-25.333-24-45-24-59z'/></svg></span></span></span></span></span></span></spa
       </tags>
   </entry>
   <entry>
-    <title>Commonly Used String Processing Functions in Java</title>
-    <url>/2024/05/28/commonly-used-string-processing-functions-in-Java/</url>
-    <content><![CDATA[<h2 id="stringstartswith"><a class="markdownIt-Anchor" href="#stringstartswith"></a> String.startsWith()</h2>
-<p>Used to detect whether a string starts with a specified prefix.</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">test</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">String</span> <span class="variable">str</span> <span class="operator">=</span> <span class="string">&quot;Test string: hello world!&quot;</span>;</span><br><span class="line">        <span class="type">boolean</span> <span class="variable">flag1</span> <span class="operator">=</span> str.startsWith(<span class="string">&quot;Test&quot;</span>);</span><br><span class="line">        System.out.println(<span class="string">&quot;str starts with &#x27;Test&#x27;: &quot;</span> + flag1);</span><br><span class="line">        <span class="type">boolean</span> <span class="variable">flag2</span> <span class="operator">=</span> str.startsWith(<span class="string">&quot;hello&quot;</span>);</span><br><span class="line">        System.out.println(<span class="string">&quot;str starts with &#x27;hello&#x27;: &quot;</span> + flag2);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>The output of the code is as follows:</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">str starts with <span class="string">&#x27;Test&#x27;</span>: <span class="literal">true</span></span><br><span class="line">str starts with <span class="string">&#x27;hello&#x27;</span>: <span class="literal">false</span></span><br></pre></td></tr></table></figure>
-<hr />
-<h2 id="stringendswith"><a class="markdownIt-Anchor" href="#stringendswith"></a> String.endsWith()</h2>
-<p>Used to detect whether a string ends with a specified suffix.</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">test</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">String</span> <span class="variable">str</span> <span class="operator">=</span> <span class="string">&quot;Test string: hello world!&quot;</span>;</span><br><span class="line">        <span class="type">boolean</span> <span class="variable">flag1</span> <span class="operator">=</span> str.endsWith(<span class="string">&quot;Test&quot;</span>);</span><br><span class="line">        System.out.println(<span class="string">&quot;str ends with &#x27;Test&#x27;: &quot;</span> + flag1);</span><br><span class="line">        <span class="type">boolean</span> <span class="variable">flag2</span> <span class="operator">=</span> str.endsWith(<span class="string">&quot;!&quot;</span>);</span><br><span class="line">        System.out.println(<span class="string">&quot;str ends with &#x27;!&#x27;: &quot;</span> + flag2);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>The output of the code is as follows:</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">str ends with <span class="string">&#x27;Test&#x27;</span>: <span class="literal">false</span></span><br><span class="line">str ends with <span class="string">&#x27;!&#x27;</span>: <span class="literal">true</span></span><br></pre></td></tr></table></figure>
-<hr />
-<h2 id="stringcontains"><a class="markdownIt-Anchor" href="#stringcontains"></a> String.contains()</h2>
-<p>Used to detect whether a specified character or string is contained in a string.</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">test</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">String</span> <span class="variable">str</span> <span class="operator">=</span> <span class="string">&quot;Test string: hello world!&quot;</span>;</span><br><span class="line">        <span class="type">boolean</span> <span class="variable">flag1</span> <span class="operator">=</span> str.contains(<span class="string">&quot;test&quot;</span>);</span><br><span class="line">        System.out.println(<span class="string">&quot;str contains &#x27;test&#x27;: &quot;</span> + flag1);</span><br><span class="line">        <span class="type">boolean</span> <span class="variable">flag2</span> <span class="operator">=</span> str.contains(<span class="string">&quot;string&quot;</span>);</span><br><span class="line">        System.out.println(<span class="string">&quot;str contains &#x27;string&#x27;: &quot;</span> + flag2);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>The output of the code is as follows:</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">str contains <span class="string">&#x27;test&#x27;</span>: <span class="literal">false</span></span><br><span class="line">str contains <span class="string">&#x27;string&#x27;</span>: <span class="literal">true</span></span><br></pre></td></tr></table></figure>
-<hr />
-<h2 id="stringsplit"><a class="markdownIt-Anchor" href="#stringsplit"></a> String.split()</h2>
-<p>Split a string into a list.</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">test</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">String</span> <span class="variable">a</span> <span class="operator">=</span> <span class="string">&quot;A,B,C,D,E,F,G&quot;</span>;</span><br><span class="line">        String[] b = a.split(<span class="string">&quot;,&quot;</span>);</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; b.length; i++) &#123;</span><br><span class="line">            System.out.print(b[i] + <span class="string">&quot; &quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>The output of the code is as follows:</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">A B C D E F G</span><br></pre></td></tr></table></figure>
-<hr />
-<h2 id="stringindexof"><a class="markdownIt-Anchor" href="#stringindexof"></a> String.indexOf()</h2>
-<p>Returns the index of the first occurrence of the specified substring (or character) in a string. Returns -1 if there is no such substring (or character) in the string.</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">test</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">String</span> <span class="variable">str</span> <span class="operator">=</span> <span class="string">&quot;Test string: hello world!&quot;</span>;</span><br><span class="line">        System.out.println(<span class="string">&quot;str: &quot;</span> + str);</span><br><span class="line">        System.out.println(<span class="string">&quot;str.length()=&quot;</span> + str.length());</span><br><span class="line"></span><br><span class="line">        <span class="type">Integer</span> <span class="variable">index1</span> <span class="operator">=</span> str.indexOf(<span class="string">&quot;t&quot;</span>);</span><br><span class="line">        System.out.println(<span class="string">&quot;indexOf(&#x27;t&#x27;): &quot;</span> + index1);</span><br><span class="line"></span><br><span class="line">        <span class="type">Integer</span> <span class="variable">index2</span> <span class="operator">=</span> str.indexOf(<span class="string">&quot;o&quot;</span>);</span><br><span class="line">        System.out.println(<span class="string">&quot;indexOf(&#x27;o&#x27;): &quot;</span> + index2);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>The output of the code is as follows:</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">str: Test string: hello world!</span><br><span class="line">str.length()=<span class="number">25</span></span><br><span class="line">indexOf(<span class="string">&#x27;t&#x27;</span>): <span class="number">3</span></span><br><span class="line">indexOf(<span class="string">&#x27;o&#x27;</span>): <span class="number">17</span></span><br></pre></td></tr></table></figure>
-<hr />
-<h2 id="stringlastindexof"><a class="markdownIt-Anchor" href="#stringlastindexof"></a> String.lastIndexOf()</h2>
-<p>Returns the index of the last occurrence of the specified substring (or character) in this string. Returns -1 if there is no such substring (or character) in the string.</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">test</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">String</span> <span class="variable">str</span> <span class="operator">=</span> <span class="string">&quot;Test string: hello world!&quot;</span>;</span><br><span class="line">        System.out.println(<span class="string">&quot;str: &quot;</span> + str);</span><br><span class="line">        System.out.println(<span class="string">&quot;str.length()=&quot;</span> + str.length());</span><br><span class="line"></span><br><span class="line">        <span class="type">Integer</span> <span class="variable">index1</span> <span class="operator">=</span> str.lastIndexOf(<span class="string">&quot;t&quot;</span>);</span><br><span class="line">        System.out.println(<span class="string">&quot;lastIndexOf(&#x27;t&#x27;): &quot;</span> + index1);</span><br><span class="line"></span><br><span class="line">        <span class="type">Integer</span> <span class="variable">index2</span> <span class="operator">=</span> str.lastIndexOf(<span class="string">&quot;o&quot;</span>);</span><br><span class="line">        System.out.println(<span class="string">&quot;lastIndexOf(&#x27;o&#x27;): &quot;</span> + index2);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>The output of the code is as follows:</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">str: Test string: hello world!</span><br><span class="line">str.length()=<span class="number">25</span></span><br><span class="line">lastIndexOf(<span class="string">&#x27;t&#x27;</span>): <span class="number">6</span></span><br><span class="line">lastIndexOf(<span class="string">&#x27;o&#x27;</span>): <span class="number">20</span></span><br></pre></td></tr></table></figure>
-<hr />
-<h2 id="stringutilssubstring"><a class="markdownIt-Anchor" href="#stringutilssubstring"></a> StringUtils.substring()</h2>
-<p>Use <code>String substring(String str, int start, int end)</code> to get the substring with index between [start, end).</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">test</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">String</span> <span class="variable">str</span> <span class="operator">=</span> <span class="string">&quot;Test string: hello world!&quot;</span>;</span><br><span class="line">        System.out.println(<span class="string">&quot;str: &quot;</span> + str);</span><br><span class="line">        System.out.println(<span class="string">&quot;str.length()=&quot;</span> + str.length());</span><br><span class="line">        <span class="comment">// 截取区间在[0,4)的字符串</span></span><br><span class="line">        <span class="type">String</span> <span class="variable">subStr</span> <span class="operator">=</span> StringUtils.substring(str, <span class="number">0</span>, <span class="number">4</span>);</span><br><span class="line">        System.out.println(<span class="string">&quot;subStr: &quot;</span> + subStr);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>The output of the code is as follows:</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">str: Test string: hello world!</span><br><span class="line">str.length()=<span class="number">25</span></span><br><span class="line">subStr: Test</span><br></pre></td></tr></table></figure>
+    <title>Read and Write Text Files Using Python</title>
+    <url>/2024/05/23/read-and-write-txt-files-using-Python/</url>
+    <content><![CDATA[<p>For example, there is such a Text file, as shown in the figure below. We need to read the data and then save the data to different folders in different directories.</p>
+<img data-src="/images/read_txt/data.png" style="zoom: 100%;" />
+<p>The Python code is as follows:</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"></span><br><span class="line"><span class="comment"># Read data in Text</span></span><br><span class="line">students_data = []</span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&#x27;./data.txt&#x27;</span>, <span class="string">&#x27;r&#x27;</span>) <span class="keyword">as</span> f:</span><br><span class="line">    line = f.readline()</span><br><span class="line">    <span class="keyword">while</span> line:</span><br><span class="line">        <span class="built_in">print</span>(line)</span><br><span class="line"></span><br><span class="line">        line_data = line.split(<span class="string">&#x27;,&#x27;</span>)</span><br><span class="line"></span><br><span class="line">        <span class="comment"># Skip the first line</span></span><br><span class="line">        <span class="keyword">if</span> line_data[<span class="number">0</span>] == <span class="string">&#x27;name&#x27;</span>:</span><br><span class="line">            line = f.readline()</span><br><span class="line">            <span class="keyword">continue</span></span><br><span class="line"></span><br><span class="line">        <span class="comment"># Read the data of current row</span></span><br><span class="line">        curr_student_info = &#123;&#125;</span><br><span class="line">        curr_student_info[<span class="string">&quot;name&quot;</span>] = <span class="built_in">str</span>(line_data[<span class="number">0</span>])</span><br><span class="line">        curr_student_info[<span class="string">&quot;id&quot;</span>] = <span class="built_in">str</span>(line_data[<span class="number">1</span>])</span><br><span class="line">        curr_student_info[<span class="string">&quot;score&quot;</span>] = <span class="built_in">float</span>(line_data[<span class="number">2</span>])</span><br><span class="line">        curr_student_info[<span class="string">&quot;ranking&quot;</span>] = <span class="built_in">float</span>(line_data[<span class="number">3</span>])</span><br><span class="line">        students_data.append(curr_student_info)</span><br><span class="line"></span><br><span class="line">        <span class="comment"># Continue reading the next line of data</span></span><br><span class="line">        line = f.readline()</span><br><span class="line"></span><br><span class="line"><span class="comment"># Save the data in different files</span></span><br><span class="line"><span class="keyword">for</span> curr_info <span class="keyword">in</span> students_data:</span><br><span class="line">    path = <span class="string">&quot;./student_data/&quot;</span> + <span class="built_in">str</span>(curr_info[<span class="string">&quot;name&quot;</span>])</span><br><span class="line">    os.makedirs(path)</span><br><span class="line"></span><br><span class="line">    f_temp = <span class="built_in">open</span>(<span class="string">&#x27;./student_data/&#x27;</span> + <span class="built_in">str</span>(curr_info[<span class="string">&quot;name&quot;</span>]) + <span class="string">&#x27;/info.txt&#x27;</span>, <span class="string">&#x27;w&#x27;</span>)</span><br><span class="line">    f_temp.write(<span class="string">&quot;id: &quot;</span> + <span class="built_in">str</span>(curr_info[<span class="string">&quot;id&quot;</span>]) + <span class="string">&quot;\n&quot;</span>)</span><br><span class="line">    f_temp.write(<span class="string">&quot;score: &quot;</span> + <span class="built_in">str</span>(curr_info[<span class="string">&quot;score&quot;</span>]) + <span class="string">&quot;\n&quot;</span>)</span><br><span class="line">    f_temp.write(<span class="string">&quot;ranking: &quot;</span> + <span class="built_in">str</span>(curr_info[<span class="string">&quot;ranking&quot;</span>]) + <span class="string">&quot;\n&quot;</span>)</span><br><span class="line">    f_temp.close()</span><br></pre></td></tr></table></figure>
+<p>The data in Text can be read through the above code, as shown below:</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">name,<span class="built_in">id</span>,score,ranking</span><br><span class="line"></span><br><span class="line">A,S1001,<span class="number">100</span>,<span class="number">1</span></span><br><span class="line"></span><br><span class="line">B,S1002,<span class="number">90</span>,<span class="number">2</span></span><br><span class="line"></span><br><span class="line">C,S1003,<span class="number">80</span>,<span class="number">3</span></span><br></pre></td></tr></table></figure>
+<p>And the generated files looks like this:</p>
+<img data-src="/images/read_txt/result.png" style="zoom: 80%;" />
 ]]></content>
       <tags>
-        <tag>Java</tag>
+        <tag>Python</tag>
       </tags>
   </entry>
   <entry>
@@ -1366,22 +1382,6 @@ c-16-25.333-24-45-24-59z'/></svg></span></span></span></span></span></span></spa
       <tags>
         <tag>Python</tag>
         <tag>Graph Theory</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Read and Write Text Files Using Python</title>
-    <url>/2024/05/23/read-and-write-txt-files-using-Python/</url>
-    <content><![CDATA[<p>For example, there is such a Text file, as shown in the figure below. We need to read the data and then save the data to different folders in different directories.</p>
-<img data-src="/images/read_txt/data.png" style="zoom: 100%;" />
-<p>The Python code is as follows:</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"></span><br><span class="line"><span class="comment"># Read data in Text</span></span><br><span class="line">students_data = []</span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&#x27;./data.txt&#x27;</span>, <span class="string">&#x27;r&#x27;</span>) <span class="keyword">as</span> f:</span><br><span class="line">    line = f.readline()</span><br><span class="line">    <span class="keyword">while</span> line:</span><br><span class="line">        <span class="built_in">print</span>(line)</span><br><span class="line"></span><br><span class="line">        line_data = line.split(<span class="string">&#x27;,&#x27;</span>)</span><br><span class="line"></span><br><span class="line">        <span class="comment"># Skip the first line</span></span><br><span class="line">        <span class="keyword">if</span> line_data[<span class="number">0</span>] == <span class="string">&#x27;name&#x27;</span>:</span><br><span class="line">            line = f.readline()</span><br><span class="line">            <span class="keyword">continue</span></span><br><span class="line"></span><br><span class="line">        <span class="comment"># Read the data of current row</span></span><br><span class="line">        curr_student_info = &#123;&#125;</span><br><span class="line">        curr_student_info[<span class="string">&quot;name&quot;</span>] = <span class="built_in">str</span>(line_data[<span class="number">0</span>])</span><br><span class="line">        curr_student_info[<span class="string">&quot;id&quot;</span>] = <span class="built_in">str</span>(line_data[<span class="number">1</span>])</span><br><span class="line">        curr_student_info[<span class="string">&quot;score&quot;</span>] = <span class="built_in">float</span>(line_data[<span class="number">2</span>])</span><br><span class="line">        curr_student_info[<span class="string">&quot;ranking&quot;</span>] = <span class="built_in">float</span>(line_data[<span class="number">3</span>])</span><br><span class="line">        students_data.append(curr_student_info)</span><br><span class="line"></span><br><span class="line">        <span class="comment"># Continue reading the next line of data</span></span><br><span class="line">        line = f.readline()</span><br><span class="line"></span><br><span class="line"><span class="comment"># Save the data in different files</span></span><br><span class="line"><span class="keyword">for</span> curr_info <span class="keyword">in</span> students_data:</span><br><span class="line">    path = <span class="string">&quot;./student_data/&quot;</span> + <span class="built_in">str</span>(curr_info[<span class="string">&quot;name&quot;</span>])</span><br><span class="line">    os.makedirs(path)</span><br><span class="line"></span><br><span class="line">    f_temp = <span class="built_in">open</span>(<span class="string">&#x27;./student_data/&#x27;</span> + <span class="built_in">str</span>(curr_info[<span class="string">&quot;name&quot;</span>]) + <span class="string">&#x27;/info.txt&#x27;</span>, <span class="string">&#x27;w&#x27;</span>)</span><br><span class="line">    f_temp.write(<span class="string">&quot;id: &quot;</span> + <span class="built_in">str</span>(curr_info[<span class="string">&quot;id&quot;</span>]) + <span class="string">&quot;\n&quot;</span>)</span><br><span class="line">    f_temp.write(<span class="string">&quot;score: &quot;</span> + <span class="built_in">str</span>(curr_info[<span class="string">&quot;score&quot;</span>]) + <span class="string">&quot;\n&quot;</span>)</span><br><span class="line">    f_temp.write(<span class="string">&quot;ranking: &quot;</span> + <span class="built_in">str</span>(curr_info[<span class="string">&quot;ranking&quot;</span>]) + <span class="string">&quot;\n&quot;</span>)</span><br><span class="line">    f_temp.close()</span><br></pre></td></tr></table></figure>
-<p>The data in Text can be read through the above code, as shown below:</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">name,<span class="built_in">id</span>,score,ranking</span><br><span class="line"></span><br><span class="line">A,S1001,<span class="number">100</span>,<span class="number">1</span></span><br><span class="line"></span><br><span class="line">B,S1002,<span class="number">90</span>,<span class="number">2</span></span><br><span class="line"></span><br><span class="line">C,S1003,<span class="number">80</span>,<span class="number">3</span></span><br></pre></td></tr></table></figure>
-<p>And the generated files looks like this:</p>
-<img data-src="/images/read_txt/result.png" style="zoom: 80%;" />
-]]></content>
-      <tags>
-        <tag>Python</tag>
       </tags>
   </entry>
   <entry>
