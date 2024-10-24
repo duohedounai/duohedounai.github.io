@@ -19,19 +19,19 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"duohedounai.github.io","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.19.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="More details about this project can be found in the paper. Here is a brief introduction to the project.  Mathematical Models A mixed integer programming model is presented to describe the problem as f">
+    <meta name="description" content="More details about this project can be found in the paper. Here is a brief introduction to the project.   Mathematical Models A mixed integer programming model is presented to describe the problem as">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Project Introduction | Task Assignment of Robots in Intelligent Warehouse">
 <meta property="og:url" content="https://duohedounai.github.io/2024/10/24/Project-Introduction-Task-Assignment-of-Robots-in-Intelligent-Warehouse/index.html">
 <meta property="og:site_name" content="Will Yuan&#39;s Blog">
-<meta property="og:description" content="More details about this project can be found in the paper. Here is a brief introduction to the project.  Mathematical Models A mixed integer programming model is presented to describe the problem as f">
+<meta property="og:description" content="More details about this project can be found in the paper. Here is a brief introduction to the project.   Mathematical Models A mixed integer programming model is presented to describe the problem as">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://duohedounai.github.io/images/task_assignment_in_mrfs/parameters.png">
 <meta property="og:image" content="https://duohedounai.github.io/images/task_assignment_in_mrfs/model.png">
-<meta property="og:image" content="https://duohedounai.github.io/images/task_assignment_in_mrfs/CplexTime.png">
+<meta property="og:image" content="https://duohedounai.github.io/images/task_assignment_in_mrfs/CplexTime.jpg">
 <meta property="og:image" content="https://duohedounai.github.io/images/task_assignment_in_mrfs/results.png">
 <meta property="article:published_time" content="2024-10-24T03:15:45.000Z">
-<meta property="article:modified_time" content="2024-10-24T03:39:33.406Z">
+<meta property="article:modified_time" content="2024-10-24T03:42:07.611Z">
 <meta property="article:author" content="Will Yuan">
 <meta property="article:tag" content="Optimization">
 <meta property="article:tag" content="C++">
@@ -225,7 +225,7 @@
       <span class="post-meta-item-text">Posted on</span>
       
 
-      <time title="Created: 2024-10-24 11:15:45 / Modified: 11:39:33" itemprop="dateCreated datePublished" datetime="2024-10-24T11:15:45+08:00">2024-10-24</time>
+      <time title="Created: 2024-10-24 11:15:45 / Modified: 11:42:07" itemprop="dateCreated datePublished" datetime="2024-10-24T11:15:45+08:00">2024-10-24</time>
     </span>
 
   
@@ -260,12 +260,13 @@
     
     
     <div class="post-body" itemprop="articleBody"><p>More details about this project can be found in the <a target="_blank" rel="noopener" href="https://ieeexplore.ieee.org/document/9177514">paper</a>. Here is a brief introduction to the project.</p>
+<hr />
 <h2 id="mathematical-models"><a class="markdownIt-Anchor" href="#mathematical-models"></a> Mathematical Models</h2>
 <p>A mixed integer programming model is presented to describe the problem as follows:</p>
 <img data-src="/images/task_assignment_in_mrfs/parameters.png" style="zoom:80%"/>
 <img data-src="/images/task_assignment_in_mrfs/model.png" style="zoom:80%"/>
 <p>The model can use CPLEX to obtain the exact solution at a small scale, and use heuristic algorithms to find the good solution quickly when the scale is large. The CPLEX code is <a target="_blank" rel="noopener" href="https://github.com/duohedounai/AntColonyOptimization/blob/main/CplexCode.md">here</a>. When there are 3 robots and 8 tasks, the model solving time for CPLEX is as follows:</p>
-<img data-src="/images/task_assignment_in_mrfs/CplexTime.png" style="zoom:80%"/>
+<img data-src="/images/task_assignment_in_mrfs/CplexTime.jpg" style="zoom:80%"/>
 <hr />
 <h2 id="heuristic-solutions"><a class="markdownIt-Anchor" href="#heuristic-solutions"></a> Heuristic Solutions</h2>
 <h3 id="the-longest-setup-handling-time-first-rule"><a class="markdownIt-Anchor" href="#the-longest-setup-handling-time-first-rule"></a> The Longest Setup &amp; Handling Time First Rule</h3>
