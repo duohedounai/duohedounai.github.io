@@ -31,7 +31,7 @@
 <meta property="og:image" content="https://duohedounai.github.io/images/hospital_simulation_flexsim/3.png">
 <meta property="og:image" content="https://duohedounai.github.io/images/hospital_simulation_flexsim/4.png">
 <meta property="article:published_time" content="2024-10-24T03:20:16.000Z">
-<meta property="article:modified_time" content="2024-10-24T08:45:38.897Z">
+<meta property="article:modified_time" content="2024-10-24T08:51:45.872Z">
 <meta property="article:author" content="Will Yuan">
 <meta property="article:tag" content="FlexSim">
 <meta property="article:tag" content="MATLAB">
@@ -225,7 +225,7 @@
       <span class="post-meta-item-text">Posted on</span>
       
 
-      <time title="Created: 2024-10-24 11:20:16 / Modified: 16:45:38" itemprop="dateCreated datePublished" datetime="2024-10-24T11:20:16+08:00">2024-10-24</time>
+      <time title="Created: 2024-10-24 11:20:16 / Modified: 16:51:45" itemprop="dateCreated datePublished" datetime="2024-10-24T11:20:16+08:00">2024-10-24</time>
     </span>
 
   
@@ -260,12 +260,11 @@
     
     
     <div class="post-body" itemprop="articleBody"><blockquote>
-<p>This was a course project during my undergraduate studies and was published in a Chinese journal. The following is a translation of the paper.</p>
+<p><font color=MediumBlue>This was a course project during my undergraduate studies and was published in a Chinese journal. The following is a translation of the paper.</font></p>
 </blockquote>
 <p><strong>Abstract:</strong></p>
 <p>The queuing problem in hospital is becoming more and more serious. This paper investigates the queuing system of registration window of a hospital in Nanjing. The data of arrival time interval and service time of each window are collected, and its distributions are fitted by Matalab. The model of the system is set up and simulated with FlexSim. According to the simulation results, the optimization scheme is put forward. By increasing the number of windows opened to patients from 3 to 4, the average waiting time is reduced by 430 seconds, and the queuing time is reduced by 69%.<br />
-<strong>Key words:</strong></p>
-<p>hospital；registration window；queueing system；simulation；FlexSim</p>
+<strong>Key words:</strong> hospital；registration window；queueing system；simulation；FlexSim</p>
 <hr />
 <h2 id="introduction"><a class="markdownIt-Anchor" href="#introduction"></a> Introduction</h2>
 <p>With the improvement of people's health needs, the number of medical patients continues to increase. The queuing problem in hospitals has also become increasingly prominent, causing a lot of inconvenience to patients seeking medical treatment. In particular, the service efficiency of the registration and payment system is of great significance in reducing patients' waiting time. Modeling and simulation software can be used to study the queuing phenomenon and propose optimization plans based on the simulation results, thereby improving the service efficiency of the medical system and improving the patient medical experience.<br />
@@ -278,11 +277,11 @@ The registration window of the hospital is responsible for not only registering 
 <h2 id="data-fitting"><a class="markdownIt-Anchor" href="#data-fitting"></a> Data Fitting</h2>
 <h3 id="probability-distribution-of-patient-arrival-time-intervals"><a class="markdownIt-Anchor" href="#probability-distribution-of-patient-arrival-time-intervals"></a> Probability distribution of patient arrival time intervals</h3>
 <img data-src="/images/hospital_simulation_flexsim/1.png" style="zoom:60%"/>
-<p>Figure 1  Probability distribution of the time interval between patients arriving at the registration window</p>
+<center>Figure 1  Probability distribution of the time interval between patients arriving at the registration window</center>
 <p>The collected raw data were calculated and extracted to obtain multiple sets of data on patient arrival time intervals. Using Matalab to perform distribution fitting on these data, it can be found that the time intervals for customers to arrive at the registration window all obey exponential distribution.</p>
 <h3 id="probability-distribution-of-window-service-times"><a class="markdownIt-Anchor" href="#probability-distribution-of-window-service-times"></a> Probability distribution of window service times</h3>
 <img data-src="/images/hospital_simulation_flexsim/2.png" style="zoom:60%"/>
-<p>Figure 2  Probability distribution of service duration of window 4</p>
+<center>Figure 2  Probability distribution of service duration of window 4</center>
 <p>Extract the registration/payment time of each patient from the original data, and use Matalab to perform distribution fitting on these data. It can be found that the service time of windows 2, 4, and 5 obeys the normal distribution, and that of windows 1, 3, and The service time of No. 6 follows an exponential distribution.</p>
 <hr />
 <h2 id="flexsim-modeling"><a class="markdownIt-Anchor" href="#flexsim-modeling"></a> FlexSim Modeling</h2>
@@ -293,15 +292,15 @@ The registration window of the hospital is responsible for not only registering 
 ④Number of Temporary storage area: 6 (simulated patient waiting queue).<br />
 ⑤Number of Operator: 6 (simulated staff).</p>
 <img data-src="/images/hospital_simulation_flexsim/3.png" style="zoom:60%"/>
-<p>Figure 3  Overall model layout</p>
+<center>Figure 3  Overall model layout</center>
 <h3 id="simulation"><a class="markdownIt-Anchor" href="#simulation"></a> Simulation</h3>
 <p>As shown in Figure 4, the temporary entity (patient) arrives at the system through the generator, and by judging the number of people queuing at each open window, it chooses to join the queue with the smallest number of people queuing. If the selected processor is in service, the patient will first wait in the waiting area. Then it goes through the processor (registration window) to handle business, and finally enters the absorber and leaves the system.</p>
 <img data-src="/images/hospital_simulation_flexsim/4.png" style="zoom:60%"/>
-<p>Figure 4  Model running process</p>
+<center>Figure 4  Model running process</center>
 <hr />
 <h2 id="result-analysis"><a class="markdownIt-Anchor" href="#result-analysis"></a> Result Analysis</h2>
 <p>The situations when opening 2, 3, 4, 5 and 6 windows were simulated in the model respectively, and the corresponding indicators under opening different numbers of windows were obtained. As shown in Table 1:</p>
-<p>Table 1 Efficiency when opening different numbers of windows</p>
+<center>Table 1 Efficiency when opening different numbers of windows</center>
 <table>
 <thead>
 <tr>
