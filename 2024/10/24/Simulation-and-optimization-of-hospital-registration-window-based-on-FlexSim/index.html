@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.1.1">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha256-wiz7ZSCn/btzhjKDQBms9Hx4sSeUYsDrTLg7roPstac=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"duohedounai.github.io","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.19.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="This was a course project during my undergraduate studies and was published in a Chinese journal. The following is a translation of the paper.  Abstract: The queuing problem in hospital is becoming m">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Simulation and optimization of hospital registration window based on FlexSim">
+<meta property="og:url" content="https://duohedounai.github.io/2024/10/24/Simulation-and-optimization-of-hospital-registration-window-based-on-FlexSim/index.html">
+<meta property="og:site_name" content="Will Yuan&#39;s Blog">
+<meta property="og:description" content="This was a course project during my undergraduate studies and was published in a Chinese journal. The following is a translation of the paper.  Abstract: The queuing problem in hospital is becoming m">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://duohedounai.github.io/images/hospital_simulation_flexsim/1.png">
+<meta property="og:image" content="https://duohedounai.github.io/images/hospital_simulation_flexsim/2.png">
+<meta property="og:image" content="https://duohedounai.github.io/images/hospital_simulation_flexsim/3.png">
+<meta property="og:image" content="https://duohedounai.github.io/images/hospital_simulation_flexsim/4.png">
+<meta property="article:published_time" content="2024-10-24T03:20:16.000Z">
+<meta property="article:modified_time" content="2024-10-24T08:45:38.897Z">
+<meta property="article:author" content="Will Yuan">
+<meta property="article:tag" content="FlexSim">
+<meta property="article:tag" content="MATLAB">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://duohedounai.github.io/images/hospital_simulation_flexsim/1.png">
+
+
+<link rel="canonical" href="https://duohedounai.github.io/2024/10/24/Simulation-and-optimization-of-hospital-registration-window-based-on-FlexSim/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://duohedounai.github.io/2024/10/24/Simulation-and-optimization-of-hospital-registration-window-based-on-FlexSim/","path":"2024/10/24/Simulation-and-optimization-of-hospital-registration-window-based-on-FlexSim/","title":"Simulation and optimization of hospital registration window based on FlexSim"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Simulation and optimization of hospital registration window based on FlexSim | Will Yuan's Blog</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Will Yuan's Blog</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#introduction"><span class="nav-number">1.</span> <span class="nav-text"> Introduction</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#investigation"><span class="nav-number">2.</span> <span class="nav-text"> Investigation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#data-fitting"><span class="nav-number">3.</span> <span class="nav-text"> Data Fitting</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#probability-distribution-of-patient-arrival-time-intervals"><span class="nav-number">3.1.</span> <span class="nav-text"> Probability distribution of patient arrival time intervals</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#probability-distribution-of-window-service-times"><span class="nav-number">3.2.</span> <span class="nav-text"> Probability distribution of window service times</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#flexsim-modeling"><span class="nav-number">4.</span> <span class="nav-text"> FlexSim Modeling</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#model-entity-composition"><span class="nav-number">4.1.</span> <span class="nav-text"> Model entity composition</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#simulation"><span class="nav-number">4.2.</span> <span class="nav-text"> Simulation</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#result-analysis"><span class="nav-number">5.</span> <span class="nav-text"> Result Analysis</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#suggestions-for-improvement"><span class="nav-number">6.</span> <span class="nav-text"> Suggestions for Improvement</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#conclusion"><span class="nav-number">7.</span> <span class="nav-text"> Conclusion</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Will Yuan</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">31</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">30</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://duohedounai.github.io/2024/10/24/Simulation-and-optimization-of-hospital-registration-window-based-on-FlexSim/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Will Yuan">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Will Yuan's Blog">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Simulation and optimization of hospital registration window based on FlexSim | Will Yuan's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Simulation and optimization of hospital registration window based on FlexSim
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2024-10-24 11:20:16 / Modified: 16:45:38" itemprop="dateCreated datePublished" datetime="2024-10-24T11:20:16+08:00">2024-10-24</time>
+    </span>
+
+  
+    <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="Word count in article">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">Word count in article: </span>
+      <span>1.2k</span>
+    </span>
+    <span class="post-meta-item" title="Reading time">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">Reading time &asymp;</span>
+      <span>4 mins.</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><blockquote>
+<p>This was a course project during my undergraduate studies and was published in a Chinese journal. The following is a translation of the paper.</p>
+</blockquote>
+<p><strong>Abstract:</strong></p>
+<p>The queuing problem in hospital is becoming more and more serious. This paper investigates the queuing system of registration window of a hospital in Nanjing. The data of arrival time interval and service time of each window are collected, and its distributions are fitted by Matalab. The model of the system is set up and simulated with FlexSim. According to the simulation results, the optimization scheme is put forward. By increasing the number of windows opened to patients from 3 to 4, the average waiting time is reduced by 430 seconds, and the queuing time is reduced by 69%.<br />
+<strong>Key words:</strong></p>
+<p>hospital；registration window；queueing system；simulation；FlexSim</p>
+<hr />
+<h2 id="introduction"><a class="markdownIt-Anchor" href="#introduction"></a> Introduction</h2>
+<p>With the improvement of people's health needs, the number of medical patients continues to increase. The queuing problem in hospitals has also become increasingly prominent, causing a lot of inconvenience to patients seeking medical treatment. In particular, the service efficiency of the registration and payment system is of great significance in reducing patients' waiting time. Modeling and simulation software can be used to study the queuing phenomenon and propose optimization plans based on the simulation results, thereby improving the service efficiency of the medical system and improving the patient medical experience.<br />
+The author investigated the queuing situation of the registration window in a hospital in Nanjing, used Matalab to process and fit the collected queuing and service time data, and combined with FlexSim simulation technology, simulated the situations when different numbers of registration windows were opened. Improvement plans are proposed through comparison of simulation results.</p>
+<hr />
+<h2 id="investigation"><a class="markdownIt-Anchor" href="#investigation"></a> Investigation</h2>
+<p>After long-term field investigation, it was found that the hospital has a total of 6 registration windows, of which 3 windows (No. 3, 4 and 5) are open for a long time, and 3 windows (No. 1, 2 and 6) are rarely open.<br />
+The registration window of the hospital is responsible for not only registering patients when they enter the hospital, but also accepting payment services before patients purchase medicine or see a doctor. During the investigation, it was found that queuing at the hospital's registration window was common, especially during peak hours.</p>
+<hr />
+<h2 id="data-fitting"><a class="markdownIt-Anchor" href="#data-fitting"></a> Data Fitting</h2>
+<h3 id="probability-distribution-of-patient-arrival-time-intervals"><a class="markdownIt-Anchor" href="#probability-distribution-of-patient-arrival-time-intervals"></a> Probability distribution of patient arrival time intervals</h3>
+<img data-src="/images/hospital_simulation_flexsim/1.png" style="zoom:60%"/>
+<p>Figure 1  Probability distribution of the time interval between patients arriving at the registration window</p>
+<p>The collected raw data were calculated and extracted to obtain multiple sets of data on patient arrival time intervals. Using Matalab to perform distribution fitting on these data, it can be found that the time intervals for customers to arrive at the registration window all obey exponential distribution.</p>
+<h3 id="probability-distribution-of-window-service-times"><a class="markdownIt-Anchor" href="#probability-distribution-of-window-service-times"></a> Probability distribution of window service times</h3>
+<img data-src="/images/hospital_simulation_flexsim/2.png" style="zoom:60%"/>
+<p>Figure 2  Probability distribution of service duration of window 4</p>
+<p>Extract the registration/payment time of each patient from the original data, and use Matalab to perform distribution fitting on these data. It can be found that the service time of windows 2, 4, and 5 obeys the normal distribution, and that of windows 1, 3, and The service time of No. 6 follows an exponential distribution.</p>
+<hr />
+<h2 id="flexsim-modeling"><a class="markdownIt-Anchor" href="#flexsim-modeling"></a> FlexSim Modeling</h2>
+<h3 id="model-entity-composition"><a class="markdownIt-Anchor" href="#model-entity-composition"></a> Model entity composition</h3>
+<p>①Number of Generator: 1 (simulates patient arrival).<br />
+②Number of Absorber: 1 (simulates patient leaving).<br />
+③Number of Processor: 6 (simulated service window).<br />
+④Number of Temporary storage area: 6 (simulated patient waiting queue).<br />
+⑤Number of Operator: 6 (simulated staff).</p>
+<img data-src="/images/hospital_simulation_flexsim/3.png" style="zoom:60%"/>
+<p>Figure 3  Overall model layout</p>
+<h3 id="simulation"><a class="markdownIt-Anchor" href="#simulation"></a> Simulation</h3>
+<p>As shown in Figure 4, the temporary entity (patient) arrives at the system through the generator, and by judging the number of people queuing at each open window, it chooses to join the queue with the smallest number of people queuing. If the selected processor is in service, the patient will first wait in the waiting area. Then it goes through the processor (registration window) to handle business, and finally enters the absorber and leaves the system.</p>
+<img data-src="/images/hospital_simulation_flexsim/4.png" style="zoom:60%"/>
+<p>Figure 4  Model running process</p>
+<hr />
+<h2 id="result-analysis"><a class="markdownIt-Anchor" href="#result-analysis"></a> Result Analysis</h2>
+<p>The situations when opening 2, 3, 4, 5 and 6 windows were simulated in the model respectively, and the corresponding indicators under opening different numbers of windows were obtained. As shown in Table 1:</p>
+<p>Table 1 Efficiency when opening different numbers of windows</p>
+<table>
+<thead>
+<tr>
+<th>Number of windows opened</th>
+<th>2</th>
+<th>3</th>
+<th>4</th>
+<th>5</th>
+<th>6</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Average window utilization</td>
+<td>0.95</td>
+<td>0.94</td>
+<td>0.89</td>
+<td>0.74</td>
+<td>0.62</td>
+</tr>
+<tr>
+<td>Average waiting time/s</td>
+<td>682</td>
+<td>622</td>
+<td>192</td>
+<td>82</td>
+<td>68</td>
+</tr>
+</tbody>
+</table>
+<p>When three windows are opened, the average window queuing time is about 682 seconds, and when four windows are opened, the average window queuing time is about 192 seconds. Analysis shows that from 3 windows to 4 windows, the average queuing time is greatly reduced, while the average window utilization is only reduced by about 5%. If five more windows are added, the average queuing time will only be reduced by about 110 seconds based on the opening of four windows, but the average window utilization will be reduced by 15%. If the number of windows is further increased to 6, the average utilization of the windows further decreases but the average waiting time does not improve significantly.</p>
+<hr />
+<h2 id="suggestions-for-improvement"><a class="markdownIt-Anchor" href="#suggestions-for-improvement"></a> Suggestions for Improvement</h2>
+<p>Based on the simulation results of the FlexSim model, the following improvement suggestions are put forward:<br />
+(1) Increase the number of registration and payment windows currently opened every day from 3 to 4.<br />
+① Before improvement: When 3 windows are opened, the average utilization rate is 94% and the average waiting time is about 622 seconds.<br />
+②After improvement: When 4 windows are opened, the average utilization rate is 89%, and the average waiting time is about 192 seconds.<br />
+After increasing the number of registration and payment windows opened every day from 3 to 4, the average window utilization rate only decreased by 5%, but the average waiting time was reduced by about 430 seconds, and the queuing time was reduced by 69% compared with before. The improvement effect is obvious. With. If the number of windows opened is further increased, the marginal returns brought about by the improvement will be diminishing relative to the increased costs.<br />
+(2) During special periods when the number of patients coming for medical treatment is small or large, the number of existing windows should be flexibly adjusted by comprehensively considering costs and benefits.</p>
+<hr />
+<h2 id="conclusion"><a class="markdownIt-Anchor" href="#conclusion"></a> Conclusion</h2>
+<p>This article uses FlexSim modeling and simulation technology to study the number of hospital registration windows, and proposes an improvement plan based on the simulation results. The application of industrial engineering in medical systems has broad prospects. By using industrial engineering methods, it can optimize department staffing, reduce waiting or walking waste, improve medical treatment processes, and many other aspects, thereby effectively improving the hospital's service efficiency and alleviating the strain on medical resources. Provide patients with high-quality medical services.</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>Post author:  </strong>Will Yuan
+  </li>
+  <li class="post-copyright-link">
+      <strong>Post link: </strong>
+      <a href="https://duohedounai.github.io/2024/10/24/Simulation-and-optimization-of-hospital-registration-window-based-on-FlexSim/" title="Simulation and optimization of hospital registration window based on FlexSim">https://duohedounai.github.io/2024/10/24/Simulation-and-optimization-of-hospital-registration-window-based-on-FlexSim/</a>
+  </li>
+  <li class="post-copyright-license">
+      <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/FlexSim/" rel="tag"># FlexSim</a>
+              <a href="/tags/MATLAB/" rel="tag"># MATLAB</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2024/10/24/Project-Introduction-Task-Assignment-of-Robots-in-Intelligent-Warehouse/" rel="prev" title="Project Introduction | Task Assignment of Robots in Intelligent Warehouse">
+                  <i class="fa fa-angle-left"></i> Project Introduction | Task Assignment of Robots in Intelligent Warehouse
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2024/10/24/Project-Introduction-Path%20Planning%20of%20Robots%20in%20Intelligent%20Warehouse/" rel="next" title="Project Introduction | Path Planning of Robots in Intelligent Warehouse">
+                  Project Introduction | Path Planning of Robots in Intelligent Warehouse <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments gitalk-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2024</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Will Yuan</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>Word count total: </span>
+    <span title="Word count total">16k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>Reading time total &asymp;</span>
+    <span title="Reading time total">57 mins.</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.16.0/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.8.0/gitalk.css" integrity="sha256-AJnUHL7dBv6PGaeyPQJcgQPDjt/Hn/PvYZde1iqfp8U=" crossorigin="anonymous">
+
+<script class="next-config" data-name="gitalk" type="application/json">{"enable":true,"github_id":"duohedounai","repo":"duohedounai.github.io","client_id":"005ce2ed36a466b0bfc9","client_secret":"7f9def3a076d9133cd9c538d9f2a8af1847794ad","admin_user":"duohedounai","distraction_free_mode":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token","language":"en","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.8.0/gitalk.min.js","integrity":"sha256-MVK9MGD/XJaGyIghSVrONSnoXoGh3IFxLw0zfvzpxR4="},"path_md5":"abe361c66e784d5f23bea4ca396e2110"}</script>
+<script src="/js/third-party/comments/gitalk.js"></script>
+
+</body>
+</html>
