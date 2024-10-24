@@ -34,7 +34,7 @@
 <meta property="og:image" content="https://duohedounai.github.io/images/path_planning_in_mrfs/experience.png">
 <meta property="og:image" content="https://duohedounai.github.io/images/path_planning_in_mrfs/reward.png">
 <meta property="article:published_time" content="2024-10-24T04:40:00.000Z">
-<meta property="article:modified_time" content="2024-10-24T05:26:52.047Z">
+<meta property="article:modified_time" content="2024-10-24T05:34:50.044Z">
 <meta property="article:author" content="Will Yuan">
 <meta property="article:tag" content="Python">
 <meta property="article:tag" content="Path Planning">
@@ -230,7 +230,7 @@
       <span class="post-meta-item-text">Posted on</span>
       
 
-      <time title="Created: 2024-10-24 12:40:00 / Modified: 13:26:52" itemprop="dateCreated datePublished" datetime="2024-10-24T12:40:00+08:00">2024-10-24</time>
+      <time title="Created: 2024-10-24 12:40:00 / Modified: 13:34:50" itemprop="dateCreated datePublished" datetime="2024-10-24T12:40:00+08:00">2024-10-24</time>
     </span>
 
   
@@ -247,7 +247,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">Word count in article: </span>
-      <span>589</span>
+      <span>584</span>
     </span>
     <span class="post-meta-item" title="Reading time">
       <span class="post-meta-item-icon">
@@ -269,12 +269,18 @@
 <p>To solve the routing problem in Mobile Robot Fulfillment System, firstly, a method based on traditional A*  algorithm is proposed, and then a method based on improved A* algorithm considering task  priority and utilization frequency of path nodes is further designed. Finally, a Markov  decision process describing the problem is established, and a method based on Q-learning is  proposed. Results of computational experiments show that these algorithms can quickly solve  the problem. The methods based on the traditional A* algorithm and Q-learning can both  obtain the shortest paths, and the method based on improved A* algorithm can effectively  balance the traffic flow and significantly reduce the number of potential collisions.</p>
 <h3 id="comparison-between-traditional-a-algorithm-and-improved-a-algorithm"><a class="markdownIt-Anchor" href="#comparison-between-traditional-a-algorithm-and-improved-a-algorithm"></a> Comparison between traditional A* algorithm and improved A* algorithm</h3>
 <p>Compared with the traditional A* algorithm, the improved A* algorithm takes into account the impact of factors such as task priority and path node heat when performing global path planning for each robot, thereby reasonably allocating traffic flow in the warehouse and reducing the difficulty of subsequent traffic control.</p>
-<p>The comparison of path node heat caused by the above two global path planning algorithms is as follows (The left side is the traditional A* algorithm, and the right side is the improved A* algorithm):</p>
-<p>5 AGVs, 20 tasks:</p>
+<p>The comparison of path node heat caused by the above two global path planning algorithms is as follows. The darker the color, the more frequently the current cell is used.</p>
+<ul>
+<li>5 AGVs, 20 tasks:</li>
+</ul>
 <img data-src="/images/path_planning_in_mrfs/5AGV_20tasks.png" style="zoom:60%"/>
-<p>10 AGVs, 40 tasks:</p>
+<ul>
+<li>10 AGVs, 40 tasks:</li>
+</ul>
 <img data-src="/images/path_planning_in_mrfs/10AGV_40tasks.png" style="zoom:60%"/>
-<p>15 AGVs, 60 tasks:</p>
+<ul>
+<li>15 AGVs, 60 tasks:</li>
+</ul>
 <img data-src="/images/path_planning_in_mrfs/15AGV_60tasks.png" style="zoom:60%"/>
 <h3 id="q-learning-algorithm"><a class="markdownIt-Anchor" href="#q-learning-algorithm"></a> Q-learning algorithm</h3>
 <p>In the Q-learning algorithm, each robot has only 4 actions to choose from: forward, backward, left, and right. Through training, the robot can take different actions in different states to achieve the exploration of warehouse path nodes.</p>
