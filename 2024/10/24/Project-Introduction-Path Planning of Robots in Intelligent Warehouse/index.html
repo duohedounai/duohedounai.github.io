@@ -19,12 +19,12 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"duohedounai.github.io","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.19.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="Global path planning for a single robot Abstract: To solve the routing problem in Mobile Robot Fulfillment System, firstly, a method based on traditional A*  algorithm is proposed, and then a method">
+    <meta name="description" content="Global path planning for each robot Abstract: To solve the routing problem in Mobile Robot Fulfillment System, firstly, a method based on traditional A*  algorithm is proposed, and then a method base">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Project Introduction | Path Planning of Robots in Intelligent Warehouse">
 <meta property="og:url" content="https://duohedounai.github.io/2024/10/24/Project-Introduction-Path%20Planning%20of%20Robots%20in%20Intelligent%20Warehouse/index.html">
 <meta property="og:site_name" content="Will Yuan&#39;s Blog">
-<meta property="og:description" content="Global path planning for a single robot Abstract: To solve the routing problem in Mobile Robot Fulfillment System, firstly, a method based on traditional A*  algorithm is proposed, and then a method">
+<meta property="og:description" content="Global path planning for each robot Abstract: To solve the routing problem in Mobile Robot Fulfillment System, firstly, a method based on traditional A*  algorithm is proposed, and then a method base">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://duohedounai.github.io/images/path_planning_in_mrfs/5AGV_20tasks.png">
 <meta property="og:image" content="https://duohedounai.github.io/images/path_planning_in_mrfs/10AGV_40tasks.png">
@@ -34,7 +34,7 @@
 <meta property="og:image" content="https://duohedounai.github.io/images/path_planning_in_mrfs/experience.png">
 <meta property="og:image" content="https://duohedounai.github.io/images/path_planning_in_mrfs/reward.png">
 <meta property="article:published_time" content="2024-10-24T04:40:00.000Z">
-<meta property="article:modified_time" content="2024-10-24T07:23:00.661Z">
+<meta property="article:modified_time" content="2024-10-24T07:24:12.726Z">
 <meta property="article:author" content="Will Yuan">
 <meta property="article:tag" content="Python">
 <meta property="article:tag" content="Path Planning">
@@ -154,7 +154,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#global-path-planning-for-a-single-robot"><span class="nav-number">1.</span> <span class="nav-text"> Global path planning for a single robot</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#comparison-between-traditional-a-algorithm-and-improved-a-algorithm"><span class="nav-number">1.1.</span> <span class="nav-text"> Comparison between traditional A* algorithm and improved A* algorithm</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#q-learning-algorithm"><span class="nav-number">1.2.</span> <span class="nav-text"> Q-learning algorithm</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#multi-robot-conflict-avoidance"><span class="nav-number">2.</span> <span class="nav-text"> Multi-robot conflict avoidance</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#neural-network-architecture"><span class="nav-number">2.1.</span> <span class="nav-text"> Neural Network Architecture</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#experience-reuse-mechanism"><span class="nav-number">2.2.</span> <span class="nav-text"> Experience reuse mechanism</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#training-details"><span class="nav-number">2.3.</span> <span class="nav-text"> Training details</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#simulation-animation"><span class="nav-number">2.4.</span> <span class="nav-text"> Simulation animation</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#global-path-planning-for-each-robot"><span class="nav-number">1.</span> <span class="nav-text"> Global path planning for each robot</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#comparison-between-traditional-a-algorithm-and-improved-a-algorithm"><span class="nav-number">1.1.</span> <span class="nav-text"> Comparison between traditional A* algorithm and improved A* algorithm</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#q-learning-algorithm"><span class="nav-number">1.2.</span> <span class="nav-text"> Q-learning algorithm</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#multi-robot-conflict-avoidance"><span class="nav-number">2.</span> <span class="nav-text"> Multi-robot conflict avoidance</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#neural-network-architecture"><span class="nav-number">2.1.</span> <span class="nav-text"> Neural Network Architecture</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#experience-reuse-mechanism"><span class="nav-number">2.2.</span> <span class="nav-text"> Experience reuse mechanism</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#training-details"><span class="nav-number">2.3.</span> <span class="nav-text"> Training details</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#simulation-animation"><span class="nav-number">2.4.</span> <span class="nav-text"> Simulation animation</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -230,7 +230,7 @@
       <span class="post-meta-item-text">Posted on</span>
       
 
-      <time title="Created: 2024-10-24 12:40:00 / Modified: 15:23:00" itemprop="dateCreated datePublished" datetime="2024-10-24T12:40:00+08:00">2024-10-24</time>
+      <time title="Created: 2024-10-24 12:40:00 / Modified: 15:24:12" itemprop="dateCreated datePublished" datetime="2024-10-24T12:40:00+08:00">2024-10-24</time>
     </span>
 
   
@@ -247,7 +247,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">Word count in article: </span>
-      <span>614</span>
+      <span>613</span>
     </span>
     <span class="post-meta-item" title="Reading time">
       <span class="post-meta-item-icon">
@@ -264,7 +264,7 @@
     
     
     
-    <div class="post-body" itemprop="articleBody"><h2 id="global-path-planning-for-a-single-robot"><a class="markdownIt-Anchor" href="#global-path-planning-for-a-single-robot"></a> Global path planning for a single robot</h2>
+    <div class="post-body" itemprop="articleBody"><h2 id="global-path-planning-for-each-robot"><a class="markdownIt-Anchor" href="#global-path-planning-for-each-robot"></a> Global path planning for each robot</h2>
 <p><strong>Abstract:</strong></p>
 <p>To solve the routing problem in Mobile Robot Fulfillment System, firstly, a method based on traditional A*  algorithm is proposed, and then a method based on improved A* algorithm considering task  priority and utilization frequency of path nodes is further designed. Finally, a Markov  decision process describing the problem is established, and a method based on Q-learning is  proposed. Results of computational experiments show that these algorithms can quickly solve  the problem. The methods based on the traditional A* algorithm and Q-learning can both  obtain the shortest paths, and the method based on improved A* algorithm can effectively  balance the traffic flow and significantly reduce the number of potential collisions.</p>
 <h3 id="comparison-between-traditional-a-algorithm-and-improved-a-algorithm"><a class="markdownIt-Anchor" href="#comparison-between-traditional-a-algorithm-and-improved-a-algorithm"></a> Comparison between traditional A* algorithm and improved A* algorithm</h3>
