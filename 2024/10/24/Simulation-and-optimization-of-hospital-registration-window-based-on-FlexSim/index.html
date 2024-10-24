@@ -19,19 +19,19 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"duohedounai.github.io","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.19.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="This was a course project during my undergraduate studies and was published in a Chinese journal. The following is a translation of the paper.  Abstract: The queuing problem in hospital is becoming m">
+    <meta name="description" content="This was a course project during my undergraduate studies and was published in a Chinese journal. The course paper can be downloaded here. The following is a translation of the paper.  Abstract: The">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Simulation and optimization of hospital registration window based on FlexSim">
 <meta property="og:url" content="https://duohedounai.github.io/2024/10/24/Simulation-and-optimization-of-hospital-registration-window-based-on-FlexSim/index.html">
 <meta property="og:site_name" content="Will Yuan&#39;s Blog">
-<meta property="og:description" content="This was a course project during my undergraduate studies and was published in a Chinese journal. The following is a translation of the paper.  Abstract: The queuing problem in hospital is becoming m">
+<meta property="og:description" content="This was a course project during my undergraduate studies and was published in a Chinese journal. The course paper can be downloaded here. The following is a translation of the paper.  Abstract: The">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://duohedounai.github.io/images/hospital_simulation_flexsim/1.png">
 <meta property="og:image" content="https://duohedounai.github.io/images/hospital_simulation_flexsim/2.png">
 <meta property="og:image" content="https://duohedounai.github.io/images/hospital_simulation_flexsim/3.png">
 <meta property="og:image" content="https://duohedounai.github.io/images/hospital_simulation_flexsim/4.png">
-<meta property="article:published_time" content="2024-10-24T03:20:16.000Z">
-<meta property="article:modified_time" content="2024-10-24T08:51:45.872Z">
+<meta property="article:published_time" content="2024-10-24T03:00:10.000Z">
+<meta property="article:modified_time" content="2024-10-24T09:02:23.058Z">
 <meta property="article:author" content="Will Yuan">
 <meta property="article:tag" content="FlexSim">
 <meta property="article:tag" content="MATLAB">
@@ -225,7 +225,7 @@
       <span class="post-meta-item-text">Posted on</span>
       
 
-      <time title="Created: 2024-10-24 11:20:16 / Modified: 16:51:45" itemprop="dateCreated datePublished" datetime="2024-10-24T11:20:16+08:00">2024-10-24</time>
+      <time title="Created: 2024-10-24 11:00:10 / Modified: 17:02:23" itemprop="dateCreated datePublished" datetime="2024-10-24T11:00:10+08:00">2024-10-24</time>
     </span>
 
   
@@ -260,7 +260,7 @@
     
     
     <div class="post-body" itemprop="articleBody"><blockquote>
-<p><font color=MediumBlue>This was a course project during my undergraduate studies and was published in a Chinese journal. The following is a translation of the paper.</font></p>
+<p><font color=MediumBlue>This was a course project during my undergraduate studies and was published in a Chinese journal. The course paper can be downloaded <a target="_blank" rel="noopener" href="https://chn.oversea.cnki.net/KCMS/detail/detail.aspx?dbcode=CJFD&amp;dbname=CJFDLAST2017&amp;filename=JZGC201734077&amp;uniplatform=OVERSEA&amp;v=ckXha3Gmja1axqay_TNWmegpkYNU0es2Mvvv98ZJkZJ2x4Eeepll-UjgrPI6AD9S">here</a>. The following is a translation of the paper.</font></p>
 </blockquote>
 <p><strong>Abstract:</strong></p>
 <p>The queuing problem in hospital is becoming more and more serious. This paper investigates the queuing system of registration window of a hospital in Nanjing. The data of arrival time interval and service time of each window are collected, and its distributions are fitted by Matalab. The model of the system is set up and simulated with FlexSim. According to the simulation results, the optimization scheme is put forward. By increasing the number of windows opened to patients from 3 to 4, the average waiting time is reduced by 430 seconds, and the queuing time is reduced by 69%.<br />
@@ -276,11 +276,11 @@ The registration window of the hospital is responsible for not only registering 
 <hr />
 <h2 id="data-fitting"><a class="markdownIt-Anchor" href="#data-fitting"></a> Data Fitting</h2>
 <h3 id="probability-distribution-of-patient-arrival-time-intervals"><a class="markdownIt-Anchor" href="#probability-distribution-of-patient-arrival-time-intervals"></a> Probability distribution of patient arrival time intervals</h3>
-<img data-src="/images/hospital_simulation_flexsim/1.png" style="zoom:60%"/>
+<img data-src="/images/hospital_simulation_flexsim/1.png" style="zoom:70%"/>
 <center>Figure 1  Probability distribution of the time interval between patients arriving at the registration window</center>
 <p>The collected raw data were calculated and extracted to obtain multiple sets of data on patient arrival time intervals. Using Matalab to perform distribution fitting on these data, it can be found that the time intervals for customers to arrive at the registration window all obey exponential distribution.</p>
 <h3 id="probability-distribution-of-window-service-times"><a class="markdownIt-Anchor" href="#probability-distribution-of-window-service-times"></a> Probability distribution of window service times</h3>
-<img data-src="/images/hospital_simulation_flexsim/2.png" style="zoom:60%"/>
+<img data-src="/images/hospital_simulation_flexsim/2.png" style="zoom:70%"/>
 <center>Figure 2  Probability distribution of service duration of window 4</center>
 <p>Extract the registration/payment time of each patient from the original data, and use Matalab to perform distribution fitting on these data. It can be found that the service time of windows 2, 4, and 5 obeys the normal distribution, and that of windows 1, 3, and The service time of No. 6 follows an exponential distribution.</p>
 <hr />
@@ -377,13 +377,13 @@ After increasing the number of registration and payment windows opened every day
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2024/10/24/Project-Introduction-Task-Assignment-of-Robots-in-Intelligent-Warehouse/" rel="prev" title="Project Introduction | Task Assignment of Robots in Intelligent Warehouse">
-                  <i class="fa fa-angle-left"></i> Project Introduction | Task Assignment of Robots in Intelligent Warehouse
+                <a href="/2024/07/19/How-to-use-MongoDB-in-Python/" rel="prev" title="How to Use MongoDB in Python">
+                  <i class="fa fa-angle-left"></i> How to Use MongoDB in Python
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2024/10/24/Project-Introduction-Path%20Planning%20of%20Robots%20in%20Intelligent%20Warehouse/" rel="next" title="Project Introduction | Path Planning of Robots in Intelligent Warehouse">
-                  Project Introduction | Path Planning of Robots in Intelligent Warehouse <i class="fa fa-angle-right"></i>
+                <a href="/2024/10/24/Project-Introduction-Task-Assignment-of-Robots-in-Intelligent-Warehouse/" rel="next" title="Project Introduction | Task Assignment of Robots in Intelligent Warehouse">
+                  Project Introduction | Task Assignment of Robots in Intelligent Warehouse <i class="fa fa-angle-right"></i>
                 </a>
             </div>
           </div>
