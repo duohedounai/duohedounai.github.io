@@ -19,23 +19,23 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"duohedounai.github.io","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.19.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="More details about this project can be found in this paper. Here is a brief introduction to the project.  Abstract: This paper studies a task scheduling problem in the context of the mobile robot ful">
+    <meta name="description" content="More details about this project can be found in this paper. Here is a brief introduction to the project. This project is part of my master&#39;s thesis. My master&#39;s thesis (Written in Chinese) can be dow">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Project Introduction | Task Assignment of Robots in Intelligent Warehouse">
 <meta property="og:url" content="https://duohedounai.github.io/2024/10/24/Project-Introduction-Task-Assignment-of-Robots-in-Intelligent-Warehouse/index.html">
 <meta property="og:site_name" content="Will Yuan&#39;s Blog">
-<meta property="og:description" content="More details about this project can be found in this paper. Here is a brief introduction to the project.  Abstract: This paper studies a task scheduling problem in the context of the mobile robot ful">
+<meta property="og:description" content="More details about this project can be found in this paper. Here is a brief introduction to the project. This project is part of my master&#39;s thesis. My master&#39;s thesis (Written in Chinese) can be dow">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://duohedounai.github.io/images/task_assignment_in_mrfs/parameters.png">
 <meta property="og:image" content="https://duohedounai.github.io/images/task_assignment_in_mrfs/model.png">
 <meta property="og:image" content="https://duohedounai.github.io/images/task_assignment_in_mrfs/CplexTime.jpg">
 <meta property="og:image" content="https://duohedounai.github.io/images/task_assignment_in_mrfs/results.png">
 <meta property="article:published_time" content="2024-10-24T03:15:45.000Z">
-<meta property="article:modified_time" content="2024-10-24T07:38:32.204Z">
+<meta property="article:modified_time" content="2024-10-28T04:09:45.691Z">
 <meta property="article:author" content="Will Yuan">
 <meta property="article:tag" content="Optimization">
-<meta property="article:tag" content="Project Introduction">
 <meta property="article:tag" content="C++">
+<meta property="article:tag" content="Project Introduction">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://duohedounai.github.io/images/task_assignment_in_mrfs/parameters.png">
 
@@ -224,9 +224,15 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
-      
 
-      <time title="Created: 2024-10-24 11:15:45 / Modified: 15:38:32" itemprop="dateCreated datePublished" datetime="2024-10-24T11:15:45+08:00">2024-10-24</time>
+      <time title="Created: 2024-10-24 11:15:45" itemprop="dateCreated datePublished" datetime="2024-10-24T11:15:45+08:00">2024-10-24</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2024-10-28 12:09:45" itemprop="dateModified" datetime="2024-10-28T12:09:45+08:00">2024-10-28</time>
     </span>
 
   
@@ -243,7 +249,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">Word count in article: </span>
-      <span>510</span>
+      <span>528</span>
     </span>
     <span class="post-meta-item" title="Reading time">
       <span class="post-meta-item-icon">
@@ -261,7 +267,7 @@
     
     
     <div class="post-body" itemprop="articleBody"><blockquote>
-<p><font color=MediumBlue>More details about this project can be found in this <a target="_blank" rel="noopener" href="https://ieeexplore.ieee.org/document/9177514">paper</a>. Here is a brief introduction to the project.</font></p>
+<p><font color=MediumBlue>More details about this project can be found in this <a target="_blank" rel="noopener" href="https://ieeexplore.ieee.org/document/9177514">paper</a>. Here is a brief introduction to the project. This project is part of my master's thesis. My master's thesis (Written in Chinese) can be downloaded <a target="_blank" rel="noopener" href="https://www.cnki.net/KCMS/detail/detail.aspx?dbcode=CMFD&amp;dbname=CMFD202202&amp;filename=1022466901.nh&amp;uniplatform=OVERSEA&amp;v=KZ1_vS8eeaXKfQaQbrYebZVM8EWfdaFLt3GoPztW5AAd1G4lbQ_yh8KOiz_j1hnF">here</a>.</font></p>
 </blockquote>
 <p><strong>Abstract:</strong><br />
 This paper studies a task scheduling problem in the context of the mobile robot fulfillment system (MRFS), a parts-to-picker storage system where mobile robots bring movable racks to workstations. It determines the assignment of tasks of transporting racks to a fleet of robots with the objective of makespan minimization. A mixed integer programming model is presented to describe the problem. Aimed at quickly finding good solutions to this NP-hard problem, two heuristic rules and an ant colony optimization algorithm are developed. Computational experiments are conducted to evaluate the performance of the proposed heuristic solution procedures. It shows that the ant colony optimization algorithm generally has the best performance.</p>
@@ -312,8 +318,8 @@ This paper studies a task scheduling problem in the context of the mobile robot 
 
           <div class="post-tags">
               <a href="/tags/Optimization/" rel="tag"># Optimization</a>
-              <a href="/tags/Project-Introduction/" rel="tag"># Project Introduction</a>
               <a href="/tags/C/" rel="tag"># C++</a>
+              <a href="/tags/Project-Introduction/" rel="tag"># Project Introduction</a>
           </div>
 
         
