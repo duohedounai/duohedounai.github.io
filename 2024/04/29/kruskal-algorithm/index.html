@@ -19,12 +19,12 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"duohedounai.github.io","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.19.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="For obtaining the minimum spanning tree, the Prim algorithm has been introduced before, and here is another algorithm: Kruskal algorithm.   Kruskal Algorithm steps   Step 1: Sorts all edges in the gra">
+    <meta name="description" content="For obtaining the minimum spanning tree, the Prim algorithm has been introduced before, and here is another algorithm: Kruskal algorithm.   Kruskal Algorithm Steps   Step 1: Sorts all edges in the gra">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Kruskal Algorithm for Finding the Minimum Spanning Tree">
 <meta property="og:url" content="https://duohedounai.github.io/2024/04/29/kruskal-algorithm/index.html">
 <meta property="og:site_name" content="Will Yuan&#39;s Blog">
-<meta property="og:description" content="For obtaining the minimum spanning tree, the Prim algorithm has been introduced before, and here is another algorithm: Kruskal algorithm.   Kruskal Algorithm steps   Step 1: Sorts all edges in the gra">
+<meta property="og:description" content="For obtaining the minimum spanning tree, the Prim algorithm has been introduced before, and here is another algorithm: Kruskal algorithm.   Kruskal Algorithm Steps   Step 1: Sorts all edges in the gra">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://duohedounai.github.io/images/kruskal-algorithm/origin.jpg">
 <meta property="og:image" content="https://duohedounai.github.io/images/kruskal-algorithm/1.jpg">
@@ -35,7 +35,7 @@
 <meta property="og:image" content="https://duohedounai.github.io/images/kruskal-algorithm/6.jpg">
 <meta property="og:image" content="https://duohedounai.github.io/images/kruskal-algorithm/new.jpg">
 <meta property="article:published_time" content="2024-04-29T13:35:22.000Z">
-<meta property="article:modified_time" content="2024-04-29T15:28:08.048Z">
+<meta property="article:modified_time" content="2025-04-04T15:01:21.932Z">
 <meta property="article:author" content="Will Yuan">
 <meta property="article:tag" content="Python">
 <meta property="article:tag" content="Graph Theory">
@@ -153,7 +153,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#kruskal-algorithm-steps"><span class="nav-number">1.</span> <span class="nav-text"> Kruskal Algorithm steps</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#example"><span class="nav-number">2.</span> <span class="nav-text"> Example</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#code"><span class="nav-number">3.</span> <span class="nav-text"> Code</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#reference-links"><span class="nav-number">4.</span> <span class="nav-text"> Reference Links</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#kruskal-algorithm-steps"><span class="nav-number">1.</span> <span class="nav-text"> Kruskal Algorithm Steps</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#example"><span class="nav-number">2.</span> <span class="nav-text"> Example</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#code"><span class="nav-number">3.</span> <span class="nav-text"> Code</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#reference-links"><span class="nav-number">4.</span> <span class="nav-text"> Reference Links</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -166,7 +166,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">33</span>
+          <span class="site-state-item-count">34</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -227,9 +227,15 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
-      
 
-      <time title="Created: 2024-04-29 21:35:22 / Modified: 23:28:08" itemprop="dateCreated datePublished" datetime="2024-04-29T21:35:22+08:00">2024-04-29</time>
+      <time title="Created: 2024-04-29 21:35:22" itemprop="dateCreated datePublished" datetime="2024-04-29T21:35:22+08:00">2024-04-29</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2025-04-04 23:01:21" itemprop="dateModified" datetime="2025-04-04T23:01:21+08:00">2025-04-04</time>
     </span>
 
   
@@ -265,7 +271,7 @@
     
     <div class="post-body" itemprop="articleBody"><p>For obtaining the minimum spanning tree, the <a href="https://duohedounai.github.io/2024/04/27/prim-algorithm/">Prim algorithm</a> has been introduced before, and here is another algorithm: Kruskal algorithm.</p>
 <hr />
-<h2 id="kruskal-algorithm-steps"><a class="markdownIt-Anchor" href="#kruskal-algorithm-steps"></a> Kruskal Algorithm steps</h2>
+<h2 id="kruskal-algorithm-steps"><a class="markdownIt-Anchor" href="#kruskal-algorithm-steps"></a> Kruskal Algorithm Steps</h2>
 <ul>
 <li>
 <p>Step 1: Sorts all edges in the graph by weight from smallest to largest.</p>
@@ -392,7 +398,7 @@
       <i class="fa fa-coffee"></i>
     </span>
       <span>Reading time total &asymp;</span>
-    <span title="Reading time total">1:04</span>
+    <span title="Reading time total">1:06</span>
   </span>
 </div>
 <div class="busuanzi-count">
