@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.1.1">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha256-wiz7ZSCn/btzhjKDQBms9Hx4sSeUYsDrTLg7roPstac=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"duohedounai.github.io","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.19.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="1.Two Sum  Problem https:&#x2F;&#x2F;leetcode.com&#x2F;problems&#x2F;two-sum&#x2F;description&#x2F;  Solution Use enumeration or hash table.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="LeetCode Records">
+<meta property="og:url" content="https://duohedounai.github.io/2025/04/12/LeetCode%20Records/index.html">
+<meta property="og:site_name" content="Will Yuan&#39;s Blog">
+<meta property="og:description" content="1.Two Sum  Problem https:&#x2F;&#x2F;leetcode.com&#x2F;problems&#x2F;two-sum&#x2F;description&#x2F;  Solution Use enumeration or hash table.">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2025-04-12T09:00:00.000Z">
+<meta property="article:modified_time" content="2025-04-12T13:23:48.177Z">
+<meta property="article:author" content="Will Yuan">
+<meta property="article:tag" content="LeetCode">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://duohedounai.github.io/2025/04/12/LeetCode%20Records/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://duohedounai.github.io/2025/04/12/LeetCode%20Records/","path":"2025/04/12/LeetCode Records/","title":"LeetCode Records"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>LeetCode Records | Will Yuan's Blog</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-CLYE2G7VYR"></script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"G-CLYE2G7VYR","only_pageview":false,"measure_protocol_api_secret":null}</script>
+  <script src="/js/third-party/analytics/google-analytics.js"></script>
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Will Yuan's Blog</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1two-sum"><span class="nav-number">1.</span> <span class="nav-text"> 1.Two Sum</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#problem"><span class="nav-number">1.1.</span> <span class="nav-text"> Problem</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#solution"><span class="nav-number">1.2.</span> <span class="nav-text"> Solution</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#94binary-tree-inorder-traversal"><span class="nav-number">2.</span> <span class="nav-text"> 94.Binary Tree Inorder Traversal</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#problem-2"><span class="nav-number">2.1.</span> <span class="nav-text"> Problem</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#solution-2"><span class="nav-number">2.2.</span> <span class="nav-text"> Solution</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#recursion-solution"><span class="nav-number">2.2.1.</span> <span class="nav-text"> recursion solution</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#stack-solution"><span class="nav-number">2.2.2.</span> <span class="nav-text"> stack solution</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#145binary-tree-postorder-traversal"><span class="nav-number">3.</span> <span class="nav-text"> 145.Binary Tree Postorder Traversal</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#problem-3"><span class="nav-number">3.1.</span> <span class="nav-text"> Problem</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#solution-3"><span class="nav-number">3.2.</span> <span class="nav-text"> Solution</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#recursion-solution-2"><span class="nav-number">3.2.1.</span> <span class="nav-text"> recursion solution</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#stack-solution-2"><span class="nav-number">3.2.2.</span> <span class="nav-text"> stack solution</span></a></li></ol></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Will Yuan</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">35</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">32</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://duohedounai.github.io/2025/04/12/LeetCode%20Records/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Will Yuan">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Will Yuan's Blog">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="LeetCode Records | Will Yuan's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          LeetCode Records
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2025-04-12 17:00:00 / Modified: 21:23:48" itemprop="dateCreated datePublished" datetime="2025-04-12T17:00:00+08:00">2025-04-12</time>
+    </span>
+
+  
+    <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="Word count in article">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">Word count in article: </span>
+      <span>422</span>
+    </span>
+    <span class="post-meta-item" title="Reading time">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">Reading time &asymp;</span>
+      <span>2 mins.</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h3 id="1two-sum"><a class="markdownIt-Anchor" href="#1two-sum"></a> 1.Two Sum</h3>
+<h4 id="problem"><a class="markdownIt-Anchor" href="#problem"></a> Problem</h4>
+<p><a target="_blank" rel="noopener" href="https://leetcode.com/problems/two-sum/description/">https://leetcode.com/problems/two-sum/description/</a></p>
+<h4 id="solution"><a class="markdownIt-Anchor" href="#solution"></a> Solution</h4>
+<p>Use enumeration or hash table.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>(<span class="title class_ inherited__">object</span>):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">twoSum</span>(<span class="params">self, nums, target</span>):</span><br><span class="line">        <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">        :type nums: List[int]</span></span><br><span class="line"><span class="string">        :type target: int</span></span><br><span class="line"><span class="string">        :rtype: List[int]</span></span><br><span class="line"><span class="string">        &quot;&quot;&quot;</span></span><br><span class="line">        hashtable=<span class="built_in">dict</span>()</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> i,a <span class="keyword">in</span> <span class="built_in">enumerate</span>(nums):</span><br><span class="line">            <span class="keyword">if</span> target-a <span class="keyword">in</span> hashtable:</span><br><span class="line">                <span class="keyword">return</span> [hashtable[target-a],i]</span><br><span class="line">            hashtable[a]=i</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> []</span><br></pre></td></tr></table></figure>
+<hr />
+<h3 id="94binary-tree-inorder-traversal"><a class="markdownIt-Anchor" href="#94binary-tree-inorder-traversal"></a> 94.Binary Tree Inorder Traversal</h3>
+<h4 id="problem-2"><a class="markdownIt-Anchor" href="#problem-2"></a> Problem</h4>
+<p><a target="_blank" rel="noopener" href="https://leetcode.com/problems/binary-tree-inorder-traversal/description/">https://leetcode.com/problems/binary-tree-inorder-traversal/description/</a></p>
+<h4 id="solution-2"><a class="markdownIt-Anchor" href="#solution-2"></a> Solution</h4>
+<p>Left-&gt;root-&gt;right.</p>
+<h5 id="recursion-solution"><a class="markdownIt-Anchor" href="#recursion-solution"></a> recursion solution</h5>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"># class TreeNode(object):</span></span><br><span class="line"><span class="comment">#     def __init__(self, val=0, left=None, right=None):</span></span><br><span class="line"><span class="comment">#         self.val = val</span></span><br><span class="line"><span class="comment">#         self.left = left</span></span><br><span class="line"><span class="comment">#         self.right = right</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>(<span class="title class_ inherited__">object</span>):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">inorderTraversal</span>(<span class="params">self, root</span>):</span><br><span class="line">        <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">        :type root: Optional[TreeNode]</span></span><br><span class="line"><span class="string">        :rtype: List[int]</span></span><br><span class="line"><span class="string">        &quot;&quot;&quot;</span></span><br><span class="line">        node_list=[]</span><br><span class="line"></span><br><span class="line">        <span class="keyword">def</span> <span class="title function_">inorder</span>(<span class="params">root</span>):</span><br><span class="line">            <span class="keyword">if</span> (<span class="keyword">not</span> root):</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">None</span></span><br><span class="line">                </span><br><span class="line">            inorder(root.left)</span><br><span class="line">            node_list.append(root.val)</span><br><span class="line">            inorder(root.right)</span><br><span class="line">        </span><br><span class="line">        inorder(root)</span><br><span class="line">        <span class="keyword">return</span> node_list</span><br></pre></td></tr></table></figure>
+<h5 id="stack-solution"><a class="markdownIt-Anchor" href="#stack-solution"></a> stack solution</h5>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"># class TreeNode(object):</span></span><br><span class="line"><span class="comment">#     def __init__(self, val=0, left=None, right=None):</span></span><br><span class="line"><span class="comment">#         self.val = val</span></span><br><span class="line"><span class="comment">#         self.left = left</span></span><br><span class="line"><span class="comment">#         self.right = right</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>(<span class="title class_ inherited__">object</span>):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">inorderTraversal</span>(<span class="params">self, root</span>):</span><br><span class="line">        <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">        :type root: Optional[TreeNode]</span></span><br><span class="line"><span class="string">        :rtype: List[int]</span></span><br><span class="line"><span class="string">        &quot;&quot;&quot;</span></span><br><span class="line">        node_list=[]</span><br><span class="line">        stack=[root]</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span> stack:</span><br><span class="line">            <span class="keyword">if</span> <span class="keyword">not</span> root:</span><br><span class="line">                <span class="keyword">return</span> node_list</span><br><span class="line"></span><br><span class="line">            <span class="keyword">while</span> root.left:</span><br><span class="line">                stack.append(root.left)</span><br><span class="line">                root=root.left</span><br><span class="line">            </span><br><span class="line">            curr=stack.pop()</span><br><span class="line">            node_list.append(curr.val)</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> curr.right:</span><br><span class="line">                stack.append(curr.right)</span><br><span class="line">                root=curr.right</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> node_list</span><br></pre></td></tr></table></figure>
+<hr />
+<h3 id="145binary-tree-postorder-traversal"><a class="markdownIt-Anchor" href="#145binary-tree-postorder-traversal"></a> 145.Binary Tree Postorder Traversal</h3>
+<h4 id="problem-3"><a class="markdownIt-Anchor" href="#problem-3"></a> Problem</h4>
+<p><a target="_blank" rel="noopener" href="https://leetcode.com/problems/binary-tree-postorder-traversal/description/">https://leetcode.com/problems/binary-tree-postorder-traversal/description/</a></p>
+<h4 id="solution-3"><a class="markdownIt-Anchor" href="#solution-3"></a> Solution</h4>
+<p>Left-&gt;right-&gt;root.</p>
+<h5 id="recursion-solution-2"><a class="markdownIt-Anchor" href="#recursion-solution-2"></a> recursion solution</h5>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"># class TreeNode(object):</span></span><br><span class="line"><span class="comment">#     def __init__(self, val=0, left=None, right=None):</span></span><br><span class="line"><span class="comment">#         self.val = val</span></span><br><span class="line"><span class="comment">#         self.left = left</span></span><br><span class="line"><span class="comment">#         self.right = right</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>(<span class="title class_ inherited__">object</span>):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">postorderTraversal</span>(<span class="params">self, root</span>):</span><br><span class="line">        <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">        :type root: Optional[TreeNode]</span></span><br><span class="line"><span class="string">        :rtype: List[int]</span></span><br><span class="line"><span class="string">        &quot;&quot;&quot;</span></span><br><span class="line">        node_list=[]</span><br><span class="line"></span><br><span class="line">        <span class="keyword">def</span> <span class="title function_">postorder</span>(<span class="params">root</span>):</span><br><span class="line">            <span class="keyword">if</span> (<span class="keyword">not</span> root):</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">None</span></span><br><span class="line"></span><br><span class="line">            postorder(root.left)</span><br><span class="line">            postorder(root.right)</span><br><span class="line">            node_list.append(root.val)</span><br><span class="line">            </span><br><span class="line">        postorder(root)</span><br><span class="line">        <span class="keyword">return</span> node_list</span><br></pre></td></tr></table></figure>
+<h5 id="stack-solution-2"><a class="markdownIt-Anchor" href="#stack-solution-2"></a> stack solution</h5>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"># class TreeNode(object):</span></span><br><span class="line"><span class="comment">#     def __init__(self, val=0, left=None, right=None):</span></span><br><span class="line"><span class="comment">#         self.val = val</span></span><br><span class="line"><span class="comment">#         self.left = left</span></span><br><span class="line"><span class="comment">#         self.right = right</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>(<span class="title class_ inherited__">object</span>):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">postorderTraversal</span>(<span class="params">self, root</span>):</span><br><span class="line">        <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">        :type root: Optional[TreeNode]</span></span><br><span class="line"><span class="string">        :rtype: List[int]</span></span><br><span class="line"><span class="string">        &quot;&quot;&quot;</span></span><br><span class="line">        node_list=[]</span><br><span class="line">        stack=[]</span><br><span class="line">        <span class="comment"># When backtracking to the parent node, use prev to determine whether the last visited node is the right subtree</span></span><br><span class="line">        prev=<span class="literal">None</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span> root <span class="keyword">or</span> stack:</span><br><span class="line">            <span class="keyword">while</span> root:</span><br><span class="line">                stack.append(root)</span><br><span class="line">                root=root.left</span><br><span class="line">            </span><br><span class="line">            <span class="comment"># The left subtree of the element popped from the stack must have been visited</span></span><br><span class="line">            root=stack.pop()</span><br><span class="line"></span><br><span class="line">            <span class="comment"># Whether there is a right subtree, or whether the right subtree has been visited</span></span><br><span class="line">            <span class="keyword">if</span> <span class="keyword">not</span> root.right <span class="keyword">or</span> root.right==prev:</span><br><span class="line">                node_list.append(root.val)</span><br><span class="line">                <span class="comment"># Update the access record</span></span><br><span class="line">                prev=root</span><br><span class="line">                root=<span class="literal">None</span></span><br><span class="line">            <span class="comment"># Put the current node on the stack and visit its right subtree first</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                stack.append(root)</span><br><span class="line">                root=root.right</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> node_list</span><br></pre></td></tr></table></figure>
+<hr />
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>Post author:  </strong>Will Yuan
+  </li>
+  <li class="post-copyright-link">
+      <strong>Post link: </strong>
+      <a href="https://duohedounai.github.io/2025/04/12/LeetCode%20Records/" title="LeetCode Records">https://duohedounai.github.io/2025/04/12/LeetCode Records/</a>
+  </li>
+  <li class="post-copyright-license">
+      <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/LeetCode/" rel="tag"># LeetCode</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2025/04/04/A%20Common%20Mathematical%20Model%20for%20Truck%20Dispatching%20in%20Mining%20Areas/" rel="prev" title="A Common Mathematical Model for Truck Dispatching in Mining Areas">
+                  <i class="fa fa-angle-left"></i> A Common Mathematical Model for Truck Dispatching in Mining Areas
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments gitalk-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Will Yuan</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>Word count total: </span>
+    <span title="Word count total">19k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>Reading time total &asymp;</span>
+    <span title="Reading time total">1:08</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.16.0/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.8.0/gitalk.css" integrity="sha256-AJnUHL7dBv6PGaeyPQJcgQPDjt/Hn/PvYZde1iqfp8U=" crossorigin="anonymous">
+
+<script class="next-config" data-name="gitalk" type="application/json">{"enable":true,"github_id":"duohedounai","repo":"duohedounai.github.io","client_id":"005ce2ed36a466b0bfc9","client_secret":"7f9def3a076d9133cd9c538d9f2a8af1847794ad","admin_user":"duohedounai","distraction_free_mode":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token","language":"en","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.8.0/gitalk.min.js","integrity":"sha256-MVK9MGD/XJaGyIghSVrONSnoXoGh3IFxLw0zfvzpxR4="},"path_md5":"e92b92843d7df0ba1ef2be9f5a6b6fb2"}</script>
+<script src="/js/third-party/comments/gitalk.js"></script>
+
+</body>
+</html>
