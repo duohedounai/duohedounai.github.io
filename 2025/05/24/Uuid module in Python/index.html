@@ -19,32 +19,29 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"duohedounai.github.io","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.19.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="Bug Description  IDE: IntelliJ IDEA 2021.3 Language: Java Error: Java package xxx does not exist  I imported a library into a service of a module in a multi-module Spring Boot project. The relevant i">
+    <meta name="description" content="UUID is usually used to generate unique identifiers, such as the ID field of the database, user account number, etc. The following are some commonly used functions, for more information: https:&#x2F;&#x2F;docs.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Bug Resolution: Java package xxx does not exist">
-<meta property="og:url" content="https://duohedounai.github.io/2024/05/06/Bug-resolution-Java-package-xxx-does-not-exist/index.html">
+<meta property="og:title" content="Summary of Common Functions of UUID Module in Python">
+<meta property="og:url" content="https://duohedounai.github.io/2025/05/24/Uuid%20module%20in%20Python/index.html">
 <meta property="og:site_name" content="Will Yuan&#39;s Blog">
-<meta property="og:description" content="Bug Description  IDE: IntelliJ IDEA 2021.3 Language: Java Error: Java package xxx does not exist  I imported a library into a service of a module in a multi-module Spring Boot project. The relevant i">
+<meta property="og:description" content="UUID is usually used to generate unique identifiers, such as the ID field of the database, user account number, etc. The following are some commonly used functions, for more information: https:&#x2F;&#x2F;docs.">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://duohedounai.github.io/images/java-bug-1/1.png">
-<meta property="og:image" content="https://duohedounai.github.io/images/java-bug-1/2.png">
-<meta property="article:published_time" content="2024-05-06T15:05:20.000Z">
-<meta property="article:modified_time" content="2025-04-04T15:06:43.113Z">
+<meta property="article:published_time" content="2025-05-24T14:00:00.000Z">
+<meta property="article:modified_time" content="2025-05-24T15:29:20.406Z">
 <meta property="article:author" content="Will Yuan">
-<meta property="article:tag" content="Bug Resolution">
-<meta property="article:tag" content="Java">
+<meta property="article:tag" content="Python">
+<meta property="article:tag" content="UUID">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://duohedounai.github.io/images/java-bug-1/1.png">
 
 
-<link rel="canonical" href="https://duohedounai.github.io/2024/05/06/Bug-resolution-Java-package-xxx-does-not-exist/">
+<link rel="canonical" href="https://duohedounai.github.io/2025/05/24/Uuid%20module%20in%20Python/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://duohedounai.github.io/2024/05/06/Bug-resolution-Java-package-xxx-does-not-exist/","path":"2024/05/06/Bug-resolution-Java-package-xxx-does-not-exist/","title":"Bug Resolution: Java package xxx does not exist"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://duohedounai.github.io/2025/05/24/Uuid%20module%20in%20Python/","path":"2025/05/24/Uuid module in Python/","title":"Summary of Common Functions of UUID Module in Python"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>Bug Resolution: Java package xxx does not exist | Will Yuan's Blog</title>
+<title>Summary of Common Functions of UUID Module in Python | Will Yuan's Blog</title>
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-CLYE2G7VYR"></script>
   <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"G-CLYE2G7VYR","only_pageview":false,"measure_protocol_api_secret":null}</script>
@@ -150,7 +147,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#bug-description"><span class="nav-number">1.</span> <span class="nav-text"> Bug Description</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#solution"><span class="nav-number">2.</span> <span class="nav-text"> Solution</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#reference-links"><span class="nav-number">3.</span> <span class="nav-text"> Reference Links</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#uuiduuid1nodenone-clock_seqnone"><span class="nav-number">1.</span> <span class="nav-text"> uuid.uuid1(node&#x3D;None, clock_seq&#x3D;None)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#uuiduuid3namespace-name"><span class="nav-number">2.</span> <span class="nav-text"> uuid.uuid3(namespace, name)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#uuiduuid4"><span class="nav-number">3.</span> <span class="nav-text"> uuid.uuid4()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#uuiduuid5namespace-name"><span class="nav-number">4.</span> <span class="nav-text"> uuid.uuid5(namespace, name)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#reference-links"><span class="nav-number"></span> <span class="nav-text"> Reference Links</span></a></div>
         </div>
         <!--/noindex-->
 
@@ -196,7 +193,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://duohedounai.github.io/2024/05/06/Bug-resolution-Java-package-xxx-does-not-exist/">
+    <link itemprop="mainEntityOfPage" href="https://duohedounai.github.io/2025/05/24/Uuid%20module%20in%20Python/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -209,12 +206,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="Bug Resolution: Java package xxx does not exist | Will Yuan's Blog">
+      <meta itemprop="name" content="Summary of Common Functions of UUID Module in Python | Will Yuan's Blog">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Bug Resolution: Java package xxx does not exist
+          Summary of Common Functions of UUID Module in Python
         </h1>
 
         <div class="post-meta-container">
@@ -224,15 +221,9 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
+      
 
-      <time title="Created: 2024-05-06 23:05:20" itemprop="dateCreated datePublished" datetime="2024-05-06T23:05:20+08:00">2024-05-06</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2025-04-04 23:06:43" itemprop="dateModified" datetime="2025-04-04T23:06:43+08:00">2025-04-04</time>
+      <time title="Created: 2025-05-24 22:00:00 / Modified: 23:29:20" itemprop="dateCreated datePublished" datetime="2025-05-24T22:00:00+08:00">2025-05-24</time>
     </span>
 
   
@@ -249,7 +240,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">Word count in article: </span>
-      <span>108</span>
+      <span>326</span>
     </span>
     <span class="post-meta-item" title="Reading time">
       <span class="post-meta-item-icon">
@@ -266,22 +257,27 @@
     
     
     
-    <div class="post-body" itemprop="articleBody"><h2 id="bug-description"><a class="markdownIt-Anchor" href="#bug-description"></a> Bug Description</h2>
-<ul>
-<li>IDE: IntelliJ IDEA 2021.3</li>
-<li>Language: Java</li>
-<li>Error: <font color=red>Java package xxx does not exist</font></li>
-</ul>
-<p>I imported a library into a service of a module in a multi-module Spring Boot project. The relevant import statement is written in the code, and the relevant dependency is also introduced in the <em>pom.xml</em>. When building the project, the IDE prompts this error: <strong>Java package xxx does not exist</strong>.</p>
-<hr />
-<h2 id="solution"><a class="markdownIt-Anchor" href="#solution"></a> Solution</h2>
-<p>The following methods can solve this bug.</p>
-<img data-src="/images/java-bug-1/1.png" style="zoom:60%"/>
-<img data-src="/images/java-bug-1/2.png" style="zoom:60%"/>
+    <div class="post-body" itemprop="articleBody"><p>UUID is usually used to generate unique identifiers, such as the ID field of the database, user account number, etc.</p>
+<p>The following are some commonly used functions, for more information: <a target="_blank" rel="noopener" href="https://docs.python.org/3/library/uuid.html">https://docs.python.org/3/library/uuid.html</a>.</p>
+<h3 id="uuiduuid1nodenone-clock_seqnone"><a class="markdownIt-Anchor" href="#uuiduuid1nodenone-clock_seqnone"></a> uuid.uuid1(node=None, clock_seq=None)</h3>
+<p>Generate a UUID from a host ID, sequence number, and the current time. If node is not given, <code>getnode()</code> is used to obtain the hardware address. If <code>clock_seq</code> is given, it is used as the sequence number; otherwise a random 14-bit sequence number is chosen.</p>
+<h3 id="uuiduuid3namespace-name"><a class="markdownIt-Anchor" href="#uuiduuid3namespace-name"></a> uuid.uuid3(namespace, name)</h3>
+<p>Generate a UUID based on the MD5 hash of a namespace identifier (which is a UUID) and a name (which is a bytes object or a string that will be encoded using UTF-8).</p>
+<h3 id="uuiduuid4"><a class="markdownIt-Anchor" href="#uuiduuid4"></a> uuid.uuid4()</h3>
+<p>Generate a random UUID.</p>
+<h3 id="uuiduuid5namespace-name"><a class="markdownIt-Anchor" href="#uuiduuid5namespace-name"></a> uuid.uuid5(namespace, name)</h3>
+<p>Generate a UUID based on the SHA-1 hash of a namespace identifier (which is a UUID) and a name (which is a bytes object or a string that will be encoded using UTF-8).</p>
+<blockquote>
+<p>Note: You can also output uuid in different forms through <code>hex</code>, <code>int</code>, <code>bytes</code> and other attributes.</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> uuid</span><br><span class="line"></span><br><span class="line">id_1 = uuid.uuid1()</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;uuid_1:&quot;</span> + <span class="built_in">str</span>(id_1))</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;uuid_1.hex:&quot;</span> + <span class="built_in">str</span>(id_1.<span class="built_in">hex</span>))</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;uuid_1.int:&quot;</span> + <span class="built_in">str</span>(id_1.<span class="built_in">int</span>))</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;uuid_1.urn:&quot;</span> + <span class="built_in">str</span>(id_1.urn))</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;uuid_1.bytes:&quot;</span> + <span class="built_in">str</span>(id_1.<span class="built_in">bytes</span>))</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;uuid_1.bytes_le:&quot;</span> + <span class="built_in">str</span>(id_1.bytes_le) + <span class="string">&quot;\n&quot;</span>)</span><br><span class="line"></span><br><span class="line">id_3 = uuid.uuid3(uuid.NAMESPACE_DNS, <span class="string">&quot;example&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;uuid_3:&quot;</span> + <span class="built_in">str</span>(id_3) + <span class="string">&quot;\n&quot;</span>)</span><br><span class="line"></span><br><span class="line">id_4 = uuid.uuid4()</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;uuid_4:&quot;</span> + <span class="built_in">str</span>(id_4) + <span class="string">&quot;\n&quot;</span>)</span><br><span class="line"></span><br><span class="line">id_5 = uuid.uuid5(uuid.NAMESPACE_DNS, <span class="string">&quot;example&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;uuid_5:&quot;</span> + <span class="built_in">str</span>(id_5) + <span class="string">&quot;\n&quot;</span>)</span><br></pre></td></tr></table></figure>
+<p>The output is as follows:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">uuid_1:ea834337-38b2-11f0-aafd-d444ca5de201</span><br><span class="line">uuid_1.<span class="built_in">hex</span>:ea83433738b211f0aafdd444ca5de201</span><br><span class="line">uuid_1.<span class="built_in">int</span>:<span class="number">311720905198677193690942071098901914113</span></span><br><span class="line">uuid_1.urn:urn:uuid:ea834337-38b2-11f0-aafd-d444ca5de201</span><br><span class="line">uuid_1.<span class="built_in">bytes</span>:<span class="string">b&#x27;\xea\x83C78\xb2\x11\xf0\xaa\xfd\xd4D\xca]\xe2\x01&#x27;</span></span><br><span class="line">uuid_1.bytes_le:<span class="string">b&#x27;7C\x83\xea\xb28\xf0\x11\xaa\xfd\xd4D\xca]\xe2\x01&#x27;</span></span><br><span class="line"></span><br><span class="line">uuid_3:c5e5f349-28ef-3f5a-98d6-0b32ee4d1743</span><br><span class="line"></span><br><span class="line">uuid_4:6a10d447-9df6-<span class="number">4803</span>-949d-1a4e23fccf40</span><br><span class="line"></span><br><span class="line">uuid_5:7cb48787-6d91-5b9f-bc60-f30298ea5736</span><br></pre></td></tr></table></figure>
 <hr />
 <h2 id="reference-links"><a class="markdownIt-Anchor" href="#reference-links"></a> Reference Links</h2>
 <ul>
-<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_43377237/article/details/108010414">https://blog.csdn.net/qq_43377237/article/details/108010414</a></li>
+<li><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Universally_unique_identifier">https://en.wikipedia.org/wiki/Universally_unique_identifier</a></li>
+<li><a target="_blank" rel="noopener" href="https://docs.python.org/3/library/uuid.html">https://docs.python.org/3/library/uuid.html</a></li>
 </ul>
 
     </div>
@@ -300,7 +296,7 @@
   </li>
   <li class="post-copyright-link">
       <strong>Post link: </strong>
-      <a href="https://duohedounai.github.io/2024/05/06/Bug-resolution-Java-package-xxx-does-not-exist/" title="Bug Resolution: Java package xxx does not exist">https://duohedounai.github.io/2024/05/06/Bug-resolution-Java-package-xxx-does-not-exist/</a>
+      <a href="https://duohedounai.github.io/2025/05/24/Uuid%20module%20in%20Python/" title="Summary of Common Functions of UUID Module in Python">https://duohedounai.github.io/2025/05/24/Uuid module in Python/</a>
   </li>
   <li class="post-copyright-license">
       <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> unless stating additionally.
@@ -309,22 +305,19 @@
 </div>
 
           <div class="post-tags">
-              <a href="/tags/Bug-Resolution/" rel="tag"># Bug Resolution</a>
-              <a href="/tags/Java/" rel="tag"># Java</a>
+              <a href="/tags/Python/" rel="tag"># Python</a>
+              <a href="/tags/UUID/" rel="tag"># UUID</a>
           </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2024/04/30/SciPy-library-in-Python/" rel="prev" title="Use SciPy Library in Python to Solve Linear Programming Problems">
-                  <i class="fa fa-angle-left"></i> Use SciPy Library in Python to Solve Linear Programming Problems
+                <a href="/2025/05/24/How%20to%20add%20IP%20address%20to%20the%20hosts%20file%20in%20Windows%20system/" rel="prev" title="How to Add IP Address to the Hosts File in Windows System">
+                  <i class="fa fa-angle-left"></i> How to Add IP Address to the Hosts File in Windows System
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2024/05/07/Bug-Resolution-Unable-to-find-main-class/" rel="next" title="Bug Resolution: Unable to find main class">
-                  Bug Resolution: Unable to find main class <i class="fa fa-angle-right"></i>
-                </a>
             </div>
           </div>
     </footer>
@@ -430,7 +423,7 @@
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.8.0/gitalk.css" integrity="sha256-AJnUHL7dBv6PGaeyPQJcgQPDjt/Hn/PvYZde1iqfp8U=" crossorigin="anonymous">
 
-<script class="next-config" data-name="gitalk" type="application/json">{"enable":true,"github_id":"duohedounai","repo":"duohedounai.github.io","client_id":"005ce2ed36a466b0bfc9","client_secret":"7f9def3a076d9133cd9c538d9f2a8af1847794ad","admin_user":"duohedounai","distraction_free_mode":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token","language":"en","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.8.0/gitalk.min.js","integrity":"sha256-MVK9MGD/XJaGyIghSVrONSnoXoGh3IFxLw0zfvzpxR4="},"path_md5":"2263c4cda2253a05f4b4f06bdccf4fd4"}</script>
+<script class="next-config" data-name="gitalk" type="application/json">{"enable":true,"github_id":"duohedounai","repo":"duohedounai.github.io","client_id":"005ce2ed36a466b0bfc9","client_secret":"7f9def3a076d9133cd9c538d9f2a8af1847794ad","admin_user":"duohedounai","distraction_free_mode":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token","language":"en","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.8.0/gitalk.min.js","integrity":"sha256-MVK9MGD/XJaGyIghSVrONSnoXoGh3IFxLw0zfvzpxR4="},"path_md5":"0036e27ed084c4eebb244ccbc8a3b166"}</script>
 <script src="/js/third-party/comments/gitalk.js"></script>
 
 </body>
