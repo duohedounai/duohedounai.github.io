@@ -153,13 +153,13 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">39</span>
+          <span class="site-state-item-count">40</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">34</span>
+        <span class="site-state-item-count">35</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -176,6 +176,108 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://duohedounai.github.io/2024/04/19/Calculate-distance-between-two-points-given-latitude-and-longitude-in-Python/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Will Yuan">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Will Yuan's Blog">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Will Yuan's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/04/19/Calculate-distance-between-two-points-given-latitude-and-longitude-in-Python/" class="post-title-link" itemprop="url">Calculate Distance Between Two Points Given Latitude and Longitude in Python</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2024-04-19 23:51:25" itemprop="dateCreated datePublished" datetime="2024-04-19T23:51:25+08:00">2024-04-19</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2025-04-04 23:05:02" itemprop="dateModified" datetime="2025-04-04T23:05:02+08:00">2025-04-04</time>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="Word count in article">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">Word count in article: </span>
+      <span>303</span>
+    </span>
+    <span class="post-meta-item" title="Reading time">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">Reading time &asymp;</span>
+      <span>1 mins.</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>How to calculate the distance between two coordinate points (knowing longitude and latitude) in Python? Three methods are given here:</p>
+<h2 id="implement-the-haversine-formula"><a class="markdownIt-Anchor" href="#implement-the-haversine-formula"></a> Implement the Haversine Formula</h2>
+<img data-src="/images/calculate_distance/h_formula.png" style="zoom:80%">
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> math</span><br><span class="line"><span class="keyword">from</span> math <span class="keyword">import</span> radians, sin, cos, asin</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">haversine</span>(<span class="params">lat1, lon1, lat2, lon2</span>):</span><br><span class="line">    <span class="comment"># The average radius of the earth is approximately 6371.393km</span></span><br><span class="line">    EARTH_RADIUS = <span class="number">6371</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># Convert to radians</span></span><br><span class="line">    lat1 = radians(lat1)</span><br><span class="line">    lon1 = radians(lon1)</span><br><span class="line">    lat2 = radians(lat2)</span><br><span class="line">    lon2 = radians(lon2)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># Calculate the difference between converted latitude and longitude</span></span><br><span class="line">    delta_lat = lat2 - lat1</span><br><span class="line">    delta_lon = lon2 - lon1</span><br><span class="line"></span><br><span class="line">    <span class="comment"># Haversine formula</span></span><br><span class="line">    temp = math.<span class="built_in">pow</span>(sin(delta_lat / <span class="number">2</span>), <span class="number">2</span>) + cos(lat1) * cos(lat2) * math.<span class="built_in">pow</span>(sin(delta_lon / <span class="number">2</span>), <span class="number">2</span>)</span><br><span class="line">    distance = <span class="number">2</span> * asin(math.sqrt(temp)) * EARTH_RADIUS</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> distance</span><br><span class="line"></span><br><span class="line">new_dist = haversine(<span class="number">36.1628</span>, <span class="number">114.2581</span>, <span class="number">36.5935</span>, <span class="number">114.6296</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;The distance calculated using the Haversine formula is:&quot;</span>, new_dist, <span class="string">&quot;km&quot;</span>)</span><br></pre></td></tr></table></figure>
+<p>The output is as follows:</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2024/04/19/Calculate-distance-between-two-points-given-latitude-and-longitude-in-Python/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1134,14 +1236,14 @@ X&gt;=0
       <i class="fa fa-chart-line"></i>
     </span>
       <span>Word count total: </span>
-    <span title="Word count total">23k</span>
+    <span title="Word count total">24k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span>Reading time total &asymp;</span>
-    <span title="Reading time total">1:24</span>
+    <span title="Reading time total">1:25</span>
   </span>
 </div>
 <div class="busuanzi-count">
