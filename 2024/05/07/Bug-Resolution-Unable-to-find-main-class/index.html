@@ -28,7 +28,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://duohedounai.github.io/images/java-bug-2/build.png">
 <meta property="article:published_time" content="2024-05-07T15:51:36.000Z">
-<meta property="article:modified_time" content="2025-01-10T16:16:22.516Z">
+<meta property="article:modified_time" content="2025-08-07T13:56:03.033Z">
 <meta property="article:author" content="Will Yuan">
 <meta property="article:tag" content="Bug Resolution">
 <meta property="article:tag" content="Java">
@@ -231,7 +231,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2025-01-11 00:16:22" itemprop="dateModified" datetime="2025-01-11T00:16:22+08:00">2025-01-11</time>
+      <time title="Modified: 2025-08-07 21:56:03" itemprop="dateModified" datetime="2025-08-07T21:56:03+08:00">2025-08-07</time>
     </span>
 
   
@@ -248,7 +248,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">Word count in article: </span>
-      <span>168</span>
+      <span>170</span>
     </span>
     <span class="post-meta-item" title="Reading time">
       <span class="post-meta-item-icon">
@@ -269,17 +269,17 @@
 <ul>
 <li>IDE: IntelliJ IDEA 2021.3</li>
 <li>Language: Java</li>
-<li>Error: <font color=red>Unable to find main class</font></li>
+<li>Error: Unable to find main class</li>
 </ul>
-<p>I have created a multi-module Spring Boot project that will serve as a tool library for other projects to use. When building the multi-module Spring Boot project, the IDE prompts the following error: <strong>Unable to find main class</strong>.</p>
+<p>I have created a multi-module Spring Boot project that will serve as a tool library for other projects to use. When building the multi-module Spring Boot project, the IDE prompts the following error: <font color=red>Unable to find main class.</font></p>
 <hr />
 <h2 id="solution"><a class="markdownIt-Anchor" href="#solution"></a> Solution</h2>
-<p>The plugin that comes with SpringBoot requires the main method.</p>
+<p>The plugin that comes with Spring Boot requires the main method.</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">plugin</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-maven-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>Because this is a utility project, <strong>there is no main method</strong>, so you need to make the following changes to the parent's <em>pom.xml</em>:</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">plugin</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.maven.plugins<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span>			</span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>maven-compiler-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">source</span>&gt;</span>$&#123;maven.compiler.source&#125;<span class="tag">&lt;/<span class="name">source</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">target</span>&gt;</span>$&#123;maven.compiler.target&#125;<span class="tag">&lt;/<span class="name">target</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">encoding</span>&gt;</span>$&#123;project.build.sourceEncoding&#125;<span class="tag">&lt;/<span class="name">encoding</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <img data-src="/images/java-bug-2/build.png" style="zoom:60%"/>
-<p>In a multi-module Springboot project, the child modules' <em>pom.xml</em> will inherit the configuration in the parent's <em>pom.xml</em>.</p>
+<p>In a multi-module Spring Boot project, the child modules' <em>pom.xml</em> will inherit the configuration in the parent's <em>pom.xml</em>.</p>
 <hr />
 <h2 id="reference-links"><a class="markdownIt-Anchor" href="#reference-links"></a> Reference Links</h2>
 <ul>
@@ -367,7 +367,7 @@
       <i class="fa fa-coffee"></i>
     </span>
       <span>Reading time total &asymp;</span>
-    <span title="Reading time total">1:25</span>
+    <span title="Reading time total">1:26</span>
   </span>
 </div>
 <div class="busuanzi-count">

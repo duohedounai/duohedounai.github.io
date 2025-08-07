@@ -35,7 +35,7 @@
 <meta property="og:image" content="https://duohedounai.github.io/images/kruskal-algorithm/6.jpg">
 <meta property="og:image" content="https://duohedounai.github.io/images/kruskal-algorithm/new.jpg">
 <meta property="article:published_time" content="2024-04-29T13:35:22.000Z">
-<meta property="article:modified_time" content="2025-04-04T15:01:21.932Z">
+<meta property="article:modified_time" content="2025-08-07T14:00:46.894Z">
 <meta property="article:author" content="Will Yuan">
 <meta property="article:tag" content="Python">
 <meta property="article:tag" content="Graph Theory">
@@ -238,7 +238,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2025-04-04 23:01:21" itemprop="dateModified" datetime="2025-04-04T23:01:21+08:00">2025-04-04</time>
+      <time title="Modified: 2025-08-07 22:00:46" itemprop="dateModified" datetime="2025-08-07T22:00:46+08:00">2025-08-07</time>
     </span>
 
   
@@ -272,7 +272,7 @@
     
     
     
-    <div class="post-body" itemprop="articleBody"><p>For obtaining the minimum spanning tree, the <a href="https://duohedounai.github.io/2024/04/27/prim-algorithm/">Prim algorithm</a> has been introduced before, and here is another algorithm: Kruskal algorithm.</p>
+    <div class="post-body" itemprop="articleBody"><p>For obtaining the minimum spanning tree, the <font color=mediumBlue><a href="https://duohedounai.github.io/2024/04/27/prim-algorithm/">Prim algorithm</a></font> has been introduced before, and here is another algorithm: <font color=mediumBlue>Kruskal algorithm</font>.</p>
 <hr />
 <h2 id="kruskal-algorithm-steps"><a class="markdownIt-Anchor" href="#kruskal-algorithm-steps"></a> Kruskal Algorithm Steps</h2>
 <ul>
@@ -280,18 +280,18 @@
 <p>Step 1: Sorts all edges in the graph by weight from smallest to largest.</p>
 </li>
 <li>
-<p>Step 2: Try adding edges to the tree from smallest to largest, and if the newly added edge forms a loop with other edges in the tree, discard the edge and continue trying the other edges.</p>
+<p>Step 2: <font color=red>Try adding edges to the tree from smallest to largest</font>, and if the newly added edge forms a loop with other edges in the tree, discard the edge and continue trying the other edges.</p>
 </li>
 <li>
 <p>Step 3: If <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>−</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">n-1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="mord mathnormal">n</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span> edges are added to the tree, the minimum spanning tree is built, where <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathnormal">n</span></span></span></span> is the number of vertices of the graph.</p>
 </li>
 </ul>
-<p>Note that in the process of adding edges to the tree, Disjoint Set Union (DSU) is used to determine if a loop is formed.</p>
+<p>Note that in the process of adding edges to the tree, <font color=mediumBlue>Disjoint Set Union (DSU)</font> is used to determine if a loop is formed.</p>
 <hr />
 <h2 id="example"><a class="markdownIt-Anchor" href="#example"></a> Example</h2>
 <img data-src="/images/kruskal-algorithm/origin.jpg" style="zoom: 60%;" />
 <p>Take this undirected weighted graph above as an example to show the process of the Kruskal algorithm.</p>
-<p>First, sort all edges in order of weight, from smallest to largest. Select the edge with the lowest weight which is <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mi>B</mi></mrow><annotation encoding="application/x-tex">AB</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal">A</span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span></span></span></span> here. If there are multiple edges with the lowest weight, select any one. As shown below:</p>
+<p>First, sort all edges in order of weight, from smallest to largest. Select the edge with the lowest weight which is <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mi>B</mi></mrow><annotation encoding="application/x-tex">AB</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal">A</span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span></span></span></span> here. <font color=red>If there are multiple edges with the lowest weight, select any one.</font> As shown below:</p>
 <img data-src="/images/kruskal-algorithm/1.jpg" style="zoom: 60%;" />
 <p>Then, select the edge <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mi>D</mi></mrow><annotation encoding="application/x-tex">AD</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal">A</span><span class="mord mathnormal" style="margin-right:0.02778em;">D</span></span></span></span> with the lowest weight to add to the tree. As shown below:</p>
 <img data-src="/images/kruskal-algorithm/2.jpg" style="zoom: 60%;" />
@@ -401,7 +401,7 @@
       <i class="fa fa-coffee"></i>
     </span>
       <span>Reading time total &asymp;</span>
-    <span title="Reading time total">1:25</span>
+    <span title="Reading time total">1:26</span>
   </span>
 </div>
 <div class="busuanzi-count">
