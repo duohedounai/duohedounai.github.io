@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.1.1">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha256-wiz7ZSCn/btzhjKDQBms9Hx4sSeUYsDrTLg7roPstac=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"duohedounai.github.io","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.19.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="How to use Optuna to optimize algorithm parameters. Let&#39;s try it with the PSO algorithm as an example. First, you need to install the optuna library: 1pip install optuna Some features of Optuna rely o">
+<meta property="og:type" content="article">
+<meta property="og:title" content="How to use Optuna to optimize algorithm parameters">
+<meta property="og:url" content="https://duohedounai.github.io/2025/08/11/How-to-use-Optuna-to-optimize-algorithm-parameters/index.html">
+<meta property="og:site_name" content="Will Yuan&#39;s Blog">
+<meta property="og:description" content="How to use Optuna to optimize algorithm parameters. Let&#39;s try it with the PSO algorithm as an example. First, you need to install the optuna library: 1pip install optuna Some features of Optuna rely o">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://duohedounai.github.io/images/optuna/process.png">
+<meta property="og:image" content="https://duohedounai.github.io/images/optuna/importance.png">
+<meta property="article:published_time" content="2025-08-11T15:31:28.000Z">
+<meta property="article:modified_time" content="2025-08-11T16:02:24.093Z">
+<meta property="article:author" content="Will Yuan">
+<meta property="article:tag" content="Optimization">
+<meta property="article:tag" content="Python">
+<meta property="article:tag" content="Optuna">
+<meta property="article:tag" content="Particle Swarm Optimization">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://duohedounai.github.io/images/optuna/process.png">
+
+
+<link rel="canonical" href="https://duohedounai.github.io/2025/08/11/How-to-use-Optuna-to-optimize-algorithm-parameters/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://duohedounai.github.io/2025/08/11/How-to-use-Optuna-to-optimize-algorithm-parameters/","path":"2025/08/11/How-to-use-Optuna-to-optimize-algorithm-parameters/","title":"How to use Optuna to optimize algorithm parameters"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>How to use Optuna to optimize algorithm parameters | Will Yuan's Blog</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-CLYE2G7VYR"></script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"G-CLYE2G7VYR","only_pageview":false,"measure_protocol_api_secret":null}</script>
+  <script src="/js/third-party/analytics/google-analytics.js"></script>
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Will Yuan's Blog</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#reference-links"><span class="nav-number">1.</span> <span class="nav-text"> Reference Links</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Will Yuan</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">42</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">36</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://duohedounai.github.io/2025/08/11/How-to-use-Optuna-to-optimize-algorithm-parameters/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Will Yuan">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Will Yuan's Blog">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="How to use Optuna to optimize algorithm parameters | Will Yuan's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          How to use Optuna to optimize algorithm parameters
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2025-08-11 23:31:28" itemprop="dateCreated datePublished" datetime="2025-08-11T23:31:28+08:00">2025-08-11</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2025-08-12 00:02:24" itemprop="dateModified" datetime="2025-08-12T00:02:24+08:00">2025-08-12</time>
+    </span>
+
+  
+    <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="Word count in article">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">Word count in article: </span>
+      <span>1.1k</span>
+    </span>
+    <span class="post-meta-item" title="Reading time">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">Reading time &asymp;</span>
+      <span>4 mins.</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>How to use Optuna to optimize algorithm parameters. Let's try it with the PSO algorithm as an example.</p>
+<p>First, you need to install the <em>optuna</em> library:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install optuna</span><br></pre></td></tr></table></figure>
+<p>Some features of Optuna rely on the <em>scikit-learn</em> library:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install scikit-learn</span><br></pre></td></tr></table></figure>
+<p>In order to visualize the optimization process, we also need to install the <em>plotly</em> library:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install plotly</span><br></pre></td></tr></table></figure>
+<p>The following PSO code is modified based on [this project](<a href="https://duohedounai.github.io/2024/05/08/summary-and-implementation-of-particle-swarm-algorithm/">Summary and Implementation of Particle Swarm Optimization | Will Yuan's Blog</a>), adding the <code>optuna_objective</code> function:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> optuna</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">optuna_objective</span>(<span class="params">trial</span>):</span><br><span class="line">    <span class="comment"># Maximum number of iterations</span></span><br><span class="line">    max_iter = trial.suggest_int(<span class="string">&#x27;max_iter&#x27;</span>, <span class="number">100</span>, <span class="number">1000</span>)</span><br><span class="line">    <span class="comment"># Number of particles</span></span><br><span class="line">    particle_num = trial.suggest_int(<span class="string">&#x27;n_particles&#x27;</span>, <span class="number">10</span>, <span class="number">100</span>)</span><br><span class="line">    <span class="comment"># Inertia factor</span></span><br><span class="line">    w = trial.suggest_float(<span class="string">&#x27;w&#x27;</span>, <span class="number">0.1</span>, <span class="number">0.9</span>)</span><br><span class="line">    <span class="comment"># Learning Factors (Self-Awareness)</span></span><br><span class="line">    c1 = trial.suggest_float(<span class="string">&#x27;c1&#x27;</span>, <span class="number">1.0</span>, <span class="number">5.0</span>)</span><br><span class="line">    <span class="comment"># Learning Factors (Social Cognition)</span></span><br><span class="line">    c2 = trial.suggest_float(<span class="string">&#x27;c2&#x27;</span>, <span class="number">1.0</span>, <span class="number">5.0</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># Number of dimensions</span></span><br><span class="line">    dimension_num = <span class="number">2</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># Use PSO to find the maximum value of the function</span></span><br><span class="line">    result_position, result_cost, best_fitness_each_iter, global_best_fitness_found = pso_solver(max_iter, particle_num,</span><br><span class="line">                                                                                                 dimension_num,</span><br><span class="line">                                                                                                 w, c1, c2)</span><br><span class="line">    <span class="keyword">return</span> result_cost</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># Fitness function</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">objective_function</span>(<span class="params">x</span>):</span><br><span class="line">    z = np.sin(np.power(<span class="number">1</span> - x[<span class="number">0</span>], <span class="number">2</span>) + <span class="number">2</span> * x[<span class="number">1</span>] + np.cos(np.power(x[<span class="number">0</span>], <span class="number">2</span>))) + np.power(np.sin(x[<span class="number">0</span>] + x[<span class="number">1</span>]), <span class="number">2</span>)</span><br><span class="line">    <span class="keyword">return</span> z</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># Particle Swarm Optimization</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">pso_solver</span>(<span class="params">max_iter, particle_num, dimension_num, w, c1, c2</span>):</span><br><span class="line">    <span class="comment"># Set random seeds to ensure reproducibility</span></span><br><span class="line">    np.random.seed(<span class="number">0</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># Parameter initialization</span></span><br><span class="line">    all_particle_positions = np.random.uniform(-<span class="number">5</span>, <span class="number">5</span>, size=(particle_num, dimension_num))</span><br><span class="line">    all_particle_velocities = np.random.uniform(-<span class="number">1</span>, <span class="number">1</span>, size=(particle_num, dimension_num))</span><br><span class="line">    best_position_each_particle = all_particle_positions.copy()</span><br><span class="line">    best_fitness_each_particle = [objective_function(pos) <span class="keyword">for</span> pos <span class="keyword">in</span> all_particle_positions]</span><br><span class="line"></span><br><span class="line">    <span class="comment"># Record the fitness information during the algorithm iteration process</span></span><br><span class="line">    best_fitness_each_iter = []</span><br><span class="line">    global_best_cost_found = []</span><br><span class="line"></span><br><span class="line">    global_best_index = np.argmax(best_fitness_each_particle)</span><br><span class="line">    global_best_fitness = best_fitness_each_particle[global_best_index]</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> iter_count <span class="keyword">in</span> <span class="built_in">range</span>(max_iter):</span><br><span class="line">        <span class="comment"># Update particle velocity</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(all_particle_positions)):</span><br><span class="line">            r1, r2 = np.random.rand(dimension_num), np.random.rand(dimension_num)</span><br><span class="line">            all_particle_velocities[i] = w * all_particle_velocities[i] \</span><br><span class="line">                                         + c1 * r1 * (best_position_each_particle[i] - all_particle_positions[i]) \</span><br><span class="line">                                         + c2 * r2 * (best_position_each_particle[global_best_index] -</span><br><span class="line">                                                      all_particle_positions[i])</span><br><span class="line"></span><br><span class="line">        <span class="comment"># Update Particle Position</span></span><br><span class="line">        all_particle_positions += all_particle_velocities</span><br><span class="line"></span><br><span class="line">        <span class="comment"># Limits the particle&#x27;s position coordinates to a given range</span></span><br><span class="line">        all_particle_positions = np.clip(all_particle_positions, -<span class="number">5</span>, <span class="number">5</span>)</span><br><span class="line"></span><br><span class="line">        <span class="comment"># Calculate the fitness of each particle</span></span><br><span class="line">        all_particle_new_fitness = [objective_function(pos) <span class="keyword">for</span> pos <span class="keyword">in</span> all_particle_positions]</span><br><span class="line"></span><br><span class="line">        <span class="comment"># Update the optimal position and fitness of each particle</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(all_particle_positions)):</span><br><span class="line">            <span class="keyword">if</span> all_particle_new_fitness[i] &gt; best_fitness_each_particle[i]:</span><br><span class="line">                best_position_each_particle[i] = all_particle_positions[i].copy()</span><br><span class="line">                best_fitness_each_particle[i] = all_particle_new_fitness[i]</span><br><span class="line"></span><br><span class="line">        <span class="comment"># Update the optimal fitness found</span></span><br><span class="line">        <span class="keyword">if</span> np.<span class="built_in">max</span>(all_particle_new_fitness) &gt; global_best_fitness:</span><br><span class="line">            global_best_index = np.argmax(all_particle_new_fitness)</span><br><span class="line">            global_best_fitness = all_particle_new_fitness[global_best_index]</span><br><span class="line"></span><br><span class="line">        best_fitness_each_iter.append(np.<span class="built_in">min</span>(all_particle_new_fitness))</span><br><span class="line">        global_best_cost_found.append(global_best_fitness)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> best_position_each_particle[global_best_index], global_best_fitness, \</span><br><span class="line">        best_fitness_each_iter, global_best_cost_found</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># Optimizing parameters using Optuna</span></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    study = optuna.create_study(direction=<span class="string">&#x27;maximize&#x27;</span>)</span><br><span class="line">    <span class="comment"># Each trial runs the complete PSO algorithm</span></span><br><span class="line">    study.optimize(optuna_objective, n_trials=<span class="number">20</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># Output optimal parameters</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;Best Params:&quot;</span>, study.best_params)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;Best Value:&quot;</span>, study.best_value)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># Visualization of parameter optimization process</span></span><br><span class="line">    optuna.visualization.plot_optimization_history(study).show()</span><br><span class="line">    optuna.visualization.plot_param_importances(study).show()</span><br></pre></td></tr></table></figure>
+<p>The output is as follows:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">[I <span class="number">2025</span>-08-<span class="number">11</span> <span class="number">23</span>:<span class="number">57</span>:<span class="number">45</span>,<span class="number">185</span>] A new study created <span class="keyword">in</span> memory <span class="keyword">with</span> name: no-name-6daf7092-5fd4-4c82-9a2b-df2441c4d5c5</span><br><span class="line">[I <span class="number">2025</span>-08-<span class="number">11</span> <span class="number">23</span>:<span class="number">57</span>:<span class="number">45</span>,<span class="number">651</span>] Trial <span class="number">0</span> finished <span class="keyword">with</span> value: <span class="number">1.9995088890536956</span> <span class="keyword">and</span> parameters: &#123;<span class="string">&#x27;max_iter&#x27;</span>: <span class="number">473</span>, <span class="string">&#x27;n_particles&#x27;</span>: <span class="number">99</span>, <span class="string">&#x27;w&#x27;</span>: <span class="number">0.14896526977487243</span>, <span class="string">&#x27;c1&#x27;</span>: <span class="number">3.019473196926405</span>, <span class="string">&#x27;c2&#x27;</span>: <span class="number">4.5818953347263935</span>&#125;. Best <span class="keyword">is</span> trial <span class="number">0</span> <span class="keyword">with</span> value: <span class="number">1.9995088890536956</span>.</span><br><span class="line">[I <span class="number">2025</span>-08-<span class="number">11</span> <span class="number">23</span>:<span class="number">57</span>:<span class="number">45</span>,<span class="number">777</span>] Trial <span class="number">1</span> finished <span class="keyword">with</span> value: <span class="number">1.999414768461592</span> <span class="keyword">and</span> parameters: &#123;<span class="string">&#x27;max_iter&#x27;</span>: <span class="number">150</span>, <span class="string">&#x27;n_particles&#x27;</span>: <span class="number">86</span>, <span class="string">&#x27;w&#x27;</span>: <span class="number">0.4271635960228849</span>, <span class="string">&#x27;c1&#x27;</span>: <span class="number">4.801204080903146</span>, <span class="string">&#x27;c2&#x27;</span>: <span class="number">2.2371053067612015</span>&#125;. Best <span class="keyword">is</span> trial <span class="number">0</span> <span class="keyword">with</span> value: <span class="number">1.9995088890536956</span>.</span><br><span class="line">[I <span class="number">2025</span>-08-<span class="number">11</span> <span class="number">23</span>:<span class="number">57</span>:<span class="number">46</span>,<span class="number">133</span>] Trial <span class="number">2</span> finished <span class="keyword">with</span> value: <span class="number">1.9997511570852196</span> <span class="keyword">and</span> parameters: &#123;<span class="string">&#x27;max_iter&#x27;</span>: <span class="number">721</span>, <span class="string">&#x27;n_particles&#x27;</span>: <span class="number">49</span>, <span class="string">&#x27;w&#x27;</span>: <span class="number">0.6291229499186842</span>, <span class="string">&#x27;c1&#x27;</span>: <span class="number">2.013497488497775</span>, <span class="string">&#x27;c2&#x27;</span>: <span class="number">4.2852584211941185</span>&#125;. Best <span class="keyword">is</span> trial <span class="number">2</span> <span class="keyword">with</span> value: <span class="number">1.9997511570852196</span>.</span><br><span class="line">[I <span class="number">2025</span>-08-<span class="number">11</span> <span class="number">23</span>:<span class="number">57</span>:<span class="number">46</span>,<span class="number">298</span>] Trial <span class="number">3</span> finished <span class="keyword">with</span> value: <span class="number">2.0</span> <span class="keyword">and</span> parameters: &#123;<span class="string">&#x27;max_iter&#x27;</span>: <span class="number">800</span>, <span class="string">&#x27;n_particles&#x27;</span>: <span class="number">20</span>, <span class="string">&#x27;w&#x27;</span>: <span class="number">0.3930876221567766</span>, <span class="string">&#x27;c1&#x27;</span>: <span class="number">1.6655060141549023</span>, <span class="string">&#x27;c2&#x27;</span>: <span class="number">2.463198757904443</span>&#125;. Best <span class="keyword">is</span> trial <span class="number">3</span> <span class="keyword">with</span> value: <span class="number">2.0</span>.</span><br><span class="line">[I <span class="number">2025</span>-08-<span class="number">11</span> <span class="number">23</span>:<span class="number">57</span>:<span class="number">46</span>,<span class="number">521</span>] Trial <span class="number">4</span> finished <span class="keyword">with</span> value: <span class="number">2.0</span> <span class="keyword">and</span> parameters: &#123;<span class="string">&#x27;max_iter&#x27;</span>: <span class="number">903</span>, <span class="string">&#x27;n_particles&#x27;</span>: <span class="number">23</span>, <span class="string">&#x27;w&#x27;</span>: <span class="number">0.5268748587214482</span>, <span class="string">&#x27;c1&#x27;</span>: <span class="number">2.335768883377046</span>, <span class="string">&#x27;c2&#x27;</span>: <span class="number">2.6385537928559897</span>&#125;. Best <span class="keyword">is</span> trial <span class="number">3</span> <span class="keyword">with</span> value: <span class="number">2.0</span>.</span><br><span class="line">[I <span class="number">2025</span>-08-<span class="number">11</span> <span class="number">23</span>:<span class="number">57</span>:<span class="number">47</span>,037] Trial <span class="number">5</span> finished <span class="keyword">with</span> value: <span class="number">1.9999035486915329</span> <span class="keyword">and</span> parameters: &#123;<span class="string">&#x27;max_iter&#x27;</span>: <span class="number">735</span>, <span class="string">&#x27;n_particles&#x27;</span>: <span class="number">71</span>, <span class="string">&#x27;w&#x27;</span>: <span class="number">0.563337721198632</span>, <span class="string">&#x27;c1&#x27;</span>: <span class="number">1.986545588694327</span>, <span class="string">&#x27;c2&#x27;</span>: <span class="number">4.425718153574625</span>&#125;. Best <span class="keyword">is</span> trial <span class="number">3</span> <span class="keyword">with</span> value: <span class="number">2.0</span>.</span><br><span class="line">[I <span class="number">2025</span>-08-<span class="number">11</span> <span class="number">23</span>:<span class="number">57</span>:<span class="number">47</span>,<span class="number">458</span>] Trial <span class="number">6</span> finished <span class="keyword">with</span> value: <span class="number">1.9999244216017873</span> <span class="keyword">and</span> parameters: &#123;<span class="string">&#x27;max_iter&#x27;</span>: <span class="number">770</span>, <span class="string">&#x27;n_particles&#x27;</span>: <span class="number">54</span>, <span class="string">&#x27;w&#x27;</span>: <span class="number">0.47276207054655917</span>, <span class="string">&#x27;c1&#x27;</span>: <span class="number">2.810493550227325</span>, <span class="string">&#x27;c2&#x27;</span>: <span class="number">4.426827824661259</span>&#125;. Best <span class="keyword">is</span> trial <span class="number">3</span> <span class="keyword">with</span> value: <span class="number">2.0</span>.</span><br><span class="line">[I <span class="number">2025</span>-08-<span class="number">11</span> <span class="number">23</span>:<span class="number">57</span>:<span class="number">47</span>,<span class="number">624</span>] Trial <span class="number">7</span> finished <span class="keyword">with</span> value: <span class="number">1.9999999979173264</span> <span class="keyword">and</span> parameters: &#123;<span class="string">&#x27;max_iter&#x27;</span>: <span class="number">189</span>, <span class="string">&#x27;n_particles&#x27;</span>: <span class="number">91</span>, <span class="string">&#x27;w&#x27;</span>: <span class="number">0.3968695262628994</span>, <span class="string">&#x27;c1&#x27;</span>: <span class="number">2.433116037725252</span>, <span class="string">&#x27;c2&#x27;</span>: <span class="number">3.0499845254954727</span>&#125;. Best <span class="keyword">is</span> trial <span class="number">3</span> <span class="keyword">with</span> value: <span class="number">2.0</span>.</span><br><span class="line">[I <span class="number">2025</span>-08-<span class="number">11</span> <span class="number">23</span>:<span class="number">57</span>:<span class="number">48</span>,<span class="number">206</span>] Trial <span class="number">8</span> finished <span class="keyword">with</span> value: <span class="number">1.9999432793205836</span> <span class="keyword">and</span> parameters: &#123;<span class="string">&#x27;max_iter&#x27;</span>: <span class="number">694</span>, <span class="string">&#x27;n_particles&#x27;</span>: <span class="number">85</span>, <span class="string">&#x27;w&#x27;</span>: <span class="number">0.1530808791349413</span>, <span class="string">&#x27;c1&#x27;</span>: <span class="number">3.9355466572193083</span>, <span class="string">&#x27;c2&#x27;</span>: <span class="number">2.4538170649621995</span>&#125;. Best <span class="keyword">is</span> trial <span class="number">3</span> <span class="keyword">with</span> value: <span class="number">2.0</span>.</span><br><span class="line">[I <span class="number">2025</span>-08-<span class="number">11</span> <span class="number">23</span>:<span class="number">57</span>:<span class="number">48</span>,<span class="number">844</span>] Trial <span class="number">9</span> finished <span class="keyword">with</span> value: <span class="number">2.0</span> <span class="keyword">and</span> parameters: &#123;<span class="string">&#x27;max_iter&#x27;</span>: <span class="number">761</span>, <span class="string">&#x27;n_particles&#x27;</span>: <span class="number">86</span>, <span class="string">&#x27;w&#x27;</span>: <span class="number">0.7038412182520472</span>, <span class="string">&#x27;c1&#x27;</span>: <span class="number">1.221286136785996</span>, <span class="string">&#x27;c2&#x27;</span>: <span class="number">1.8683545356811075</span>&#125;. Best <span class="keyword">is</span> trial <span class="number">3</span> <span class="keyword">with</span> value: <span class="number">2.0</span>.</span><br><span class="line">[I <span class="number">2025</span>-08-<span class="number">11</span> <span class="number">23</span>:<span class="number">57</span>:<span class="number">48</span>,<span class="number">902</span>] Trial <span class="number">10</span> finished <span class="keyword">with</span> value: <span class="number">1.996219564455837</span> <span class="keyword">and</span> parameters: &#123;<span class="string">&#x27;max_iter&#x27;</span>: <span class="number">466</span>, <span class="string">&#x27;n_particles&#x27;</span>: <span class="number">10</span>, <span class="string">&#x27;w&#x27;</span>: <span class="number">0.8970011185079363</span>, <span class="string">&#x27;c1&#x27;</span>: <span class="number">1.0122340614926895</span>, <span class="string">&#x27;c2&#x27;</span>: <span class="number">1.3245288753769002</span>&#125;. Best <span class="keyword">is</span> trial <span class="number">3</span> <span class="keyword">with</span> value: <span class="number">2.0</span>.</span><br><span class="line">[I <span class="number">2025</span>-08-<span class="number">11</span> <span class="number">23</span>:<span class="number">57</span>:<span class="number">49</span>,098] Trial <span class="number">11</span> finished <span class="keyword">with</span> value: <span class="number">2.0</span> <span class="keyword">and</span> parameters: &#123;<span class="string">&#x27;max_iter&#x27;</span>: <span class="number">958</span>, <span class="string">&#x27;n_particles&#x27;</span>: <span class="number">18</span>, <span class="string">&#x27;w&#x27;</span>: <span class="number">0.2872648819518356</span>, <span class="string">&#x27;c1&#x27;</span>: <span class="number">1.7049152608787792</span>, <span class="string">&#x27;c2&#x27;</span>: <span class="number">3.2749475545163786</span>&#125;. Best <span class="keyword">is</span> trial <span class="number">3</span> <span class="keyword">with</span> value: <span class="number">2.0</span>.</span><br><span class="line">[I <span class="number">2025</span>-08-<span class="number">11</span> <span class="number">23</span>:<span class="number">57</span>:<span class="number">49</span>,<span class="number">428</span>] Trial <span class="number">12</span> finished <span class="keyword">with</span> value: <span class="number">1.9994788165013788</span> <span class="keyword">and</span> parameters: &#123;<span class="string">&#x27;max_iter&#x27;</span>: <span class="number">959</span>, <span class="string">&#x27;n_particles&#x27;</span>: <span class="number">29</span>, <span class="string">&#x27;w&#x27;</span>: <span class="number">0.2988615790760505</span>, <span class="string">&#x27;c1&#x27;</span>: <span class="number">3.2259062912230747</span>, <span class="string">&#x27;c2&#x27;</span>: <span class="number">3.5552567141109686</span>&#125;. Best <span class="keyword">is</span> trial <span class="number">3</span> <span class="keyword">with</span> value: <span class="number">2.0</span>.</span><br><span class="line">[I <span class="number">2025</span>-08-<span class="number">11</span> <span class="number">23</span>:<span class="number">57</span>:<span class="number">49</span>,<span class="number">756</span>] Trial <span class="number">13</span> finished <span class="keyword">with</span> value: <span class="number">2.0</span> <span class="keyword">and</span> parameters: &#123;<span class="string">&#x27;max_iter&#x27;</span>: <span class="number">878</span>, <span class="string">&#x27;n_particles&#x27;</span>: <span class="number">34</span>, <span class="string">&#x27;w&#x27;</span>: <span class="number">0.6963457756204671</span>, <span class="string">&#x27;c1&#x27;</span>: <span class="number">1.5704901816466865</span>, <span class="string">&#x27;c2&#x27;</span>: <span class="number">2.6322485802415443</span>&#125;. Best <span class="keyword">is</span> trial <span class="number">3</span> <span class="keyword">with</span> value: <span class="number">2.0</span>.</span><br><span class="line">[I <span class="number">2025</span>-08-<span class="number">11</span> <span class="number">23</span>:<span class="number">57</span>:<span class="number">49</span>,<span class="number">992</span>] Trial <span class="number">14</span> finished <span class="keyword">with</span> value: <span class="number">2.0</span> <span class="keyword">and</span> parameters: &#123;<span class="string">&#x27;max_iter&#x27;</span>: <span class="number">598</span>, <span class="string">&#x27;n_particles&#x27;</span>: <span class="number">36</span>, <span class="string">&#x27;w&#x27;</span>: <span class="number">0.31572999738869745</span>, <span class="string">&#x27;c1&#x27;</span>: <span class="number">2.308627019071979</span>, <span class="string">&#x27;c2&#x27;</span>: <span class="number">1.6649803974508763</span>&#125;. Best <span class="keyword">is</span> trial <span class="number">3</span> <span class="keyword">with</span> value: <span class="number">2.0</span>.</span><br><span class="line">[I <span class="number">2025</span>-08-<span class="number">11</span> <span class="number">23</span>:<span class="number">57</span>:<span class="number">50</span>,<span class="number">208</span>] Trial <span class="number">15</span> finished <span class="keyword">with</span> value: <span class="number">1.9990061787030773</span> <span class="keyword">and</span> parameters: &#123;<span class="string">&#x27;max_iter&#x27;</span>: <span class="number">873</span>, <span class="string">&#x27;n_particles&#x27;</span>: <span class="number">22</span>, <span class="string">&#x27;w&#x27;</span>: <span class="number">0.5423644658018472</span>, <span class="string">&#x27;c1&#x27;</span>: <span class="number">3.6494382789963744</span>, <span class="string">&#x27;c2&#x27;</span>: <span class="number">3.8298146334545824</span>&#125;. Best <span class="keyword">is</span> trial <span class="number">3</span> <span class="keyword">with</span> value: <span class="number">2.0</span>.</span><br><span class="line">[I <span class="number">2025</span>-08-<span class="number">11</span> <span class="number">23</span>:<span class="number">57</span>:<span class="number">50</span>,<span class="number">369</span>] Trial <span class="number">16</span> finished <span class="keyword">with</span> value: <span class="number">1.9988134920758407</span> <span class="keyword">and</span> parameters: &#123;<span class="string">&#x27;max_iter&#x27;</span>: <span class="number">344</span>, <span class="string">&#x27;n_particles&#x27;</span>: <span class="number">43</span>, <span class="string">&#x27;w&#x27;</span>: <span class="number">0.8082008093534241</span>, <span class="string">&#x27;c1&#x27;</span>: <span class="number">2.5726958294610993</span>, <span class="string">&#x27;c2&#x27;</span>: <span class="number">2.791877472924242</span>&#125;. Best <span class="keyword">is</span> trial <span class="number">3</span> <span class="keyword">with</span> value: <span class="number">2.0</span>.</span><br><span class="line">[I <span class="number">2025</span>-08-<span class="number">11</span> <span class="number">23</span>:<span class="number">57</span>:<span class="number">50</span>,<span class="number">504</span>] Trial <span class="number">17</span> finished <span class="keyword">with</span> value: <span class="number">2.0</span> <span class="keyword">and</span> parameters: &#123;<span class="string">&#x27;max_iter&#x27;</span>: <span class="number">880</span>, <span class="string">&#x27;n_particles&#x27;</span>: <span class="number">11</span>, <span class="string">&#x27;w&#x27;</span>: <span class="number">0.37777323064045215</span>, <span class="string">&#x27;c1&#x27;</span>: <span class="number">1.525731578204522</span>, <span class="string">&#x27;c2&#x27;</span>: <span class="number">2.056855989666862</span>&#125;. Best <span class="keyword">is</span> trial <span class="number">3</span> <span class="keyword">with</span> value: <span class="number">2.0</span>.</span><br><span class="line">[I <span class="number">2025</span>-08-<span class="number">11</span> <span class="number">23</span>:<span class="number">57</span>:<span class="number">50</span>,<span class="number">927</span>] Trial <span class="number">18</span> finished <span class="keyword">with</span> value: <span class="number">2.0</span> <span class="keyword">and</span> parameters: &#123;<span class="string">&#x27;max_iter&#x27;</span>: <span class="number">599</span>, <span class="string">&#x27;n_particles&#x27;</span>: <span class="number">66</span>, <span class="string">&#x27;w&#x27;</span>: <span class="number">0.5077313244966785</span>, <span class="string">&#x27;c1&#x27;</span>: <span class="number">2.0738459110485428</span>, <span class="string">&#x27;c2&#x27;</span>: <span class="number">1.482837671226557</span>&#125;. Best <span class="keyword">is</span> trial <span class="number">3</span> <span class="keyword">with</span> value: <span class="number">2.0</span>.</span><br><span class="line">[I <span class="number">2025</span>-08-<span class="number">11</span> <span class="number">23</span>:<span class="number">57</span>:<span class="number">51</span>,<span class="number">176</span>] Trial <span class="number">19</span> finished <span class="keyword">with</span> value: <span class="number">1.9998145878741809</span> <span class="keyword">and</span> parameters: &#123;<span class="string">&#x27;max_iter&#x27;</span>: <span class="number">1000</span>, <span class="string">&#x27;n_particles&#x27;</span>: <span class="number">22</span>, <span class="string">&#x27;w&#x27;</span>: <span class="number">0.2311498402332406</span>, <span class="string">&#x27;c1&#x27;</span>: <span class="number">3.412147760336736</span>, <span class="string">&#x27;c2&#x27;</span>: <span class="number">3.833097567639764</span>&#125;. Best <span class="keyword">is</span> trial <span class="number">3</span> <span class="keyword">with</span> value: <span class="number">2.0</span>.</span><br><span class="line">Best Params: &#123;<span class="string">&#x27;max_iter&#x27;</span>: <span class="number">800</span>, <span class="string">&#x27;n_particles&#x27;</span>: <span class="number">20</span>, <span class="string">&#x27;w&#x27;</span>: <span class="number">0.3930876221567766</span>, <span class="string">&#x27;c1&#x27;</span>: <span class="number">1.6655060141549023</span>, <span class="string">&#x27;c2&#x27;</span>: <span class="number">2.463198757904443</span>&#125;</span><br><span class="line">Best Value: <span class="number">2.0</span></span><br></pre></td></tr></table></figure>
+<p>The parameter optimization process is as follows:</p>
+<img data-src="/images/optuna/process.png" style="zoom:60%"/>
+<p>Optuna also provides an analysis of the importance of relevant parameters:</p>
+<img data-src="/images/optuna/importance.png" style="zoom:60%"/>
+<hr />
+<h2 id="reference-links"><a class="markdownIt-Anchor" href="#reference-links"></a> Reference Links</h2>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://optuna.org/">https://optuna.org/</a></li>
+<li><a target="_blank" rel="noopener" href="https://optuna.cn/">Optuna - 一个超参数优化框架</a></li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>Post author:  </strong>Will Yuan
+  </li>
+  <li class="post-copyright-link">
+      <strong>Post link: </strong>
+      <a href="https://duohedounai.github.io/2025/08/11/How-to-use-Optuna-to-optimize-algorithm-parameters/" title="How to use Optuna to optimize algorithm parameters">https://duohedounai.github.io/2025/08/11/How-to-use-Optuna-to-optimize-algorithm-parameters/</a>
+  </li>
+  <li class="post-copyright-license">
+      <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/Optimization/" rel="tag"># Optimization</a>
+              <a href="/tags/Python/" rel="tag"># Python</a>
+              <a href="/tags/Optuna/" rel="tag"># Optuna</a>
+              <a href="/tags/Particle-Swarm-Optimization/" rel="tag"># Particle Swarm Optimization</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2025/08/07/Tips-for-developing-metaheuristic-algorithms/" rel="prev" title="Tips for developing metaheuristic algorithms">
+                  <i class="fa fa-angle-left"></i> Tips for developing metaheuristic algorithms
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments gitalk-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Will Yuan</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>Word count total: </span>
+    <span title="Word count total">25k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>Reading time total &asymp;</span>
+    <span title="Reading time total">1:31</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.16.0/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.8.0/gitalk.css" integrity="sha256-AJnUHL7dBv6PGaeyPQJcgQPDjt/Hn/PvYZde1iqfp8U=" crossorigin="anonymous">
+
+<script class="next-config" data-name="gitalk" type="application/json">{"enable":true,"github_id":"duohedounai","repo":"duohedounai.github.io","client_id":"005ce2ed36a466b0bfc9","client_secret":"7f9def3a076d9133cd9c538d9f2a8af1847794ad","admin_user":"duohedounai","distraction_free_mode":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token","language":"en","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.8.0/gitalk.min.js","integrity":"sha256-MVK9MGD/XJaGyIghSVrONSnoXoGh3IFxLw0zfvzpxR4="},"path_md5":"7d6ed06de537f6e936b3143ee1c39e0d"}</script>
+<script src="/js/third-party/comments/gitalk.js"></script>
+
+</body>
+</html>
