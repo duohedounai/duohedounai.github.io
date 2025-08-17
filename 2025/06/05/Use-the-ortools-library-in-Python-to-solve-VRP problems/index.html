@@ -27,7 +27,7 @@
 <meta property="og:description" content="The official manual gives sample code for using Google OR-Tools to solve Vehicle Routing Problems (VRP): https:&#x2F;&#x2F;developers.google.com&#x2F;optimization&#x2F;routing&#x2F;vrp   Basic Example The python code is as fo">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2025-06-05T13:00:00.000Z">
-<meta property="article:modified_time" content="2025-08-17T09:16:33.034Z">
+<meta property="article:modified_time" content="2025-08-17T09:21:14.723Z">
 <meta property="article:author" content="Will Yuan">
 <meta property="article:tag" content="Optimization">
 <meta property="article:tag" content="Python">
@@ -230,7 +230,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2025-08-17 17:16:33" itemprop="dateModified" datetime="2025-08-17T17:16:33+08:00">2025-08-17</time>
+      <time title="Modified: 2025-08-17 17:21:14" itemprop="dateModified" datetime="2025-08-17T17:21:14+08:00">2025-08-17</time>
     </span>
 
   
@@ -285,9 +285,9 @@
 <blockquote>
 <p>Note:</p>
 <ul>
-<li>Don't include the depot node in the initial routes. If your initial solution contains some vehicles that have no tasks, use <code>[]</code> to represent them.</li>
+<li>Don't include the depot node in the initial routes. If your initial solution contains some vehicles that have no tasks, use <code>[]</code> to represent them in <code>data[&quot;initial_routes&quot;]</code>.</li>
 <li>If the provided initial solution is malformed or does not satisfy the constraints, it cannot be loaded correctly and the printed initial solution will be <code>None</code>.</li>
-<li>If you use True in <code>routing.ReadAssignmentFromRoutes(data[&quot;initial_routes&quot;], True)</code>, it means the solver will ignore inactive nodes that are not in any route. <strong>If you use <code>False</code> here, the provided route must cover all nodes (except depots), otherwise an error will be reported</strong>.</li>
+<li>If you use <code>True</code> in <code>routing.ReadAssignmentFromRoutes(data[&quot;initial_routes&quot;], True)</code>, it means the solver will ignore inactive nodes that are not in any route. <strong>If you use <code>False</code> here, the provided routes must cover all nodes (except depots), otherwise an error will be reported</strong>.</li>
 </ul>
 </blockquote>
 <hr />
