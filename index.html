@@ -221,7 +221,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2025-09-23 23:07:07" itemprop="dateModified" datetime="2025-09-23T23:07:07+08:00">2025-09-23</time>
+      <time title="Modified: 2025-09-23 23:15:33" itemprop="dateModified" datetime="2025-09-23T23:15:33+08:00">2025-09-23</time>
     </span>
 
   
@@ -231,7 +231,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">Word count in article: </span>
-      <span>714</span>
+      <span>719</span>
     </span>
     <span class="post-meta-item" title="Reading time">
       <span class="post-meta-item-icon">
@@ -249,14 +249,11 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>The Kalman filter can estimate the state of a dynamic system from a series of noisy measurements.</p>
+          <p>The Kalman Filter can estimate the state of a dynamic system from a series of noisy measurements. We can quickly implement the Kalman filter and smoothing algorithm in Python using the <em>pykalman</em> library.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install pykalman</span><br></pre></td></tr></table></figure>
+<hr>
 <h2 id="basic-formula"><a class="markdownIt-Anchor" href="#basic-formula"></a> Basic Formula</h2>
-<h4 id="predict-step"><a class="markdownIt-Anchor" href="#predict-step"></a> Predict step</h4>
-<ul>
-<li>Predict state vector <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>X</mi><mi>k</mi></msub></mrow><annotation encoding="application/x-tex">X_k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.07847em;">X</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.33610799999999996em;"><span style="top:-2.5500000000000003em;margin-left:-0.07847em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.03148em;">k</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>:</li>
-</ul>
-<p class="katex-block"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><msub><mi>X</mi><mi>k</mi></msub><mo>=</mo><mi>F</mi><msub><mi>X</mi><mrow><mi>k</mi><mo>−</mo><mn>1</mn></mrow></msub><mo>+</mo><mi>B</mi><msub><mi>u</mi><mrow><mi>k</mi><mo>−</mo><mn>1</mn></mrow></msub></mrow><annotation encoding="application/x-tex">X_k=FX_{k-1}+Bu_{k-1}
-</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.07847em;">X</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.33610799999999996em;"><span style="top:-2.5500000000000003em;margin-left:-0.07847em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.03148em;">k</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.891661em;vertical-align:-0.208331em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">F</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.07847em;">X</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361079999999999em;"><span style="top:-2.5500000000000003em;margin-left:-0.07847em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.03148em;">k</span><span class="mbin mtight">−</span><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.208331em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.891661em;vertical-align:-0.208331em;"></span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span><span class="mord"><span class="mord mathnormal">u</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361079999999999em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.03148em;">k</span><span class="mbin mtight">−</span><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.208331em;"><span></span></span></span></span></span></span></span></span></span></span></p>
+<h3 id="predict-step"><a class="markdownIt-Anchor" href="#predict-step"></a> Predict step</h3>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2025/09/03/How%20to%20implement%20Kalman%20filtering%20in%20Python/#more" rel="contents">
@@ -463,7 +460,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2025-08-21 00:00:25" itemprop="dateModified" datetime="2025-08-21T00:00:25+08:00">2025-08-21</time>
+      <time title="Modified: 2025-09-23 23:16:42" itemprop="dateModified" datetime="2025-09-23T23:16:42+08:00">2025-09-23</time>
     </span>
 
   
@@ -784,7 +781,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2025-08-17 17:21:14" itemprop="dateModified" datetime="2025-08-17T17:21:14+08:00">2025-08-17</time>
+      <time title="Modified: 2025-09-23 23:19:47" itemprop="dateModified" datetime="2025-09-23T23:19:47+08:00">2025-09-23</time>
     </span>
 
   
@@ -878,9 +875,15 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
-      
 
-      <time title="Created: 2025-05-24 22:00:00 / Modified: 23:29:20" itemprop="dateCreated datePublished" datetime="2025-05-24T22:00:00+08:00">2025-05-24</time>
+      <time title="Created: 2025-05-24 22:00:00" itemprop="dateCreated datePublished" datetime="2025-05-24T22:00:00+08:00">2025-05-24</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2025-09-23 23:21:09" itemprop="dateModified" datetime="2025-09-23T23:21:09+08:00">2025-09-23</time>
     </span>
 
   
@@ -890,7 +893,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">Word count in article: </span>
-      <span>326</span>
+      <span>328</span>
     </span>
     <span class="post-meta-item" title="Reading time">
       <span class="post-meta-item-icon">
@@ -974,9 +977,15 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
-      
 
-      <time title="Created: 2025-05-24 21:00:00 / Modified: 23:32:18" itemprop="dateCreated datePublished" datetime="2025-05-24T21:00:00+08:00">2025-05-24</time>
+      <time title="Created: 2025-05-24 21:00:00" itemprop="dateCreated datePublished" datetime="2025-05-24T21:00:00+08:00">2025-05-24</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2025-09-23 23:22:19" itemprop="dateModified" datetime="2025-09-23T23:22:19+08:00">2025-09-23</time>
     </span>
 
   
@@ -986,7 +995,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">Word count in article: </span>
-      <span>77</span>
+      <span>79</span>
     </span>
     <span class="post-meta-item" title="Reading time">
       <span class="post-meta-item-icon">
@@ -1008,9 +1017,8 @@
 <img data-src="/images/host/host.png" style="zoom:70%">
 <p>Step 2: Add records according to the format of &quot;<strong>ip domain name</strong>&quot;, and the IP and domain name need to be separated by spaces, as shown below:</p>
 <img data-src="/images/host/format.png" style="zoom:70%">
-<blockquote>
-<p>Note: You can open the hosts file as .txt file and modify it.</p>
-</blockquote>
+<div class="note info"><p>You can open the hosts file as .txt file and modify it.</p>
+</div>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2025/05/24/How%20to%20add%20IP%20address%20to%20the%20hosts%20file%20in%20Windows%20system/#more" rel="contents">
@@ -1080,7 +1088,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2025-08-07 23:25:45" itemprop="dateModified" datetime="2025-08-07T23:25:45+08:00">2025-08-07</time>
+      <time title="Modified: 2025-09-23 23:24:01" itemprop="dateModified" datetime="2025-09-23T23:24:01+08:00">2025-09-23</time>
     </span>
 
   
@@ -1090,7 +1098,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">Word count in article: </span>
-      <span>316</span>
+      <span>322</span>
     </span>
     <span class="post-meta-item" title="Reading time">
       <span class="post-meta-item-icon">
@@ -1295,7 +1303,7 @@
       <i class="fa fa-chart-line"></i>
     </span>
       <span>Word count total: </span>
-    <span title="Word count total">27k</span>
+    <span title="Word count total">28k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">

@@ -319,9 +319,15 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
-      
 
-      <time title="Created: 2024-04-30 19:25:45 / Modified: 19:35:22" itemprop="dateCreated datePublished" datetime="2024-04-30T19:25:45+08:00">2024-04-30</time>
+      <time title="Created: 2024-04-30 19:25:45" itemprop="dateCreated datePublished" datetime="2024-04-30T19:25:45+08:00">2024-04-30</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2025-09-23 23:44:39" itemprop="dateModified" datetime="2025-09-23T23:44:39+08:00">2025-09-23</time>
     </span>
 
   
@@ -331,7 +337,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">Word count in article: </span>
-      <span>340</span>
+      <span>342</span>
     </span>
     <span class="post-meta-item" title="Reading time">
       <span class="post-meta-item-icon">
@@ -350,12 +356,18 @@
     
     <div class="post-body" itemprop="articleBody">
           <h2 id="scipyoptimize"><a class="markdownIt-Anchor" href="#scipyoptimize"></a> scipy.optimize</h2>
-<blockquote>
 <p>SciPy provides functions for minimizing (or maximizing) objective functions, possibly subject to constraints. It includes solvers for nonlinear problems (with support for both local and global optimization algorithms), linear programming, constrained and nonlinear least-squares, root finding, and curve fitting.</p>
-</blockquote>
 <p>This is the official manual of <code>scipy.optimize</code>: <a target="_blank" rel="noopener" href="https://docs.scipy.org/doc/scipy/reference/optimize.html#">Optimization and root finding (scipy.optimize) — SciPy v1.13.0 Manual</a></p>
 <p><code>scipy.optimize.linprog</code> is used here to solve the linear programming problem. More information about <code>scipy.optimize.linprog</code>: <a target="_blank" rel="noopener" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.linprog.html#scipy.optimize.linprog">scipy.optimize.linprog — SciPy v1.13.0 Manual</a></p>
-<p><strong>Note:</strong></p>
+<div class="note warning"><ul>
+<li>
+<p>Before calling <code>scipy.optimize.linprog</code>, the maximization problem needs to be converted into a minimization problem.</p>
+</li>
+<li>
+<p>The sign of the inequality constraint needs to be converted to less than or equal to.</p>
+</li>
+</ul>
+</div>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2024/04/30/SciPy-library-in-Python/#more" rel="contents">
@@ -843,7 +855,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2025-08-24 15:44:18" itemprop="dateModified" datetime="2025-08-24T15:44:18+08:00">2025-08-24</time>
+      <time title="Modified: 2025-09-23 23:46:01" itemprop="dateModified" datetime="2025-09-23T23:46:01+08:00">2025-09-23</time>
     </span>
 
   
@@ -1251,7 +1263,7 @@ X&gt;=0
       <i class="fa fa-chart-line"></i>
     </span>
       <span>Word count total: </span>
-    <span title="Word count total">27k</span>
+    <span title="Word count total">28k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
